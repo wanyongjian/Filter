@@ -8,7 +8,8 @@
 
 #import "ShakeButton.h"
 
-#define kShakeButtonAnimationDuration 0.3f
+#define kShakeButtonAnimationDuration 0.2f
+#define kShakeButtonAnimationDurationEnd 0.15f
 #define kShakeButtonMaxScale          1.2f
 #define kShakeButtonMinScale          0.9f
 
@@ -39,7 +40,7 @@
     [UIView animateWithDuration:kShakeButtonAnimationDuration animations:^{
         self.transform = CGAffineTransformMakeScale(kShakeButtonMaxScale, kShakeButtonMaxScale);
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:kShakeButtonAnimationDuration animations:^{
+        [UIView animateWithDuration:kShakeButtonAnimationDurationEnd animations:^{
             self.transform = CGAffineTransformMakeScale(1.0, 1.0);
         } completion:^(BOOL finished) {
             [self setAnimationFinished:YES];

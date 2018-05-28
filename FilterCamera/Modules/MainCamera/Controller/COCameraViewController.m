@@ -14,6 +14,7 @@
 #define kCameraViewBottomBGHeight   ((kScreenHeight)-(kScreenWidth)*(4.0f/3.0f))
 @interface COCameraViewController (){
     CGFloat _currentCameraViewRatio;
+    NSMutableArray *_ratioArray;
 }
 
 @property (nonatomic, strong) COStillCamera *stillCamera;
@@ -25,8 +26,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setData];
     [self setUI];
     [self setCamera];
+}
+- (void)setData{
+    _ratioArray = @[@[@"4:3",@"1.33"],@[@"1:1",@"1.0"],@[@"16:9",@"1.78"]].mutableCopy;
 }
 - (void)setUI{
     weakSelf();
@@ -37,21 +42,38 @@
     
     // iPhoneX 适配
     CGFloat topOffset = iPhoneX ? 45 : 20;
-    
+    //比例按钮
     UIButton *scaleButton = [[ShakeButton alloc]init];
-    [scaleButton setTitle:@"3:4" forState:UIControlStateNormal];
+    scaleButton.tag = 0;
+    [scaleButton setTitle:@"4:3" forState:UIControlStateNormal];
     scaleButton.titleLabel.font = [UIFont systemFontOfSize:11.0];
     scaleButton.layer.borderWidth = 1.1f;
     scaleButton.layer.borderColor = [UIColor whiteColor].CGColor;
     [self.view addSubview:scaleButton];
     [scaleButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        CGFloat x = SCREEN_WIDTH/3.0;
+        CGFloat x = SCREEN_WIDTH/2.0-13;
         make.left.mas_equalTo(@(x));
         make.width.height.mas_equalTo(26);
         make.top.mas_equalTo(topOffset+5);
     }];
     [[scaleButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [wself setCameraRatio:1.0];
+        scaleButton.tag++;
+        NSMutableArray *array = _ratioArray[scaleButton.tag % _ratioArray.count];
+        [wself setCameraRatio:[array[1] floatValue]];
+        [scaleButton setTitle:array[0] forState:UIControlStateNormal];
+    }];
+    //前后镜头
+    UIButton *rotateBtn = [[ShakeButton alloc]init];
+    [rotateBtn setImage:[UIImage imageNamed:@"qmkit_rotate_btn"] forState:UIControlStateNormal];
+    [rotateBtn setImage:[UIImage imageNamed:@"qmkit_rotate_btn"] forState:UIControlStateHighlighted];
+    [self.view addSubview:rotateBtn];
+    [rotateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.mas_equalTo(34);
+        make.centerY.mas_equalTo(scaleButton);
+        make.right.mas_equalTo(-20);
+    }];
+    [[rotateBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [self.stillCamera rotateCamera];
     }];
 }
 - (void)setCameraRatio:(CGFloat)ratio{

@@ -98,6 +98,7 @@
 		21570E0A20BBA8CF002585CB /* COStillCameraPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E0920BBA8CF002585CB /* COStillCameraPreview.m */; };
 		21570E0F20BBA995002585CB /* COCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E0E20BBA995002585CB /* COCameraViewController.m */; };
 		21570E1A20BBC576002585CB /* ShakeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E1920BBC576002585CB /* ShakeButton.m */; };
+		21570E1F20BBDFEA002585CB /* qmkit_rotate_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21570E1E20BBDFEA002585CB /* qmkit_rotate_btn@3x.png */; };
 		46520FC3277AC77D1B267CA2 /* libPods-FilterCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */; };
 /* End PBXBuildFile section */
 
@@ -253,6 +254,7 @@
 		21570E1320BBAFCA002585CB /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		21570E1820BBC576002585CB /* ShakeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShakeButton.h; sourceTree = "<group>"; };
 		21570E1920BBC576002585CB /* ShakeButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShakeButton.m; sourceTree = "<group>"; };
+		21570E1E20BBDFEA002585CB /* qmkit_rotate_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_rotate_btn@3x.png"; sourceTree = "<group>"; };
 		51D1F414044E7FC6FE339144 /* Pods-FilterCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilterCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera.debug.xcconfig"; sourceTree = "<group>"; };
 		C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FilterCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -308,6 +310,7 @@
 		21570CFE20BB8D8B002585CB /* FilterCamera */ = {
 			isa = PBXGroup;
 			children = (
+				21570E1B20BBDFEA002585CB /* Resources */,
 				21570E0220BBA887002585CB /* Modules */,
 				21570D3120BB9145002585CB /* FilterController */,
 				21570CFF20BB8D8B002585CB /* AppDelegate.h */,
@@ -680,6 +683,30 @@
 			path = ShakeButton;
 			sourceTree = "<group>";
 		};
+		21570E1B20BBDFEA002585CB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				21570E1C20BBDFEA002585CB /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		21570E1C20BBDFEA002585CB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				21570E1D20BBDFEA002585CB /* IconButton */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		21570E1D20BBDFEA002585CB /* IconButton */ = {
+			isa = PBXGroup;
+			children = (
+				21570E1E20BBDFEA002585CB /* qmkit_rotate_btn@3x.png */,
+			);
+			path = IconButton;
+			sourceTree = "<group>";
+		};
 		72D5EB4AEE9C2B950BE5BA90 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -814,6 +841,7 @@
 				21570DDB20BB9145002585CB /* softLight.png in Resources */,
 				21570DCF20BB9145002585CB /* vignetteMap.png in Resources */,
 				21570DEA20BB9145002585CB /* vignetteMap.png in Resources */,
+				21570E1F20BBDFEA002585CB /* qmkit_rotate_btn@3x.png in Resources */,
 				21570DB920BB9145002585CB /* brannanProcess.png in Resources */,
 				21570DFD20BB9145002585CB /* frame1.png in Resources */,
 				21570DFC20BB9145002585CB /* frame.png in Resources */,
