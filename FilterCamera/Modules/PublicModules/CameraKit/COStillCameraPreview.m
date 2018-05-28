@@ -9,13 +9,27 @@
 #import "COStillCameraPreview.h"
 
 @implementation COStillCameraPreview
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)initWithFrame:(CGRect)frame{
+    if (self = [super initWithFrame:frame]) {
+        [self setGesture];
+    }
+    return self;
 }
-*/
 
+- (void)setGesture{
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc]init];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self addGestureRecognizer:swipeLeft];
+    _swipeLeftGestureSignal = [swipeLeft rac_gestureSignal];
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc]init];
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [self addGestureRecognizer:swipeRight];
+    _swipeRightGestureSignal = [swipeRight rac_gestureSignal];
+    
+    // 轻敲
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] init];
+    [self addGestureRecognizer:tapGesture];
+    _tapGestureSignal = [tapGesture rac_gestureSignal];
+}
 @end

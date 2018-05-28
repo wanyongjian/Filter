@@ -39,7 +39,12 @@
     _imageView.fillMode = kGPUImageFillModePreserveAspectRatioAndFill;
     _imageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*(4.0/3.0));
     [self.view addSubview:_imageView];
-    
+    [_imageView.swipeLeftGestureSignal subscribeNext:^(id  _Nullable x) {
+        
+    }];
+    [_imageView.swipeRightGestureSignal subscribeNext:^(id  _Nullable x) {
+        
+    }];
     // iPhoneX 适配
     CGFloat topOffset = iPhoneX ? 45 : 20;
     //比例按钮
@@ -106,4 +111,19 @@
         [self.stillCamera startCameraCapture];
     });
 }
+
+- (BOOL)prefersStatusBarHidden
+{
+    if (iPhoneX) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 @end

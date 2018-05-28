@@ -99,6 +99,7 @@
 		21570E0F20BBA995002585CB /* COCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E0E20BBA995002585CB /* COCameraViewController.m */; };
 		21570E1A20BBC576002585CB /* ShakeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E1920BBC576002585CB /* ShakeButton.m */; };
 		21570E1F20BBDFEA002585CB /* qmkit_rotate_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21570E1E20BBDFEA002585CB /* qmkit_rotate_btn@3x.png */; };
+		21570E2320BBFDC1002585CB /* COCameraFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E2220BBFDC1002585CB /* COCameraFilterView.m */; };
 		46520FC3277AC77D1B267CA2 /* libPods-FilterCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */; };
 /* End PBXBuildFile section */
 
@@ -255,6 +256,8 @@
 		21570E1820BBC576002585CB /* ShakeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShakeButton.h; sourceTree = "<group>"; };
 		21570E1920BBC576002585CB /* ShakeButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShakeButton.m; sourceTree = "<group>"; };
 		21570E1E20BBDFEA002585CB /* qmkit_rotate_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_rotate_btn@3x.png"; sourceTree = "<group>"; };
+		21570E2120BBFDC1002585CB /* COCameraFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COCameraFilterView.h; sourceTree = "<group>"; };
+		21570E2220BBFDC1002585CB /* COCameraFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COCameraFilterView.m; sourceTree = "<group>"; };
 		51D1F414044E7FC6FE339144 /* Pods-FilterCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilterCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera.debug.xcconfig"; sourceTree = "<group>"; };
 		C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FilterCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -361,7 +364,7 @@
 				21570D6820BB9145002585CB /* fw_sierra_柔暖 */,
 				21570D6E20BB9145002585CB /* fw_sutro_丛林 */,
 				21570D7620BB9145002585CB /* fw_toaster_依偎 */,
-				21570D7E20BB9145002585CB /* fw_valencia_沙滩 */,
+				21570D7E20BB9145002585CB /* fw_valencia_桑迪 */,
 				21570D8320BB9145002585CB /* fw_Walden_牛仔 */,
 				21570D8820BB9145002585CB /* fw_XproII_雅熙 */,
 				21570D8D20BB9145002585CB /* FWFiveInputFilter.h */,
@@ -528,7 +531,7 @@
 			path = "fw_toaster_依偎";
 			sourceTree = "<group>";
 		};
-		21570D7E20BB9145002585CB /* fw_valencia_沙滩 */ = {
+		21570D7E20BB9145002585CB /* fw_valencia_桑迪 */ = {
 			isa = PBXGroup;
 			children = (
 				21570D7F20BB9145002585CB /* FWValenciaFilter.h */,
@@ -536,7 +539,7 @@
 				21570D8120BB9145002585CB /* valenciaGradientMap.png */,
 				21570D8220BB9145002585CB /* valenciaMap.png */,
 			);
-			path = "fw_valencia_沙滩";
+			path = "fw_valencia_桑迪";
 			sourceTree = "<group>";
 		};
 		21570D8320BB9145002585CB /* fw_Walden_牛仔 */ = {
@@ -660,6 +663,7 @@
 		21570E0B20BBA927002585CB /* MainCamera */ = {
 			isa = PBXGroup;
 			children = (
+				21570E2020BBFD68002585CB /* View */,
 				21570E0C20BBA927002585CB /* Controller */,
 			);
 			path = MainCamera;
@@ -705,6 +709,15 @@
 				21570E1E20BBDFEA002585CB /* qmkit_rotate_btn@3x.png */,
 			);
 			path = IconButton;
+			sourceTree = "<group>";
+		};
+		21570E2020BBFD68002585CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21570E2120BBFDC1002585CB /* COCameraFilterView.h */,
+				21570E2220BBFDC1002585CB /* COCameraFilterView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		72D5EB4AEE9C2B950BE5BA90 /* Pods */ = {
@@ -1005,6 +1018,7 @@
 				21570DDA20BB9145002585CB /* FWSutroFilter.m in Sources */,
 				21570DCD20BB9145002585CB /* FWLomofiFilter.m in Sources */,
 				21570DEC20BB9145002585CB /* FWXproIIFilter.m in Sources */,
+				21570E2320BBFDC1002585CB /* COCameraFilterView.m in Sources */,
 				21570DC720BB9145002585CB /* FWHudsonFilter.m in Sources */,
 				21570DFB20BB9145002585CB /* CustomFrameBlendThreeFilter.m in Sources */,
 				21570DD020BB9145002585CB /* FWNashvilleFilter.m in Sources */,

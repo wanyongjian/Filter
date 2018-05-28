@@ -10,4 +10,7 @@
 
 @interface COStillCameraPreview : GPUImageView
 
+@property (nonatomic,strong,readonly) RACSignal *swipeRightGestureSignal;
+@property (nonatomic,strong,readonly) RACSignal *swipeLeftGestureSignal;
+@property (nonatomic, strong, readonly) RACSignal *tapGestureSignal;
 @end
