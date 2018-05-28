@@ -94,6 +94,10 @@
 		21570DFE20BB9145002585CB /* FrameBlendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570DAC20BB9145002585CB /* FrameBlendController.m */; };
 		21570DFF20BB9145002585CB /* CustomSketchFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570DAF20BB9145002585CB /* CustomSketchFilter.m */; };
 		21570E0020BB9145002585CB /* SimpleSketchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570DB120BB9145002585CB /* SimpleSketchController.m */; };
+		21570E0720BBA8AE002585CB /* COStillCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E0620BBA8AE002585CB /* COStillCamera.m */; };
+		21570E0A20BBA8CF002585CB /* COStillCameraPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E0920BBA8CF002585CB /* COStillCameraPreview.m */; };
+		21570E0F20BBA995002585CB /* COCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E0E20BBA995002585CB /* COCameraViewController.m */; };
+		21570E1A20BBC576002585CB /* ShakeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E1920BBC576002585CB /* ShakeButton.m */; };
 		46520FC3277AC77D1B267CA2 /* libPods-FilterCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */; };
 /* End PBXBuildFile section */
 
@@ -240,6 +244,15 @@
 		21570DB020BB9145002585CB /* SimpleSketchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleSketchController.h; sourceTree = "<group>"; };
 		21570DB120BB9145002585CB /* SimpleSketchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleSketchController.m; sourceTree = "<group>"; };
 		21570E0120BB934A002585CB /* Coco.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coco.pch; sourceTree = "<group>"; };
+		21570E0520BBA8AE002585CB /* COStillCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COStillCamera.h; sourceTree = "<group>"; };
+		21570E0620BBA8AE002585CB /* COStillCamera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COStillCamera.m; sourceTree = "<group>"; };
+		21570E0820BBA8CF002585CB /* COStillCameraPreview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COStillCameraPreview.h; sourceTree = "<group>"; };
+		21570E0920BBA8CF002585CB /* COStillCameraPreview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COStillCameraPreview.m; sourceTree = "<group>"; };
+		21570E0D20BBA995002585CB /* COCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COCameraViewController.h; sourceTree = "<group>"; };
+		21570E0E20BBA995002585CB /* COCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COCameraViewController.m; sourceTree = "<group>"; };
+		21570E1320BBAFCA002585CB /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		21570E1820BBC576002585CB /* ShakeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShakeButton.h; sourceTree = "<group>"; };
+		21570E1920BBC576002585CB /* ShakeButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShakeButton.m; sourceTree = "<group>"; };
 		51D1F414044E7FC6FE339144 /* Pods-FilterCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilterCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera.debug.xcconfig"; sourceTree = "<group>"; };
 		C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FilterCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -295,6 +308,7 @@
 		21570CFE20BB8D8B002585CB /* FilterCamera */ = {
 			isa = PBXGroup;
 			children = (
+				21570E0220BBA887002585CB /* Modules */,
 				21570D3120BB9145002585CB /* FilterController */,
 				21570CFF20BB8D8B002585CB /* AppDelegate.h */,
 				21570D0020BB8D8B002585CB /* AppDelegate.m */,
@@ -306,6 +320,7 @@
 				21570D0D20BB8D8B002585CB /* Info.plist */,
 				21570D0E20BB8D8B002585CB /* main.m */,
 				21570E0120BB934A002585CB /* Coco.pch */,
+				21570E1320BBAFCA002585CB /* Macro.h */,
 			);
 			path = FilterCamera;
 			sourceTree = "<group>";
@@ -610,6 +625,61 @@
 			path = SimpleSketch;
 			sourceTree = "<group>";
 		};
+		21570E0220BBA887002585CB /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				21570E0B20BBA927002585CB /* MainCamera */,
+				21570E0320BBA887002585CB /* PublicModules */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		21570E0320BBA887002585CB /* PublicModules */ = {
+			isa = PBXGroup;
+			children = (
+				21570E1720BBB605002585CB /* ShakeButton */,
+				21570E0420BBA887002585CB /* CameraKit */,
+			);
+			path = PublicModules;
+			sourceTree = "<group>";
+		};
+		21570E0420BBA887002585CB /* CameraKit */ = {
+			isa = PBXGroup;
+			children = (
+				21570E0520BBA8AE002585CB /* COStillCamera.h */,
+				21570E0620BBA8AE002585CB /* COStillCamera.m */,
+				21570E0820BBA8CF002585CB /* COStillCameraPreview.h */,
+				21570E0920BBA8CF002585CB /* COStillCameraPreview.m */,
+			);
+			path = CameraKit;
+			sourceTree = "<group>";
+		};
+		21570E0B20BBA927002585CB /* MainCamera */ = {
+			isa = PBXGroup;
+			children = (
+				21570E0C20BBA927002585CB /* Controller */,
+			);
+			path = MainCamera;
+			sourceTree = "<group>";
+		};
+		21570E0C20BBA927002585CB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				21570E0D20BBA995002585CB /* COCameraViewController.h */,
+				21570E0E20BBA995002585CB /* COCameraViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		21570E1720BBB605002585CB /* ShakeButton */ = {
+			isa = PBXGroup;
+			children = (
+				21570E1820BBC576002585CB /* ShakeButton.h */,
+				21570E1920BBC576002585CB /* ShakeButton.m */,
+			);
+			path = ShakeButton;
+			sourceTree = "<group>";
+		};
 		72D5EB4AEE9C2B950BE5BA90 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -878,10 +948,13 @@
 			files = (
 				21570DF020BB9145002585CB /* FWSixInputFilter.m in Sources */,
 				21570D0420BB8D8B002585CB /* ViewController.m in Sources */,
+				21570E0A20BBA8CF002585CB /* COStillCameraPreview.m in Sources */,
 				21570DB420BB9145002585CB /* FWAmaroFilter.m in Sources */,
+				21570E1A20BBC576002585CB /* ShakeButton.m in Sources */,
 				21570D0F20BB8D8B002585CB /* main.m in Sources */,
 				21570DF320BB9145002585CB /* HalfSketchController.m in Sources */,
 				21570DE620BB9145002585CB /* FWValenciaFilter.m in Sources */,
+				21570E0F20BBA995002585CB /* COCameraViewController.m in Sources */,
 				21570DFA20BB9145002585CB /* CustomAlphaBlendFilter.m in Sources */,
 				21570DC020BB9145002585CB /* FWEarlybirdFilter.m in Sources */,
 				21570DBB20BB9145002585CB /* FWBrannanFilter.m in Sources */,
@@ -889,6 +962,7 @@
 				21570DEF20BB9145002585CB /* FWFiveInputFilter.m in Sources */,
 				21570DD620BB9145002585CB /* FWSierraFilter.m in Sources */,
 				21570DC220BB9145002585CB /* FWHefeFilter.m in Sources */,
+				21570E0720BBA8AE002585CB /* COStillCamera.m in Sources */,
 				21570DE020BB9145002585CB /* FWToasterFilter.m in Sources */,
 				21570DFF20BB9145002585CB /* CustomSketchFilter.m in Sources */,
 				21570DF220BB9145002585CB /* YJHalfGrayFilter.m in Sources */,

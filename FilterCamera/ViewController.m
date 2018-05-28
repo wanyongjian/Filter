@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "FWHudsonFilter.h"
+#import "FWRiseFilter.h"
 //#import <GPUImage.h>
 @interface ViewController ()
 @property (nonatomic, strong) GPUImageView *imageView;
@@ -33,7 +34,6 @@
     // Do any additional setup after loading the view.
     self.camera = [[GPUImageStillCamera alloc]initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionBack];
     self.camera.outputImageOrientation = UIInterfaceOrientationPortrait;
-    self.camera.horizontallyMirrorRearFacingCamera = YES;
     //    self.camera.delegate = self;
     self.camera.horizontallyMirrorFrontFacingCamera = YES;//设置是否为镜像
     self.camera.horizontallyMirrorRearFacingCamera = NO;
@@ -45,7 +45,7 @@
     //    self.source = [[GPUImagePicture alloc]initWithImage:[UIImage imageNamed:@"amatorka_action_2"]];
     //
     
-    FWHudsonFilter *filter = [[FWHudsonFilter alloc]init];
+    FWRiseFilter *filter = [[FWRiseFilter alloc]init];
     [self.camera addTarget:filter];
     [filter addTarget:self.imageView];
     //
