@@ -21,12 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// to be overridden.
 @interface RACStream<__covariant ValueType> : NSObject
 
-_Pragma("clang diagnostic push") \
-_Pragma("clang diagnostic ignored \"-Wstrict-prototypes\"") \
-typedef id _Nonnull (^RACReduceBlock)();
-typedef ValueType _Nonnull (^RACGenericReduceBlock)();
-_Pragma("clang diagnostic pop")
-
 /// Returns an empty stream.
 + (__kindof RACStream<ValueType> *)empty;
 
@@ -176,7 +170,7 @@ typedef RACStream * _Nullable (^RACStreamBindBlock)(ValueType _Nullable value, B
 ///               return value must be an object. This argument cannot be nil.
 ///
 /// Returns a new stream of reduced tuple values.
-- (__kindof RACStream *)reduceEach:(RACReduceBlock)reduceBlock;
+- (__kindof RACStream *)reduceEach:(id _Nullable (^)())reduceBlock;
 
 /// Returns a stream consisting of `value`, followed by the values in the
 /// receiver.
@@ -227,7 +221,7 @@ typedef RACStream * _Nullable (^RACStreamBindBlock)(ValueType _Nullable value, B
 ///
 /// Returns a new stream containing the results from each invocation of
 /// `reduceBlock`.
-+ (__kindof RACStream<ValueType> *)zip:(id<NSFastEnumeration>)streams reduce:(RACGenericReduceBlock)reduceBlock;
++ (__kindof RACStream<ValueType> *)zip:(id<NSFastEnumeration>)streams reduce:(id _Nullable (^)())reduceBlock;
 
 /// Returns a stream obtained by concatenating `streams` in order.
 + (__kindof RACStream<ValueType> *)concat:(id<NSFastEnumeration>)streams;

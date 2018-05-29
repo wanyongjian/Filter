@@ -356,10 +356,6 @@
 static const NSTimeInterval RACSignalAsynchronousWaitTimeout = 10;
 
 - (id)asynchronousFirstOrDefault:(id)defaultValue success:(BOOL *)success error:(NSError **)error {
-	return [self asynchronousFirstOrDefault:defaultValue success:success error:error timeout:RACSignalAsynchronousWaitTimeout];
-}
-
-- (id)asynchronousFirstOrDefault:(id)defaultValue success:(BOOL *)success error:(NSError **)error timeout:(NSTimeInterval)timeout {
 	NSCAssert([NSThread isMainThread], @"%s should only be used from the main thread", __func__);
 
 	__block id result = defaultValue;
@@ -371,7 +367,7 @@ static const NSTimeInterval RACSignalAsynchronousWaitTimeout = 10;
 
 	[[[[self
 		take:1]
-		timeout:timeout onScheduler:[RACScheduler scheduler]]
+		timeout:RACSignalAsynchronousWaitTimeout onScheduler:[RACScheduler scheduler]]
 		deliverOn:RACScheduler.mainThreadScheduler]
 		subscribeNext:^(id x) {
 			result = x;
@@ -396,14 +392,10 @@ static const NSTimeInterval RACSignalAsynchronousWaitTimeout = 10;
 	return result;
 }
 
-- (BOOL)asynchronouslyWaitUntilCompleted:(NSError **)error timeout:(NSTimeInterval)timeout {
-	BOOL success = NO;
-	[[self ignoreValues] asynchronousFirstOrDefault:nil success:&success error:error timeout:timeout];
-	return success;
-}
-
 - (BOOL)asynchronouslyWaitUntilCompleted:(NSError **)error {
-	return [self asynchronouslyWaitUntilCompleted:error timeout:RACSignalAsynchronousWaitTimeout];
+	BOOL success = NO;
+	[[self ignoreValues] asynchronousFirstOrDefault:nil success:&success error:error];
+	return success;
 }
 
 @end

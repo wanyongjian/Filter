@@ -1,0 +1,18 @@
+PODS:
+  - GPUImage (0.1.7)
+  - Masonry (1.1.0)
+  - ReactiveObjC (3.0.0)
+
+DEPENDENCIES:
+  - GPUImage
+  - Masonry
+  - ReactiveObjC
+
+SPEC CHECKSUMS:
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
+
+PODFILE CHECKSUM: f1012dd852bfd2ebbf3d67e87a5f861ac22ad9e8
+
+COCOAPODS: 1.4.0
