@@ -115,6 +115,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     FilterModel *model = _filterModleArray[indexPath.row];
     if(self.filterClick){
         self.filterClick(model);

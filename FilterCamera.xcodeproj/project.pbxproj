@@ -118,6 +118,7 @@
 		2179F37A20BD078900B73822 /* vignetteMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F32E20BD078900B73822 /* vignetteMap.png */; };
 		2179F37B20BD078900B73822 /* xproMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F32F20BD078900B73822 /* xproMap.png */; };
 		2179F38220BD1C9600B73822 /* FilterConfig in Resources */ = {isa = PBXBuildFile; fileRef = 2179F38120BD1C9600B73822 /* FilterConfig */; };
+		2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2179F38420BD45AE00B73822 /* AnimationFilter.m */; };
 		46520FC3277AC77D1B267CA2 /* libPods-FilterCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */; };
 /* End PBXBuildFile section */
 
@@ -295,6 +296,8 @@
 		2179F32E20BD078900B73822 /* vignetteMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vignetteMap.png; sourceTree = "<group>"; };
 		2179F32F20BD078900B73822 /* xproMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xproMap.png; sourceTree = "<group>"; };
 		2179F38120BD1C9600B73822 /* FilterConfig */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FilterConfig; path = FilterCamera/FilterConfig; sourceTree = "<group>"; };
+		2179F38320BD45AE00B73822 /* AnimationFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationFilter.h; sourceTree = "<group>"; };
+		2179F38420BD45AE00B73822 /* AnimationFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationFilter.m; sourceTree = "<group>"; };
 		51D1F414044E7FC6FE339144 /* Pods-FilterCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilterCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera.debug.xcconfig"; sourceTree = "<group>"; };
 		C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FilterCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -359,6 +362,8 @@
 				21570D0020BB8D8B002585CB /* AppDelegate.m */,
 				21570D0220BB8D8B002585CB /* ViewController.h */,
 				21570D0320BB8D8B002585CB /* ViewController.m */,
+				2179F38320BD45AE00B73822 /* AnimationFilter.h */,
+				2179F38420BD45AE00B73822 /* AnimationFilter.m */,
 				21570D0520BB8D8B002585CB /* Main.storyboard */,
 				21570D0820BB8D8B002585CB /* Assets.xcassets */,
 				21570D0A20BB8D8B002585CB /* LaunchScreen.storyboard */,
@@ -1107,6 +1112,7 @@
 				21570DFE20BB9145002585CB /* FrameBlendController.m in Sources */,
 				21570DF420BB9145002585CB /* HalfSketchFilter.m in Sources */,
 				21570D0120BB8D8B002585CB /* AppDelegate.m in Sources */,
+				2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */,
 				21570E2320BBFDC1002585CB /* COCameraFilterView.m in Sources */,
 				2179F33320BD078900B73822 /* FWAmaroFilter.m in Sources */,
 				21570DFB20BB9145002585CB /* CustomFrameBlendThreeFilter.m in Sources */,

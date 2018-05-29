@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "FWHudsonFilter.h"
 #import "FWRiseFilter.h"
+#import "AnimationFilter.h"
 //#import <GPUImage.h>
 @interface ViewController ()
 @property (nonatomic, strong) GPUImageView *imageView;
@@ -20,14 +21,21 @@
 
 @property (nonatomic, strong) GPUImageUIElement *elemnet;
 @property (nonatomic, strong) GPUImageUIElement *desEle;
-@property (nonatomic, strong) GPUImageFilter *filter;
 @property (nonatomic, strong) GPUImagePicture *source;
+@property (nonatomic, assign) CGFloat increase;
+
+@property (nonatomic, strong) CADisplayLink *displayLink;
+@property (nonatomic, strong) AnimationFilter *filter;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.increase = 0.0;
+    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTextColor)];
+    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    
     self.imageView = [[GPUImageView alloc]initWithFrame:self.view.frame];
     [self.view addSubview:self.imageView];
     
@@ -38,20 +46,22 @@
     self.camera.horizontallyMirrorFrontFacingCamera = YES;//设置是否为镜像
     self.camera.horizontallyMirrorRearFacingCamera = NO;
     
-    //    FWHefeFilter *filter = [[FWHefeFilter alloc]init];
-    //    [self.camera addTarget:filter];
-    //    [filter addTarget:self.imageView];
-    
-    //    self.source = [[GPUImagePicture alloc]initWithImage:[UIImage imageNamed:@"amatorka_action_2"]];
-    //
-    
-    FWRiseFilter *filter = [[FWRiseFilter alloc]init];
-    [self.camera addTarget:filter];
-    [filter addTarget:self.imageView];
-    //
-    //    [self.source processImage];
+    FWRiseFilter *rise = [[FWRiseFilter alloc]init];
+    [self.camera addTarget:rise];
+    self.filter = [[AnimationFilter alloc]init];
+
+    [self.camera addTarget:self.filter];
+    [rise addTarget:self.filter];
+    [self.filter addTarget:self.imageView];
     [self.camera startCameraCapture];
 }
+
+
+-(void)updateTextColor{
+    self.increase += 0.01;
+    self.filter.x = self.increase;
+}
+
 
 
 @end
