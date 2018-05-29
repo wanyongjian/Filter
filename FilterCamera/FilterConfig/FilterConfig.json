@@ -1,0 +1,62 @@
+[
+ {
+ "name" : "鸡尾酒",
+ "vc" : "FWAmaroFilter"
+ },
+ {
+ "name" : "海风",
+ "vc" : "FWBrannanFilter"
+ },
+ {
+ "name" : "加菲",
+ "vc" : "FWEarlybirdFilter"
+ },
+ {
+ "name" : "涂鸦",
+ "vc" : "FWHefeFilter"
+ },
+ {
+ "name" : "雾夜",
+ "vc" : "FWHudsonFilter"
+ },
+ {
+ "name" : "历史",
+ "vc" : "FWInkwellFilter"
+ },
+ {
+ "name" : "随心",
+ "vc" : "FWLomofiFilter"
+ },
+ {
+ "name" : "奶昔",
+ "vc" : "FWNashvilleFilter"
+ },
+ {
+ "name" : "暖阳",
+ "vc" : "FWRiseFilter"
+ },
+ {
+ "name" : "柔暖",
+ "vc" : "FWSierraFilter"
+ },
+ {
+ "name" : "丛林",
+ "vc" : "FWSutroFilter"
+ },
+ {
+ "name" : "依偎",
+ "vc" : "FWToasterFilter"
+ },
+ {
+ "name" : "桑迪",
+ "vc" : "FWValenciaFilter"
+ },
+ {
+ "name" : "牛仔",
+ "vc" : "FWWaldenFilter"
+ },
+ {
+ "name" : "雅熙",
+ "vc" : "FWXproIIFilter"
+ }
+]

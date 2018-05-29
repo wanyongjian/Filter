@@ -10,6 +10,7 @@
 #import "COStillCamera.h"
 #import "COStillCameraPreview.h"
 #import "ShakeButton.h"
+#import "COCameraFilterView.h"
 
 #define kCameraViewBottomBGHeight   ((kScreenHeight)-(kScreenWidth)*(4.0f/3.0f))
 @interface COCameraViewController (){
@@ -19,6 +20,7 @@
 
 @property (nonatomic, strong) COStillCamera *stillCamera;
 @property (nonatomic, strong) COStillCameraPreview *imageView;
+@property (nonatomic, strong) COCameraFilterView *cameraFilterView;
 @end
 
 @implementation COCameraViewController
@@ -60,6 +62,7 @@
         make.left.mas_equalTo(@(x));
         make.width.height.mas_equalTo(26);
         make.top.mas_equalTo(topOffset+5);
+        
     }];
     [[scaleButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         scaleButton.tag++;
@@ -80,6 +83,33 @@
     [[rotateBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         [self.stillCamera rotateCamera];
     }];
+    //点击相机屏幕
+    [_imageView.tapGestureSignal subscribeNext:^(id  _Nullable x) {
+        [wself.cameraFilterView hide];
+    }];
+    //滤镜
+    UIButton *filterBtn = [[ShakeButton alloc]init];
+    [filterBtn setImage:[UIImage imageNamed:@"qmkit_fiter_btn"] forState:UIControlStateNormal];
+    [filterBtn setImage:[UIImage imageNamed:@"qmkit_fiter_btn"] forState:UIControlStateHighlighted];
+    [self.view addSubview:filterBtn];
+    [filterBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        CGFloat x = kScreenWidth*(1-1/3.0);
+        make.left.mas_equalTo(@(x));
+        make.bottom.mas_equalTo(-30);
+        make.width.height.mas_equalTo(35);
+    }];
+    [[filterBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [wself.cameraFilterView toggleInView:wself.view];
+    }];
+    //滤镜选择
+    self.cameraFilterView.filterClick = ^(FilterModel *model) {
+        [wself.stillCamera removeAllTargets];
+        Class vc = NSClassFromString(model.vc);
+        GPUImageFilter *filter = [[vc alloc]init];
+        [wself.stillCamera addTarget:filter];
+        [filter addTarget:wself.imageView];
+    };
+    
 }
 - (void)setCameraRatio:(CGFloat)ratio{
     _currentCameraViewRatio = ratio;
@@ -126,4 +156,10 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (COCameraFilterView *)cameraFilterView{
+    if(!_cameraFilterView){
+        _cameraFilterView = [[COCameraFilterView alloc]init];
+    }
+    return _cameraFilterView;
+}
 @end

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FilterModel.h"
+typedef void (^filterClickBlock)(FilterModel *model);
 
 @interface COCameraFilterView : UIView
-
+@property (nonatomic,copy) filterClickBlock filterClick;
+- (void)toggleInView:(UIView *)view;
+- (void)showInView:(UIView *)view;
+- (void)hide;
 @end

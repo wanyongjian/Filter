@@ -24,4 +24,8 @@
 #define  HEX_COLOR(hex)  RGBColor(((hex & 0xFF0000) >> 16),((hex & 0xFF00) >> 8),(hex & 0xFF))//16进制颜色
 #define HEXColorAlpha(hexValue,a)   [UIColor colorWithHexString:hexValue alpha:a]
 
+
+#define kFilterPath [[NSBundle mainBundle] pathForResource:@"COFilters" ofType:nil]
+#define kCameraFilterViewItemSize                 60
+#define kCameraFilterCollectionViewHeight         100
 #endif /* Macro_h */
