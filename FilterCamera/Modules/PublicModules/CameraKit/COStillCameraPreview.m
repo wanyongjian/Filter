@@ -40,26 +40,25 @@
 }
 
 - (void)setUI{
+    UIPageControl *pageController = [[UIPageControl alloc]init];
+    pageController.pageIndicatorTintColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4];
+    pageController.currentPageIndicatorTintColor = [UIColor whiteColor];
+    [self addSubview:pageController];
+    [pageController mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(self);
+    }];
+    _pageController = pageController;
+    
     UILabel *label = [[UILabel alloc]init];
     label.font = [UIFont systemFontOfSize:26];
     label.textColor = [UIColor whiteColor];
     [self addSubview:label];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.mas_equalTo(self);
+        make.centerX.mas_equalTo(_pageController);
+        make.bottom.mas_equalTo(_pageController.mas_top).offset(-6);
     }];
     _label = label;
     _label.alpha = 0;
-    
-    UIPageControl *pageController = [[UIPageControl alloc]init];
-    pageController.pageIndicatorTintColor = [UIColor darkGrayColor];
-    pageController.currentPageIndicatorTintColor = [UIColor whiteColor];
-    [self addSubview:pageController];
-    [pageController mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(_label);
-        make.top.mas_equalTo(_label.mas_bottom).offset(6);
-    }];
-    _pageController = pageController;
-    
 
 }
 - (void)hideFilterNameAnimation{

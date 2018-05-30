@@ -139,6 +139,12 @@
                 [_collectionView scrollToItemAtIndexPath:self.lastIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
                 //用于显示pageindicator
                 block(model.name,index-1,_filterModleArray.count);
+            }else{
+                FilterModel *model = _filterModleArray[index];
+                if (self.filterClick) {
+                    self.filterClick(model);
+                }
+                block(model.name,index,_filterModleArray.count);
             }
         }
             break;
@@ -153,6 +159,12 @@
                 [_collectionView scrollToItemAtIndexPath:self.lastIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
                 //用于显示pageindicator
                 block(model.name,index+1,_filterModleArray.count);
+            }else{
+                FilterModel *model = _filterModleArray[index];
+                if (self.filterClick) {
+                    self.filterClick(model);
+                }
+                block(model.name,index,_filterModleArray.count);
             }
         }
             break;

@@ -13,6 +13,7 @@
 #import "COCameraFilterView.h"
 
 #define kCameraViewBottomBGHeight   ((kScreenHeight)-(kScreenWidth)*(4.0f/3.0f))
+#define kFilterBtnWidth 35
 @interface COCameraViewController (){
     CGFloat _currentCameraViewRatio;
     NSMutableArray *_ratioArray;
@@ -87,16 +88,18 @@
     [_imageView.tapGestureSignal subscribeNext:^(id  _Nullable x) {
         [wself.cameraFilterView hide];
     }];
-    //滤镜
+    //滤镜按钮
     UIButton *filterBtn = [[ShakeButton alloc]init];
     [filterBtn setImage:[UIImage imageNamed:@"qmkit_fiter_btn"] forState:UIControlStateNormal];
     [filterBtn setImage:[UIImage imageNamed:@"qmkit_fiter_btn"] forState:UIControlStateHighlighted];
     [self.view addSubview:filterBtn];
     [filterBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        CGFloat x = kScreenWidth*(1-1/3.0);
+        make.width.height.mas_equalTo(kFilterBtnWidth);
+        CGFloat x = kScreenWidth*(1-1/4.0)-kFilterBtnWidth/2;
+        CGFloat y = kScreenHeight-kCameraViewBottomBGHeight/2-kFilterBtnWidth/2;
         make.left.mas_equalTo(@(x));
-        make.bottom.mas_equalTo(-30);
-        make.width.height.mas_equalTo(35);
+        make.top.mas_equalTo(@(y));
+        
     }];
     [[filterBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
         [wself.cameraFilterView toggleInView:wself.view];
@@ -135,35 +138,35 @@
     }];
 }
 - (void)setCamera{
+    weakSelf()
     _stillCamera = [[COStillCamera alloc]initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionBack];
     _stillCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
+    _stillCamera.horizontallyMirrorFrontFacingCamera = YES;//设置是否为镜像
+    _stillCamera.horizontallyMirrorRearFacingCamera = NO;
     
-    GPUImageFilter *filter = [[GPUImageFilter alloc]init];
-    [_stillCamera addTarget:filter];
-    [filter addTarget:_imageView];
+    [wself.cameraFilterView selectFilterWithType:SelectFilterTypeRight callBack:^(NSString *name, NSInteger index, NSInteger total) {
+        [wself.imageView showFilterWihtName:name index:index total:total];
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [self startCameraCapture];
-    
 }
+
 - (void)startCameraCapture{
     runAsynchronouslyOnVideoProcessingQueue(^{
         [self.stillCamera startCameraCapture];
     });
 }
 
-- (BOOL)prefersStatusBarHidden
-{
+- (BOOL)prefersStatusBarHidden{
     if (iPhoneX) {
         return NO;
     }
-    
     return YES;
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
+- (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
 
