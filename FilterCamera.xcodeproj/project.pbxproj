@@ -119,6 +119,7 @@
 		2179F37B20BD078900B73822 /* xproMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F32F20BD078900B73822 /* xproMap.png */; };
 		2179F38220BD1C9600B73822 /* FilterConfig in Resources */ = {isa = PBXBuildFile; fileRef = 2179F38120BD1C9600B73822 /* FilterConfig */; };
 		2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2179F38420BD45AE00B73822 /* AnimationFilter.m */; };
+		22C562B420BEE2AC0011014A /* qmkit_takephoto_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */; };
 		46520FC3277AC77D1B267CA2 /* libPods-FilterCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */; };
 /* End PBXBuildFile section */
 
@@ -298,6 +299,7 @@
 		2179F38120BD1C9600B73822 /* FilterConfig */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FilterConfig; path = FilterCamera/FilterConfig; sourceTree = "<group>"; };
 		2179F38320BD45AE00B73822 /* AnimationFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationFilter.h; sourceTree = "<group>"; };
 		2179F38420BD45AE00B73822 /* AnimationFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationFilter.m; sourceTree = "<group>"; };
+		22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_takephoto_btn@3x.png"; sourceTree = "<group>"; };
 		51D1F414044E7FC6FE339144 /* Pods-FilterCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilterCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera.debug.xcconfig"; sourceTree = "<group>"; };
 		C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FilterCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -554,6 +556,7 @@
 		21570E1D20BBDFEA002585CB /* IconButton */ = {
 			isa = PBXGroup;
 			children = (
+				22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */,
 				2179F22320BCDE5800B73822 /* qmkit_fiter_btn@3x.png */,
 				21570E1E20BBDFEA002585CB /* qmkit_rotate_btn@3x.png */,
 			);
@@ -927,6 +930,7 @@
 				2179F36E20BD078900B73822 /* toasterOverlayMapWarm.png in Resources */,
 				21570DF520BB9145002585CB /* amatorka2.png in Resources */,
 				2179F33120BD078900B73822 /* blackboard1024.png in Resources */,
+				22C562B420BEE2AC0011014A /* qmkit_takephoto_btn@3x.png in Resources */,
 				2179F36F20BD078900B73822 /* toasterSoftLight.png in Resources */,
 				2179F35520BD078900B73822 /* config.json in Resources */,
 				2179F34520BD078900B73822 /* hefeGradientMap.png in Resources */,

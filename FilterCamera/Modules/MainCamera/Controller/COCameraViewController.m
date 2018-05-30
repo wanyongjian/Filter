@@ -14,6 +14,7 @@
 
 #define kCameraViewBottomBGHeight   ((kScreenHeight)-(kScreenWidth)*(4.0f/3.0f))
 #define kFilterBtnWidth 35
+#define kCameraTakePhotoIconSize   75
 @interface COCameraViewController (){
     CGFloat _currentCameraViewRatio;
     NSMutableArray *_ratioArray;
@@ -22,6 +23,8 @@
 @property (nonatomic, strong) COStillCamera *stillCamera;
 @property (nonatomic, strong) COStillCameraPreview *imageView;
 @property (nonatomic, strong) COCameraFilterView *cameraFilterView;
+@property (nonatomic, strong) UIButton *takePhotoBtn;
+@property (nonatomic, strong) GPUImageFilter *filter;
 @end
 
 @implementation COCameraViewController
@@ -104,6 +107,19 @@
     [[filterBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
         [wself.cameraFilterView toggleInView:wself.view];
     }];
+    //拍照按钮
+    UIButton *button = [[UIButton alloc]init];
+    [button setImage:[UIImage imageNamed:@"qmkit_takephoto_btn"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"qmkit_takephoto_btn"] forState:UIControlStateHighlighted];
+    [self.view addSubview:button];
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.mas_equalTo(kCameraTakePhotoIconSize);
+        make.centerX.mas_equalTo(self.view);
+        make.centerY.mas_equalTo(filterBtn);
+    }];
+    [[button rac_signalForControlEvents:UIControlEventTouchDown] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSLog(@"1111");
+    }];
     //左滑右滑
     [self.imageView.swipeLeftGestureSignal subscribeNext:^(id  _Nullable x) {
         [wself.cameraFilterView selectFilterWithType:SelectFilterTypeLeft callBack:^(NSString *name, NSInteger index, NSInteger total) {
@@ -119,10 +135,11 @@
     self.cameraFilterView.filterClick = ^(FilterModel *model) {
         [wself.stillCamera removeAllTargets];
         Class vc = NSClassFromString(model.vc);
-        GPUImageFilter *filter = [[vc alloc]init];
-        [wself.stillCamera addTarget:filter];
-        [filter addTarget:wself.imageView];
+        wself.filter = [[vc alloc]init];
+        [wself.stillCamera addTarget:wself.filter];
+        [wself.filter addTarget:wself.imageView];
     };
+    
     
 }
 - (void)setCameraRatio:(CGFloat)ratio{
