@@ -8,6 +8,12 @@
 
 #ifndef Macro_h
 #define Macro_h
+
+typedef NS_ENUM(NSInteger,SelectFilterType){
+    SelectFilterTypeRight,
+    SelectFilterTypeLeft
+};
+
 // 设备型号
 #define iPhoneX             (kScreenWidth == 375.f && kScreenHeight == 812.f)
 // 强弱引用

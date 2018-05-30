@@ -6,12 +6,16 @@
 //  Copyright © 2018年 wan. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
 #import "FilterModel.h"
 typedef void (^filterClickBlock)(FilterModel *model);
+typedef void (^selectedIndexBlock)(NSString *name,NSInteger index,NSInteger total);
 
 @interface COCameraFilterView : UIView
 @property (nonatomic,copy) filterClickBlock filterClick;
+
+- (void)selectFilterWithType:(SelectFilterType)type callBack:(selectedIndexBlock)block;
 - (void)toggleInView:(UIView *)view;
 - (void)showInView:(UIView *)view;
 - (void)hide;

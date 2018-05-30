@@ -16,6 +16,7 @@
 @interface COCameraFilterView() <UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,strong) UICollectionView *collectionView;
 @property (nonatomic,strong) NSArray<FilterModel *> *filterModleArray;
+@property (nonatomic,strong) NSIndexPath *lastIndexPath;
 @end
 
 @implementation COCameraFilterView
@@ -27,6 +28,7 @@
         NSString *path = [[NSBundle mainBundle] pathForResource:@"FilterConfig" ofType:nil];
         _filterModleArray = [FilterModel getModleArrayFromName:[path stringByAppendingPathComponent:@"FilterConfig.json"]];
         [self addCollectionView];
+        self.lastIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     }
     return self;
 }
@@ -119,6 +121,41 @@
     FilterModel *model = _filterModleArray[indexPath.row];
     if(self.filterClick){
         self.filterClick(model);
+    }
+    
+    self.lastIndexPath = indexPath;
+}
+
+- (void)selectFilterWithType:(SelectFilterType)type callBack:(selectedIndexBlock)block{
+    switch (type) {
+        case SelectFilterTypeRight:{
+            NSInteger index = self.lastIndexPath.row;
+            if ((index-1)>=0) {
+                FilterModel *model = _filterModleArray[index-1];
+                if (self.filterClick) {
+                    self.filterClick(model);
+                }
+                self.lastIndexPath = [NSIndexPath indexPathForRow:index-1 inSection:self.lastIndexPath.section];
+                [_collectionView scrollToItemAtIndexPath:self.lastIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+                //用于显示pageindicator
+                block(model.name,index-1,_filterModleArray.count);
+            }
+        }
+            break;
+        case SelectFilterTypeLeft:{
+            NSInteger index = self.lastIndexPath.row;
+            if ((index+1)<_filterModleArray.count) {
+                FilterModel *model = _filterModleArray[index+1];
+                if (self.filterClick) {
+                    self.filterClick(model);
+                }
+                self.lastIndexPath = [NSIndexPath indexPathForRow:index+1 inSection:self.lastIndexPath.section];
+                [_collectionView scrollToItemAtIndexPath:self.lastIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+                //用于显示pageindicator
+                block(model.name,index+1,_filterModleArray.count);
+            }
+        }
+            break;
     }
 }
 @end

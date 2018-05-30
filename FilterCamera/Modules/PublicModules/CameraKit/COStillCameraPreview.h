@@ -13,4 +13,6 @@
 @property (nonatomic,strong,readonly) RACSignal *swipeRightGestureSignal;
 @property (nonatomic,strong,readonly) RACSignal *swipeLeftGestureSignal;
 @property (nonatomic, strong, readonly) RACSignal *tapGestureSignal;
+
+- (void)showFilterWihtName:(NSString *)name index:(NSInteger)index total:(NSInteger)total;
 @end

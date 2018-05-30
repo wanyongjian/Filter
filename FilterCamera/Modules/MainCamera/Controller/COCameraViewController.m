@@ -101,6 +101,17 @@
     [[filterBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
         [wself.cameraFilterView toggleInView:wself.view];
     }];
+    //左滑右滑
+    [self.imageView.swipeLeftGestureSignal subscribeNext:^(id  _Nullable x) {
+        [wself.cameraFilterView selectFilterWithType:SelectFilterTypeLeft callBack:^(NSString *name, NSInteger index, NSInteger total) {
+            [wself.imageView showFilterWihtName:name index:index total:total];
+        }];
+    }];
+    [self.imageView.swipeRightGestureSignal subscribeNext:^(id  _Nullable x) {
+        [wself.cameraFilterView selectFilterWithType:SelectFilterTypeRight callBack:^(NSString *name, NSInteger index, NSInteger total) {
+            [wself.imageView showFilterWihtName:name index:index total:total];
+        }];
+    }];
     //滤镜选择
     self.cameraFilterView.filterClick = ^(FilterModel *model) {
         [wself.stillCamera removeAllTargets];
