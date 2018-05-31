@@ -11,10 +11,17 @@
 #import "COStillCameraPreview.h"
 #import "ShakeButton.h"
 #import "COCameraFilterView.h"
+typedef NS_ENUM(NSInteger,CameraRatioType){
+    CameraRatioType43,
+    CameraRatioType11,
+    CameraRatioType169
+};
 
 #define kCameraViewBottomBGHeight   ((kScreenHeight)-(kScreenWidth)*(4.0f/3.0f))
 #define kFilterBtnWidth 35
 #define kCameraTakePhotoIconSize   75
+#define TopOffset (iPhoneX ? 45 : 20)
+#define TopFunctionHeight 40
 @interface COCameraViewController (){
     CGFloat _currentCameraViewRatio;
     NSMutableArray *_ratioArray;
@@ -31,13 +38,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor lightGrayColor];
     // Do any additional setup after loading the view.
     [self setData];
     [self setUI];
     [self setCamera];
 }
 - (void)setData{
-    _ratioArray = @[@[@"4:3",@"1.33"],@[@"1:1",@"1.0"],@[@"16:9",@"1.78"]].mutableCopy;
+    _ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"],@[@"9:16",@"1.78"]].mutableCopy;
 }
 - (void)setUI{
     weakSelf();
@@ -51,8 +59,6 @@
     [_imageView.swipeRightGestureSignal subscribeNext:^(id  _Nullable x) {
         
     }];
-    // iPhoneX 适配
-    CGFloat topOffset = iPhoneX ? 45 : 20;
     //比例按钮
     UIButton *scaleButton = [[ShakeButton alloc]init];
     scaleButton.tag = 0;
@@ -62,17 +68,19 @@
     scaleButton.layer.borderColor = [UIColor whiteColor].CGColor;
     [self.view addSubview:scaleButton];
     [scaleButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        CGFloat x = SCREEN_WIDTH/2.0-13;
+        CGFloat btnWidth = 26;
+        CGFloat x = SCREEN_WIDTH/2.0-btnWidth/2.0;
+        CGFloat y = (TopOffset+TopFunctionHeight)/2.0 -btnWidth/2.0;
         make.left.mas_equalTo(@(x));
-        make.width.height.mas_equalTo(26);
-        make.top.mas_equalTo(topOffset+5);
-        
+        make.width.height.mas_equalTo(btnWidth);
+        make.top.mas_equalTo(@(y));
     }];
     [[scaleButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         scaleButton.tag++;
-        NSMutableArray *array = _ratioArray[scaleButton.tag % _ratioArray.count];
-        [wself setCameraRatio:[array[1] floatValue]];
+        NSInteger ratioType = scaleButton.tag % _ratioArray.count;
+        NSMutableArray *array = _ratioArray[ratioType];
         [scaleButton setTitle:array[0] forState:UIControlStateNormal];
+        [wself setCameraRatio:ratioType];
     }];
     //前后镜头
     UIButton *rotateBtn = [[ShakeButton alloc]init];
@@ -80,7 +88,8 @@
     [rotateBtn setImage:[UIImage imageNamed:@"qmkit_rotate_btn"] forState:UIControlStateHighlighted];
     [self.view addSubview:rotateBtn];
     [rotateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.mas_equalTo(34);
+        CGFloat btnWidth = 34;
+        make.width.height.mas_equalTo(btnWidth);
         make.centerY.mas_equalTo(scaleButton);
         make.right.mas_equalTo(-20);
     }];
@@ -117,8 +126,25 @@
         make.centerX.mas_equalTo(self.view);
         make.centerY.mas_equalTo(filterBtn);
     }];
-    [[button rac_signalForControlEvents:UIControlEventTouchDown] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        NSLog(@"1111");
+    [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [wself takePhotoAction];
+    }];
+    _takePhotoBtn = button;
+    //相册按钮
+    CGFloat picBtnWidth = 25; CGFloat picBtnHeight = 30;
+    UIButton *picBtn = [[UIButton alloc]init];
+    picBtn.layer.borderWidth = 1;
+    picBtn.layer.borderColor = [UIColor whiteColor].CGColor;
+    [self.view addSubview:picBtn];
+    [picBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(picBtnWidth);
+        make.height.mas_equalTo(picBtnHeight);
+        make.centerY.mas_equalTo(button);
+        CGFloat x = kScreenWidth*(1/4.0)-picBtnWidth/2;
+        make.left.mas_equalTo(@(x));
+    }];
+    [[picBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        
     }];
     //左滑右滑
     [self.imageView.swipeLeftGestureSignal subscribeNext:^(id  _Nullable x) {
@@ -142,17 +168,40 @@
     
     
 }
-- (void)setCameraRatio:(CGFloat)ratio{
+- (void)takePhotoAction{
+    UIDeviceOrientation deviceOrientation = [[UIDevice currentDevice] orientation];
+    runAsynchronouslyOnVideoProcessingQueue(^{
+        [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.filter withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+            UIImage *image = processedImage;
+        }];
+    });
+}
+- (void)setCameraRatio:(CameraRatioType)ratioType{
+    NSMutableArray *array = _ratioArray[ratioType];
+    CGFloat ratio = [array[1] floatValue];
     _currentCameraViewRatio = ratio;
+    
     float height = kScreenWidth * ratio;
-    [UIView animateWithDuration:0.4 animations:^{
-        CGFloat topViewHeight = kScreenHeight-height-kCameraViewBottomBGHeight;
-        if (topViewHeight >=0 ) {
-            self.imageView.frame = CGRectMake(0, topViewHeight, kScreenWidth, height);
-        }else{ //9:16
-            self.imageView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    switch (ratioType) {
+        case CameraRatioType43:{
+            [UIView animateWithDuration:0.4 animations:^{
+                self.imageView.frame = CGRectMake(0, 0, kScreenWidth, height);
+            }];
         }
-    }];
+            break;
+        case CameraRatioType11:{
+            [UIView animateWithDuration:0.4 animations:^{
+                self.imageView.frame = CGRectMake(0,TopOffset+TopFunctionHeight, kScreenWidth, height);
+            }];
+        }
+            break;
+        case CameraRatioType169:{
+            [UIView animateWithDuration:0.4 animations:^{
+                self.imageView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+            }];
+        }
+            break;
+    }
 }
 - (void)setCamera{
     weakSelf()

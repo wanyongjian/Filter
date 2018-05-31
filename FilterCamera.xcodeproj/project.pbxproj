@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		214AB81420BFC21300D4B73C /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 214AB81320BFC21300D4B73C /* UIImage+Rotate.m */; };
 		21570D0120BB8D8B002585CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570D0020BB8D8B002585CB /* AppDelegate.m */; };
 		21570D0420BB8D8B002585CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570D0320BB8D8B002585CB /* ViewController.m */; };
 		21570D0720BB8D8B002585CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21570D0520BB8D8B002585CB /* Main.storyboard */; };
@@ -142,6 +143,8 @@
 
 /* Begin PBXFileReference section */
 		1615DFB7149362BBBCE8FCD7 /* Pods-FilterCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilterCamera.release.xcconfig"; path = "Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera.release.xcconfig"; sourceTree = "<group>"; };
+		214AB81220BFC21300D4B73C /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		214AB81320BFC21300D4B73C /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
 		21570CFC20BB8D8B002585CB /* FilterCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilterCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21570CFF20BB8D8B002585CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		21570D0020BB8D8B002585CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -330,6 +333,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		214AB80C20BFBE8C00D4B73C /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vender;
+			sourceTree = "<group>";
+		};
+		214AB81120BFC21300D4B73C /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				214AB81220BFC21300D4B73C /* UIImage+Rotate.h */,
+				214AB81320BFC21300D4B73C /* UIImage+Rotate.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		21570CF320BB8D8B002585CB = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +376,8 @@
 		21570CFE20BB8D8B002585CB /* FilterCamera */ = {
 			isa = PBXGroup;
 			children = (
+				214AB81120BFC21300D4B73C /* Category */,
+				214AB80C20BFBE8C00D4B73C /* Vender */,
 				21570E1B20BBDFEA002585CB /* Resources */,
 				21570E0220BBA887002585CB /* Modules */,
 				21570D3120BB9145002585CB /* FilterController */,
@@ -1123,6 +1144,7 @@
 				21570DF920BB9145002585CB /* YJOldPhoteFilter.m in Sources */,
 				2179F35620BD078900B73822 /* FWNashvilleFilter.m in Sources */,
 				2179F35220BD078900B73822 /* FWLomofiFilter.m in Sources */,
+				214AB81420BFC21300D4B73C /* UIImage+Rotate.m in Sources */,
 				2179F33B20BD078900B73822 /* FWBrannanFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
