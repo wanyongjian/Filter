@@ -173,7 +173,11 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         
         [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.filter withCompletionHandler:^(UIImage *processedImage, NSError *error) {
             AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-            UIImage *image = [processedImage fixOrientation];
+            CGImageRef cgImageFromBytes = processedImage.CGImage;
+            UIImage *finalImage = [UIImage imageWithCGImage:cgImageFromBytes scale:1.0 orientation:appDelegate.imageOrientation];
+            CGImageRelease(cgImageFromBytes);
+            
+            UIImage *image = [finalImage fixOrientation];
             NSLog(@"");
         }];
     });
