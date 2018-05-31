@@ -17,4 +17,5 @@
 #import "masonry.h"
 //#import "TKImageView.h"
 #import "UIImage+Rotate.h"
+#import "MotionOrientation.h"
 #endif /* Coco_pch */

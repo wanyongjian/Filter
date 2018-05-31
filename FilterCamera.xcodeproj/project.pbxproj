@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		214AB81420BFC21300D4B73C /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 214AB81320BFC21300D4B73C /* UIImage+Rotate.m */; };
+		214AB81820BFF41600D4B73C /* MotionOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 214AB81720BFF41600D4B73C /* MotionOrientation.m */; };
+		214AB81A20BFF45100D4B73C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214AB81920BFF45100D4B73C /* CoreMotion.framework */; };
+		214AB81C20BFF45800D4B73C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214AB81B20BFF45800D4B73C /* CoreGraphics.framework */; };
 		21570D0120BB8D8B002585CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570D0020BB8D8B002585CB /* AppDelegate.m */; };
 		21570D0420BB8D8B002585CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570D0320BB8D8B002585CB /* ViewController.m */; };
 		21570D0720BB8D8B002585CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21570D0520BB8D8B002585CB /* Main.storyboard */; };
@@ -145,6 +148,10 @@
 		1615DFB7149362BBBCE8FCD7 /* Pods-FilterCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilterCamera.release.xcconfig"; path = "Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera.release.xcconfig"; sourceTree = "<group>"; };
 		214AB81220BFC21300D4B73C /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
 		214AB81320BFC21300D4B73C /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
+		214AB81620BFF41600D4B73C /* MotionOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionOrientation.h; sourceTree = "<group>"; };
+		214AB81720BFF41600D4B73C /* MotionOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionOrientation.m; sourceTree = "<group>"; };
+		214AB81920BFF45100D4B73C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		214AB81B20BFF45800D4B73C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		21570CFC20BB8D8B002585CB /* FilterCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilterCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21570CFF20BB8D8B002585CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		21570D0020BB8D8B002585CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -312,6 +319,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				214AB81C20BFF45800D4B73C /* CoreGraphics.framework in Frameworks */,
+				214AB81A20BFF45100D4B73C /* CoreMotion.framework in Frameworks */,
 				46520FC3277AC77D1B267CA2 /* libPods-FilterCamera.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +345,7 @@
 		214AB80C20BFBE8C00D4B73C /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				214AB81520BFF41600D4B73C /* Orientation */,
 			);
 			path = Vender;
 			sourceTree = "<group>";
@@ -347,6 +357,15 @@
 				214AB81320BFC21300D4B73C /* UIImage+Rotate.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		214AB81520BFF41600D4B73C /* Orientation */ = {
+			isa = PBXGroup;
+			children = (
+				214AB81620BFF41600D4B73C /* MotionOrientation.h */,
+				214AB81720BFF41600D4B73C /* MotionOrientation.m */,
+			);
+			path = Orientation;
 			sourceTree = "<group>";
 		};
 		21570CF320BB8D8B002585CB = {
@@ -834,6 +853,8 @@
 		BAADFFE61C90C61551197A81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				214AB81B20BFF45800D4B73C /* CoreGraphics.framework */,
+				214AB81920BFF45100D4B73C /* CoreMotion.framework */,
 				C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */,
 			);
 			name = Frameworks;
@@ -1115,6 +1136,7 @@
 				2179F37520BD078900B73822 /* FWWaldenFilter.m in Sources */,
 				21570E1A20BBC576002585CB /* ShakeButton.m in Sources */,
 				2179F35A20BD078900B73822 /* FWRiseFilter.m in Sources */,
+				214AB81820BFF41600D4B73C /* MotionOrientation.m in Sources */,
 				21570D0F20BB8D8B002585CB /* main.m in Sources */,
 				21570DF320BB9145002585CB /* HalfSketchController.m in Sources */,
 				2179F34A20BD078900B73822 /* FWHudsonFilter.m in Sources */,
