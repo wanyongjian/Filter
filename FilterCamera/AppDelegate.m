@@ -10,7 +10,10 @@
 #import "COCameraViewController.h"
 #import "ViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <DeviceOrientationDelegate>
+{
+    DeviceOrientation *CODeviceOrientation;
+}
 
 @end
 
@@ -24,7 +27,8 @@
 //    ViewController *vc = [[ViewController alloc]init];
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
-    
+    CODeviceOrientation = [[DeviceOrientation alloc]initWithDelegate:self];
+    [CODeviceOrientation startMonitor];
     return YES;
 }
 
@@ -55,5 +59,25 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)directionChange:(TgDirection)direction {
+    
+    switch (direction) {
+        case TgDirectionPortrait:
+            self.imageOrientation = UIImageOrientationUp;
+            break;
+        case TgDirectionDown:
+            self.imageOrientation = UIImageOrientationDown;
+            break;
+        case TgDirectionRight:
+            self.imageOrientation = UIImageOrientationRight;
+            break;
+        case TgDirectionleft:
+            self.imageOrientation = UIImageOrientationLeft;
+            break;
+        default:
+            self.imageOrientation = UIImageOrientationUp;
+            break;
+    }
+}
 
 @end

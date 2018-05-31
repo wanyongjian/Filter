@@ -169,10 +169,12 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     
 }
 - (void)takePhotoAction{
-    UIDeviceOrientation deviceOrientation = [[UIDevice currentDevice] orientation];
     runAsynchronouslyOnVideoProcessingQueue(^{
+        
         [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.filter withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-            UIImage *image = processedImage;
+            AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+            UIImage *image = [processedImage fixOrientation];
+            NSLog(@"");
         }];
     });
 }

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (Rotate)
+/** 根据出入的图片方向来修正*/
+- (UIImage *)fixOrientationWith:(UIImageOrientation)imageOrientation;
 
 /** 纠正图片的方向 */
 - (UIImage *)fixOrientation;
