@@ -11,6 +11,7 @@
 #import "COStillCameraPreview.h"
 #import "ShakeButton.h"
 #import "COCameraFilterView.h"
+#import "COPhotoDisplayController.h"
 typedef NS_ENUM(NSInteger,CameraRatioType){
     CameraRatioType43,
     CameraRatioType11,
@@ -32,6 +33,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 @property (nonatomic, strong) COCameraFilterView *cameraFilterView;
 @property (nonatomic, strong) UIButton *takePhotoBtn;
 @property (nonatomic, strong) GPUImageFilter *filter;
+@property (nonatomic, strong) GPUImageFilter *passFilter;
 @property (nonatomic, strong) AppDelegate *appDelegate;
 @property (nonatomic, assign) UIImageOrientation imageOrientation;
 @end
@@ -60,6 +62,8 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 }
 - (void)setUI{
     weakSelf();
+    [self.navigationController setNavigationBarHidden:YES];
+    self.passFilter = [[GPUImageFilter alloc]init];
     _imageView = [[COStillCameraPreview alloc]init];
     _imageView.fillMode = kGPUImageFillModePreserveAspectRatioAndFill;
     _imageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*(4.0/3.0));
@@ -174,17 +178,24 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         Class vc = NSClassFromString(model.vc);
         wself.filter = [[vc alloc]init];
         [wself.stillCamera addTarget:wself.filter];
+        [wself.stillCamera addTarget:wself.passFilter];
         [wself.filter addTarget:wself.imageView];
     };
-    
-    
 }
 - (void)takePhotoAction{
     runAsynchronouslyOnVideoProcessingQueue(^{
-        [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.filter withOrientation:self.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-            UIImage *clipImage = [UIImage clipOrientationImage:processedImage withRatio:_currentCameraViewRatio];
-            UIImage *image = [clipImage fixOrientation];
+        
+        [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.passFilter withOrientation:self.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+            UIImage *SourceClipImage = [UIImage clipOrientationImage:processedImage withRatio:_currentCameraViewRatio];
+            UIImage *SourceImage = [SourceClipImage fixOrientation];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+                vc.sourceImage = SourceImage;
+                vc.imageFilter = self.filter;
+                [self.navigationController pushViewController:vc animated:NO];
+            });
         }];
+
     });
 }
 - (void)setCameraRatio:(CameraRatioType)ratioType{

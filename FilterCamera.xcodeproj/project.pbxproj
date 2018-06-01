@@ -123,6 +123,8 @@
 		2179F38220BD1C9600B73822 /* FilterConfig in Resources */ = {isa = PBXBuildFile; fileRef = 2179F38120BD1C9600B73822 /* FilterConfig */; };
 		2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2179F38420BD45AE00B73822 /* AnimationFilter.m */; };
 		21CBBA1920C0D70600C5AC30 /* UIImage+Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1820C0D70600C5AC30 /* UIImage+Clip.m */; };
+		21CBBA1C20C0F2DF00C5AC30 /* COPhotoDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1B20C0F2DF00C5AC30 /* COPhotoDisplayController.m */; };
+		21CBBA1F20C0F50E00C5AC30 /* COBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */; };
 		22C562B420BEE2AC0011014A /* qmkit_takephoto_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */; };
 		22C562B920C0275C0011014A /* DeviceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C562B820C0275C0011014A /* DeviceOrientation.m */; };
 		46520FC3277AC77D1B267CA2 /* libPods-FilterCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */; };
@@ -310,6 +312,10 @@
 		2179F38420BD45AE00B73822 /* AnimationFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationFilter.m; sourceTree = "<group>"; };
 		21CBBA1720C0D70600C5AC30 /* UIImage+Clip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Clip.h"; sourceTree = "<group>"; };
 		21CBBA1820C0D70600C5AC30 /* UIImage+Clip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Clip.m"; sourceTree = "<group>"; };
+		21CBBA1A20C0F2DF00C5AC30 /* COPhotoDisplayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COPhotoDisplayController.h; sourceTree = "<group>"; };
+		21CBBA1B20C0F2DF00C5AC30 /* COPhotoDisplayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COPhotoDisplayController.m; sourceTree = "<group>"; };
+		21CBBA1D20C0F50E00C5AC30 /* COBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COBaseNavigationController.h; sourceTree = "<group>"; };
+		21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COBaseNavigationController.m; sourceTree = "<group>"; };
 		22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_takephoto_btn@3x.png"; sourceTree = "<group>"; };
 		22C562B720C0275C0011014A /* DeviceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceOrientation.h; sourceTree = "<group>"; };
 		22C562B820C0275C0011014A /* DeviceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceOrientation.m; sourceTree = "<group>"; };
@@ -568,6 +574,10 @@
 			children = (
 				21570E0D20BBA995002585CB /* COCameraViewController.h */,
 				21570E0E20BBA995002585CB /* COCameraViewController.m */,
+				21CBBA1A20C0F2DF00C5AC30 /* COPhotoDisplayController.h */,
+				21CBBA1B20C0F2DF00C5AC30 /* COPhotoDisplayController.m */,
+				21CBBA1D20C0F50E00C5AC30 /* COBaseNavigationController.h */,
+				21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1159,6 +1169,7 @@
 				21570DFA20BB9145002585CB /* CustomAlphaBlendFilter.m in Sources */,
 				21570DF120BB9145002585CB /* GPUImageFourInputFilter.m in Sources */,
 				2179F34120BD078900B73822 /* FWEarlybirdFilter.m in Sources */,
+				21CBBA1F20C0F50E00C5AC30 /* COBaseNavigationController.m in Sources */,
 				21570DEF20BB9145002585CB /* FWFiveInputFilter.m in Sources */,
 				2179F34F20BD078900B73822 /* FWInkwellFilter.m in Sources */,
 				21570E0720BBA8AE002585CB /* COStillCamera.m in Sources */,
@@ -1176,6 +1187,7 @@
 				2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */,
 				21570E2320BBFDC1002585CB /* COCameraFilterView.m in Sources */,
 				2179F33320BD078900B73822 /* FWAmaroFilter.m in Sources */,
+				21CBBA1C20C0F2DF00C5AC30 /* COPhotoDisplayController.m in Sources */,
 				21570DFB20BB9145002585CB /* CustomFrameBlendThreeFilter.m in Sources */,
 				21570DF920BB9145002585CB /* YJOldPhoteFilter.m in Sources */,
 				2179F35620BD078900B73822 /* FWNashvilleFilter.m in Sources */,

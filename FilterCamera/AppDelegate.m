@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "COCameraViewController.h"
 #import "ViewController.h"
-
+#import "COBaseNavigationController.h"
 @interface AppDelegate () <DeviceOrientationDelegate>
 {
     DeviceOrientation *CODeviceOrientation;
@@ -24,8 +24,8 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     COCameraViewController *vc = [[COCameraViewController alloc]init];
-//    ViewController *vc = [[ViewController alloc]init];
-    self.window.rootViewController = vc;
+    COBaseNavigationController *nav = [[COBaseNavigationController alloc]initWithRootViewController:vc];
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     CODeviceOrientation = [[DeviceOrientation alloc]initWithDelegate:self];
     [CODeviceOrientation startMonitor];
