@@ -62,20 +62,30 @@
 - (void)directionChange:(TgDirection)direction {
     
     switch (direction) {
-        case TgDirectionPortrait:
+        case TgDirectionPortrait:{
             self.imageOrientation = UIImageOrientationUp;
+            NSLog(@"相机方向：UIImageOrientationUp");
+        }
             break;
-        case TgDirectionDown:
+        case TgDirectionDown:{
             self.imageOrientation = UIImageOrientationDown;
+            NSLog(@"相机方向：UIImageOrientationDown");
+        }
             break;
-        case TgDirectionRight:
+        case TgDirectionRight:{
             self.imageOrientation = UIImageOrientationRight;
+            NSLog(@"相机方向：UIImageOrientationRight");
+        }
             break;
-        case TgDirectionleft:
+        case TgDirectionleft:{
             self.imageOrientation = UIImageOrientationLeft;
+            NSLog(@"相机方向：UIImageOrientationLeft");
+        }
             break;
-        default:
+        default:{
             self.imageOrientation = UIImageOrientationUp;
+            NSLog(@"相机方向：unKnow");
+        }
             break;
     }
 }

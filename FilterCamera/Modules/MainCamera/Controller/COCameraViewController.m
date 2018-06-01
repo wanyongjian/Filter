@@ -32,6 +32,8 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 @property (nonatomic, strong) COCameraFilterView *cameraFilterView;
 @property (nonatomic, strong) UIButton *takePhotoBtn;
 @property (nonatomic, strong) GPUImageFilter *filter;
+@property (nonatomic, strong) AppDelegate *appDelegate;
+@property (nonatomic, assign) UIImageOrientation imageOrientation;
 @end
 
 @implementation COCameraViewController
@@ -41,11 +43,20 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     self.view.backgroundColor = [UIColor lightGrayColor];
     // Do any additional setup after loading the view.
     [self setData];
+    [self setUpOrientationValue];
     [self setUI];
     [self setCamera];
 }
+- (void)setUpOrientationValue{
+    weakSelf();
+    self.appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    [RACObserve(self.appDelegate, imageOrientation) subscribeNext:^(id  _Nullable x) {
+        wself.imageOrientation = [x integerValue];
+    }];
+}
 - (void)setData{
     _ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"],@[@"9:16",@"1.78"]].mutableCopy;
+    _currentCameraViewRatio = 1.33;
 }
 - (void)setUI{
     weakSelf();
@@ -126,7 +137,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         make.centerX.mas_equalTo(self.view);
         make.centerY.mas_equalTo(filterBtn);
     }];
-    [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+    [[button rac_signalForControlEvents:UIControlEventTouchDown] subscribeNext:^(__kindof UIControl * _Nullable x) {
         [wself takePhotoAction];
     }];
     _takePhotoBtn = button;
@@ -170,22 +181,10 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 }
 - (void)takePhotoAction{
     runAsynchronouslyOnVideoProcessingQueue(^{
-        AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-        [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.filter withOrientation:appDelegate.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-            UIImage *image = [processedImage fixOrientation];
-            NSLog(@"");
+        [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.filter withOrientation:self.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+            UIImage *clipImage = [UIImage clipOrientationImage:processedImage withRatio:_currentCameraViewRatio];
+            UIImage *image = [clipImage fixOrientation];
         }];
-        
-        
-//        [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.filter withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-//
-//            CGImageRef cgImageFromBytes = processedImage.CGImage;
-//            UIImage *finalImage = [UIImage imageWithCGImage:cgImageFromBytes scale:1.0 orientation:appDelegate.imageOrientation];
-//            CGImageRelease(cgImageFromBytes);
-//
-//            UIImage *image = [finalImage fixOrientation];
-//            NSLog(@"");
-//        }];
     });
 }
 - (void)setCameraRatio:(CameraRatioType)ratioType{

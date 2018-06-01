@@ -122,6 +122,7 @@
 		2179F37B20BD078900B73822 /* xproMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F32F20BD078900B73822 /* xproMap.png */; };
 		2179F38220BD1C9600B73822 /* FilterConfig in Resources */ = {isa = PBXBuildFile; fileRef = 2179F38120BD1C9600B73822 /* FilterConfig */; };
 		2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2179F38420BD45AE00B73822 /* AnimationFilter.m */; };
+		21CBBA1920C0D70600C5AC30 /* UIImage+Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1820C0D70600C5AC30 /* UIImage+Clip.m */; };
 		22C562B420BEE2AC0011014A /* qmkit_takephoto_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */; };
 		22C562B920C0275C0011014A /* DeviceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C562B820C0275C0011014A /* DeviceOrientation.m */; };
 		46520FC3277AC77D1B267CA2 /* libPods-FilterCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */; };
@@ -307,6 +308,8 @@
 		2179F38120BD1C9600B73822 /* FilterConfig */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FilterConfig; path = FilterCamera/FilterConfig; sourceTree = "<group>"; };
 		2179F38320BD45AE00B73822 /* AnimationFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationFilter.h; sourceTree = "<group>"; };
 		2179F38420BD45AE00B73822 /* AnimationFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationFilter.m; sourceTree = "<group>"; };
+		21CBBA1720C0D70600C5AC30 /* UIImage+Clip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Clip.h"; sourceTree = "<group>"; };
+		21CBBA1820C0D70600C5AC30 /* UIImage+Clip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Clip.m"; sourceTree = "<group>"; };
 		22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_takephoto_btn@3x.png"; sourceTree = "<group>"; };
 		22C562B720C0275C0011014A /* DeviceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceOrientation.h; sourceTree = "<group>"; };
 		22C562B820C0275C0011014A /* DeviceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceOrientation.m; sourceTree = "<group>"; };
@@ -345,6 +348,7 @@
 		214AB80C20BFBE8C00D4B73C /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				21CBBA1620C0D70600C5AC30 /* ClipImage */,
 				214AB81520BFF41600D4B73C /* Orientation */,
 			);
 			path = Vender;
@@ -841,6 +845,15 @@
 			path = "fw_XproII_雅熙";
 			sourceTree = "<group>";
 		};
+		21CBBA1620C0D70600C5AC30 /* ClipImage */ = {
+			isa = PBXGroup;
+			children = (
+				21CBBA1720C0D70600C5AC30 /* UIImage+Clip.h */,
+				21CBBA1820C0D70600C5AC30 /* UIImage+Clip.m */,
+			);
+			path = ClipImage;
+			sourceTree = "<group>";
+		};
 		72D5EB4AEE9C2B950BE5BA90 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1139,6 +1152,7 @@
 				21570D0F20BB8D8B002585CB /* main.m in Sources */,
 				21570DF320BB9145002585CB /* HalfSketchController.m in Sources */,
 				22C562B920C0275C0011014A /* DeviceOrientation.m in Sources */,
+				21CBBA1920C0D70600C5AC30 /* UIImage+Clip.m in Sources */,
 				2179F34A20BD078900B73822 /* FWHudsonFilter.m in Sources */,
 				21570E0F20BBA995002585CB /* COCameraViewController.m in Sources */,
 				2179F22A20BCFC7700B73822 /* FilterModel.m in Sources */,

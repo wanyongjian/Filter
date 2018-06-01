@@ -19,4 +19,5 @@
 #import "UIImage+Rotate.h"
 #import "DeviceOrientation.h"
 #import "AppDelegate.h"
+#import "UIImage+Clip.h"
 #endif /* Coco_pch */
