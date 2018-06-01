@@ -20,4 +20,5 @@
 #import "DeviceOrientation.h"
 #import "AppDelegate.h"
 #import "UIImage+Clip.h"
+#import "GLBBaseViewController.h"
 #endif /* Coco_pch */

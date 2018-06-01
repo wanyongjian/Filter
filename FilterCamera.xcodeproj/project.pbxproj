@@ -125,6 +125,7 @@
 		21CBBA1920C0D70600C5AC30 /* UIImage+Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1820C0D70600C5AC30 /* UIImage+Clip.m */; };
 		21CBBA1C20C0F2DF00C5AC30 /* COPhotoDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1B20C0F2DF00C5AC30 /* COPhotoDisplayController.m */; };
 		21CBBA1F20C0F50E00C5AC30 /* COBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */; };
+		21CBBA2C20C145FB00C5AC30 /* GLBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA2B20C145FB00C5AC30 /* GLBBaseViewController.m */; };
 		22C562B420BEE2AC0011014A /* qmkit_takephoto_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */; };
 		22C562B920C0275C0011014A /* DeviceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C562B820C0275C0011014A /* DeviceOrientation.m */; };
 		46520FC3277AC77D1B267CA2 /* libPods-FilterCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */; };
@@ -316,6 +317,8 @@
 		21CBBA1B20C0F2DF00C5AC30 /* COPhotoDisplayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COPhotoDisplayController.m; sourceTree = "<group>"; };
 		21CBBA1D20C0F50E00C5AC30 /* COBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COBaseNavigationController.h; sourceTree = "<group>"; };
 		21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COBaseNavigationController.m; sourceTree = "<group>"; };
+		21CBBA2A20C145FB00C5AC30 /* GLBBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBBaseViewController.h; sourceTree = "<group>"; };
+		21CBBA2B20C145FB00C5AC30 /* GLBBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLBBaseViewController.m; sourceTree = "<group>"; };
 		22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_takephoto_btn@3x.png"; sourceTree = "<group>"; };
 		22C562B720C0275C0011014A /* DeviceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceOrientation.h; sourceTree = "<group>"; };
 		22C562B820C0275C0011014A /* DeviceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceOrientation.m; sourceTree = "<group>"; };
@@ -534,6 +537,7 @@
 		21570E0220BBA887002585CB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				21CBBA2920C145FB00C5AC30 /* BaseController */,
 				21570E0B20BBA927002585CB /* MainCamera */,
 				21570E0320BBA887002585CB /* PublicModules */,
 			);
@@ -864,6 +868,15 @@
 			path = ClipImage;
 			sourceTree = "<group>";
 		};
+		21CBBA2920C145FB00C5AC30 /* BaseController */ = {
+			isa = PBXGroup;
+			children = (
+				21CBBA2A20C145FB00C5AC30 /* GLBBaseViewController.h */,
+				21CBBA2B20C145FB00C5AC30 /* GLBBaseViewController.m */,
+			);
+			path = BaseController;
+			sourceTree = "<group>";
+		};
 		72D5EB4AEE9C2B950BE5BA90 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1156,6 +1169,7 @@
 				2179F36320BD078900B73822 /* FWSutroFilter.m in Sources */,
 				21570D0420BB8D8B002585CB /* ViewController.m in Sources */,
 				21570E0A20BBA8CF002585CB /* COStillCameraPreview.m in Sources */,
+				21CBBA2C20C145FB00C5AC30 /* GLBBaseViewController.m in Sources */,
 				2179F37520BD078900B73822 /* FWWaldenFilter.m in Sources */,
 				21570E1A20BBC576002585CB /* ShakeButton.m in Sources */,
 				2179F35A20BD078900B73822 /* FWRiseFilter.m in Sources */,

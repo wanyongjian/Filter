@@ -34,4 +34,9 @@ typedef NS_ENUM(NSInteger,SelectFilterType){
 #define kFilterPath [[NSBundle mainBundle] pathForResource:@"COFilters" ofType:nil]
 #define kCameraFilterViewItemSize                 60
 #define kCameraFilterCollectionViewHeight         100
+
+#define UNNULL_STRING(A) ((A && ![A isKindOfClass:[NSNull class]]) ? A : @"")
+
+#define GLBROBOT_BUNDLE_IMAGE(bundle, path, imageName)   [UIImage imageNamed:[NSString stringWithFormat:@"%@/%@/%@",bundle, path, imageName]]
+#define GLBROBOT_COMMON_IMAGE(imageName)   GLBROBOT_BUNDLE_IMAGE(@"GLBRobot.bundle", @"common_images",imageName)
 #endif /* Macro_h */
