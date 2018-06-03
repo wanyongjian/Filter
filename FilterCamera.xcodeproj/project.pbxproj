@@ -126,6 +126,8 @@
 		21CBBA1C20C0F2DF00C5AC30 /* COPhotoDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1B20C0F2DF00C5AC30 /* COPhotoDisplayController.m */; };
 		21CBBA1F20C0F50E00C5AC30 /* COBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */; };
 		21CBBA2C20C145FB00C5AC30 /* GLBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA2B20C145FB00C5AC30 /* GLBBaseViewController.m */; };
+		228546D720C404D200F22E3D /* LUTSource in Resources */ = {isa = PBXBuildFile; fileRef = 228546D620C404D200F22E3D /* LUTSource */; };
+		228546DB20C4080000F22E3D /* LUTSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 228546DA20C4080000F22E3D /* LUTSource.bundle */; };
 		22C562B420BEE2AC0011014A /* qmkit_takephoto_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */; };
 		22C562B920C0275C0011014A /* DeviceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C562B820C0275C0011014A /* DeviceOrientation.m */; };
 		46520FC3277AC77D1B267CA2 /* libPods-FilterCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */; };
@@ -319,6 +321,8 @@
 		21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COBaseNavigationController.m; sourceTree = "<group>"; };
 		21CBBA2A20C145FB00C5AC30 /* GLBBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBBaseViewController.h; sourceTree = "<group>"; };
 		21CBBA2B20C145FB00C5AC30 /* GLBBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLBBaseViewController.m; sourceTree = "<group>"; };
+		228546D620C404D200F22E3D /* LUTSource */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LUTSource; path = ../../../LUTSource; sourceTree = "<group>"; };
+		228546DA20C4080000F22E3D /* LUTSource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LUTSource.bundle; sourceTree = "<group>"; };
 		22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_takephoto_btn@3x.png"; sourceTree = "<group>"; };
 		22C562B720C0275C0011014A /* DeviceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceOrientation.h; sourceTree = "<group>"; };
 		22C562B820C0275C0011014A /* DeviceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceOrientation.m; sourceTree = "<group>"; };
@@ -384,6 +388,8 @@
 		21570CF320BB8D8B002585CB = {
 			isa = PBXGroup;
 			children = (
+				228546DA20C4080000F22E3D /* LUTSource.bundle */,
+				228546D620C404D200F22E3D /* LUTSource */,
 				2179F38120BD1C9600B73822 /* FilterConfig */,
 				2179F22B20BD00F500B73822 /* FilterSource */,
 				21570CFE20BB8D8B002585CB /* FilterCamera */,
@@ -1028,6 +1034,7 @@
 				2179F33620BD078900B73822 /* brannanContrast.png in Resources */,
 				2179F34720BD078900B73822 /* hefeMetal.png in Resources */,
 				2179F36420BD078900B73822 /* softLight.png in Resources */,
+				228546D720C404D200F22E3D /* LUTSource in Resources */,
 				2179F36020BD078900B73822 /* sierraMap.png in Resources */,
 				2179F34320BD078900B73822 /* edgeBurn.png in Resources */,
 				2179F35120BD078900B73822 /* config.json in Resources */,
@@ -1067,6 +1074,7 @@
 				2179F33A20BD078900B73822 /* config.json in Resources */,
 				2179F36920BD078900B73822 /* config.json in Resources */,
 				2179F33820BD078900B73822 /* brannanProcess.png in Resources */,
+				228546DB20C4080000F22E3D /* LUTSource.bundle in Resources */,
 				2179F35C20BD078900B73822 /* riseMap.png in Resources */,
 				2179F33420BD078900B73822 /* overlayMap.png in Resources */,
 				2179F35D20BD078900B73822 /* config.json in Resources */,
