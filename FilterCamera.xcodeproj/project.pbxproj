@@ -120,7 +120,6 @@
 		2179F37920BD078900B73822 /* FWXproIIFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2179F32D20BD078900B73822 /* FWXproIIFilter.m */; };
 		2179F37A20BD078900B73822 /* vignetteMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F32E20BD078900B73822 /* vignetteMap.png */; };
 		2179F37B20BD078900B73822 /* xproMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F32F20BD078900B73822 /* xproMap.png */; };
-		2179F38220BD1C9600B73822 /* FilterConfig in Resources */ = {isa = PBXBuildFile; fileRef = 2179F38120BD1C9600B73822 /* FilterConfig */; };
 		2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2179F38420BD45AE00B73822 /* AnimationFilter.m */; };
 		21CBBA1920C0D70600C5AC30 /* UIImage+Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1820C0D70600C5AC30 /* UIImage+Clip.m */; };
 		21CBBA1C20C0F2DF00C5AC30 /* COPhotoDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1B20C0F2DF00C5AC30 /* COPhotoDisplayController.m */; };
@@ -309,7 +308,6 @@
 		2179F32D20BD078900B73822 /* FWXproIIFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWXproIIFilter.m; sourceTree = "<group>"; };
 		2179F32E20BD078900B73822 /* vignetteMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vignetteMap.png; sourceTree = "<group>"; };
 		2179F32F20BD078900B73822 /* xproMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xproMap.png; sourceTree = "<group>"; };
-		2179F38120BD1C9600B73822 /* FilterConfig */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FilterConfig; path = FilterCamera/FilterConfig; sourceTree = "<group>"; };
 		2179F38320BD45AE00B73822 /* AnimationFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationFilter.h; sourceTree = "<group>"; };
 		2179F38420BD45AE00B73822 /* AnimationFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationFilter.m; sourceTree = "<group>"; };
 		21CBBA1720C0D70600C5AC30 /* UIImage+Clip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Clip.h"; sourceTree = "<group>"; };
@@ -387,7 +385,6 @@
 			isa = PBXGroup;
 			children = (
 				228546DA20C4080000F22E3D /* LUTSource.bundle */,
-				2179F38120BD1C9600B73822 /* FilterConfig */,
 				2179F22B20BD00F500B73822 /* FilterSource */,
 				21570CFE20BB8D8B002585CB /* FilterCamera */,
 				21570D1720BB8D8B002585CB /* FilterCameraTests */,
@@ -1041,7 +1038,6 @@
 				2179F37220BD078900B73822 /* valenciaGradientMap.png in Resources */,
 				21570DFD20BB9145002585CB /* frame1.png in Resources */,
 				2179F35F20BD078900B73822 /* overlayMap.png in Resources */,
-				2179F38220BD1C9600B73822 /* FilterConfig in Resources */,
 				2179F34820BD078900B73822 /* hefeSoftLight.png in Resources */,
 				2179F36520BD078900B73822 /* sutroCurves.png in Resources */,
 				21570DFC20BB9145002585CB /* frame.png in Resources */,

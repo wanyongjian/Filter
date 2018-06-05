@@ -25,8 +25,8 @@
     if(self = [super init]){
         self.hidden = YES;
         self.backgroundColor = RGBAColor(0xff, 0xff, 0xff, 1);
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"FilterConfig" ofType:nil];
-        _filterModleArray = [FilterModel getModleArrayFromName:[path stringByAppendingPathComponent:@"FilterConfig.json"]];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"LUTSource" ofType:@"bundle"];
+        _filterModleArray = [FilterModel getModleArrayFromName:[path stringByAppendingPathComponent:@"LUTSource/精选/FilterConfig.json"]];
         [self addCollectionView];
         self.lastIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     }
