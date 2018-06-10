@@ -17,3 +17,16 @@
 
 + (NSArray<FilterModel *> *)getModleArrayFromName:(NSString *)name;
 @end
+
+@interface LUTFilterGroupModel :NSObject
+@property (nonatomic, strong)NSString *name;
+@property (nonatomic, strong)NSString *type;
+@property (nonatomic, strong)NSString *path;
+@property (nonatomic, strong)NSString *imagePath;
++ (NSArray <LUTFilterGroupModel *>*)getLUTFilterGroupArrayWithPath:(NSString *)path;
+@end
+
+@interface LUTFilterModel :NSObject
+@property (nonatomic, strong)NSString *filterName;
+@property (nonatomic, strong)NSString *ImageName;
+@end

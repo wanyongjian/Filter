@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface COPhotoDisplayController : UIViewController
+@interface COPhotoDisplayController : GLBBaseViewController
 
 @property (nonatomic, strong) UIImage *sourceImage;
 @property (nonatomic, strong) GPUImageFilter *imageFilter;

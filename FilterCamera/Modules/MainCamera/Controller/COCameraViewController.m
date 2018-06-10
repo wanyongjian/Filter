@@ -57,7 +57,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     }];
 }
 - (void)setData{
-    _ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"],@[@"9:16",@"1.78"]].mutableCopy;
+    _ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"]].mutableCopy;
     _currentCameraViewRatio = 1.33;
 }
 - (void)setUI{
@@ -186,6 +186,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     runAsynchronouslyOnVideoProcessingQueue(^{
         
         [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.passFilter withOrientation:self.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+            [self.stillCamera stopCameraCapture];
             UIImage *SourceClipImage = [UIImage clipOrientationImage:processedImage withRatio:_currentCameraViewRatio];
             UIImage *SourceImage = [SourceClipImage fixOrientation];
             dispatch_async(dispatch_get_main_queue(), ^{

@@ -39,4 +39,6 @@ typedef NS_ENUM(NSInteger,SelectFilterType){
 
 #define GLBROBOT_BUNDLE_IMAGE(bundle, path, imageName)   [UIImage imageNamed:[NSString stringWithFormat:@"%@/%@/%@",bundle, path, imageName]]
 #define GLBROBOT_COMMON_IMAGE(imageName)   GLBROBOT_BUNDLE_IMAGE(@"GLBRobot.bundle", @"common_images",imageName)
+
+#define LUTBUNDLE [[NSBundle mainBundle] pathForResource:@"LUTSource" ofType:@"bundle"]
 #endif /* Macro_h */

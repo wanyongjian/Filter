@@ -60,3 +60,27 @@
     return filters;
 }
 @end
+
+@implementation LUTFilterGroupModel
++ (NSArray<LUTFilterGroupModel *> *)getLUTFilterGroupArrayWithPath:(NSString *)path{
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    if(!array){
+        return nil;
+    }
+    
+    NSMutableArray <LUTFilterGroupModel *> *FilterArray = @[].mutableCopy;
+    for (NSDictionary *dict in array) {
+        LUTFilterGroupModel *model = [[LUTFilterGroupModel alloc]init];
+        model.name = dict[@"name"];
+        model.type = dict[@"type"];
+        model.path = dict[@"path"];
+        model.imagePath = dict[@"imagePath"];
+        [FilterArray addObject:model];
+    }
+    return FilterArray;
+}
+@end
+
+@implementation LUTFilterModel
+@end
