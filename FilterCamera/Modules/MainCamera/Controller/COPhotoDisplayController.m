@@ -28,11 +28,12 @@
     [self.view addSubview:self.imageView];
     
     GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.sourceImage];
-    [pic addTarget:self.imageFilter];
-    [self.imageFilter useNextFrameForImageCapture];
+    GPUImageFilter *filter = [[self.filterClass alloc]init];
+    [pic addTarget:filter];
+    [filter useNextFrameForImageCapture];
     [pic processImage];
     
-    UIImage *image = [self.imageFilter imageFromCurrentFramebuffer];
+    UIImage *image = [filter imageFromCurrentFramebuffer];
     
     
     CGFloat ratio = image.size.height/(CGFloat)image.size.width;
@@ -41,10 +42,13 @@
     
     
 //    [self setUI];
+    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    self.navigationItem.leftBarButtonItem = leftItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    [self addNavigationItemWithTitle:@"返回" type:ItemTypeLeft selector:@selector(backAction)];
+//    [self addNavigationItemWithTitle:@"返回" type:ItemTypeLeft selector:@selector(backAction)];
 }
 - (void)backAction{
     [self.navigationController popViewControllerAnimated:NO];

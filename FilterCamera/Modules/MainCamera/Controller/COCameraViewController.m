@@ -36,6 +36,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 @property (nonatomic, strong) GPUImageFilter *passFilter;
 @property (nonatomic, strong) AppDelegate *appDelegate;
 @property (nonatomic, assign) UIImageOrientation imageOrientation;
+@property (nonatomic, strong) Class filterClass;
 @end
 
 @implementation COCameraViewController
@@ -47,7 +48,21 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [self setData];
     [self setUpOrientationValue];
     [self setUI];
-    [self setCamera];
+//    [self setCamera];
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+    if (!self.stillCamera) {
+        [self setCamera];
+    }else{
+        [self.stillCamera resumeCameraCapture];
+    }
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.stillCamera pauseCameraCapture];
 }
 - (void)setUpOrientationValue{
     weakSelf();
@@ -62,7 +77,6 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 }
 - (void)setUI{
     weakSelf();
-    [self.navigationController setNavigationBarHidden:YES];
     self.passFilter = [[GPUImageFilter alloc]init];
     _imageView = [[COStillCameraPreview alloc]init];
     _imageView.fillMode = kGPUImageFillModePreserveAspectRatioAndFill;
@@ -173,10 +187,11 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         }];
     }];
     //滤镜选择
+    
     self.cameraFilterView.filterClick = ^(FilterModel *model) {
         [wself.stillCamera removeAllTargets];
-        Class vc = NSClassFromString(model.vc);
-        wself.filter = [[vc alloc]init];
+        wself.filterClass = NSClassFromString(model.vc);
+        wself.filter = [[wself.filterClass alloc]init];
         [wself.stillCamera addTarget:wself.filter];
         [wself.stillCamera addTarget:wself.passFilter];
         [wself.filter addTarget:wself.imageView];
@@ -186,13 +201,13 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     runAsynchronouslyOnVideoProcessingQueue(^{
         
         [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.passFilter withOrientation:self.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-            [self.stillCamera stopCameraCapture];
             UIImage *SourceClipImage = [UIImage clipOrientationImage:processedImage withRatio:_currentCameraViewRatio];
             UIImage *SourceImage = [SourceClipImage fixOrientation];
             dispatch_async(dispatch_get_main_queue(), ^{
                 COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
                 vc.sourceImage = SourceImage;
-                vc.imageFilter = self.filter;
+                vc.filterClass = self.filterClass;
+//                vc.imageFilter = self.filter;
                 [self.navigationController pushViewController:vc animated:NO];
             });
         }];

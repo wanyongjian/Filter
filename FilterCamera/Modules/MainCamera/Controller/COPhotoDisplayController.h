@@ -12,4 +12,5 @@
 
 @property (nonatomic, strong) UIImage *sourceImage;
 @property (nonatomic, strong) GPUImageFilter *imageFilter;
+@property (nonatomic, strong) Class filterClass;
 @end
