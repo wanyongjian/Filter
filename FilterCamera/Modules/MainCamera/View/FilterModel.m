@@ -83,4 +83,20 @@
 @end
 
 @implementation LUTFilterModel
++ (NSArray<LUTFilterModel *> *)getLUTFilterArrayWithPath:(NSString *)path{
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    if(!array){
+        return nil;
+    }
+    
+    NSMutableArray <LUTFilterModel *> *FilterArray = @[].mutableCopy;
+    for (NSDictionary *dict in array) {
+        LUTFilterModel *model = [[LUTFilterModel alloc]init];
+        model.filterName = dict[@"filterName"];
+        model.ImageName = dict[@"ImageName"];
+        [FilterArray addObject:model];
+    }
+    return FilterArray;
+}
 @end

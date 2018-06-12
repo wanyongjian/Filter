@@ -126,6 +126,8 @@
 		21CBBA1F20C0F50E00C5AC30 /* COBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */; };
 		21CBBA2C20C145FB00C5AC30 /* GLBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA2B20C145FB00C5AC30 /* GLBBaseViewController.m */; };
 		2210509A20CD556F00AB0D9C /* COPhotoFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509920CD556F00AB0D9C /* COPhotoFilterView.m */; };
+		2210509D20CFFA4100AB0D9C /* COPhotoItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */; };
+		221050A020D0111D00AB0D9C /* GPUCommonLUTFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509F20D0111D00AB0D9C /* GPUCommonLUTFilter.m */; };
 		228546DB20C4080000F22E3D /* LUTSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 228546DA20C4080000F22E3D /* LUTSource.bundle */; };
 		22C562B420BEE2AC0011014A /* qmkit_takephoto_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */; };
 		22C562B920C0275C0011014A /* DeviceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C562B820C0275C0011014A /* DeviceOrientation.m */; };
@@ -321,6 +323,10 @@
 		21CBBA2B20C145FB00C5AC30 /* GLBBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLBBaseViewController.m; sourceTree = "<group>"; };
 		2210509820CD556F00AB0D9C /* COPhotoFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COPhotoFilterView.h; sourceTree = "<group>"; };
 		2210509920CD556F00AB0D9C /* COPhotoFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COPhotoFilterView.m; sourceTree = "<group>"; };
+		2210509B20CFFA4100AB0D9C /* COPhotoItemController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COPhotoItemController.h; sourceTree = "<group>"; };
+		2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COPhotoItemController.m; sourceTree = "<group>"; };
+		2210509E20D0111D00AB0D9C /* GPUCommonLUTFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUCommonLUTFilter.h; sourceTree = "<group>"; };
+		2210509F20D0111D00AB0D9C /* GPUCommonLUTFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUCommonLUTFilter.m; sourceTree = "<group>"; };
 		228546DA20C4080000F22E3D /* LUTSource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LUTSource.bundle; sourceTree = "<group>"; };
 		22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_takephoto_btn@3x.png"; sourceTree = "<group>"; };
 		22C562B720C0275C0011014A /* DeviceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceOrientation.h; sourceTree = "<group>"; };
@@ -583,8 +589,12 @@
 				21570E0E20BBA995002585CB /* COCameraViewController.m */,
 				21CBBA1A20C0F2DF00C5AC30 /* COPhotoDisplayController.h */,
 				21CBBA1B20C0F2DF00C5AC30 /* COPhotoDisplayController.m */,
+				2210509B20CFFA4100AB0D9C /* COPhotoItemController.h */,
+				2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */,
 				21CBBA1D20C0F50E00C5AC30 /* COBaseNavigationController.h */,
 				21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */,
+				2210509E20D0111D00AB0D9C /* GPUCommonLUTFilter.h */,
+				2210509F20D0111D00AB0D9C /* GPUCommonLUTFilter.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1174,6 +1184,7 @@
 				2179F36320BD078900B73822 /* FWSutroFilter.m in Sources */,
 				21570D0420BB8D8B002585CB /* ViewController.m in Sources */,
 				21570E0A20BBA8CF002585CB /* COStillCameraPreview.m in Sources */,
+				2210509D20CFFA4100AB0D9C /* COPhotoItemController.m in Sources */,
 				21CBBA2C20C145FB00C5AC30 /* GLBBaseViewController.m in Sources */,
 				2179F37520BD078900B73822 /* FWWaldenFilter.m in Sources */,
 				21570E1A20BBC576002585CB /* ShakeButton.m in Sources */,
@@ -1189,6 +1200,7 @@
 				2210509A20CD556F00AB0D9C /* COPhotoFilterView.m in Sources */,
 				21570DF120BB9145002585CB /* GPUImageFourInputFilter.m in Sources */,
 				2179F34120BD078900B73822 /* FWEarlybirdFilter.m in Sources */,
+				221050A020D0111D00AB0D9C /* GPUCommonLUTFilter.m in Sources */,
 				21CBBA1F20C0F50E00C5AC30 /* COBaseNavigationController.m in Sources */,
 				21570DEF20BB9145002585CB /* FWFiveInputFilter.m in Sources */,
 				2179F34F20BD078900B73822 /* FWInkwellFilter.m in Sources */,

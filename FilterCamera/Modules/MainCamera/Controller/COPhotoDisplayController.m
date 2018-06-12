@@ -8,6 +8,7 @@
 
 #import "COPhotoDisplayController.h"
 #import "COPhotoFilterView.h"
+#import "COPhotoItemController.h"
 
 #define kCameraFilterViewHeight (kScreenHeight-kScreenWidth*4.0f/3.0f)
 
@@ -41,7 +42,7 @@
     self.imageView.frame = CGRectMake(0, 100, kScreenWidth, kScreenWidth*ratio);
     
     
-//    [self setUI];
+    [self setFilterGroupUI];
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
     self.navigationItem.leftBarButtonItem = leftItem;
@@ -53,12 +54,17 @@
 - (void)backAction{
     [self.navigationController popViewControllerAnimated:NO];
 }
-- (void)setUI{
+- (void)setFilterGroupUI{
+    weakSelf();
     _photoFilterView = [[COPhotoFilterView alloc]init];
     _photoFilterView.frame = CGRectMake(0, kScreenHeight-kCameraFilterViewHeight, kScreenWidth, kCameraFilterViewHeight);
     [self.view addSubview:self.photoFilterView];
     self.photoFilterView.filterClick = ^(LUTFilterGroupModel *model) {
         NSLog(@"%@,%@,%@,%@",model.name,model.type,model.path,model.imagePath);
+        COPhotoItemController *vc = [[COPhotoItemController alloc]init];
+        [wself.navigationController pushViewController:vc animated:NO];
+        vc.model = model;
+        vc.sourceImage = wself.sourceImage;
     };
 }
 @end

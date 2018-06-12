@@ -13,6 +13,8 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import <GPUImage.h>
 #import <ReactiveObjC.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "GPUCommonLUTFilter.h"
 #import "Macro.h"
 #import "masonry.h"
 //#import "TKImageView.h"

@@ -4,4 +4,5 @@ target 'FilterCamera' do
 pod 'GPUImage'
 pod 'Masonry'
 pod 'ReactiveObjC'
+pod 'SDWebImage'
 end
