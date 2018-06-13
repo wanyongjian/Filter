@@ -199,8 +199,10 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 }
 - (void)takePhotoAction{
     runAsynchronouslyOnVideoProcessingQueue(^{
-        
+        NSLog(@"***** 开始拍照 *****");
+        NSLog(@"滤镜%@，方向%ld",self.passFilter,(long)self.imageOrientation);
         [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.passFilter withOrientation:self.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+            NSLog(@"***** 拍照完成 ***** 图片：%@",processedImage);
             UIImage *SourceClipImage = [UIImage clipOrientationImage:processedImage withRatio:_currentCameraViewRatio];
             UIImage *SourceImage = [SourceClipImage fixOrientation];
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -208,6 +210,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
                 vc.sourceImage = SourceImage;
                 vc.filterClass = self.filterClass;
 //                vc.imageFilter = self.filter;
+                NSLog(@"***** 处理完成，准备跳转 *****");
                 [self.navigationController pushViewController:vc animated:NO];
             });
         }];

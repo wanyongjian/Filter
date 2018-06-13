@@ -10,5 +10,6 @@
 #import "FilterModel.h"
 @interface COPhotoItemController : UIViewController
 @property (nonatomic, strong) UIImage *sourceImage;
+@property (nonatomic, strong) UIImage *compressImage;
 @property (nonatomic, strong) LUTFilterGroupModel *model;
 @end

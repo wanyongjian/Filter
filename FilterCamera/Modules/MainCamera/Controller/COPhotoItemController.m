@@ -30,8 +30,16 @@
     _filterModleArray = [LUTFilterModel getLUTFilterArrayWithPath:[LUTBUNDLE stringByAppendingPathComponent:self.model.path]];
     self.lastIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     _imageRatio = self.sourceImage.size.height/(CGFloat)self.sourceImage.size.width;
+    [self compressSourceImage];
     [self addCollectionView];
+    
 }
+
+- (void)compressSourceImage{
+    CGFloat ratio = kScreenWidth/self.sourceImage.size.width;
+    self.compressImage = [UIImage scaleImage:self.sourceImage toScale:ratio];
+}
+
 
 - (void)addCollectionView{
     UICollectionViewFlowLayout *layout = [self collectionViewForFlowLayout];
@@ -86,23 +94,28 @@
         imageView.tag = kCameraFilterCollectionImageViewTag;
         imageView.contentMode = UIViewContentModeScaleToFill;
         [cell.contentView addSubview:imageView];
+        imageView.image = self.compressImage;
         
-        
-        LUTFilterModel *model = _filterModleArray[indexPath.row];
-        NSString *imagePath =[LUTBUNDLE stringByAppendingPathComponent:[self.model.imagePath stringByAppendingPathComponent:model.ImageName]];
-        UIImage *lutImage = [UIImage imageNamed:imagePath];
-        GPUImageFilterGroup *filter = [[GPUCommonLUTFilter alloc]initWithImage:lutImage];
-        
-        GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.sourceImage];
-        [pic addTarget:filter];
-        [filter useNextFrameForImageCapture];
-        [pic processImage];
-        UIImage *DesImage = [filter imageFromCurrentFramebuffer];
-        imageView.image = DesImage;
-//        [imageView sd_setImageWithURL:[NSURL URLWithString:<#(nonnull NSString *)#>]];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            LUTFilterModel *model = _filterModleArray[indexPath.row];
+            NSString *imagePath =[LUTBUNDLE stringByAppendingPathComponent:[self.model.imagePath stringByAppendingPathComponent:model.ImageName]];
+            //用imagenamed加载图片可能有缓存无法释放
+            UIImage *lutImage = [UIImage imageWithContentsOfFile:imagePath];
+            NSAssert(lutImage != nil, @"lutImage不能为空");
+            GPUImageFilterGroup *filter = [[GPUCommonLUTFilter alloc]initWithImage:lutImage];
+            
+            GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.compressImage];
+            [pic addTarget:filter];
+            [filter useNextFrameForImageCapture];
+            [pic processImage];
+            UIImage *DesImage = [filter imageFromCurrentFramebuffer];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                imageView.image = DesImage;
+            });
+        });
+
     }
     
-    //    cell.layer.cornerRadius = 22.0f;
     cell.layer.masksToBounds = YES;
     LUTFilterModel *model = _filterModleArray[indexPath.row];
     label.text = model.ImageName;
@@ -110,7 +123,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+//    [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     LUTFilterModel *model = _filterModleArray[indexPath.row];
 //    if(self.filterClick){
 //        self.filterClick(model);

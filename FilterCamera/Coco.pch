@@ -23,4 +23,5 @@
 #import "AppDelegate.h"
 #import "UIImage+Clip.h"
 #import "GLBBaseViewController.h"
+#import "UIImage+compress.h"
 #endif /* Coco_pch */

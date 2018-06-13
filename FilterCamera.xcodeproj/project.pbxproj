@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2147A8B820D0CD0200504434 /* UIImage+compress.m in Sources */ = {isa = PBXBuildFile; fileRef = 2147A8B720D0CD0200504434 /* UIImage+compress.m */; };
 		214AB81420BFC21300D4B73C /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 214AB81320BFC21300D4B73C /* UIImage+Rotate.m */; };
 		214AB81A20BFF45100D4B73C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214AB81920BFF45100D4B73C /* CoreMotion.framework */; };
 		214AB81C20BFF45800D4B73C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214AB81B20BFF45800D4B73C /* CoreGraphics.framework */; };
@@ -153,6 +154,8 @@
 
 /* Begin PBXFileReference section */
 		1615DFB7149362BBBCE8FCD7 /* Pods-FilterCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilterCamera.release.xcconfig"; path = "Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera.release.xcconfig"; sourceTree = "<group>"; };
+		2147A8B620D0CD0200504434 /* UIImage+compress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+compress.h"; sourceTree = "<group>"; };
+		2147A8B720D0CD0200504434 /* UIImage+compress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+compress.m"; sourceTree = "<group>"; };
 		214AB81220BFC21300D4B73C /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
 		214AB81320BFC21300D4B73C /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
 		214AB81920BFF45100D4B73C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -363,9 +366,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2147A8B520D0CC9100504434 /* CompressImage */ = {
+			isa = PBXGroup;
+			children = (
+				2147A8B620D0CD0200504434 /* UIImage+compress.h */,
+				2147A8B720D0CD0200504434 /* UIImage+compress.m */,
+			);
+			path = CompressImage;
+			sourceTree = "<group>";
+		};
 		214AB80C20BFBE8C00D4B73C /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				2147A8B520D0CC9100504434 /* CompressImage */,
 				21CBBA1620C0D70600C5AC30 /* ClipImage */,
 				214AB81520BFF41600D4B73C /* Orientation */,
 			);
@@ -922,7 +935,6 @@
 				21570CF820BB8D8B002585CB /* Sources */,
 				21570CF920BB8D8B002585CB /* Frameworks */,
 				21570CFA20BB8D8B002585CB /* Resources */,
-				8B7D36C5EE2290EAE6E2ACBB /* [CP] Embed Pods Frameworks */,
 				3423209EE795D7CFE36CA79D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1157,21 +1169,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8B7D36C5EE2290EAE6E2ACBB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1200,6 +1197,7 @@
 				2210509A20CD556F00AB0D9C /* COPhotoFilterView.m in Sources */,
 				21570DF120BB9145002585CB /* GPUImageFourInputFilter.m in Sources */,
 				2179F34120BD078900B73822 /* FWEarlybirdFilter.m in Sources */,
+				2147A8B820D0CD0200504434 /* UIImage+compress.m in Sources */,
 				221050A020D0111D00AB0D9C /* GPUCommonLUTFilter.m in Sources */,
 				21CBBA1F20C0F50E00C5AC30 /* COBaseNavigationController.m in Sources */,
 				21570DEF20BB9145002585CB /* FWFiveInputFilter.m in Sources */,
