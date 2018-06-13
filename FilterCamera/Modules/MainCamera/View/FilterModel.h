@@ -29,5 +29,7 @@
 @interface LUTFilterModel :NSObject
 @property (nonatomic, strong)NSString *filterName;
 @property (nonatomic, strong)NSString *ImageName;
+@property (nonatomic, strong)NSString *name; /** 精选用 */
+@property (nonatomic, strong)NSString *vc; /** 精选用 */
 + (NSArray <LUTFilterModel *>*)getLUTFilterArrayWithPath:(NSString *)path;
 @end

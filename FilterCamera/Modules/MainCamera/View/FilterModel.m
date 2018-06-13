@@ -95,6 +95,8 @@
         LUTFilterModel *model = [[LUTFilterModel alloc]init];
         model.filterName = dict[@"filterName"];
         model.ImageName = dict[@"ImageName"];
+        model.name = dict[@"name"];
+        model.vc = dict[@"vc"];
         [FilterArray addObject:model];
     }
     return FilterArray;

@@ -15,7 +15,7 @@
 typedef NS_ENUM(NSInteger,CameraRatioType){
     CameraRatioType43,
     CameraRatioType11,
-    CameraRatioType169
+    CameraRatioType34
 };
 
 #define kCameraViewBottomBGHeight   ((kScreenHeight)-(kScreenWidth)*(4.0f/3.0f))
@@ -72,7 +72,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     }];
 }
 - (void)setData{
-    _ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"]].mutableCopy;
+    _ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"],@[@"4:3",@"0.75"]].mutableCopy;
     _currentCameraViewRatio = 1.33;
 }
 - (void)setUI{
@@ -236,9 +236,9 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
             }];
         }
             break;
-        case CameraRatioType169:{
+        case CameraRatioType34:{
             [UIView animateWithDuration:0.4 animations:^{
-                self.imageView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+                self.imageView.frame = CGRectMake(0, TopOffset+TopFunctionHeight, kScreenWidth, height);
             }];
         }
             break;

@@ -98,11 +98,18 @@
         
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             LUTFilterModel *model = _filterModleArray[indexPath.row];
-            NSString *imagePath =[LUTBUNDLE stringByAppendingPathComponent:[self.model.imagePath stringByAppendingPathComponent:model.ImageName]];
-            //用imagenamed加载图片可能有缓存无法释放
-            UIImage *lutImage = [UIImage imageWithContentsOfFile:imagePath];
-            NSAssert(lutImage != nil, @"lutImage不能为空");
-            GPUImageFilterGroup *filter = [[GPUCommonLUTFilter alloc]initWithImage:lutImage];
+            
+            
+            id filter;
+            if ([self.model.type isEqualToString:@"0"]) {
+                filter = [[NSClassFromString(model.vc) alloc]init];
+            }else{
+                //用imagenamed加载图片可能有缓存无法释放
+                NSString *imagePath =[LUTBUNDLE stringByAppendingPathComponent:[self.model.imagePath stringByAppendingPathComponent:model.ImageName]];
+                UIImage *lutImage = [UIImage imageWithContentsOfFile:imagePath];
+                NSAssert(lutImage != nil, @"lutImage不能为空");
+                filter =[[GPUCommonLUTFilter alloc]initWithImage:lutImage];
+            }
             
             GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.compressImage];
             [pic addTarget:filter];
