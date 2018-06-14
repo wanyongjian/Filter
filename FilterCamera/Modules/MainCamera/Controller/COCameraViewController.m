@@ -48,21 +48,26 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [self setData];
     [self setUpOrientationValue];
     [self setUI];
-//    [self setCamera];
+    self.takePhotoBtn.userInteractionEnabled = NO;
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
     if (!self.stillCamera) {
         [self setCamera];
+        [self.stillCamera startCameraCapture];
+        self.takePhotoBtn.userInteractionEnabled = YES;
     }else{
         [self.stillCamera resumeCameraCapture];
+        [self.stillCamera startCameraCapture];
+        self.takePhotoBtn.userInteractionEnabled = YES;
     }
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     [self.stillCamera pauseCameraCapture];
+    [self.stillCamera stopCameraCapture];
 }
 - (void)setUpOrientationValue{
     weakSelf();
@@ -198,14 +203,16 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     };
 }
 - (void)takePhotoAction{
+    self.takePhotoBtn.userInteractionEnabled = NO;
     runAsynchronouslyOnVideoProcessingQueue(^{
         NSLog(@"***** 开始拍照 *****");
         NSLog(@"滤镜%@，方向%ld",self.passFilter,(long)self.imageOrientation);
         [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.passFilter withOrientation:self.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-            NSLog(@"***** 拍照完成 ***** 图片：%@",processedImage);
+            NSLog(@"***** 拍照完成 ***** 图片：%@,error:%@",processedImage,error);
             UIImage *SourceClipImage = [UIImage clipOrientationImage:processedImage withRatio:_currentCameraViewRatio];
             UIImage *SourceImage = [SourceClipImage fixOrientation];
             dispatch_async(dispatch_get_main_queue(), ^{
+                self.takePhotoBtn.userInteractionEnabled = YES;
                 COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
                 vc.sourceImage = SourceImage;
                 vc.filterClass = self.filterClass;
@@ -256,15 +263,12 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     }];
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [self startCameraCapture];
-}
+//- (void)viewDidAppear:(BOOL)animated{
+//    runAsynchronouslyOnVideoProcessingQueue(^{
+//        [self.stillCamera startCameraCapture];
+//    });
+//}
 
-- (void)startCameraCapture{
-    runAsynchronouslyOnVideoProcessingQueue(^{
-        [self.stillCamera startCameraCapture];
-    });
-}
 
 - (BOOL)prefersStatusBarHidden{
     if (iPhoneX) {

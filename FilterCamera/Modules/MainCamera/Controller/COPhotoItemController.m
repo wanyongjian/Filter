@@ -37,7 +37,9 @@
 
 - (void)compressSourceImage{
     CGFloat ratio = kScreenWidth/self.sourceImage.size.width;
+//    self.compressImage = [UIImage imageWithData: UIImageJPEGRepresentation(self.sourceImage, ratio)];
     self.compressImage = [UIImage scaleImage:self.sourceImage toScale:ratio];
+    [UIImage calulateImageFileSize:self.compressImage];
 }
 
 
@@ -96,10 +98,9 @@
         [cell.contentView addSubview:imageView];
         imageView.image = self.compressImage;
         
+        
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             LUTFilterModel *model = _filterModleArray[indexPath.row];
-            
-            
             id filter;
             if ([self.model.type isEqualToString:@"0"]) {
                 filter = [[NSClassFromString(model.vc) alloc]init];

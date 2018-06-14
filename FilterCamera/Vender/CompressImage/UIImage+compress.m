@@ -21,7 +21,7 @@
         dataLength /= 1024.0;
         index ++;
     }
-    NSLog(@"image = %.3f %@",dataLength,typeArray[index]);
+    NSLog(@"******** image = %.3f %@",dataLength,typeArray[index]);
 }
 + (UIImage *) scaleImage:(UIImage *)image toScale:(float)scaleSize {
     UIGraphicsBeginImageContext(CGSizeMake(image.size.width * scaleSize, image.size.height * scaleSize));
