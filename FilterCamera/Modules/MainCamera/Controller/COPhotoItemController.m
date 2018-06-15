@@ -8,6 +8,7 @@
 
 #import "COPhotoItemController.h"
 #import "MIPhotoBrowser.h"
+#import "COPhotoBrowserView.h"
 #define kCameraFilterViewHeight (kScreenHeight-kScreenWidth*4.0f/3.0f)
 #define kPhotoFilterItemCollectionViewCellID         @"PhotoFilterItemCollectionViewCellID"
 #define kCameraFilterCollectionImageViewTag       100
@@ -147,6 +148,15 @@
     //获取cell在当前屏幕的位置
     CGRect cellInSuperview = [self.collectionView convertRect:cellInCollection toView:self.view];
     NSLog(@"");
+    
+    
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    COPhotoBrowserView *view = [[COPhotoBrowserView alloc]init];
+    view.frame = window.bounds;
+    view.sourceImage = imageView.image;
+    view.originRect = cellInSuperview;
+    [window addSubview:view];
+    [view show];
 }
 
 - (void)tapAction:(UIGestureRecognizer *)gesture{

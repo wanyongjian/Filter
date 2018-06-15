@@ -125,6 +125,7 @@
 		21B361EE20D39D8A00EF7F3A /* COCameraFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E720D39D8900EF7F3A /* COCameraFilterView.m */; };
 		21B361EF20D39D8A00EF7F3A /* COPhotoFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E920D39D8900EF7F3A /* COPhotoFilterView.m */; };
 		21B361F020D39D8A00EF7F3A /* FilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361EB20D39D8900EF7F3A /* FilterModel.m */; };
+		21B361F320D3BC6F00EF7F3A /* COPhotoBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361F220D3BC6F00EF7F3A /* COPhotoBrowserView.m */; };
 		21CBBA1920C0D70600C5AC30 /* UIImage+Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1820C0D70600C5AC30 /* UIImage+Clip.m */; };
 		21CBBA1C20C0F2DF00C5AC30 /* COPhotoDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1B20C0F2DF00C5AC30 /* COPhotoDisplayController.m */; };
 		21CBBA1F20C0F50E00C5AC30 /* COBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */; };
@@ -324,6 +325,8 @@
 		21B361E920D39D8900EF7F3A /* COPhotoFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COPhotoFilterView.m; sourceTree = "<group>"; };
 		21B361EA20D39D8900EF7F3A /* FilterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterModel.h; sourceTree = "<group>"; };
 		21B361EB20D39D8900EF7F3A /* FilterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterModel.m; sourceTree = "<group>"; };
+		21B361F120D3BC6F00EF7F3A /* COPhotoBrowserView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COPhotoBrowserView.h; sourceTree = "<group>"; };
+		21B361F220D3BC6F00EF7F3A /* COPhotoBrowserView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COPhotoBrowserView.m; sourceTree = "<group>"; };
 		21CBBA1720C0D70600C5AC30 /* UIImage+Clip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Clip.h"; sourceTree = "<group>"; };
 		21CBBA1820C0D70600C5AC30 /* UIImage+Clip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Clip.m"; sourceTree = "<group>"; };
 		21CBBA1A20C0F2DF00C5AC30 /* COPhotoDisplayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COPhotoDisplayController.h; sourceTree = "<group>"; };
@@ -896,6 +899,8 @@
 				21B361E220D39D8900EF7F3A /* MIBrowserImageView.m */,
 				21B361E320D39D8900EF7F3A /* MIPhotoBrowser.h */,
 				21B361E420D39D8900EF7F3A /* MIPhotoBrowser.m */,
+				21B361F120D3BC6F00EF7F3A /* COPhotoBrowserView.h */,
+				21B361F220D3BC6F00EF7F3A /* COPhotoBrowserView.m */,
 			);
 			path = browserView;
 			sourceTree = "<group>";
@@ -1232,6 +1237,7 @@
 				21570E0720BBA8AE002585CB /* COStillCamera.m in Sources */,
 				21570DFF20BB9145002585CB /* CustomSketchFilter.m in Sources */,
 				2179F34420BD078900B73822 /* FWHefeFilter.m in Sources */,
+				21B361F320D3BC6F00EF7F3A /* COPhotoBrowserView.m in Sources */,
 				2179F37920BD078900B73822 /* FWXproIIFilter.m in Sources */,
 				21570DF220BB9145002585CB /* YJHalfGrayFilter.m in Sources */,
 				21570E0020BB9145002585CB /* SimpleSketchController.m in Sources */,
