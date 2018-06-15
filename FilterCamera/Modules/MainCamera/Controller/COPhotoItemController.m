@@ -7,6 +7,7 @@
 //
 
 #import "COPhotoItemController.h"
+#import "MIPhotoBrowser.h"
 #define kCameraFilterViewHeight (kScreenHeight-kScreenWidth*4.0f/3.0f)
 #define kPhotoFilterItemCollectionViewCellID         @"PhotoFilterItemCollectionViewCellID"
 #define kCameraFilterCollectionImageViewTag       100
@@ -14,7 +15,7 @@
 #define kCameraFilterCollectionMaskViewTag        102
 
 #define kPhotoItemWidth (kScreenWidth/2-10)
-@interface COPhotoItemController () <UICollectionViewDelegate,UICollectionViewDataSource>{
+@interface COPhotoItemController () <UICollectionViewDelegate,UICollectionViewDataSource,MIPhotoBrowserDelegate>{
     CGFloat _imageRatio;
 }
 @property (nonatomic,strong) UICollectionView *collectionView;
@@ -89,6 +90,7 @@
     }
     
     UIImageView *imageView = [cell.contentView viewWithTag:kCameraFilterCollectionImageViewTag];
+    
     if (!imageView) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
         CGRect rect = CGRectMake(0, 0, layout.itemSize.width, layout.itemSize.height);
@@ -97,8 +99,6 @@
         imageView.contentMode = UIViewContentModeScaleToFill;
         [cell.contentView addSubview:imageView];
         imageView.image = self.compressImage;
-        
-        
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             LUTFilterModel *model = _filterModleArray[indexPath.row];
             id filter;
@@ -136,7 +136,35 @@
 //    if(self.filterClick){
 //        self.filterClick(model);
 //    }
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    UIImageView *imageView = [cell.contentView viewWithTag:kCameraFilterCollectionImageViewTag];
     
     self.lastIndexPath = indexPath;
+    
+    //获取父类view
+    //获取cell在当前collection的位置
+    CGRect cellInCollection  = [self.collectionView convertRect:cell.frame toView:self.collectionView];
+    //获取cell在当前屏幕的位置
+    CGRect cellInSuperview = [self.collectionView convertRect:cellInCollection toView:self.view];
+    NSLog(@"");
+}
+
+- (void)tapAction:(UIGestureRecognizer *)gesture{
+    UIImageView *imageView = (UIImageView *)gesture.view;
+    NSLog(@"image view = %@", imageView);
+    MIPhotoBrowser *photoBrowser = [[MIPhotoBrowser alloc] init];
+    photoBrowser.delegate = self;
+    photoBrowser.sourceImagesContainerView = [[UIView alloc]init];
+    photoBrowser.imageCount = 9;
+    photoBrowser.currentImageIndex = imageView.tag;
+    [photoBrowser show];
+    NSLog(@"tap action   tag = %d", imageView.tag);
+}
+
+- (UIImage *)photoBrowser:(MIPhotoBrowser *)photoBrowser placeholderImageForIndex:(NSInteger)index{
+    NSLog(@"photobrowser index = %d", index);
+//    UIImageView *imageView = _contentView.subviews[index];
+//    return imageView.image;
+    return [UIImage new];
 }
 @end

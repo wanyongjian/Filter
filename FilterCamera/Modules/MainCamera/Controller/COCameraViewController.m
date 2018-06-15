@@ -209,16 +209,19 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         NSLog(@"滤镜%@，方向%ld",self.passFilter,(long)self.imageOrientation);
         [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.passFilter withOrientation:self.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
             NSLog(@"***** 拍照完成 ***** 图片：%@,error:%@",processedImage,error);
+            NSAssert(processedImage !=nil, @"processedImage 是空");
             UIImage *SourceClipImage = [UIImage clipOrientationImage:processedImage withRatio:_currentCameraViewRatio];
             UIImage *SourceImage = [SourceClipImage fixOrientation];
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.takePhotoBtn.userInteractionEnabled = YES;
+                
                 COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
                 vc.sourceImage = SourceImage;
+                NSAssert(SourceImage !=nil, @"SourceImage 是空");
                 vc.filterClass = self.filterClass;
 //                vc.imageFilter = self.filter;
                 NSLog(@"***** 处理完成，准备跳转 *****");
                 [self.navigationController pushViewController:vc animated:NO];
+                self.takePhotoBtn.userInteractionEnabled = YES;
             });
         }];
 

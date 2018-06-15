@@ -29,6 +29,7 @@
     [self.view addSubview:self.imageView];
     
     GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.sourceImage];
+    NSAssert(pic!=nil, @"self.sourceImage是空");
     GPUImageFilter *filter = [[self.filterClass alloc]init];
     [pic addTarget:filter];
     [filter useNextFrameForImageCapture];

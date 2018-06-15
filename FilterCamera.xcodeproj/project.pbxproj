@@ -42,9 +42,7 @@
 		21570E0F20BBA995002585CB /* COCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E0E20BBA995002585CB /* COCameraViewController.m */; };
 		21570E1A20BBC576002585CB /* ShakeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E1920BBC576002585CB /* ShakeButton.m */; };
 		21570E1F20BBDFEA002585CB /* qmkit_rotate_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21570E1E20BBDFEA002585CB /* qmkit_rotate_btn@3x.png */; };
-		21570E2320BBFDC1002585CB /* COCameraFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E2220BBFDC1002585CB /* COCameraFilterView.m */; };
 		2179F22420BCDE5800B73822 /* qmkit_fiter_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F22320BCDE5800B73822 /* qmkit_fiter_btn@3x.png */; };
-		2179F22A20BCFC7700B73822 /* FilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2179F22920BCFC7700B73822 /* FilterModel.m */; };
 		2179F33020BD078900B73822 /* amaroMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F2C720BD078900B73822 /* amaroMap.png */; };
 		2179F33120BD078900B73822 /* blackboard1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F2C820BD078900B73822 /* blackboard1024.png */; };
 		2179F33220BD078900B73822 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 2179F2C920BD078900B73822 /* config.json */; };
@@ -122,11 +120,15 @@
 		2179F37A20BD078900B73822 /* vignetteMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F32E20BD078900B73822 /* vignetteMap.png */; };
 		2179F37B20BD078900B73822 /* xproMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F32F20BD078900B73822 /* xproMap.png */; };
 		2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2179F38420BD45AE00B73822 /* AnimationFilter.m */; };
+		21B361EC20D39D8A00EF7F3A /* MIBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E220D39D8900EF7F3A /* MIBrowserImageView.m */; };
+		21B361ED20D39D8A00EF7F3A /* MIPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E420D39D8900EF7F3A /* MIPhotoBrowser.m */; };
+		21B361EE20D39D8A00EF7F3A /* COCameraFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E720D39D8900EF7F3A /* COCameraFilterView.m */; };
+		21B361EF20D39D8A00EF7F3A /* COPhotoFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E920D39D8900EF7F3A /* COPhotoFilterView.m */; };
+		21B361F020D39D8A00EF7F3A /* FilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361EB20D39D8900EF7F3A /* FilterModel.m */; };
 		21CBBA1920C0D70600C5AC30 /* UIImage+Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1820C0D70600C5AC30 /* UIImage+Clip.m */; };
 		21CBBA1C20C0F2DF00C5AC30 /* COPhotoDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1B20C0F2DF00C5AC30 /* COPhotoDisplayController.m */; };
 		21CBBA1F20C0F50E00C5AC30 /* COBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */; };
 		21CBBA2C20C145FB00C5AC30 /* GLBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA2B20C145FB00C5AC30 /* GLBBaseViewController.m */; };
-		2210509A20CD556F00AB0D9C /* COPhotoFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509920CD556F00AB0D9C /* COPhotoFilterView.m */; };
 		2210509D20CFFA4100AB0D9C /* COPhotoItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */; };
 		221050A020D0111D00AB0D9C /* GPUCommonLUTFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509F20D0111D00AB0D9C /* GPUCommonLUTFilter.m */; };
 		228546DB20C4080000F22E3D /* LUTSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 228546DA20C4080000F22E3D /* LUTSource.bundle */; };
@@ -218,11 +220,7 @@
 		21570E1820BBC576002585CB /* ShakeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShakeButton.h; sourceTree = "<group>"; };
 		21570E1920BBC576002585CB /* ShakeButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShakeButton.m; sourceTree = "<group>"; };
 		21570E1E20BBDFEA002585CB /* qmkit_rotate_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_rotate_btn@3x.png"; sourceTree = "<group>"; };
-		21570E2120BBFDC1002585CB /* COCameraFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COCameraFilterView.h; sourceTree = "<group>"; };
-		21570E2220BBFDC1002585CB /* COCameraFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COCameraFilterView.m; sourceTree = "<group>"; };
 		2179F22320BCDE5800B73822 /* qmkit_fiter_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_fiter_btn@3x.png"; sourceTree = "<group>"; };
-		2179F22820BCFC7700B73822 /* FilterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterModel.h; sourceTree = "<group>"; };
-		2179F22920BCFC7700B73822 /* FilterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterModel.m; sourceTree = "<group>"; };
 		2179F2C720BD078900B73822 /* amaroMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amaroMap.png; sourceTree = "<group>"; };
 		2179F2C820BD078900B73822 /* blackboard1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackboard1024.png; sourceTree = "<group>"; };
 		2179F2C920BD078900B73822 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
@@ -316,6 +314,16 @@
 		2179F32F20BD078900B73822 /* xproMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xproMap.png; sourceTree = "<group>"; };
 		2179F38320BD45AE00B73822 /* AnimationFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationFilter.h; sourceTree = "<group>"; };
 		2179F38420BD45AE00B73822 /* AnimationFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationFilter.m; sourceTree = "<group>"; };
+		21B361E120D39D8900EF7F3A /* MIBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIBrowserImageView.h; sourceTree = "<group>"; };
+		21B361E220D39D8900EF7F3A /* MIBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIBrowserImageView.m; sourceTree = "<group>"; };
+		21B361E320D39D8900EF7F3A /* MIPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIPhotoBrowser.h; sourceTree = "<group>"; };
+		21B361E420D39D8900EF7F3A /* MIPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIPhotoBrowser.m; sourceTree = "<group>"; };
+		21B361E620D39D8900EF7F3A /* COCameraFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COCameraFilterView.h; sourceTree = "<group>"; };
+		21B361E720D39D8900EF7F3A /* COCameraFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COCameraFilterView.m; sourceTree = "<group>"; };
+		21B361E820D39D8900EF7F3A /* COPhotoFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COPhotoFilterView.h; sourceTree = "<group>"; };
+		21B361E920D39D8900EF7F3A /* COPhotoFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COPhotoFilterView.m; sourceTree = "<group>"; };
+		21B361EA20D39D8900EF7F3A /* FilterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterModel.h; sourceTree = "<group>"; };
+		21B361EB20D39D8900EF7F3A /* FilterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterModel.m; sourceTree = "<group>"; };
 		21CBBA1720C0D70600C5AC30 /* UIImage+Clip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Clip.h"; sourceTree = "<group>"; };
 		21CBBA1820C0D70600C5AC30 /* UIImage+Clip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Clip.m"; sourceTree = "<group>"; };
 		21CBBA1A20C0F2DF00C5AC30 /* COPhotoDisplayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COPhotoDisplayController.h; sourceTree = "<group>"; };
@@ -324,8 +332,6 @@
 		21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COBaseNavigationController.m; sourceTree = "<group>"; };
 		21CBBA2A20C145FB00C5AC30 /* GLBBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBBaseViewController.h; sourceTree = "<group>"; };
 		21CBBA2B20C145FB00C5AC30 /* GLBBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLBBaseViewController.m; sourceTree = "<group>"; };
-		2210509820CD556F00AB0D9C /* COPhotoFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COPhotoFilterView.h; sourceTree = "<group>"; };
-		2210509920CD556F00AB0D9C /* COPhotoFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COPhotoFilterView.m; sourceTree = "<group>"; };
 		2210509B20CFFA4100AB0D9C /* COPhotoItemController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COPhotoItemController.h; sourceTree = "<group>"; };
 		2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COPhotoItemController.m; sourceTree = "<group>"; };
 		2210509E20D0111D00AB0D9C /* GPUCommonLUTFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUCommonLUTFilter.h; sourceTree = "<group>"; };
@@ -650,12 +656,8 @@
 		21570E2020BBFD68002585CB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				21570E2120BBFDC1002585CB /* COCameraFilterView.h */,
-				21570E2220BBFDC1002585CB /* COCameraFilterView.m */,
-				2210509820CD556F00AB0D9C /* COPhotoFilterView.h */,
-				2210509920CD556F00AB0D9C /* COPhotoFilterView.m */,
-				2179F22820BCFC7700B73822 /* FilterModel.h */,
-				2179F22920BCFC7700B73822 /* FilterModel.m */,
+				21B361E020D39D8900EF7F3A /* browserView */,
+				21B361E520D39D8900EF7F3A /* filterView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -885,6 +887,30 @@
 				2179F32F20BD078900B73822 /* xproMap.png */,
 			);
 			path = "fw_XproII_雅熙";
+			sourceTree = "<group>";
+		};
+		21B361E020D39D8900EF7F3A /* browserView */ = {
+			isa = PBXGroup;
+			children = (
+				21B361E120D39D8900EF7F3A /* MIBrowserImageView.h */,
+				21B361E220D39D8900EF7F3A /* MIBrowserImageView.m */,
+				21B361E320D39D8900EF7F3A /* MIPhotoBrowser.h */,
+				21B361E420D39D8900EF7F3A /* MIPhotoBrowser.m */,
+			);
+			path = browserView;
+			sourceTree = "<group>";
+		};
+		21B361E520D39D8900EF7F3A /* filterView */ = {
+			isa = PBXGroup;
+			children = (
+				21B361E620D39D8900EF7F3A /* COCameraFilterView.h */,
+				21B361E720D39D8900EF7F3A /* COCameraFilterView.m */,
+				21B361E820D39D8900EF7F3A /* COPhotoFilterView.h */,
+				21B361E920D39D8900EF7F3A /* COPhotoFilterView.m */,
+				21B361EA20D39D8900EF7F3A /* FilterModel.h */,
+				21B361EB20D39D8900EF7F3A /* FilterModel.m */,
+			);
+			path = filterView;
 			sourceTree = "<group>";
 		};
 		21CBBA1620C0D70600C5AC30 /* ClipImage */ = {
@@ -1179,6 +1205,7 @@
 				21570DF020BB9145002585CB /* FWSixInputFilter.m in Sources */,
 				2179F36A20BD078900B73822 /* FWToasterFilter.m in Sources */,
 				2179F36320BD078900B73822 /* FWSutroFilter.m in Sources */,
+				21B361F020D39D8A00EF7F3A /* FilterModel.m in Sources */,
 				21570D0420BB8D8B002585CB /* ViewController.m in Sources */,
 				21570E0A20BBA8CF002585CB /* COStillCameraPreview.m in Sources */,
 				2210509D20CFFA4100AB0D9C /* COPhotoItemController.m in Sources */,
@@ -1186,15 +1213,14 @@
 				2179F37520BD078900B73822 /* FWWaldenFilter.m in Sources */,
 				21570E1A20BBC576002585CB /* ShakeButton.m in Sources */,
 				2179F35A20BD078900B73822 /* FWRiseFilter.m in Sources */,
+				21B361ED20D39D8A00EF7F3A /* MIPhotoBrowser.m in Sources */,
 				21570D0F20BB8D8B002585CB /* main.m in Sources */,
 				21570DF320BB9145002585CB /* HalfSketchController.m in Sources */,
 				22C562B920C0275C0011014A /* DeviceOrientation.m in Sources */,
 				21CBBA1920C0D70600C5AC30 /* UIImage+Clip.m in Sources */,
 				2179F34A20BD078900B73822 /* FWHudsonFilter.m in Sources */,
 				21570E0F20BBA995002585CB /* COCameraViewController.m in Sources */,
-				2179F22A20BCFC7700B73822 /* FilterModel.m in Sources */,
 				21570DFA20BB9145002585CB /* CustomAlphaBlendFilter.m in Sources */,
-				2210509A20CD556F00AB0D9C /* COPhotoFilterView.m in Sources */,
 				21570DF120BB9145002585CB /* GPUImageFourInputFilter.m in Sources */,
 				2179F34120BD078900B73822 /* FWEarlybirdFilter.m in Sources */,
 				2147A8B820D0CD0200504434 /* UIImage+compress.m in Sources */,
@@ -1202,6 +1228,7 @@
 				21CBBA1F20C0F50E00C5AC30 /* COBaseNavigationController.m in Sources */,
 				21570DEF20BB9145002585CB /* FWFiveInputFilter.m in Sources */,
 				2179F34F20BD078900B73822 /* FWInkwellFilter.m in Sources */,
+				21B361EF20D39D8A00EF7F3A /* COPhotoFilterView.m in Sources */,
 				21570E0720BBA8AE002585CB /* COStillCamera.m in Sources */,
 				21570DFF20BB9145002585CB /* CustomSketchFilter.m in Sources */,
 				2179F34420BD078900B73822 /* FWHefeFilter.m in Sources */,
@@ -1209,17 +1236,18 @@
 				21570DF220BB9145002585CB /* YJHalfGrayFilter.m in Sources */,
 				21570E0020BB9145002585CB /* SimpleSketchController.m in Sources */,
 				2179F35E20BD078900B73822 /* FWSierraFilter.m in Sources */,
+				21B361EC20D39D8A00EF7F3A /* MIBrowserImageView.m in Sources */,
 				21570DF820BB9145002585CB /* LUTAmatorkaFilter.m in Sources */,
 				2179F37120BD078900B73822 /* FWValenciaFilter.m in Sources */,
 				21570DFE20BB9145002585CB /* FrameBlendController.m in Sources */,
 				21570DF420BB9145002585CB /* HalfSketchFilter.m in Sources */,
 				21570D0120BB8D8B002585CB /* AppDelegate.m in Sources */,
 				2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */,
-				21570E2320BBFDC1002585CB /* COCameraFilterView.m in Sources */,
 				2179F33320BD078900B73822 /* FWAmaroFilter.m in Sources */,
 				21CBBA1C20C0F2DF00C5AC30 /* COPhotoDisplayController.m in Sources */,
 				21570DFB20BB9145002585CB /* CustomFrameBlendThreeFilter.m in Sources */,
 				21570DF920BB9145002585CB /* YJOldPhoteFilter.m in Sources */,
+				21B361EE20D39D8A00EF7F3A /* COCameraFilterView.m in Sources */,
 				2179F35620BD078900B73822 /* FWNashvilleFilter.m in Sources */,
 				2179F35220BD078900B73822 /* FWLomofiFilter.m in Sources */,
 				214AB81420BFC21300D4B73C /* UIImage+Rotate.m in Sources */,
