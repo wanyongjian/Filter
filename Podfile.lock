@@ -12,13 +12,6 @@ DEPENDENCIES:
   - ReactiveObjC
   - SDWebImage
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - GPUImage
-    - Masonry
-    - ReactiveObjC
-    - SDWebImage
-
 SPEC CHECKSUMS:
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -27,4 +20,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 65bf0af2b0e435740e1c9fe407d92a013ee7c922
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.4.0

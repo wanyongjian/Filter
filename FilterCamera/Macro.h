@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger,SelectFilterType){
 
 
 #define kFilterPath [[NSBundle mainBundle] pathForResource:@"COFilters" ofType:nil]
-#define kCameraFilterViewItemSize                 60
+#define kCameraFilterViewItemSize                 100
 #define kCameraFilterCollectionViewHeight         100
 
 #define UNNULL_STRING(A) ((A && ![A isKindOfClass:[NSNull class]]) ? A : @"")

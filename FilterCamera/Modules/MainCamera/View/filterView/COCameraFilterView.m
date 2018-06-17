@@ -14,9 +14,7 @@
 #define kCameraFilterCollectionLabelTag           101
 #define kCameraFilterCollectionMaskViewTag        102
 @interface COCameraFilterView() <UICollectionViewDelegate,UICollectionViewDataSource>
-@property (nonatomic,strong) UICollectionView *collectionView;
-@property (nonatomic,strong) NSArray<FilterModel *> *filterModleArray;
-@property (nonatomic,strong) NSIndexPath *lastIndexPath;
+
 @end
 
 @implementation COCameraFilterView
@@ -24,8 +22,8 @@
 - (instancetype)init{
     if(self = [super init]){
         self.hidden = YES;
-        self.backgroundColor = RGBAColor(0xff, 0xff, 0xff, 1);
-        
+//        self.backgroundColor = RGBAColor(0xff, 0xff, 0xff, 1);
+        self.backgroundColor = [UIColor clearColor];
         _filterModleArray = [FilterModel getModleArrayFromName:[LUTBUNDLE stringByAppendingPathComponent:@"LUTSource/精选/FilterConfig.json"]];
         [self addCollectionView];
         self.lastIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -35,7 +33,7 @@
 - (UICollectionViewFlowLayout *)collectionViewForFlowLayout
 {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(kCameraFilterViewItemSize, kCameraFilterViewItemSize);
+    layout.itemSize = CGSizeMake(kCameraFilterViewItemSize, kCameraFilterViewItemSize*(4/5.0));
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.minimumLineSpacing = 5;
     layout.sectionInset = UIEdgeInsetsMake(5, 5, 0, 5);
@@ -97,7 +95,31 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
      UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCameraFilterCollectionViewCellID forIndexPath:indexPath];
-     UILabel *label = [cell.contentView viewWithTag:kCameraFilterCollectionLabelTag];
+    
+    UIImageView *imageView = [cell.contentView viewWithTag:kCameraFilterCollectionImageViewTag];
+    if (!imageView) {
+        UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
+        CGRect rect = CGRectMake(0, 0, layout.itemSize.width, layout.itemSize.height);
+        imageView = [[UIImageView alloc] initWithFrame:rect];
+        imageView.tag = kCameraFilterCollectionImageViewTag;
+        imageView.contentMode = UIViewContentModeScaleToFill;
+        imageView.image = [UIImage imageNamed:@"amatorka_action_2"];
+        [cell.contentView addSubview:imageView];
+    }
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        FilterModel *model = self.filterModleArray[indexPath.row];
+        GPUImageFilter *filter = [[NSClassFromString(model.vc) alloc]init];
+        GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:[UIImage imageNamed:@"amatorka_action_2"]];
+        [pic addTarget:filter];
+        [filter useNextFrameForImageCapture];
+        [pic processImage];
+        UIImage *DesImage = [filter imageFromCurrentFramebuffer];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            imageView.image = DesImage;
+        });
+    });
+    
+    UILabel *label = [cell.contentView viewWithTag:kCameraFilterCollectionLabelTag];
     if (!label) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
         CGRect rect = CGRectMake(0, layout.itemSize.height-18, layout.itemSize.width, 18);
@@ -109,10 +131,11 @@
         label.backgroundColor = [UIColor colorWithRed:8/255.0 green:157/255.0 blue:184/255.0 alpha:0.6f];
         [cell.contentView addSubview:label];
     }
-//    cell.layer.cornerRadius = 22.0f;
+    //    cell.layer.cornerRadius = 22.0f;
     cell.layer.masksToBounds = YES;
     FilterModel *model = _filterModleArray[indexPath.row];
     label.text = model.name;
+    
     return cell;
 }
 

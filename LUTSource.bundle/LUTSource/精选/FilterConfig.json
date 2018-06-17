@@ -3,10 +3,7 @@
  "name" : "原图",
  "vc" : "GPUImageFilter"
  },
- {
- "name" : "鸡尾酒",
- "vc" : "FWAmaroFilter"
- },
+ 
  {
  "name" : "海风",
  "vc" : "FWBrannanFilter"
@@ -24,10 +21,6 @@
  "vc" : "FWHudsonFilter"
  },
  {
- "name" : "历史",
- "vc" : "FWInkwellFilter"
- },
- {
  "name" : "随心",
  "vc" : "FWLomofiFilter"
  },
@@ -40,7 +33,7 @@
  "vc" : "FWRiseFilter"
  },
  {
- "name" : "柔暖",
+ "name" : "明珀",
  "vc" : "FWSierraFilter"
  },
  {
@@ -62,5 +55,9 @@
  {
  "name" : "雅熙",
  "vc" : "FWXproIIFilter"
+ },
+ {
+ "name" : "鸡尾酒",
+ "vc" : "FWAmaroFilter"
  }
 ]

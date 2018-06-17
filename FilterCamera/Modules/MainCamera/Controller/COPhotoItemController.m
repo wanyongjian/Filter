@@ -39,9 +39,10 @@
 
 - (void)compressSourceImage{
     CGFloat ratio = kScreenWidth/self.sourceImage.size.width;
-//    self.compressImage = [UIImage imageWithData: UIImageJPEGRepresentation(self.sourceImage, ratio)];
+    self.compressImage = [UIImage imageWithData: UIImageJPEGRepresentation(self.sourceImage, ratio)];
     self.compressImage = [UIImage scaleImage:self.sourceImage toScale:ratio];
     [UIImage calulateImageFileSize:self.compressImage];
+//    self.compressImage = self.sourceImage;
 }
 
 

@@ -45,28 +45,33 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
     // Do any additional setup after loading the view.
-    [self setData];
+    [self setRatioData];
+    [self setUPCamera];
+    [self setCameraUI];
     [self setUpOrientationValue];
-    [self setUI];
     self.takePhotoBtn.userInteractionEnabled = NO;
+}
+- (void)setUPCamera{
+    if (!_stillCamera) {
+        _stillCamera = [[COStillCamera alloc]initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionBack];
+        _stillCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
+        _stillCamera.horizontallyMirrorFrontFacingCamera = YES;//设置是否为镜像
+        _stillCamera.horizontallyMirrorRearFacingCamera = NO;
+    }
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
-    if (!self.stillCamera) {
-        [self setCamera];
+   
+//    [self.stillCamera resumeCameraCapture];
         [self.stillCamera startCameraCapture];
         self.takePhotoBtn.userInteractionEnabled = YES;
-    }else{
-        [self.stillCamera resumeCameraCapture];
-        [self.stillCamera startCameraCapture];
-        self.takePhotoBtn.userInteractionEnabled = YES;
-    }
+    
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
-    [self.stillCamera pauseCameraCapture];
+//    [self.stillCamera pauseCameraCapture];
     [self.stillCamera stopCameraCapture];
 }
 - (void)setUpOrientationValue{
@@ -74,13 +79,39 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     self.appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     [RACObserve(self.appDelegate, imageOrientation) subscribeNext:^(id  _Nullable x) {
         wself.imageOrientation = [x integerValue];
+        switch (wself.imageOrientation) {
+            case UIImageOrientationUp:{
+                [UIView animateWithDuration:0.3 animations:^{
+                    self.takePhotoBtn.transform = CGAffineTransformMakeRotation(0);
+                }];
+            }
+                break;
+            case UIImageOrientationDown:{
+                [UIView animateWithDuration:0.3 animations:^{
+                    self.takePhotoBtn.transform = CGAffineTransformMakeRotation(M_PI);
+                }];
+            }
+                break;
+            case UIImageOrientationLeft:{
+                [UIView animateWithDuration:0.3 animations:^{
+                    self.takePhotoBtn.transform = CGAffineTransformMakeRotation(M_PI_2);
+                }];
+            }
+                break;
+            case UIImageOrientationRight:{
+                [UIView animateWithDuration:0.3 animations:^{
+                    self.takePhotoBtn.transform = CGAffineTransformMakeRotation(-M_PI_2);
+                }];
+            }
+                break;
+        }
     }];
 }
-- (void)setData{
+- (void)setRatioData{
     _ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"],@[@"4:3",@"0.75"]].mutableCopy;
     _currentCameraViewRatio = 1.33;
 }
-- (void)setUI{
+- (void)setCameraUI{
     weakSelf();
     self.passFilter = [[GPUImageFilter alloc]init];
     _imageView = [[COStillCameraPreview alloc]init];
@@ -152,8 +183,8 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     }];
     //拍照按钮
     UIButton *button = [[UIButton alloc]init];
-    [button setImage:[UIImage imageNamed:@"qmkit_takephoto_btn"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"qmkit_takephoto_btn"] forState:UIControlStateHighlighted];
+    [button setBackgroundImage:[UIImage imageNamed:@"qmkit_takephoto_btn"] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:@"qmkit_takephoto_btn"] forState:UIControlStateHighlighted];
     [self.view addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.mas_equalTo(kCameraTakePhotoIconSize);
@@ -192,7 +223,6 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         }];
     }];
     //滤镜选择
-    
     self.cameraFilterView.filterClick = ^(FilterModel *model) {
         [wself.stillCamera removeAllTargets];
         wself.filterClass = NSClassFromString(model.vc);
@@ -201,13 +231,16 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         [wself.stillCamera addTarget:wself.passFilter];
         [wself.filter addTarget:wself.imageView];
     };
+    
+    [wself.cameraFilterView selectFilterWithType:SelectFilterTypeRight callBack:^(NSString *name, NSInteger index, NSInteger total) {
+        [wself.imageView showFilterWihtName:name index:index total:total];
+    }];
 }
 - (void)takePhotoAction{
+    weakSelf();
     self.takePhotoBtn.userInteractionEnabled = NO;
-    runAsynchronouslyOnVideoProcessingQueue(^{
         NSLog(@"***** 开始拍照 *****");
-        NSLog(@"滤镜%@，方向%ld",self.passFilter,(long)self.imageOrientation);
-        [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.passFilter withOrientation:self.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+    [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.passFilter withOrientation:self.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
             NSLog(@"***** 拍照完成 ***** 图片：%@,error:%@",processedImage,error);
             NSAssert(processedImage !=nil, @"processedImage 是空");
             UIImage *SourceClipImage = [UIImage clipOrientationImage:processedImage withRatio:_currentCameraViewRatio];
@@ -220,12 +253,11 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
                 vc.filterClass = self.filterClass;
 //                vc.imageFilter = self.filter;
                 NSLog(@"***** 处理完成，准备跳转 *****");
-                [self.navigationController pushViewController:vc animated:NO];
-                self.takePhotoBtn.userInteractionEnabled = YES;
+                [wself.navigationController pushViewController:vc animated:NO];
+                wself.takePhotoBtn.userInteractionEnabled = YES;
             });
         }];
 
-    });
 }
 - (void)setCameraRatio:(CameraRatioType)ratioType{
     NSMutableArray *array = _ratioArray[ratioType];
@@ -254,23 +286,6 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
             break;
     }
 }
-- (void)setCamera{
-    weakSelf()
-    _stillCamera = [[COStillCamera alloc]initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionBack];
-    _stillCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
-    _stillCamera.horizontallyMirrorFrontFacingCamera = YES;//设置是否为镜像
-    _stillCamera.horizontallyMirrorRearFacingCamera = NO;
-    
-    [wself.cameraFilterView selectFilterWithType:SelectFilterTypeRight callBack:^(NSString *name, NSInteger index, NSInteger total) {
-        [wself.imageView showFilterWihtName:name index:index total:total];
-    }];
-}
-
-//- (void)viewDidAppear:(BOOL)animated{
-//    runAsynchronouslyOnVideoProcessingQueue(^{
-//        [self.stillCamera startCameraCapture];
-//    });
-//}
 
 
 - (BOOL)prefersStatusBarHidden{

@@ -17,37 +17,51 @@
     if (self = [super init]) {
         self.backgroundColor = [UIColor blackColor];
         self.imageView = [[UIImageView alloc]init];
-        self.originRect = CGRectMake(0, 0, 0, 0);
         self.imageView.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:self.imageView];
-        self.imageView.frame = CGRectMake(0, 0, 0, 0);
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction)];
         [self addGestureRecognizer:tap];
+        
+//        UILongPressGestureRecognizer *longPressGest = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressView)];
+//        longPressGest.minimumPressDuration = 3;
+//        [self addGestureRecognizer:longPressGest];
     }
     return self;
 }
-
+- (void)longPressView{
+    UIImageWriteToSavedPhotosAlbum(self.sourceImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+    [self removeFromSuperview];
+}
 - (void)tapAction{
     self.backgroundColor = [UIColor clearColor];
-    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.imageView.frame = self.originRect;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
     
 }
-- (void)setSourceImage:(UIImage *)sourceImage{
-    self.imageView.image = sourceImage;
+- (void)setOriginRect:(CGRect)originRect{
+    _originRect = originRect;
     self.imageView.frame = self.originRect;
+}
+- (void)setSourceImage:(UIImage *)sourceImage{
+    _sourceImage = sourceImage;
+    self.imageView.image = sourceImage;
 }
 
 - (void)show{
-    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+    [UIView animateWithDuration:0.16 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         self.imageView.frame = CGRectMake(0, 0, kScreenWidth, kScreenWidth*(self.sourceImage.size.height/self.sourceImage.size.width));
-//        self.imageView.center = self.center;
+        self.imageView.center = self.center;
     } completion:^(BOOL finished) {
         
     }];
     
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    NSLog(@"image = %@, error = %@, contextInfo = %@", image, error, contextInfo);
 }
 @end
