@@ -25,10 +25,6 @@
 		21570DF220BB9145002585CB /* YJHalfGrayFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570D9520BB9145002585CB /* YJHalfGrayFilter.m */; };
 		21570DF320BB9145002585CB /* HalfSketchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570D9820BB9145002585CB /* HalfSketchController.m */; };
 		21570DF420BB9145002585CB /* HalfSketchFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570D9A20BB9145002585CB /* HalfSketchFilter.m */; };
-		21570DF520BB9145002585CB /* amatorka2.png in Resources */ = {isa = PBXBuildFile; fileRef = 21570D9C20BB9145002585CB /* amatorka2.png */; };
-		21570DF620BB9145002585CB /* amatorka_action_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 21570D9D20BB9145002585CB /* amatorka_action_2.png */; };
-		21570DF720BB9145002585CB /* lookup_amatorka.png in Resources */ = {isa = PBXBuildFile; fileRef = 21570D9E20BB9145002585CB /* lookup_amatorka.png */; };
-		21570DF820BB9145002585CB /* LUTAmatorkaFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570DA020BB9145002585CB /* LUTAmatorkaFilter.m */; };
 		21570DF920BB9145002585CB /* YJOldPhoteFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570DA320BB9145002585CB /* YJOldPhoteFilter.m */; };
 		21570DFA20BB9145002585CB /* CustomAlphaBlendFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570DA620BB9145002585CB /* CustomAlphaBlendFilter.m */; };
 		21570DFB20BB9145002585CB /* CustomFrameBlendThreeFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570DA820BB9145002585CB /* CustomFrameBlendThreeFilter.m */; };
@@ -133,6 +129,10 @@
 		2210509D20CFFA4100AB0D9C /* COPhotoItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */; };
 		221050A020D0111D00AB0D9C /* GPUCommonLUTFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509F20D0111D00AB0D9C /* GPUCommonLUTFilter.m */; };
 		228546DB20C4080000F22E3D /* LUTSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 228546DA20C4080000F22E3D /* LUTSource.bundle */; };
+		22A3E2BE20D6A1EE00F3B46B /* amatorka2.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A3E2B920D6A1EE00F3B46B /* amatorka2.png */; };
+		22A3E2BF20D6A1EE00F3B46B /* amatorka_action_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A3E2BA20D6A1EE00F3B46B /* amatorka_action_2.png */; };
+		22A3E2C020D6A1EE00F3B46B /* lookup_amatorka.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A3E2BB20D6A1EE00F3B46B /* lookup_amatorka.png */; };
+		22A3E2C120D6A1EE00F3B46B /* LUTAmatorkaFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A3E2BD20D6A1EE00F3B46B /* LUTAmatorkaFilter.m */; };
 		22C562B420BEE2AC0011014A /* qmkit_takephoto_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */; };
 		22C562B920C0275C0011014A /* DeviceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C562B820C0275C0011014A /* DeviceOrientation.m */; };
 		46520FC3277AC77D1B267CA2 /* libPods-FilterCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */; };
@@ -191,11 +191,6 @@
 		21570D9820BB9145002585CB /* HalfSketchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HalfSketchController.m; sourceTree = "<group>"; };
 		21570D9920BB9145002585CB /* HalfSketchFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HalfSketchFilter.h; sourceTree = "<group>"; };
 		21570D9A20BB9145002585CB /* HalfSketchFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HalfSketchFilter.m; sourceTree = "<group>"; };
-		21570D9C20BB9145002585CB /* amatorka2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amatorka2.png; sourceTree = "<group>"; };
-		21570D9D20BB9145002585CB /* amatorka_action_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amatorka_action_2.png; sourceTree = "<group>"; };
-		21570D9E20BB9145002585CB /* lookup_amatorka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_amatorka.png; sourceTree = "<group>"; };
-		21570D9F20BB9145002585CB /* LUTAmatorkaFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LUTAmatorkaFilter.h; sourceTree = "<group>"; };
-		21570DA020BB9145002585CB /* LUTAmatorkaFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LUTAmatorkaFilter.m; sourceTree = "<group>"; };
 		21570DA220BB9145002585CB /* YJOldPhoteFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJOldPhoteFilter.h; sourceTree = "<group>"; };
 		21570DA320BB9145002585CB /* YJOldPhoteFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJOldPhoteFilter.m; sourceTree = "<group>"; };
 		21570DA520BB9145002585CB /* CustomAlphaBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlphaBlendFilter.h; sourceTree = "<group>"; };
@@ -340,6 +335,11 @@
 		2210509E20D0111D00AB0D9C /* GPUCommonLUTFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUCommonLUTFilter.h; sourceTree = "<group>"; };
 		2210509F20D0111D00AB0D9C /* GPUCommonLUTFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUCommonLUTFilter.m; sourceTree = "<group>"; };
 		228546DA20C4080000F22E3D /* LUTSource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LUTSource.bundle; sourceTree = "<group>"; };
+		22A3E2B920D6A1EE00F3B46B /* amatorka2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amatorka2.png; sourceTree = "<group>"; };
+		22A3E2BA20D6A1EE00F3B46B /* amatorka_action_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amatorka_action_2.png; sourceTree = "<group>"; };
+		22A3E2BB20D6A1EE00F3B46B /* lookup_amatorka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_amatorka.png; sourceTree = "<group>"; };
+		22A3E2BC20D6A1EE00F3B46B /* LUTAmatorkaFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LUTAmatorkaFilter.h; sourceTree = "<group>"; };
+		22A3E2BD20D6A1EE00F3B46B /* LUTAmatorkaFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LUTAmatorkaFilter.m; sourceTree = "<group>"; };
 		22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_takephoto_btn@3x.png"; sourceTree = "<group>"; };
 		22C562B720C0275C0011014A /* DeviceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceOrientation.h; sourceTree = "<group>"; };
 		22C562B820C0275C0011014A /* DeviceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceOrientation.m; sourceTree = "<group>"; };
@@ -490,7 +490,6 @@
 				21570D9220BB9145002585CB /* GPUImageFourInputFilter.m */,
 				21570D9320BB9145002585CB /* HalfGray */,
 				21570D9620BB9145002585CB /* HalfSketch */,
-				21570D9B20BB9145002585CB /* lut_amatorke */,
 				21570DA120BB9145002585CB /* OldPhoto */,
 				21570DA420BB9145002585CB /* PhotoFrame */,
 				21570DAD20BB9145002585CB /* SimpleSketch */,
@@ -516,18 +515,6 @@
 				21570D9A20BB9145002585CB /* HalfSketchFilter.m */,
 			);
 			path = HalfSketch;
-			sourceTree = "<group>";
-		};
-		21570D9B20BB9145002585CB /* lut_amatorke */ = {
-			isa = PBXGroup;
-			children = (
-				21570D9C20BB9145002585CB /* amatorka2.png */,
-				21570D9D20BB9145002585CB /* amatorka_action_2.png */,
-				21570D9E20BB9145002585CB /* lookup_amatorka.png */,
-				21570D9F20BB9145002585CB /* LUTAmatorkaFilter.h */,
-				21570DA020BB9145002585CB /* LUTAmatorkaFilter.m */,
-			);
-			path = lut_amatorke;
 			sourceTree = "<group>";
 		};
 		21570DA120BB9145002585CB /* OldPhoto */ = {
@@ -677,6 +664,7 @@
 		2179F2C520BD078900B73822 /* COFilters */ = {
 			isa = PBXGroup;
 			children = (
+				22A3E2B820D6A1EE00F3B46B /* fw_Amatorka */,
 				2179F2C620BD078900B73822 /* fw_amaro_鸡尾酒 */,
 				2179F2CD20BD078900B73822 /* fw_brannan_海风 */,
 				2179F2D620BD078900B73822 /* fw_earlybird_加菲 */,
@@ -936,6 +924,18 @@
 			path = BaseController;
 			sourceTree = "<group>";
 		};
+		22A3E2B820D6A1EE00F3B46B /* fw_Amatorka */ = {
+			isa = PBXGroup;
+			children = (
+				22A3E2B920D6A1EE00F3B46B /* amatorka2.png */,
+				22A3E2BA20D6A1EE00F3B46B /* amatorka_action_2.png */,
+				22A3E2BB20D6A1EE00F3B46B /* lookup_amatorka.png */,
+				22A3E2BC20D6A1EE00F3B46B /* LUTAmatorkaFilter.h */,
+				22A3E2BD20D6A1EE00F3B46B /* LUTAmatorkaFilter.m */,
+			);
+			path = fw_Amatorka;
+			sourceTree = "<group>";
+		};
 		72D5EB4AEE9C2B950BE5BA90 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1065,7 +1065,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2179F36E20BD078900B73822 /* toasterOverlayMapWarm.png in Resources */,
-				21570DF520BB9145002585CB /* amatorka2.png in Resources */,
 				2179F33120BD078900B73822 /* blackboard1024.png in Resources */,
 				22C562B420BEE2AC0011014A /* qmkit_takephoto_btn@3x.png in Resources */,
 				2179F36F20BD078900B73822 /* toasterSoftLight.png in Resources */,
@@ -1106,7 +1105,6 @@
 				2179F33D20BD078900B73822 /* earlybirdBlowout.png in Resources */,
 				2179F37420BD078900B73822 /* config.json in Resources */,
 				21570D0C20BB8D8B002585CB /* LaunchScreen.storyboard in Resources */,
-				21570DF620BB9145002585CB /* amatorka_action_2.png in Resources */,
 				2179F33520BD078900B73822 /* brannanBlowout.png in Resources */,
 				2179F34D20BD078900B73822 /* overlayMap.png in Resources */,
 				21570D0920BB8D8B002585CB /* Assets.xcassets in Resources */,
@@ -1114,10 +1112,11 @@
 				2179F33C20BD078900B73822 /* config.json in Resources */,
 				2179F37320BD078900B73822 /* valenciaMap.png in Resources */,
 				2179F34C20BD078900B73822 /* hudsonMap.png in Resources */,
-				21570DF720BB9145002585CB /* lookup_amatorka.png in Resources */,
+				22A3E2C020D6A1EE00F3B46B /* lookup_amatorka.png in Resources */,
 				2179F34020BD078900B73822 /* earlybirdOverlayMap.png in Resources */,
 				21570D0720BB8D8B002585CB /* Main.storyboard in Resources */,
 				2179F34620BD078900B73822 /* hefeMap.png in Resources */,
+				22A3E2BE20D6A1EE00F3B46B /* amatorka2.png in Resources */,
 				2179F35320BD078900B73822 /* lomoMap.png in Resources */,
 				2179F34E20BD078900B73822 /* config.json in Resources */,
 				2179F22420BCDE5800B73822 /* qmkit_fiter_btn@3x.png in Resources */,
@@ -1134,6 +1133,7 @@
 				2179F35820BD078900B73822 /* blackboard1024.png in Resources */,
 				2179F36620BD078900B73822 /* sutroEdgeBurn.png in Resources */,
 				2179F36B20BD078900B73822 /* toasterColorShift.png in Resources */,
+				22A3E2BF20D6A1EE00F3B46B /* amatorka_action_2.png in Resources */,
 				2179F34B20BD078900B73822 /* hudsonBackground.png in Resources */,
 				2179F36220BD078900B73822 /* config.json in Resources */,
 				2179F37B20BD078900B73822 /* xproMap.png in Resources */,
@@ -1240,6 +1240,7 @@
 				22C562B920C0275C0011014A /* DeviceOrientation.m in Sources */,
 				21CBBA1920C0D70600C5AC30 /* UIImage+Clip.m in Sources */,
 				2179F34A20BD078900B73822 /* FWHudsonFilter.m in Sources */,
+				22A3E2C120D6A1EE00F3B46B /* LUTAmatorkaFilter.m in Sources */,
 				21570E0F20BBA995002585CB /* COCameraViewController.m in Sources */,
 				21570DFA20BB9145002585CB /* CustomAlphaBlendFilter.m in Sources */,
 				21570DF120BB9145002585CB /* GPUImageFourInputFilter.m in Sources */,
@@ -1259,7 +1260,6 @@
 				21570E0020BB9145002585CB /* SimpleSketchController.m in Sources */,
 				2179F35E20BD078900B73822 /* FWSierraFilter.m in Sources */,
 				21B361EC20D39D8A00EF7F3A /* MIBrowserImageView.m in Sources */,
-				21570DF820BB9145002585CB /* LUTAmatorkaFilter.m in Sources */,
 				2179F37120BD078900B73822 /* FWValenciaFilter.m in Sources */,
 				21570DFE20BB9145002585CB /* FrameBlendController.m in Sources */,
 				21570DF420BB9145002585CB /* HalfSketchFilter.m in Sources */,
@@ -1439,7 +1439,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GN2K929UC4;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FilterCamera/Coco.pch";
 				INFOPLIST_FILE = FilterCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1456,7 +1456,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GN2K929UC4;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FilterCamera/Coco.pch";
 				INFOPLIST_FILE = FilterCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

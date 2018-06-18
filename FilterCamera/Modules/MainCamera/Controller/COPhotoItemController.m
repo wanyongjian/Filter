@@ -39,10 +39,9 @@
 
 - (void)compressSourceImage{
     CGFloat ratio = kScreenWidth/self.sourceImage.size.width;
-    self.compressImage = [UIImage imageWithData: UIImageJPEGRepresentation(self.sourceImage, ratio)];
-    self.compressImage = [UIImage scaleImage:self.sourceImage toScale:ratio];
+//    self.compressImage = [UIImage scaleImage:self.sourceImage toScale:ratio];
+    self.compressImage = self.sourceImage;
     [UIImage calulateImageFileSize:self.compressImage];
-//    self.compressImage = self.sourceImage;
 }
 
 
@@ -118,7 +117,7 @@
             [pic addTarget:filter];
             [filter useNextFrameForImageCapture];
             [pic processImage];
-            UIImage *DesImage = [filter imageFromCurrentFramebuffer];
+            UIImage *DesImage = [filter imageFromCurrentFramebufferWithOrientation:self.sourceImage.imageOrientation];
             dispatch_async(dispatch_get_main_queue(), ^{
                 imageView.image = DesImage;
             });

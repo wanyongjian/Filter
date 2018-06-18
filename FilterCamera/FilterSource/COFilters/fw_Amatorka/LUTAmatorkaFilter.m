@@ -18,7 +18,7 @@
     }
     
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
-    UIImage *image = [UIImage imageNamed:@"manson1.png"];
+    UIImage *image = [UIImage imageNamed:@"amatorka2.png"];
 #else
     NSImage *image = [NSImage imageNamed:@"lookup_amatorka.png"];
 #endif

@@ -178,6 +178,9 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         make.top.mas_equalTo(@(y));
         
     }];
+    //滤镜view
+    _cameraFilterView = [[COCameraFilterView alloc]init];
+    
     [[filterBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
         [wself.cameraFilterView toggleInView:wself.view];
     }];
@@ -239,9 +242,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 - (void)takePhotoAction{
     weakSelf();
     self.takePhotoBtn.userInteractionEnabled = NO;
-        NSLog(@"***** 开始拍照 *****");
     [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.passFilter withOrientation:self.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-            NSLog(@"***** 拍照完成 ***** 图片：%@,error:%@",processedImage,error);
             NSAssert(processedImage !=nil, @"processedImage 是空");
             UIImage *SourceClipImage = [UIImage clipOrientationImage:processedImage withRatio:_currentCameraViewRatio];
             UIImage *SourceImage = [SourceClipImage fixOrientation];
@@ -252,7 +253,6 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
                 NSAssert(SourceImage !=nil, @"SourceImage 是空");
                 vc.filterClass = self.filterClass;
 //                vc.imageFilter = self.filter;
-                NSLog(@"***** 处理完成，准备跳转 *****");
                 [wself.navigationController pushViewController:vc animated:NO];
                 wself.takePhotoBtn.userInteractionEnabled = YES;
             });
@@ -299,10 +299,4 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     return UIStatusBarStyleLightContent;
 }
 
-- (COCameraFilterView *)cameraFilterView{
-    if(!_cameraFilterView){
-        _cameraFilterView = [[COCameraFilterView alloc]init];
-    }
-    return _cameraFilterView;
-}
 @end

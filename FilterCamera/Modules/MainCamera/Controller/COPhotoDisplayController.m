@@ -35,13 +35,13 @@
     [filter useNextFrameForImageCapture];
     [pic processImage];
     
-    UIImage *image = [filter imageFromCurrentFramebuffer];
-    
-    
+    UIImage *image = [filter imageFromCurrentFramebufferWithOrientation:self.sourceImage.imageOrientation];
+    image = [UIImage clipOrientationImage:image withRatio:1.0];
+    UIImage *fixImage = [image fixOrientation];
     CGFloat ratio = image.size.height/(CGFloat)image.size.width;
-    self.imageView.image = image;
-    self.imageView.frame = CGRectMake(0, 100, kScreenWidth, kScreenWidth*ratio);
-    
+    self.imageView.image = fixImage;
+//    self.imageView.image = self.sourceImage;
+    self.imageView.frame = CGRectMake(0, 100, kScreenWidth, kScreenWidth*ratio);    
     
     [self setFilterGroupUI];
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];

@@ -125,10 +125,10 @@
         CGRect rect = CGRectMake(0, layout.itemSize.height-18, layout.itemSize.width, 18);
         label = [[UILabel alloc] initWithFrame:rect];
         label.tag = kCameraFilterCollectionLabelTag;
-        label.font = [UIFont systemFontOfSize:10];
+        label.font = [UIFont systemFontOfSize:12];
         label.textColor = [UIColor whiteColor];
         label.textAlignment = NSTextAlignmentCenter;
-        label.backgroundColor = [UIColor colorWithRed:8/255.0 green:157/255.0 blue:184/255.0 alpha:0.6f];
+        label.backgroundColor = [UIColor colorWithRed:8/255.0 green:157/255.0 blue:184/255.0 alpha:0.4f];
         [cell.contentView addSubview:label];
     }
     //    cell.layer.cornerRadius = 22.0f;
