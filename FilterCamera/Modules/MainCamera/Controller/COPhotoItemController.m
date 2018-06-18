@@ -11,10 +11,13 @@
 #import "COPhotoBrowserView.h"
 #define kCameraFilterViewHeight (kScreenHeight-kScreenWidth*4.0f/3.0f)
 #define kPhotoFilterItemCollectionViewCellID         @"PhotoFilterItemCollectionViewCellID"
+#define headerViewIdentifier  @"hederviewReuse"
+
 #define kCameraFilterCollectionImageViewTag       100
 #define kCameraFilterCollectionLabelTag           101
 #define kCameraFilterCollectionMaskViewTag        102
 
+#define ItemBackColor     HEX_COLOR(0x252525)
 #define kPhotoItemWidth (kScreenWidth/2-10)
 @interface COPhotoItemController () <UICollectionViewDelegate,UICollectionViewDataSource,MIPhotoBrowserDelegate>{
     CGFloat _imageRatio;
@@ -50,17 +53,17 @@
     [UIImage calulateImageFileSize:self.compressImage];
 }
 
-
 - (void)addCollectionView{
     UICollectionViewFlowLayout *layout = [self collectionViewForFlowLayout];
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) collectionViewLayout:layout];
     collectionView.delegate = self;
     collectionView.dataSource = self;
-//    collectionView.scrollsToTop = NO;
-//    collectionView.showsVerticalScrollIndicator = NO;
     collectionView.showsHorizontalScrollIndicator = NO;
-    collectionView.backgroundColor = [UIColor whiteColor];
+    collectionView.backgroundColor = ItemBackColor;
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kPhotoFilterItemCollectionViewCellID];
+    [collectionView registerClass:[UICollectionReusableView class]
+       forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+              withReuseIdentifier:headerViewIdentifier];
     [self.view addSubview:collectionView];
     _collectionView = collectionView;
 }
@@ -73,6 +76,7 @@
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     layout.minimumLineSpacing = 5;
     layout.sectionInset = UIEdgeInsetsMake(5, 5, 0, 5);
+    layout.headerReferenceSize=CGSizeMake(kScreenWidth, 40); //设置collectionView头视图的大小
     return layout;
 }
 
@@ -165,6 +169,25 @@
     [view show];
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    //如果是头视图
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        UICollectionReusableView *header=[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headerViewIdentifier forIndexPath:indexPath];
+        //头视图添加view
+        UILabel *label = [[UILabel alloc]init];
+        label.text = self.model.name;
+//        label.font = [UIFont systemFontOfSize:15];
+        label.textColor = [UIColor whiteColor];
+        [header addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.mas_equalTo(header);
+        }];
+        return header;
+    }
+    //如果底部视图
+    return nil;
+}
 - (void)tapAction:(UIGestureRecognizer *)gesture{
     UIImageView *imageView = (UIImageView *)gesture.view;
     NSLog(@"image view = %@", imageView);
@@ -182,5 +205,17 @@
 //    UIImageView *imageView = _contentView.subviews[index];
 //    return imageView.image;
     return [UIImage new];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+}
+- (BOOL)prefersStatusBarHidden{
+    return YES;
 }
 @end
