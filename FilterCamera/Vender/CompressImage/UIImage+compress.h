@@ -11,4 +11,5 @@
 @interface UIImage (compress)
 + (void)calulateImageFileSize:(UIImage *)image;
 + (UIImage *) scaleImage:(UIImage *)image toScale:(float)scaleSize;
+- (NSData *)compressQualityWithMaxLength:(NSInteger)maxLength;
 @end

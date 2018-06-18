@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    self.view.backgroundColor = [UIColor blackColor];
     _filterModleArray = [LUTFilterModel getLUTFilterArrayWithPath:[LUTBUNDLE stringByAppendingPathComponent:self.model.path]];
     self.lastIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     _imageRatio = self.sourceImage.size.height/(CGFloat)self.sourceImage.size.width;
@@ -40,7 +41,12 @@
 - (void)compressSourceImage{
     CGFloat ratio = kScreenWidth/self.sourceImage.size.width;
 //    self.compressImage = [UIImage scaleImage:self.sourceImage toScale:ratio];
-    self.compressImage = self.sourceImage;
+    NSData *data = [self.sourceImage compressQualityWithMaxLength:600];
+//    self.compressImage = self.sourceImage;
+//    NSData *data = UIImageJPEGRepresentation(self.sourceImage, 1.0);
+//    UIImage *resultImage = [UIImage imageWithData:data];
+//    self.compressImage = resultImage;
+    self.compressImage = [UIImage imageWithData:data];
     [UIImage calulateImageFileSize:self.compressImage];
 }
 

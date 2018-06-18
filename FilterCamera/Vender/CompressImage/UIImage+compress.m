@@ -28,6 +28,27 @@
     [image drawInRect:CGRectMake(0, 0, image.size.width * scaleSize, image.size.height * scaleSize)];
     UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+//    UIImage * newImageData = [UIImage imageWithData:UIImageJPEGRepresentation(scaledImage, 0.5)];
     return scaledImage;
+}
+
+- (NSData *)compressQualityWithMaxLength:(NSInteger)maxLength {
+    CGFloat compression = 1;
+    NSData *data = UIImageJPEGRepresentation(self, compression);
+    if (data.length < maxLength) return data;
+    CGFloat max = 1;
+    CGFloat min = 0;
+    for (int i = 0; i < 6; ++i) {
+        compression = (max + min) / 2;
+        data = UIImageJPEGRepresentation(self, compression);
+        if (data.length < maxLength * 0.9) {
+            min = compression;
+        } else if (data.length > maxLength) {
+            max = compression;
+        } else {
+            break;
+        }
+    }
+    return data;
 }
 @end
