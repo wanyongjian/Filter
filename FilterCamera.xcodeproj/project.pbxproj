@@ -134,6 +134,9 @@
 		22A3E2BF20D6A1EE00F3B46B /* amatorka_action_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A3E2BA20D6A1EE00F3B46B /* amatorka_action_2.png */; };
 		22A3E2C020D6A1EE00F3B46B /* lookup_amatorka.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A3E2BB20D6A1EE00F3B46B /* lookup_amatorka.png */; };
 		22A3E2C120D6A1EE00F3B46B /* LUTAmatorkaFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A3E2BD20D6A1EE00F3B46B /* LUTAmatorkaFilter.m */; };
+		22A3E2C420D9220300F3B46B /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A3E2C320D9220300F3B46B /* UIImage+Resize.m */; };
+		22A3E2C920D9253800F3B46B /* YQImageCompressTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A3E2C520D9253700F3B46B /* YQImageCompressTool.m */; };
+		22A3E2CA20D9253800F3B46B /* YQImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A3E2C820D9253800F3B46B /* YQImageTool.m */; };
 		22C562B420BEE2AC0011014A /* qmkit_takephoto_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */; };
 		22C562B920C0275C0011014A /* DeviceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C562B820C0275C0011014A /* DeviceOrientation.m */; };
 		46520FC3277AC77D1B267CA2 /* libPods-FilterCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */; };
@@ -342,6 +345,12 @@
 		22A3E2BB20D6A1EE00F3B46B /* lookup_amatorka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_amatorka.png; sourceTree = "<group>"; };
 		22A3E2BC20D6A1EE00F3B46B /* LUTAmatorkaFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LUTAmatorkaFilter.h; sourceTree = "<group>"; };
 		22A3E2BD20D6A1EE00F3B46B /* LUTAmatorkaFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LUTAmatorkaFilter.m; sourceTree = "<group>"; };
+		22A3E2C220D9220200F3B46B /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		22A3E2C320D9220300F3B46B /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		22A3E2C520D9253700F3B46B /* YQImageCompressTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQImageCompressTool.m; sourceTree = "<group>"; };
+		22A3E2C620D9253800F3B46B /* YQImageCompressTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQImageCompressTool.h; sourceTree = "<group>"; };
+		22A3E2C720D9253800F3B46B /* YQImageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQImageTool.h; sourceTree = "<group>"; };
+		22A3E2C820D9253800F3B46B /* YQImageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQImageTool.m; sourceTree = "<group>"; };
 		22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_takephoto_btn@3x.png"; sourceTree = "<group>"; };
 		22C562B720C0275C0011014A /* DeviceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceOrientation.h; sourceTree = "<group>"; };
 		22C562B820C0275C0011014A /* DeviceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceOrientation.m; sourceTree = "<group>"; };
@@ -380,6 +389,12 @@
 		2147A8B520D0CC9100504434 /* CompressImage */ = {
 			isa = PBXGroup;
 			children = (
+				22A3E2C620D9253800F3B46B /* YQImageCompressTool.h */,
+				22A3E2C520D9253700F3B46B /* YQImageCompressTool.m */,
+				22A3E2C720D9253800F3B46B /* YQImageTool.h */,
+				22A3E2C820D9253800F3B46B /* YQImageTool.m */,
+				22A3E2C220D9220200F3B46B /* UIImage+Resize.h */,
+				22A3E2C320D9220300F3B46B /* UIImage+Resize.m */,
 				2147A8B620D0CD0200504434 /* UIImage+compress.h */,
 				2147A8B720D0CD0200504434 /* UIImage+compress.m */,
 			);
@@ -1236,6 +1251,7 @@
 				2210509D20CFFA4100AB0D9C /* COPhotoItemController.m in Sources */,
 				21CBBA2C20C145FB00C5AC30 /* GLBBaseViewController.m in Sources */,
 				2179F37520BD078900B73822 /* FWWaldenFilter.m in Sources */,
+				22A3E2C920D9253800F3B46B /* YQImageCompressTool.m in Sources */,
 				21570E1A20BBC576002585CB /* ShakeButton.m in Sources */,
 				2179F35A20BD078900B73822 /* FWRiseFilter.m in Sources */,
 				21B361ED20D39D8A00EF7F3A /* MIPhotoBrowser.m in Sources */,
@@ -1247,6 +1263,7 @@
 				22A3E2C120D6A1EE00F3B46B /* LUTAmatorkaFilter.m in Sources */,
 				21570E0F20BBA995002585CB /* COCameraViewController.m in Sources */,
 				21570DFA20BB9145002585CB /* CustomAlphaBlendFilter.m in Sources */,
+				22A3E2CA20D9253800F3B46B /* YQImageTool.m in Sources */,
 				21570DF120BB9145002585CB /* GPUImageFourInputFilter.m in Sources */,
 				2179F34120BD078900B73822 /* FWEarlybirdFilter.m in Sources */,
 				2147A8B820D0CD0200504434 /* UIImage+compress.m in Sources */,
@@ -1276,6 +1293,7 @@
 				21B361EE20D39D8A00EF7F3A /* COCameraFilterView.m in Sources */,
 				2179F35620BD078900B73822 /* FWNashvilleFilter.m in Sources */,
 				2179F35220BD078900B73822 /* FWLomofiFilter.m in Sources */,
+				22A3E2C420D9220300F3B46B /* UIImage+Resize.m in Sources */,
 				214AB81420BFC21300D4B73C /* UIImage+Rotate.m in Sources */,
 				2179F33B20BD078900B73822 /* FWBrannanFilter.m in Sources */,
 			);

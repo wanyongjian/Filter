@@ -24,4 +24,7 @@
 #import "UIImage+Clip.h"
 #import "GLBBaseViewController.h"
 #import "UIImage+compress.h"
+#import "UIImage+Resize.h"
+#import "YQImageCompressTool.h"
+#import "YQImageTool.h"
 #endif /* Coco_pch */

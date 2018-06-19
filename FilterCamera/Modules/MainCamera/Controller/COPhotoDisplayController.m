@@ -76,4 +76,7 @@
         };
     };
 }
+- (void)dealloc{
+    NSLog(@"释放了photoItemcontroller**************");
+}
 @end

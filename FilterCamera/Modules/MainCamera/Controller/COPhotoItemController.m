@@ -48,11 +48,13 @@
 }
 
 - (void)compressSourceImage{
+    
 //    NSData *data = [self.sourceImage compressQualityWithMaxLength:600];
 //    self.compressImage = [UIImage imageWithData:data];
 //    [UIImage calulateImageFileSize:self.compressImage];
-    CGFloat ratio = self.sourceImage.size.height/(CGFloat)self.sourceImage.size.width;
-    UIImage *image = [UIImage imageWithImageSimple:self.sourceImage scaledToSize:CGSizeMake(kScreenWidth, kScreenWidth*ratio)];
+    
+    UIImage *image = [UIImage imageWithImageSimple:self.sourceImage scaledToSize:CGSizeMake(kScreenWidth, kScreenWidth*_imageRatio)];
+    
     self.compressImage = image;
     [UIImage calulateImageFileSize:self.compressImage];
 }
@@ -85,8 +87,9 @@
         make.left.mas_equalTo(@(x));
         make.width.height.mas_equalTo(kFootHeight);
     }];
+    weakSelf();
     [[backBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [self.navigationController popViewControllerAnimated:NO];
+        [wself.navigationController popViewControllerAnimated:NO];
     }];
     
     UIButton *saveBtn = [[UIButton alloc]init];
@@ -98,9 +101,12 @@
         make.left.mas_equalTo(@(x));
         make.width.height.mas_equalTo(kFootHeight);
     }];
+    
+    @weakify(self);
     [[saveBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        if (self.filterSelect && self.lastIndexPath) {
-            LUTFilterModel *model = _filterModleArray[self.lastIndexPath.row];
+        @strongify(self);
+        if (self.lastIndexPath) {
+            LUTFilterModel *model = self.filterModleArray[self.lastIndexPath.row];
             id filter;
             if ([self.groupModel.type isEqualToString:@"0"]) { //精选类型
                 filter = [[NSClassFromString(model.vc) alloc]init];
@@ -159,6 +165,12 @@
         imageView.contentMode = UIViewContentModeScaleToFill;
         [cell.contentView addSubview:imageView];
         imageView.image = self.compressImage;
+        UIView *maskView = [[UIView alloc]init];
+        maskView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+        [imageView addSubview:maskView];
+        [maskView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(imageView);
+        }];
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             LUTFilterModel *model = _filterModleArray[indexPath.row];
             id filter;
@@ -172,14 +184,18 @@
                 filter =[[GPUCommonLUTFilter alloc]initWithImage:lutImage];
             }
             
-            GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.compressImage];
-            [pic addTarget:filter];
-            [filter useNextFrameForImageCapture];
-            [pic processImage];
-            UIImage *DesImage = [filter imageFromCurrentFramebufferWithOrientation:self.sourceImage.imageOrientation];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                imageView.image = DesImage;
-            });
+//            NSAutoreleasePool *pool = [NSAutoreleasePool new];
+                GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.compressImage];
+                [pic addTarget:filter];
+                [filter useNextFrameForImageCapture];
+                [pic processImage];
+                UIImage *DesImage = [filter imageFromCurrentFramebufferWithOrientation:self.sourceImage.imageOrientation];
+    //            [pool drain];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    imageView.image = DesImage;
+                    [maskView removeFromSuperview];
+                });
+            
         });
     }
     
@@ -262,5 +278,8 @@
 }
 - (BOOL)prefersStatusBarHidden{
     return YES;
+}
+- (void)dealloc{
+    NSLog(@"释放了photoItemcontroller**************");
 }
 @end
