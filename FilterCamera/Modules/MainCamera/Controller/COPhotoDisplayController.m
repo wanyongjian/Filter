@@ -36,12 +36,9 @@
     [pic processImage];
     
     UIImage *image = [filter imageFromCurrentFramebufferWithOrientation:self.sourceImage.imageOrientation];
-    image = [UIImage clipOrientationImage:image withRatio:1.0];
-    UIImage *fixImage = [image fixOrientation];
     CGFloat ratio = image.size.height/(CGFloat)image.size.width;
-    self.imageView.image = fixImage;
-//    self.imageView.image = self.sourceImage;
-    self.imageView.frame = CGRectMake(0, 100, kScreenWidth, kScreenWidth*ratio);    
+    self.imageView.image = image;
+    self.imageView.frame = CGRectMake(0, 100, kScreenWidth, kScreenWidth*ratio);
     
     [self setFilterGroupUI];
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
@@ -64,8 +61,17 @@
         NSLog(@"%@,%@,%@,%@",model.name,model.type,model.path,model.imagePath);
         COPhotoItemController *vc = [[COPhotoItemController alloc]init];
         [wself.navigationController pushViewController:vc animated:NO];
-        vc.model = model;
+        vc.groupModel = model;
         vc.sourceImage = wself.sourceImage;
+        vc.filterSelect = ^(id filter) {
+            GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:wself.sourceImage];
+            NSAssert(pic!=nil, @"self.sourceImage是空");
+            [pic addTarget:filter];
+            [filter useNextFrameForImageCapture];
+            [pic processImage];
+            UIImage *image = [filter imageFromCurrentFramebufferWithOrientation:wself.sourceImage.imageOrientation];
+            wself.imageView.image = image;
+        };
     };
 }
 @end

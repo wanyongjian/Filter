@@ -21,16 +21,8 @@
         [self addSubview:self.imageView];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction)];
         [self addGestureRecognizer:tap];
-        
-//        UILongPressGestureRecognizer *longPressGest = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressView)];
-//        longPressGest.minimumPressDuration = 3;
-//        [self addGestureRecognizer:longPressGest];
     }
     return self;
-}
-- (void)longPressView{
-    UIImageWriteToSavedPhotosAlbum(self.sourceImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
-    [self removeFromSuperview];
 }
 - (void)tapAction{
     self.backgroundColor = [UIColor clearColor];

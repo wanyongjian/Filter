@@ -126,6 +126,7 @@
 		21CBBA1C20C0F2DF00C5AC30 /* COPhotoDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1B20C0F2DF00C5AC30 /* COPhotoDisplayController.m */; };
 		21CBBA1F20C0F50E00C5AC30 /* COBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */; };
 		21CBBA2C20C145FB00C5AC30 /* GLBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA2B20C145FB00C5AC30 /* GLBBaseViewController.m */; };
+		21D37DBE20D88C60001E7042 /* arrowDown@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21D37DBD20D88C5F001E7042 /* arrowDown@3x.png */; };
 		2210509D20CFFA4100AB0D9C /* COPhotoItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */; };
 		221050A020D0111D00AB0D9C /* GPUCommonLUTFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509F20D0111D00AB0D9C /* GPUCommonLUTFilter.m */; };
 		228546DB20C4080000F22E3D /* LUTSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 228546DA20C4080000F22E3D /* LUTSource.bundle */; };
@@ -330,6 +331,7 @@
 		21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COBaseNavigationController.m; sourceTree = "<group>"; };
 		21CBBA2A20C145FB00C5AC30 /* GLBBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBBaseViewController.h; sourceTree = "<group>"; };
 		21CBBA2B20C145FB00C5AC30 /* GLBBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLBBaseViewController.m; sourceTree = "<group>"; };
+		21D37DBD20D88C5F001E7042 /* arrowDown@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowDown@3x.png"; sourceTree = "<group>"; };
 		2210509B20CFFA4100AB0D9C /* COPhotoItemController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COPhotoItemController.h; sourceTree = "<group>"; };
 		2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COPhotoItemController.m; sourceTree = "<group>"; };
 		2210509E20D0111D00AB0D9C /* GPUCommonLUTFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUCommonLUTFilter.h; sourceTree = "<group>"; };
@@ -636,6 +638,7 @@
 		21570E1D20BBDFEA002585CB /* IconButton */ = {
 			isa = PBXGroup;
 			children = (
+				21D37DBD20D88C5F001E7042 /* arrowDown@3x.png */,
 				22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */,
 				2179F22320BCDE5800B73822 /* qmkit_fiter_btn@3x.png */,
 				21570E1E20BBDFEA002585CB /* qmkit_rotate_btn@3x.png */,
@@ -1073,6 +1076,7 @@
 				2179F37A20BD078900B73822 /* vignetteMap.png in Resources */,
 				2179F33020BD078900B73822 /* amaroMap.png in Resources */,
 				2179F36720BD078900B73822 /* sutroMetal.png in Resources */,
+				21D37DBE20D88C60001E7042 /* arrowDown@3x.png in Resources */,
 				2179F36820BD078900B73822 /* vignetteMap.png in Resources */,
 				2179F37620BD078900B73822 /* vignetteMap.png in Resources */,
 				2179F35B20BD078900B73822 /* overlayMap.png in Resources */,

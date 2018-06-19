@@ -243,6 +243,10 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     weakSelf();
     self.takePhotoBtn.userInteractionEnabled = NO;
     [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.passFilter withOrientation:self.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+        if (!processedImage) {
+            self.takePhotoBtn.userInteractionEnabled = NO;
+            return;
+        }
             NSAssert(processedImage !=nil, @"processedImage 是空");
             UIImage *SourceClipImage = [UIImage clipOrientationImage:processedImage withRatio:_currentCameraViewRatio];
             UIImage *SourceImage = [SourceClipImage fixOrientation];
