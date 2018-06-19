@@ -51,4 +51,16 @@
     }
     return data;
 }
+
++(UIImage *)imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize)newSize
+{
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(newSize.width, newSize.height), NO,1);
+    //UIGraphicsBeginImageContext(newSize);//根据当前大小创建一个基于位图图形的环境
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];//根据新的尺寸画出传过来的图片
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();//从当前环境当中得到重绘的图片
+    UIGraphicsEndImageContext();//关闭当前环境
+    
+    return newImage;
+    
+}
 @end

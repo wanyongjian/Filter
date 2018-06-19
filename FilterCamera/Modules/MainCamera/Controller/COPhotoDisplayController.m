@@ -58,19 +58,21 @@
     _photoFilterView.frame = CGRectMake(0, kScreenHeight-kCameraFilterViewHeight, kScreenWidth, kCameraFilterViewHeight);
     [self.view addSubview:self.photoFilterView];
     self.photoFilterView.filterClick = ^(LUTFilterGroupModel *model) {
+        
         NSLog(@"%@,%@,%@,%@",model.name,model.type,model.path,model.imagePath);
         COPhotoItemController *vc = [[COPhotoItemController alloc]init];
         [wself.navigationController pushViewController:vc animated:NO];
         vc.groupModel = model;
         vc.sourceImage = wself.sourceImage;
         vc.filterSelect = ^(id filter) {
-            GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:wself.sourceImage];
+            strongSelf();
+            GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.sourceImage];
             NSAssert(pic!=nil, @"self.sourceImage是空");
             [pic addTarget:filter];
             [filter useNextFrameForImageCapture];
             [pic processImage];
             UIImage *image = [filter imageFromCurrentFramebufferWithOrientation:wself.sourceImage.imageOrientation];
-            wself.imageView.image = image;
+            self.imageView.image = image;
         };
     };
 }

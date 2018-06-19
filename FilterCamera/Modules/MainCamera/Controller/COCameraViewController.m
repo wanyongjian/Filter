@@ -241,12 +241,8 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 }
 - (void)takePhotoAction{
     weakSelf();
-    self.takePhotoBtn.userInteractionEnabled = NO;
-    [self.stillCamera capturePhotoAsImageProcessedUpToFilter:self.passFilter withOrientation:self.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-        if (!processedImage) {
-            self.takePhotoBtn.userInteractionEnabled = NO;
-            return;
-        }
+    wself.takePhotoBtn.userInteractionEnabled = NO;
+    [wself.stillCamera capturePhotoAsImageProcessedUpToFilter:wself.passFilter withOrientation:wself.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
             NSAssert(processedImage !=nil, @"processedImage 是空");
             UIImage *SourceClipImage = [UIImage clipOrientationImage:processedImage withRatio:_currentCameraViewRatio];
             UIImage *SourceImage = [SourceClipImage fixOrientation];
@@ -255,8 +251,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
                 COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
                 vc.sourceImage = SourceImage;
                 NSAssert(SourceImage !=nil, @"SourceImage 是空");
-                vc.filterClass = self.filterClass;
-//                vc.imageFilter = self.filter;
+                vc.filterClass = wself.filterClass;
                 [wself.navigationController pushViewController:vc animated:NO];
                 wself.takePhotoBtn.userInteractionEnabled = YES;
             });

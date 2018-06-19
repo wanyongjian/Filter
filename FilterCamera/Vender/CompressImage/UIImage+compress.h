@@ -12,4 +12,5 @@
 + (void)calulateImageFileSize:(UIImage *)image;
 + (UIImage *) scaleImage:(UIImage *)image toScale:(float)scaleSize;
 - (NSData *)compressQualityWithMaxLength:(NSInteger)maxLength;
++(UIImage *)imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize)newSize;
 @end

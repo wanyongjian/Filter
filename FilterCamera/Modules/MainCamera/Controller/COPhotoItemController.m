@@ -48,8 +48,12 @@
 }
 
 - (void)compressSourceImage{
-    NSData *data = [self.sourceImage compressQualityWithMaxLength:600];
-    self.compressImage = [UIImage imageWithData:data];
+//    NSData *data = [self.sourceImage compressQualityWithMaxLength:600];
+//    self.compressImage = [UIImage imageWithData:data];
+//    [UIImage calulateImageFileSize:self.compressImage];
+    CGFloat ratio = self.sourceImage.size.height/(CGFloat)self.sourceImage.size.width;
+    UIImage *image = [UIImage imageWithImageSimple:self.sourceImage scaledToSize:CGSizeMake(kScreenWidth, kScreenWidth*ratio)];
+    self.compressImage = image;
     [UIImage calulateImageFileSize:self.compressImage];
 }
 
