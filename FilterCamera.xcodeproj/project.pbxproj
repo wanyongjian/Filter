@@ -116,6 +116,7 @@
 		2179F37A20BD078900B73822 /* vignetteMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F32E20BD078900B73822 /* vignetteMap.png */; };
 		2179F37B20BD078900B73822 /* xproMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F32F20BD078900B73822 /* xproMap.png */; };
 		2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2179F38420BD45AE00B73822 /* AnimationFilter.m */; };
+		218ECE5F20DA508500DB985D /* Checkmark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 218ECE5E20DA508400DB985D /* Checkmark@3x.png */; };
 		21B361EE20D39D8A00EF7F3A /* COCameraFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E720D39D8900EF7F3A /* COCameraFilterView.m */; };
 		21B361EF20D39D8A00EF7F3A /* COPhotoFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E920D39D8900EF7F3A /* COPhotoFilterView.m */; };
 		21B361F020D39D8A00EF7F3A /* FilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361EB20D39D8900EF7F3A /* FilterModel.m */; };
@@ -312,6 +313,7 @@
 		2179F32F20BD078900B73822 /* xproMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xproMap.png; sourceTree = "<group>"; };
 		2179F38320BD45AE00B73822 /* AnimationFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationFilter.h; sourceTree = "<group>"; };
 		2179F38420BD45AE00B73822 /* AnimationFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationFilter.m; sourceTree = "<group>"; };
+		218ECE5E20DA508400DB985D /* Checkmark@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark@3x.png"; sourceTree = "<group>"; };
 		21B361E620D39D8900EF7F3A /* COCameraFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COCameraFilterView.h; sourceTree = "<group>"; };
 		21B361E720D39D8900EF7F3A /* COCameraFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COCameraFilterView.m; sourceTree = "<group>"; };
 		21B361E820D39D8900EF7F3A /* COPhotoFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COPhotoFilterView.h; sourceTree = "<group>"; };
@@ -647,6 +649,7 @@
 		21570E1D20BBDFEA002585CB /* IconButton */ = {
 			isa = PBXGroup;
 			children = (
+				218ECE5E20DA508400DB985D /* Checkmark@3x.png */,
 				21D37DBD20D88C5F001E7042 /* arrowDown@3x.png */,
 				22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */,
 				2179F22320BCDE5800B73822 /* qmkit_fiter_btn@3x.png */,
@@ -975,7 +978,6 @@
 				21570CF920BB8D8B002585CB /* Frameworks */,
 				21570CFA20BB8D8B002585CB /* Resources */,
 				3423209EE795D7CFE36CA79D /* [CP] Copy Pods Resources */,
-				59443AEC7E45D3AA0C48A022 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1141,6 +1143,7 @@
 				2179F33F20BD078900B73822 /* earlybirdMap.png in Resources */,
 				2179F35820BD078900B73822 /* blackboard1024.png in Resources */,
 				2179F36620BD078900B73822 /* sutroEdgeBurn.png in Resources */,
+				218ECE5F20DA508500DB985D /* Checkmark@3x.png in Resources */,
 				2179F36B20BD078900B73822 /* toasterColorShift.png in Resources */,
 				22A3E2BF20D6A1EE00F3B46B /* amatorka_action_2.png in Resources */,
 				2179F34B20BD078900B73822 /* hudsonBackground.png in Resources */,
@@ -1208,21 +1211,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		59443AEC7E45D3AA0C48A022 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

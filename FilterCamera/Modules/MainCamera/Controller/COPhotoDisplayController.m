@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) COPhotoFilterView *photoFilterView;
 @property (nonatomic, strong) UIView *topView;
+@property (nonatomic, strong) MBProgressHUD *hud;
 @end
 @implementation COPhotoDisplayController
 
@@ -118,12 +119,26 @@
     @weakify(self);
     [[saveBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self);
-        UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
-
+        self.hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        self.hud.label.text = @"保存中...";
+        self.hud.minSize = CGSizeMake(150.f, 100.f);
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+        });
     }];
 }
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
+    UIImage *checkMark = [[UIImage imageNamed:@"Checkmark"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:checkMark];
+    self.hud.customView = imageView;
+    self.hud.mode = MBProgressHUDModeCustomView;
+    self.hud.label.text = @"完成";
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.8 animations:^{
+            [self.hud hideAnimated:YES];
+        }];
+    });
     NSLog(@"image = %@, error = %@, contextInfo = %@", image, error, contextInfo);
 }
 

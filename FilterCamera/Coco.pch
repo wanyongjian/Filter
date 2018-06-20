@@ -25,6 +25,5 @@
 #import "GLBBaseViewController.h"
 #import "UIImage+compress.h"
 #import "UIImage+Resize.h"
-#import "YQImageCompressTool.h"
-#import "YQImageTool.h"
+#import "MBProgressHUD.h"
 #endif /* Coco_pch */
