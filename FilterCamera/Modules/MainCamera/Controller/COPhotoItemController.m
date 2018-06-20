@@ -165,6 +165,7 @@
         imageView.contentMode = UIViewContentModeScaleToFill;
         [cell.contentView addSubview:imageView];
         imageView.image = self.compressImage;
+//        imageView.image = [UIImage imageWithContentsOfFile:[LUTBUNDLE stringByAppendingPathComponent:@"LUTSource/30组GoPro专用/gopor_1.png"] ];
         UIView *maskView = [[UIView alloc]init];
         maskView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
         [imageView addSubview:maskView];
@@ -184,13 +185,13 @@
                 filter =[[GPUCommonLUTFilter alloc]initWithImage:lutImage];
             }
             
-//            NSAutoreleasePool *pool = [NSAutoreleasePool new];
                 GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.compressImage];
                 [pic addTarget:filter];
                 [filter useNextFrameForImageCapture];
                 [pic processImage];
                 UIImage *DesImage = [filter imageFromCurrentFramebufferWithOrientation:self.sourceImage.imageOrientation];
-    //            [pool drain];
+                //释放GPU缓存
+                [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     imageView.image = DesImage;
                     [maskView removeFromSuperview];

@@ -27,19 +27,20 @@
     self.imageView = [[UIImageView alloc]init];
     self.imageView.frame = CGRectMake(0, 100, 300, 300);
     [self.view addSubview:self.imageView];
-    
+
     GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.sourceImage];
     NSAssert(pic!=nil, @"self.sourceImage是空");
     GPUImageFilter *filter = [[self.filterClass alloc]init];
     [pic addTarget:filter];
     [filter useNextFrameForImageCapture];
     [pic processImage];
-    
     UIImage *image = [filter imageFromCurrentFramebufferWithOrientation:self.sourceImage.imageOrientation];
+    //释放GPU缓存
+    [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
     CGFloat ratio = image.size.height/(CGFloat)image.size.width;
     self.imageView.image = image;
     self.imageView.frame = CGRectMake(0, 100, kScreenWidth, kScreenWidth*ratio);
-    
+
     [self setFilterGroupUI];
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
@@ -77,6 +78,7 @@
     };
 }
 - (void)dealloc{
-    NSLog(@"释放了photoItemcontroller**************");
+//    [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
+    NSLog(@"释放了displaycontroller**************");
 }
 @end

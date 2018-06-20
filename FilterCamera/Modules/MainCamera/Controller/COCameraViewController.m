@@ -24,8 +24,6 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 #define TopOffset (iPhoneX ? 45 : 20)
 #define TopFunctionHeight 40
 @interface COCameraViewController (){
-    CGFloat _currentCameraViewRatio;
-    NSMutableArray *_ratioArray;
 }
 
 @property (nonatomic, strong) COStillCamera *stillCamera;
@@ -34,9 +32,11 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 @property (nonatomic, strong) UIButton *takePhotoBtn;
 @property (nonatomic, strong) GPUImageFilter *filter;
 @property (nonatomic, strong) GPUImageFilter *passFilter;
-@property (nonatomic, strong) AppDelegate *appDelegate;
+@property (nonatomic, weak) AppDelegate *appDelegate;
 @property (nonatomic, assign) UIImageOrientation imageOrientation;
 @property (nonatomic, strong) Class filterClass;
+@property (nonatomic, assign) CGFloat currentCameraViewRatio;
+@property (nonatomic, strong) NSMutableArray *ratioArray;
 @end
 
 @implementation COCameraViewController
@@ -82,25 +82,25 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         switch (wself.imageOrientation) {
             case UIImageOrientationUp:{
                 [UIView animateWithDuration:0.3 animations:^{
-                    self.takePhotoBtn.transform = CGAffineTransformMakeRotation(0);
+                    wself.takePhotoBtn.transform = CGAffineTransformMakeRotation(0);
                 }];
             }
                 break;
             case UIImageOrientationDown:{
                 [UIView animateWithDuration:0.3 animations:^{
-                    self.takePhotoBtn.transform = CGAffineTransformMakeRotation(M_PI);
+                    wself.takePhotoBtn.transform = CGAffineTransformMakeRotation(M_PI);
                 }];
             }
                 break;
             case UIImageOrientationLeft:{
                 [UIView animateWithDuration:0.3 animations:^{
-                    self.takePhotoBtn.transform = CGAffineTransformMakeRotation(M_PI_2);
+                    wself.takePhotoBtn.transform = CGAffineTransformMakeRotation(M_PI_2);
                 }];
             }
                 break;
             case UIImageOrientationRight:{
                 [UIView animateWithDuration:0.3 animations:^{
-                    self.takePhotoBtn.transform = CGAffineTransformMakeRotation(-M_PI_2);
+                    wself.takePhotoBtn.transform = CGAffineTransformMakeRotation(-M_PI_2);
                 }];
             }
                 break;
@@ -108,8 +108,8 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     }];
 }
 - (void)setRatioData{
-    _ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"],@[@"4:3",@"0.75"]].mutableCopy;
-    _currentCameraViewRatio = 1.33;
+    self.ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"],@[@"4:3",@"0.75"]].mutableCopy;
+    self.currentCameraViewRatio = 1.33;
 }
 - (void)setCameraUI{
     weakSelf();
@@ -140,10 +140,12 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         make.width.height.mas_equalTo(btnWidth);
         make.top.mas_equalTo(@(y));
     }];
+    @weakify(self);
     [[scaleButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self);
         scaleButton.tag++;
-        NSInteger ratioType = scaleButton.tag % _ratioArray.count;
-        NSMutableArray *array = _ratioArray[ratioType];
+        NSInteger ratioType = scaleButton.tag % self.ratioArray.count;
+        NSMutableArray *array = self.ratioArray[ratioType];
         [scaleButton setTitle:array[0] forState:UIControlStateNormal];
         [wself setCameraRatio:ratioType];
     }];
@@ -159,6 +161,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         make.right.mas_equalTo(-20);
     }];
     [[rotateBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self);
         [self.stillCamera rotateCamera];
     }];
     //点击相机屏幕
@@ -244,7 +247,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     wself.takePhotoBtn.userInteractionEnabled = NO;
     [wself.stillCamera capturePhotoAsImageProcessedUpToFilter:wself.passFilter withOrientation:wself.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
             NSAssert(processedImage !=nil, @"processedImage 是空");
-            UIImage *SourceClipImage = [UIImage clipOrientationImage:processedImage withRatio:_currentCameraViewRatio];
+            UIImage *SourceClipImage = [UIImage clipOrientationImage:processedImage withRatio:wself.currentCameraViewRatio];
             UIImage *SourceImage = [SourceClipImage fixOrientation];
             dispatch_async(dispatch_get_main_queue(), ^{
                 
@@ -259,9 +262,9 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 
 }
 - (void)setCameraRatio:(CameraRatioType)ratioType{
-    NSMutableArray *array = _ratioArray[ratioType];
+    NSMutableArray *array = self.ratioArray[ratioType];
     CGFloat ratio = [array[1] floatValue];
-    _currentCameraViewRatio = ratio;
+    self.currentCameraViewRatio = ratio;
     
     float height = kScreenWidth * ratio;
     switch (ratioType) {
