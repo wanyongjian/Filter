@@ -99,6 +99,8 @@
     //返回按钮
     UIButton *backBtn = [[UIButton alloc]init];
     [backBtn setTitle:@"返回" forState:UIControlStateNormal];
+    [backBtn setTitleColor:HEX_COLOR(0x00c8ff) forState:UIControlStateHighlighted];
+
     [self.topView addSubview:backBtn];
     [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.topView);
@@ -110,6 +112,7 @@
     //保存按钮
     UIButton *saveBtn = [[UIButton alloc]init];
     [saveBtn setTitle:@"保存" forState:UIControlStateNormal];
+    [saveBtn setTitleColor:HEX_COLOR(0x00c8ff) forState:UIControlStateHighlighted];
     [self.topView addSubview:saveBtn];
     [saveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.topView);
@@ -134,10 +137,8 @@
     self.hud.customView = imageView;
     self.hud.mode = MBProgressHUDModeCustomView;
     self.hud.label.text = @"完成";
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.8 animations:^{
-            [self.hud hideAnimated:YES];
-        }];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.hud hideAnimated:YES];
     });
     NSLog(@"image = %@, error = %@, contextInfo = %@", image, error, contextInfo);
 }

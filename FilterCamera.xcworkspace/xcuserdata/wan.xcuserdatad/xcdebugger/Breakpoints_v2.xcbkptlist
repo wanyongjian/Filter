@@ -68,12 +68,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Modules/MainCamera/Controller/COPhotoDisplayController.m"
-            timestampString = "551115728.664997"
+            timestampString = "551188921.676986"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
             endingLineNumber = "80"
-            landmarkName = "-dealloc"
+            landmarkName = "-setUpUI"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
