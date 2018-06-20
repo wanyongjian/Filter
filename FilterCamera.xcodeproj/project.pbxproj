@@ -116,8 +116,6 @@
 		2179F37A20BD078900B73822 /* vignetteMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F32E20BD078900B73822 /* vignetteMap.png */; };
 		2179F37B20BD078900B73822 /* xproMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F32F20BD078900B73822 /* xproMap.png */; };
 		2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2179F38420BD45AE00B73822 /* AnimationFilter.m */; };
-		21B361EC20D39D8A00EF7F3A /* MIBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E220D39D8900EF7F3A /* MIBrowserImageView.m */; };
-		21B361ED20D39D8A00EF7F3A /* MIPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E420D39D8900EF7F3A /* MIPhotoBrowser.m */; };
 		21B361EE20D39D8A00EF7F3A /* COCameraFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E720D39D8900EF7F3A /* COCameraFilterView.m */; };
 		21B361EF20D39D8A00EF7F3A /* COPhotoFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E920D39D8900EF7F3A /* COPhotoFilterView.m */; };
 		21B361F020D39D8A00EF7F3A /* FilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361EB20D39D8900EF7F3A /* FilterModel.m */; };
@@ -314,10 +312,6 @@
 		2179F32F20BD078900B73822 /* xproMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xproMap.png; sourceTree = "<group>"; };
 		2179F38320BD45AE00B73822 /* AnimationFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationFilter.h; sourceTree = "<group>"; };
 		2179F38420BD45AE00B73822 /* AnimationFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationFilter.m; sourceTree = "<group>"; };
-		21B361E120D39D8900EF7F3A /* MIBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIBrowserImageView.h; sourceTree = "<group>"; };
-		21B361E220D39D8900EF7F3A /* MIBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIBrowserImageView.m; sourceTree = "<group>"; };
-		21B361E320D39D8900EF7F3A /* MIPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIPhotoBrowser.h; sourceTree = "<group>"; };
-		21B361E420D39D8900EF7F3A /* MIPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIPhotoBrowser.m; sourceTree = "<group>"; };
 		21B361E620D39D8900EF7F3A /* COCameraFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COCameraFilterView.h; sourceTree = "<group>"; };
 		21B361E720D39D8900EF7F3A /* COCameraFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COCameraFilterView.m; sourceTree = "<group>"; };
 		21B361E820D39D8900EF7F3A /* COPhotoFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COPhotoFilterView.h; sourceTree = "<group>"; };
@@ -901,10 +895,6 @@
 		21B361E020D39D8900EF7F3A /* browserView */ = {
 			isa = PBXGroup;
 			children = (
-				21B361E120D39D8900EF7F3A /* MIBrowserImageView.h */,
-				21B361E220D39D8900EF7F3A /* MIBrowserImageView.m */,
-				21B361E320D39D8900EF7F3A /* MIPhotoBrowser.h */,
-				21B361E420D39D8900EF7F3A /* MIPhotoBrowser.m */,
 				21B361F120D3BC6F00EF7F3A /* COPhotoBrowserView.h */,
 				21B361F220D3BC6F00EF7F3A /* COPhotoBrowserView.m */,
 			);
@@ -1254,7 +1244,6 @@
 				22A3E2C920D9253800F3B46B /* YQImageCompressTool.m in Sources */,
 				21570E1A20BBC576002585CB /* ShakeButton.m in Sources */,
 				2179F35A20BD078900B73822 /* FWRiseFilter.m in Sources */,
-				21B361ED20D39D8A00EF7F3A /* MIPhotoBrowser.m in Sources */,
 				21570D0F20BB8D8B002585CB /* main.m in Sources */,
 				21570DF320BB9145002585CB /* HalfSketchController.m in Sources */,
 				22C562B920C0275C0011014A /* DeviceOrientation.m in Sources */,
@@ -1280,7 +1269,6 @@
 				21570DF220BB9145002585CB /* YJHalfGrayFilter.m in Sources */,
 				21570E0020BB9145002585CB /* SimpleSketchController.m in Sources */,
 				2179F35E20BD078900B73822 /* FWSierraFilter.m in Sources */,
-				21B361EC20D39D8A00EF7F3A /* MIBrowserImageView.m in Sources */,
 				2179F37120BD078900B73822 /* FWValenciaFilter.m in Sources */,
 				21570DFE20BB9145002585CB /* FrameBlendController.m in Sources */,
 				21570DF420BB9145002585CB /* HalfSketchFilter.m in Sources */,

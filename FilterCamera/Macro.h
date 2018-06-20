@@ -41,4 +41,11 @@ typedef NS_ENUM(NSInteger,SelectFilterType){
 #define GLBROBOT_COMMON_IMAGE(imageName)   GLBROBOT_BUNDLE_IMAGE(@"GLBRobot.bundle", @"common_images",imageName)
 
 #define LUTBUNDLE [[NSBundle mainBundle] pathForResource:@"LUTSource" ofType:@"bundle"]
+
+
+#define kCameraViewBottomBGHeight   ((kScreenHeight)-(kScreenWidth)*(4.0f/3.0f))
+#define kFilterBtnWidth 35
+#define kCameraTakePhotoIconSize   75
+#define TopOffset (iPhoneX ? 45 : 20)
+#define TopFunctionHeight 40
 #endif /* Macro_h */

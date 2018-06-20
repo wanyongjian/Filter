@@ -7,7 +7,6 @@
 //
 
 #import "COPhotoItemController.h"
-#import "MIPhotoBrowser.h"
 #import "COPhotoBrowserView.h"
 #define kCameraFilterViewHeight (kScreenHeight-kScreenWidth*4.0f/3.0f)
 #define kPhotoFilterItemCollectionViewCellID         @"PhotoFilterItemCollectionViewCellID"
@@ -20,8 +19,9 @@
 #define CollectionBackColor HEX_COLOR(0x252525)
 #define kPhotoItemWidth (kScreenWidth/2-10)
 #define kHeaderHeight 44
+#define KCellBorderWidth 2
 #define kFootHeight 50
-@interface COPhotoItemController () <UICollectionViewDelegate,UICollectionViewDataSource,MIPhotoBrowserDelegate>{
+@interface COPhotoItemController () <UICollectionViewDelegate,UICollectionViewDataSource>{
     CGFloat _imageRatio;
 }
 @property (nonatomic,strong) UICollectionView *collectionView;
@@ -184,7 +184,7 @@
     BOOL selected = [_itemSelectArray[indexPath.row] boolValue];
     if (selected) {
         cell.layer.borderColor = [UIColor whiteColor].CGColor;
-        cell.layer.borderWidth = 4;
+        cell.layer.borderWidth = KCellBorderWidth;
     }else{
         cell.layer.borderColor = CollectionBackColor.CGColor;
         cell.layer.borderWidth = 0;
@@ -202,7 +202,7 @@
     
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     cell.layer.borderColor = [UIColor whiteColor].CGColor;
-    cell.layer.borderWidth = 4;
+    cell.layer.borderWidth = KCellBorderWidth;
     UIImageView *imageView = [cell.contentView viewWithTag:kCameraFilterCollectionImageViewTag];
     
     [_itemSelectArray replaceObjectAtIndex:self.lastIndexPath.row withObject:@(NO)];
@@ -268,9 +268,6 @@
     }
     return filter;
 }
-- (UIImage *)photoBrowser:(MIPhotoBrowser *)photoBrowser placeholderImageForIndex:(NSInteger)index{
-    return [UIImage new];
-}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -282,8 +279,5 @@
 }
 - (BOOL)prefersStatusBarHidden{
     return YES;
-}
-- (void)dealloc{
-    NSLog(@"释放了photoItemcontroller**************");
 }
 @end

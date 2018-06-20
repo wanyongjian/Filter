@@ -26,7 +26,7 @@
 }
 - (void)tapAction{
     self.backgroundColor = [UIColor clearColor];
-    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.20 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.imageView.frame = self.originRect;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
@@ -50,10 +50,5 @@
         
     }];
     
-}
-
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
-{
-    NSLog(@"image = %@, error = %@, contextInfo = %@", image, error, contextInfo);
 }
 @end

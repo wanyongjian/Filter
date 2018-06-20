@@ -114,6 +114,8 @@
         [filter useNextFrameForImageCapture];
         [pic processImage];
         UIImage *DesImage = [filter imageFromCurrentFramebuffer];
+        //释放GPU缓存
+        [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
         dispatch_async(dispatch_get_main_queue(), ^{
             imageView.image = DesImage;
         });

@@ -18,11 +18,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     CameraRatioType34
 };
 
-#define kCameraViewBottomBGHeight   ((kScreenHeight)-(kScreenWidth)*(4.0f/3.0f))
-#define kFilterBtnWidth 35
-#define kCameraTakePhotoIconSize   75
-#define TopOffset (iPhoneX ? 45 : 20)
-#define TopFunctionHeight 40
+
 @interface COCameraViewController (){
 }
 
@@ -63,15 +59,12 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
    
-//    [self.stillCamera resumeCameraCapture];
-        [self.stillCamera startCameraCapture];
-        self.takePhotoBtn.userInteractionEnabled = YES;
-    
+    [self.stillCamera startCameraCapture];
+    self.takePhotoBtn.userInteractionEnabled = YES;
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
-//    [self.stillCamera pauseCameraCapture];
     [self.stillCamera stopCameraCapture];
 }
 - (void)setUpOrientationValue{
@@ -108,7 +101,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     }];
 }
 - (void)setRatioData{
-    self.ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"],@[@"4:3",@"0.75"]].mutableCopy;
+    self.ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"],@[@"9:16",@"1.78"]].mutableCopy;
     self.currentCameraViewRatio = 1.33;
 }
 - (void)setCameraUI{
@@ -288,7 +281,6 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
             break;
     }
 }
-
 
 - (BOOL)prefersStatusBarHidden{
     if (iPhoneX) {
