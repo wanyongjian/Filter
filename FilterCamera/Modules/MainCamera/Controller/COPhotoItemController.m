@@ -106,17 +106,7 @@
     [[saveBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self);
         if (self.lastIndexPath) {
-            LUTFilterModel *model = self.filterModleArray[self.lastIndexPath.row];
-            id filter;
-            if ([self.groupModel.type isEqualToString:@"0"]) { //精选类型
-                filter = [[NSClassFromString(model.vc) alloc]init];
-            }else{
-                //用imagenamed加载图片可能有缓存无法释放
-                NSString *imagePath =[LUTBUNDLE stringByAppendingPathComponent:[self.groupModel.imagePath stringByAppendingPathComponent:model.ImageName]];
-                UIImage *lutImage = [UIImage imageWithContentsOfFile:imagePath];
-                NSAssert(lutImage != nil, @"lutImage不能为空");
-                filter =[[GPUCommonLUTFilter alloc]initWithImage:lutImage];
-            }
+            id filter = [self getFilterFromIndexPath:self.lastIndexPath];
             self.filterSelect(filter);
         }
         [self.navigationController popViewControllerAnimated:NO];
@@ -142,7 +132,6 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPhotoFilterItemCollectionViewCellID forIndexPath:indexPath];
-    
     UILabel *label = [cell.contentView viewWithTag:kCameraFilterCollectionLabelTag];
     if (!label) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
@@ -157,6 +146,7 @@
     }
     
     UIImageView *imageView = [cell.contentView viewWithTag:kCameraFilterCollectionImageViewTag];
+    UIView *maskView = [[UIView alloc]init];
     if (!imageView) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
         CGRect rect = CGRectMake(0, 0, layout.itemSize.width, layout.itemSize.height);
@@ -165,40 +155,27 @@
         imageView.contentMode = UIViewContentModeScaleToFill;
         [cell.contentView addSubview:imageView];
         imageView.image = self.compressImage;
-//        imageView.image = [UIImage imageWithContentsOfFile:[LUTBUNDLE stringByAppendingPathComponent:@"LUTSource/30组GoPro专用/gopor_1.png"] ];
-        UIView *maskView = [[UIView alloc]init];
         maskView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
         [imageView addSubview:maskView];
         [maskView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(imageView);
         }];
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            LUTFilterModel *model = _filterModleArray[indexPath.row];
-            id filter;
-            if ([self.groupModel.type isEqualToString:@"0"]) { //精选类型
-                filter = [[NSClassFromString(model.vc) alloc]init];
-            }else{
-                //用imagenamed加载图片可能有缓存无法释放
-                NSString *imagePath =[LUTBUNDLE stringByAppendingPathComponent:[self.groupModel.imagePath stringByAppendingPathComponent:model.ImageName]];
-                UIImage *lutImage = [UIImage imageWithContentsOfFile:imagePath];
-                NSAssert(lutImage != nil, @"lutImage不能为空");
-                filter =[[GPUCommonLUTFilter alloc]initWithImage:lutImage];
-            }
-            
-                GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.compressImage];
-                [pic addTarget:filter];
-                [filter useNextFrameForImageCapture];
-                [pic processImage];
-                UIImage *DesImage = [filter imageFromCurrentFramebufferWithOrientation:self.sourceImage.imageOrientation];
-                //释放GPU缓存
-                [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    imageView.image = DesImage;
-                    [maskView removeFromSuperview];
-                });
-            
-        });
     }
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        id filter = [self getFilterFromIndexPath:indexPath];
+        GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.compressImage];
+        [pic addTarget:filter];
+        [filter useNextFrameForImageCapture];
+        [pic processImage];
+        UIImage *DesImage = [filter imageFromCurrentFramebufferWithOrientation:self.sourceImage.imageOrientation];
+        //释放GPU缓存
+        [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            imageView.image = DesImage;
+            [maskView removeFromSuperview];
+        });
+    });
+    
     
     cell.layer.masksToBounds = YES;
     LUTFilterModel *model = _filterModleArray[indexPath.row];
@@ -237,13 +214,25 @@
     //获取cell在当前屏幕的位置
     CGRect cellInSuperview = [self.collectionView convertRect:cellInCollection toView:self.view];
     
+    
+    
     UIWindow *window = [UIApplication sharedApplication].delegate.window;
     COPhotoBrowserView *view = [[COPhotoBrowserView alloc]init];
     view.frame = window.bounds;
-    view.sourceImage = imageView.image;
+    id filter = [self getFilterFromIndexPath:indexPath];
+    
+    GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.sourceImage];
+    [pic addTarget:filter];
+    [filter useNextFrameForImageCapture];
+    [pic processImage];
+    UIImage *DesImage = [filter imageFromCurrentFramebufferWithOrientation:self.sourceImage.imageOrientation];
+    //释放GPU缓存
+    [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
     view.originRect = cellInSuperview;
+    view.sourceImage = DesImage;
     [window addSubview:view];
     [view show];
+
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -265,6 +254,20 @@
     return nil;
 }
 
+- (id)getFilterFromIndexPath:(NSIndexPath *)indexPath{
+    LUTFilterModel *model = _filterModleArray[indexPath.row];
+    id filter;
+    if ([self.groupModel.type isEqualToString:@"0"]) { //精选类型
+        filter = [[NSClassFromString(model.vc) alloc]init];
+    }else{
+        //用imagenamed加载图片可能有缓存无法释放
+        NSString *imagePath =[LUTBUNDLE stringByAppendingPathComponent:[self.groupModel.imagePath stringByAppendingPathComponent:model.ImageName]];
+        UIImage *lutImage = [UIImage imageWithContentsOfFile:imagePath];
+        NSAssert(lutImage != nil, @"lutImage不能为空");
+        filter =[[GPUCommonLUTFilter alloc]initWithImage:lutImage];
+    }
+    return filter;
+}
 - (UIImage *)photoBrowser:(MIPhotoBrowser *)photoBrowser placeholderImageForIndex:(NSInteger)index{
     return [UIImage new];
 }
