@@ -13,6 +13,7 @@
 @property (nonatomic,strong) NSTimer *timer;
 @property (nonatomic,assign) int selectIndex;
 @property (nonatomic, strong) NSArray *filterModleArray;
+@property (nonatomic, strong) UIView *containerView;
 @end
 
 @implementation COStillCameraPreview
@@ -63,35 +64,42 @@
         make.edges.mas_equalTo(self);
     }];
     
-    
+    _containerView = [[UIView alloc]init];
+    _containerView.userInteractionEnabled = NO;
+//    _containerView.backgroundColor = [UIColor greenColor];
+    [_scrollView addSubview:_containerView];
+    [_containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(_scrollView);
+        make.height.mas_equalTo(_scrollView.mas_height);
+    }];
     
     UIView *lastView;
     for (NSInteger i=0; i<_filterModleArray.count; i++) {
         FilterModel *model = _filterModleArray[i];
         UIView *view = [[UIView alloc]init];
-        [_scrollView addSubview:view];
+        [_containerView addSubview:view];
         if (!lastView) {
             [view mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.bottom.mas_equalTo(_scrollView);
+                make.top.bottom.mas_equalTo(_containerView);
                 make.width.mas_equalTo(kScreenWidth);
-                make.height.mas_equalTo(_scrollView.mas_height);
-                make.left.mas_equalTo(_scrollView);
+                make.height.mas_equalTo(_containerView.mas_height);
+                make.left.mas_equalTo(_containerView.mas_left);
             }];
         }else{
             if (i+1 == _filterModleArray.count) {
                 [view mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.top.bottom.mas_equalTo(_scrollView);
+                    make.top.bottom.mas_equalTo(_containerView);
                     make.width.mas_equalTo(kScreenWidth);
                     make.left.mas_equalTo(lastView.mas_right);
-                    make.height.mas_equalTo(_scrollView.mas_height);
-                    make.right.mas_equalTo(_scrollView);
+                    make.height.mas_equalTo(_containerView.mas_height);
+                    make.right.mas_equalTo(_containerView.mas_right);
                 }];
             }else{
                 [view mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.top.bottom.mas_equalTo(_scrollView);
+                    make.top.bottom.mas_equalTo(_containerView);
                     make.width.mas_equalTo(kScreenWidth);
                     make.left.mas_equalTo(lastView.mas_right);
-                    make.height.mas_equalTo(_scrollView.mas_height);
+                    make.height.mas_equalTo(_containerView.mas_height);
                 }];
             }
             
@@ -112,6 +120,7 @@
     UIPageControl *pageController = [[UIPageControl alloc]init];
     pageController.pageIndicatorTintColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.6];
     pageController.currentPageIndicatorTintColor = [UIColor whiteColor];
+    pageController.userInteractionEnabled = NO;
     pageController.numberOfPages = _filterModleArray.count;
     [self addSubview:pageController];
     [pageController mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -120,11 +129,12 @@
     }];
     _pageController = pageController;
 }
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     int x = (int)scrollView.contentOffset.x/(int)(kScreenWidth/2);
 //    NSLog(@"*** %d,%f,%d,%d",(int)scrollView.contentOffset.x,kScreenWidth/2,(int)scrollView.contentOffset.x/(int)(kScreenWidth/2),(x+1)/2+1);
     self.selectIndex = (x+1)/2;
+    self.containerView.alpha = 1;
+    self.pageController.alpha = 1;
 }
 - (void)hideFilterNameAnimation{
     if (_timer) {
@@ -132,9 +142,9 @@
         _timer = nil;
     }
     _timer = [NSTimer scheduledTimerWithTimeInterval:0.8 repeats:NO block:^(NSTimer * _Nonnull timer) {
-        [UIView animateWithDuration:2.5 animations:^{
+        [UIView animateWithDuration:2 animations:^{
             _label.alpha = 0;
-//            _scrollView.alpha = 0;
+            self.containerView.alpha = 0;
             _pageController.alpha = 0;
         }];
     }];
