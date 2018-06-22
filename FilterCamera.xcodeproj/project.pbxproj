@@ -454,7 +454,6 @@
 			children = (
 				214AB81120BFC21300D4B73C /* Category */,
 				214AB80C20BFBE8C00D4B73C /* Vender */,
-				21570E1B20BBDFEA002585CB /* Resources */,
 				21570E0220BBA887002585CB /* Modules */,
 				21570D3120BB9145002585CB /* FilterController */,
 				21570CFF20BB8D8B002585CB /* AppDelegate.h */,
@@ -670,6 +669,7 @@
 		2179F22B20BD00F500B73822 /* FilterSource */ = {
 			isa = PBXGroup;
 			children = (
+				21570E1B20BBDFEA002585CB /* Resources */,
 				2179F2C520BD078900B73822 /* COFilters */,
 			);
 			name = FilterSource;

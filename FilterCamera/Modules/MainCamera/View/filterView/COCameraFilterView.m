@@ -106,20 +106,20 @@
         imageView.image = [UIImage imageNamed:@"amatorka_action_2"];
         [cell.contentView addSubview:imageView];
     }
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        FilterModel *model = self.filterModleArray[indexPath.row];
-        GPUImageFilter *filter = [[NSClassFromString(model.vc) alloc]init];
-        GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:[UIImage imageNamed:@"amatorka_action_2"]];
-        [pic addTarget:filter];
-        [filter useNextFrameForImageCapture];
-        [pic processImage];
-        UIImage *DesImage = [filter imageFromCurrentFramebuffer];
-        //释放GPU缓存
-        [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            imageView.image = DesImage;
-        });
-    });
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        FilterModel *model = self.filterModleArray[indexPath.row];
+//        GPUImageFilter *filter = [[NSClassFromString(model.vc) alloc]init];
+//        GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:[UIImage imageNamed:@"amatorka_action_2"]];
+//        [pic addTarget:filter];
+//        [filter useNextFrameForImageCapture];
+//        [pic processImage];
+//        UIImage *DesImage = [filter imageFromCurrentFramebuffer];
+//        //释放GPU缓存
+////        [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            imageView.image = DesImage;
+//        });
+//    });
     
     UILabel *label = [cell.contentView viewWithTag:kCameraFilterCollectionLabelTag];
     if (!label) {
