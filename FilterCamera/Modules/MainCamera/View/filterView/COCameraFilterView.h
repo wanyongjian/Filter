@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FilterModel.h"
-typedef void (^filterClickBlock)(FilterModel *model);
+typedef void (^filterClickBlock)(NSInteger index);
 typedef void (^selectedIndexBlock)(NSString *name,NSInteger index,NSInteger total);
 
 @interface COCameraFilterView : UIView
@@ -19,7 +19,8 @@ typedef void (^selectedIndexBlock)(NSString *name,NSInteger index,NSInteger tota
 @property (nonatomic,strong) NSArray<FilterModel *> *filterModleArray;
 @property (nonatomic,strong) NSIndexPath *lastIndexPath;
 
-- (void)selectFilterWithType:(SelectFilterType)type callBack:(selectedIndexBlock)block;
+//- (void)selectFilterWithType:(SelectFilterType)type callBack:(selectedIndexBlock)block;
+- (void)scrollToIndex:(NSInteger)index;
 - (void)toggleInView:(UIView *)view;
 - (void)showInView:(UIView *)view;
 - (void)hide;

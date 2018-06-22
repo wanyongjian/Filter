@@ -143,56 +143,65 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-    FilterModel *model = _filterModleArray[indexPath.row];
+//    FilterModel *model = _filterModleArray[indexPath.row];
     if(self.filterClick){
-        self.filterClick(model);
+        self.filterClick(indexPath.row);
     }
     
     self.lastIndexPath = indexPath;
 }
 
-- (void)selectFilterWithType:(SelectFilterType)type callBack:(selectedIndexBlock)block{
-    switch (type) {
-        case SelectFilterTypeRight:{
-            NSInteger index = self.lastIndexPath.row;
-            if ((index-1)>=0) {
-                FilterModel *model = _filterModleArray[index-1];
-                if (self.filterClick) {
-                    self.filterClick(model);
-                }
-                self.lastIndexPath = [NSIndexPath indexPathForRow:index-1 inSection:self.lastIndexPath.section];
-                [_collectionView scrollToItemAtIndexPath:self.lastIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-                //用于显示pageindicator
-                block(model.name,index-1,_filterModleArray.count);
-            }else{
-                FilterModel *model = _filterModleArray[index];
-                if (self.filterClick) {
-                    self.filterClick(model);
-                }
-                block(model.name,index,_filterModleArray.count);
-            }
-        }
-            break;
-        case SelectFilterTypeLeft:{
-            NSInteger index = self.lastIndexPath.row;
-            if ((index+1)<_filterModleArray.count) {
-                FilterModel *model = _filterModleArray[index+1];
-                if (self.filterClick) {
-                    self.filterClick(model);
-                }
-                self.lastIndexPath = [NSIndexPath indexPathForRow:index+1 inSection:self.lastIndexPath.section];
-                [_collectionView scrollToItemAtIndexPath:self.lastIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-                //用于显示pageindicator
-                block(model.name,index+1,_filterModleArray.count);
-            }else{
-                FilterModel *model = _filterModleArray[index];
-                if (self.filterClick) {
-                    self.filterClick(model);
-                }
-                block(model.name,index,_filterModleArray.count);
-            }
-        }
-            break;
-    }
+//- (void)selectFilterWithType:(SelectFilterType)type callBack:(selectedIndexBlock)block{
+//    switch (type) {
+//        case SelectFilterTypeRight:{
+//            NSInteger index = self.lastIndexPath.row;
+//            if ((index-1)>=0) {
+//                FilterModel *model = _filterModleArray[index-1];
+//                if (self.filterClick) {
+//                    self.filterClick(model);
+//                }
+//                self.lastIndexPath = [NSIndexPath indexPathForRow:index-1 inSection:self.lastIndexPath.section];
+//                [_collectionView scrollToItemAtIndexPath:self.lastIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+//                //用于显示pageindicator
+//                block(model.name,index-1,_filterModleArray.count);
+//            }else{
+//                FilterModel *model = _filterModleArray[index];
+//                if (self.filterClick) {
+//                    self.filterClick(model);
+//                }
+//                block(model.name,index,_filterModleArray.count);
+//            }
+//        }
+//            break;
+//        case SelectFilterTypeLeft:{
+//            NSInteger index = self.lastIndexPath.row;
+//            if ((index+1)<_filterModleArray.count) {
+//                FilterModel *model = _filterModleArray[index+1];
+//                if (self.filterClick) {
+//                    self.filterClick(model);
+//                }
+//                self.lastIndexPath = [NSIndexPath indexPathForRow:index+1 inSection:self.lastIndexPath.section];
+//                [_collectionView scrollToItemAtIndexPath:self.lastIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+//                //用于显示pageindicator
+//                block(model.name,index+1,_filterModleArray.count);
+//            }else{
+//                FilterModel *model = _filterModleArray[index];
+//                if (self.filterClick) {
+//                    self.filterClick(model);
+//                }
+//                block(model.name,index,_filterModleArray.count);
+//            }
+//        }
+//            break;
+//    }
+//}
+
+- (void)scrollToIndex:(NSInteger)index{
+//    FilterModel *model = _filterModleArray[index];
+//    if (self.filterClick) {
+//        self.filterClick(index);
+//    }
+    self.lastIndexPath = [NSIndexPath indexPathForRow:index inSection:self.lastIndexPath.section];
+    [_collectionView scrollToItemAtIndexPath:self.lastIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 }
 @end

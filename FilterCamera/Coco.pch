@@ -26,4 +26,5 @@
 #import "UIImage+compress.h"
 #import "UIImage+Resize.h"
 #import "MBProgressHUD.h"
+#import "FilterModel.h"
 #endif /* Coco_pch */

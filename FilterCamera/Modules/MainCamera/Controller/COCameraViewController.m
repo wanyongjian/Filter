@@ -45,7 +45,13 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [self setUPCamera];
     [self setCameraUI];
     [self setUpOrientationValue];
+    [self initCamraUI];
     self.takePhotoBtn.userInteractionEnabled = NO;
+}
+- (void)initCamraUI{
+    [self switchToFilterWithIndex:0];
+    [self.imageView scrollToIndex:0];
+    [self.cameraFilterView scrollToIndex:0];
 }
 - (void)setUPCamera{
     if (!_stillCamera) {
@@ -109,14 +115,12 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     self.passFilter = [[GPUImageFilter alloc]init];
     _imageView = [[COStillCameraPreview alloc]init];
     _imageView.fillMode = kGPUImageFillModePreserveAspectRatioAndFill;
-    _imageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*(4.0/3.0));
     [self.view addSubview:_imageView];
-    [_imageView.swipeLeftGestureSignal subscribeNext:^(id  _Nullable x) {
-        
+    [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.mas_equalTo(self.view);
+        make.height.mas_equalTo(SCREEN_WIDTH*(4.0/3.0));
     }];
-    [_imageView.swipeRightGestureSignal subscribeNext:^(id  _Nullable x) {
-        
-    }];
+
     //比例按钮
     UIButton *scaleButton = [[ShakeButton alloc]init];
     scaleButton.tag = 0;
@@ -210,30 +214,29 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [[picBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         
     }];
-    //左滑右滑
-    [self.imageView.swipeLeftGestureSignal subscribeNext:^(id  _Nullable x) {
-        [wself.cameraFilterView selectFilterWithType:SelectFilterTypeLeft callBack:^(NSString *name, NSInteger index, NSInteger total) {
-            [wself.imageView showFilterWihtName:name index:index total:total];
-        }];
+    
+    //
+    [self.imageView.filterSelectSignal subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        [self switchToFilterWithIndex:[x integerValue]];
+        [self.cameraFilterView scrollToIndex:[x integerValue]];
     }];
-    [self.imageView.swipeRightGestureSignal subscribeNext:^(id  _Nullable x) {
-        [wself.cameraFilterView selectFilterWithType:SelectFilterTypeRight callBack:^(NSString *name, NSInteger index, NSInteger total) {
-            [wself.imageView showFilterWihtName:name index:index total:total];
-        }];
-    }];
+    
     //滤镜选择
-    self.cameraFilterView.filterClick = ^(FilterModel *model) {
-        [wself.stillCamera removeAllTargets];
-        wself.filterClass = NSClassFromString(model.vc);
-        wself.filter = [[wself.filterClass alloc]init];
-        [wself.stillCamera addTarget:wself.filter];
-        [wself.stillCamera addTarget:wself.passFilter];
-        [wself.filter addTarget:wself.imageView];
+    self.cameraFilterView.filterClick = ^(NSInteger index) {
+        [wself switchToFilterWithIndex:index];
+        [wself.imageView scrollToIndex:index];
     };
     
-    [wself.cameraFilterView selectFilterWithType:SelectFilterTypeRight callBack:^(NSString *name, NSInteger index, NSInteger total) {
-        [wself.imageView showFilterWihtName:name index:index total:total];
-    }];
+}
+- (void)switchToFilterWithIndex:(NSInteger)index{
+     FilterModel *model = self.cameraFilterView.filterModleArray[index];
+    [self.stillCamera removeAllTargets];
+    self.filterClass = NSClassFromString(model.vc);
+    self.filter = [[self.filterClass alloc]init];
+    [self.stillCamera addTarget:self.filter];
+    [self.stillCamera addTarget:self.passFilter];
+    [self.filter addTarget:self.imageView];
 }
 - (void)takePhotoAction{
     weakSelf();
@@ -263,19 +266,36 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     switch (ratioType) {
         case CameraRatioType43:{
             [UIView animateWithDuration:0.4 animations:^{
-                self.imageView.frame = CGRectMake(0, 0, kScreenWidth, height);
+//                self.imageView.frame = CGRectMake(0, 0, kScreenWidth, height);
+                [self.imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.top.left.right.mas_equalTo(self.view);
+                    make.height.mas_equalTo(height);
+                }];
+                [self.view layoutIfNeeded];
             }];
         }
             break;
         case CameraRatioType11:{
             [UIView animateWithDuration:0.4 animations:^{
-                self.imageView.frame = CGRectMake(0,TopOffset+TopFunctionHeight, kScreenWidth, height);
+//                self.imageView.frame = CGRectMake(0,TopOffset+TopFunctionHeight, kScreenWidth, height);
+                [self.imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.right.mas_equalTo(self.view);
+                    make.top.mas_equalTo(self.view).mas_offset(TopOffset+TopFunctionHeight);
+                    make.height.mas_equalTo(height);
+                }];
+                [self.view layoutIfNeeded];
             }];
         }
             break;
         case CameraRatioType34:{
             [UIView animateWithDuration:0.4 animations:^{
-                self.imageView.frame = CGRectMake(0, TopOffset+TopFunctionHeight, kScreenWidth, height);
+//                self.imageView.frame = CGRectMake(0, TopOffset+TopFunctionHeight, kScreenWidth, height);
+                [self.imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.right.mas_equalTo(self.view);
+                    make.top.mas_equalTo(self.view).mas_offset(TopOffset+TopFunctionHeight);
+                    make.height.mas_equalTo(height);
+                }];
+                [self.view layoutIfNeeded];
             }];
         }
             break;
