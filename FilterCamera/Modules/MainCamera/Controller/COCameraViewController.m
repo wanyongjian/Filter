@@ -230,13 +230,15 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     
 }
 - (void)switchToFilterWithIndex:(NSInteger)index{
-     FilterModel *model = self.cameraFilterView.filterModleArray[index];
-    [self.stillCamera removeAllTargets];
-    self.filterClass = NSClassFromString(model.vc);
-    self.filter = [[self.filterClass alloc]init];
-    [self.stillCamera addTarget:self.filter];
-    [self.stillCamera addTarget:self.passFilter];
-    [self.filter addTarget:self.imageView];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        FilterModel *model = self.cameraFilterView.filterModleArray[index];
+        [self.stillCamera removeAllTargets];
+        self.filterClass = NSClassFromString(model.vc);
+        self.filter = [[self.filterClass alloc]init];
+        [self.stillCamera addTarget:self.filter];
+        [self.stillCamera addTarget:self.passFilter];
+        [self.filter addTarget:self.imageView];
+    });
 }
 - (void)takePhotoAction{
     weakSelf();
