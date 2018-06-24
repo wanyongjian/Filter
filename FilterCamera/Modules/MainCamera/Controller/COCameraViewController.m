@@ -226,11 +226,12 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     self.cameraFilterView.filterClick = ^(NSInteger index) {
         [wself switchToFilterWithIndex:index];
         [wself.imageView scrollToIndex:index];
+        NSLog(@"index------%d",index);
     };
     
 }
 - (void)switchToFilterWithIndex:(NSInteger)index{
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    runAsynchronouslyOnVideoProcessingQueue(^{
         FilterModel *model = self.cameraFilterView.filterModleArray[index];
         [self.stillCamera removeAllTargets];
         self.filterClass = NSClassFromString(model.vc);

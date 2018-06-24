@@ -65,6 +65,7 @@
     collectionView.delegate = self;
     collectionView.dataSource = self;
     collectionView.showsHorizontalScrollIndicator = NO;
+    collectionView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
     collectionView.showsVerticalScrollIndicator = YES;
     collectionView.backgroundColor = CollectionBackColor;
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kPhotoFilterItemCollectionViewCellID];
@@ -132,18 +133,6 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPhotoFilterItemCollectionViewCellID forIndexPath:indexPath];
-    UILabel *label = [cell.contentView viewWithTag:kCameraFilterCollectionLabelTag];
-    if (!label) {
-        UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
-        CGRect rect = CGRectMake(0, layout.itemSize.height-18, layout.itemSize.width, 18);
-        label = [[UILabel alloc] initWithFrame:rect];
-        label.tag = kCameraFilterCollectionLabelTag;
-        label.font = [UIFont systemFontOfSize:10];
-        label.textColor = [UIColor whiteColor];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.backgroundColor = [UIColor colorWithRed:8/255.0 green:157/255.0 blue:184/255.0 alpha:0.6f];
-        [cell.contentView addSubview:label];
-    }
     
     UIImageView *imageView = [cell.contentView viewWithTag:kCameraFilterCollectionImageViewTag];
     UIView *maskView = [[UIView alloc]init];
@@ -176,6 +165,18 @@
         });
     });
     
+    UILabel *label = [cell.contentView viewWithTag:kCameraFilterCollectionLabelTag];
+    if (!label) {
+        UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
+        CGRect rect = CGRectMake(0, layout.itemSize.height-18, layout.itemSize.width, 18);
+        label = [[UILabel alloc] initWithFrame:rect];
+        label.tag = kCameraFilterCollectionLabelTag;
+        label.font = [UIFont systemFontOfSize:10];
+        label.textColor = [UIColor whiteColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.backgroundColor = [UIColor colorWithRed:8/255.0 green:157/255.0 blue:184/255.0 alpha:0.6f];
+        [cell.contentView addSubview:label];
+    }
     
     cell.layer.masksToBounds = YES;
     LUTFilterModel *model = _filterModleArray[indexPath.row];

@@ -6,40 +6,52 @@
  "imagePath" : "LUTSource/精选"
  },
  {
- "name" : "30组GoPro专用",
+ "name" : "美食",
+ "type" : "1",
+ "path" : "LUTSource/美食/FilterConfig.json",
+ "imagePath" : "LUTSource/美食"
+ },
+ {
+ "name" : "GoPro户外",
  "type" : "1",
  "path" : "LUTSource/30组GoPro专用/FilterConfig.json",
  "imagePath" : "LUTSource/30组GoPro专用"
  },
  {
- "name" : "24组建筑复古",
+ "name" : "组建筑复古",
  "type" : "1",
  "path" : "LUTSource/24组建筑复古/FilterConfig.json",
  "imagePath" : "LUTSource/24组建筑复古"
  },
  {
- "name" : "30种街头涂鸦",
+ "name" : "街头涂鸦",
  "type" : "1",
  "path" : "LUTSource/30种街头涂鸦/FilterConfig.json",
  "imagePath" : "LUTSource/30种街头涂鸦"
  },
  {
- "name" : "50组唯美柔和",
+ "name" : "浪漫婚礼",
  "type" : "1",
  "path" : "LUTSource/50组唯美柔和/FilterConfig.json",
  "imagePath" : "LUTSource/50组唯美柔和"
  },
  {
- "name" : "30组影视风格",
+ "name" : "黑白风格",
  "type" : "1",
- "path" : "LUTSource/30组影视风格/FilterConfig.json",
- "imagePath" : "LUTSource/30组影视风格"
+ "path" : "LUTSource/50组黑白/FilterConfig.json",
+ "imagePath" : "LUTSource/50组黑白"
  },
  {
- "name" : "40组创意色彩",
+ "name" : "索尼SLOG3",
  "type" : "1",
- "path" : "LUTSource/40组创意色彩/FilterConfig.json",
- "imagePath" : "LUTSource/40组创意色彩"
+ "path" : "LUTSource/索尼SLOG3/FilterConfig.json",
+ "imagePath" : "LUTSource/索尼SLOG3"
  },
+ {
+ "name" : "电影大片",
+ "type" : "1",
+ "path" : "LUTSource/122组电影大片/FilterConfig.json",
+ "imagePath" : "LUTSource/122组电影大片"
+ }
  
 ]

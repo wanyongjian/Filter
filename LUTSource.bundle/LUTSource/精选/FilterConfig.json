@@ -4,7 +4,31 @@
  "vc" : "GPUImageFilter"
  },
  {
- "name" : "雅熙",
+ "name" : "Nash",
+ "vc" : "FWNashvilleFilter"
+ },
+ {
+ "name" : "Wander",
+ "vc" : "FWWaldenFilter"
+ },
+ {
+ "name" : "Everlasting",
+ "vc" : "FWRiseFilter"
+ },
+ {
+ "name" : "Sandy",
+ "vc" : "FWValenciaFilter"
+ },
+ {
+ "name" : "Fall",
+ "vc" : "FWAmaroFilter"
+ },
+ {
+ "name" : "Knight",
+ "vc" : "FWHudsonFilter"
+ },
+ {
+ "name" : "Anson",
  "vc" : "FWBrannanFilter"
  },
  {
@@ -16,51 +40,19 @@
  "vc" : "FWHefeFilter"
  },
  {
- "name" : "雾夜",
- "vc" : "FWHudsonFilter"
- },
- {
  "name" : "随心",
  "vc" : "FWLomofiFilter"
  },
  {
- "name" : "Nash",
- "vc" : "FWNashvilleFilter"
- },
- {
- "name" : "暖阳",
- "vc" : "FWRiseFilter"
- },
- {
- "name" : "明珀",
+ "name" : "Misaki",
  "vc" : "FWSierraFilter"
- },
- {
- "name" : "丛林",
- "vc" : "FWSutroFilter"
  },
  {
  "name" : "依偎",
  "vc" : "FWToasterFilter"
  },
  {
- "name" : "Sandy",
- "vc" : "FWValenciaFilter"
- },
- {
- "name" : "牛仔",
- "vc" : "FWWaldenFilter"
- },
- {
  "name" : "海风",
  "vc" : "FWXproIIFilter"
- },
- {
- "name" : "鸡尾酒",
- "vc" : "FWAmaroFilter"
- },
- {
- "name" : "Miss",
- "vc" : "LUTAmatorkaFilter"
  }
 ]

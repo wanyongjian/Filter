@@ -1,0 +1,159 @@
+[
+ {
+ "filterName" : "BQ1",
+ "ImageName" : "BQ1.png"
+ },
+ {
+ "filterName" : "BQ2",
+ "ImageName" : "BQ2.png"
+ },
+ {
+ "filterName" : "BQ3",
+ "ImageName" : "BQ3.png"
+ },
+ {
+ "filterName" : "CH1",
+ "ImageName" : "CH1.png"
+ },
+ {
+ "filterName" : "CH2",
+ "ImageName" : "CH2.png"
+ },
+ {
+ "filterName" : "CH3",
+ "ImageName" : "CH3.png"
+ },
+ {
+ "filterName" : "CH4",
+ "ImageName" : "CH4.png"
+ },
+ {
+ "filterName" : "CR1",
+ "ImageName" : "CR1.png"
+ },
+ {
+ "filterName" : "CR2",
+ "ImageName" : "CR2.png"
+ },
+ {
+ "filterName" : "FR1",
+ "ImageName" : "FR1.png"
+ },
+ {
+ "filterName" : "FR2",
+ "ImageName" : "FR2.png"
+ },
+ {
+ "filterName" : "FR3",
+ "ImageName" : "FR3.png"
+ },
+ {
+ "filterName" : "FR4",
+ "ImageName" : "FR4.png"
+ },
+ {
+ "filterName" : "PL1",
+ "ImageName" : "PL1.png"
+ },
+ {
+ "filterName" : "PL2",
+ "ImageName" : "PL2.png"
+ },
+ {
+ "filterName" : "PL3",
+ "ImageName" : "PL3.png"
+ },
+ {
+ "filterName" : "PO1",
+ "ImageName" : "PO1.png"
+ },
+ {
+ "filterName" : "PO2",
+ "ImageName" : "PO2.png"
+ },
+ {
+ "filterName" : "PO3",
+ "ImageName" : "PO3.png"
+ },
+ {
+ "filterName" : "PO4",
+ "ImageName" : "PO4.png"
+ },
+ {
+ "filterName" : "PO5",
+ "ImageName" : "PO5.png"
+ },
+ {
+ "filterName" : "RO1",
+ "ImageName" : "RO1.png"
+ },
+ {
+ "filterName" : "RO2",
+ "ImageName" : "RO2.png"
+ },
+ {
+ "filterName" : "RO3",
+ "ImageName" : "RO3.png"
+ },
+ {
+ "filterName" : "RO4",
+ "ImageName" : "RO4.png"
+ },
+ {
+ "filterName" : "RO5",
+ "ImageName" : "RO5.png"
+ },
+ {
+ "filterName" : "SW1",
+ "ImageName" : "SW1.png"
+ },
+ {
+ "filterName" : "SW2",
+ "ImageName" : "SW2.png"
+ },
+ {
+ "filterName" : "SW3",
+ "ImageName" : "SW3.png"
+ },
+ {
+ "filterName" : "SW4",
+ "ImageName" : "SW4.png"
+ },
+ {
+ "filterName" : "TR1",
+ "ImageName" : "TR1.png"
+ },
+ {
+ "filterName" : "TR2",
+ "ImageName" : "TR2.png"
+ },
+ {
+ "filterName" : "TR3",
+ "ImageName" : "TR3.png"
+ },
+ {
+ "filterName" : "TR4",
+ "ImageName" : "TR4.png"
+ },
+ {
+ "filterName" : "YU1",
+ "ImageName" : "YU1.png"
+ },
+ {
+ "filterName" : "YU2",
+ "ImageName" : "YU2.png"
+ },
+ {
+ "filterName" : "YU3",
+ "ImageName" : "YU3.png"
+ },
+ {
+ "filterName" : "YU4",
+ "ImageName" : "YU4.png"
+ },
+ {
+ "filterName" : "YU5",
+ "ImageName" : "YU5.png"
+ }
+ 
+]
