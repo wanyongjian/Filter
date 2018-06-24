@@ -6,6 +6,12 @@
  "imagePath" : "LUTSource/精选"
  },
  {
+ "name" : "网红风",
+ "type" : "1",
+ "path" : "LUTSource/网红风/FilterConfig.json",
+ "imagePath" : "LUTSource/网红风"
+ },
+ {
  "name" : "美食",
  "type" : "1",
  "path" : "LUTSource/美食/FilterConfig.json",
