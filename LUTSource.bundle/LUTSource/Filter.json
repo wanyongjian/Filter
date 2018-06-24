@@ -18,6 +18,12 @@
  "imagePath" : "LUTSource/美食"
  },
  {
+ "name" : "文艺日系",
+ "type" : "1",
+ "path" : "LUTSource/文艺日系/FilterConfig.json",
+ "imagePath" : "LUTSource/文艺日系"
+ },
+ {
  "name" : "GoPro户外",
  "type" : "1",
  "path" : "LUTSource/30组GoPro专用/FilterConfig.json",
