@@ -6,4 +6,5 @@ pod 'Masonry'
 pod 'ReactiveObjC'
 pod 'SDWebImage'
 pod 'MBProgressHUD', '~> 1.1.0'
+pod 'TZImagePickerController'
 end

@@ -45,7 +45,8 @@ typedef NS_ENUM(NSInteger,SelectFilterType){
 
 #define kCameraViewBottomBGHeight   ((kScreenHeight)-(kScreenWidth)*(4.0f/3.0f))
 #define kFilterBtnWidth 35
-#define kCameraTakePhotoIconSize   75
+#define kCameraTakePhotoIconSize   85
+#define kCameraPhotoBtnIconSize   50
 #define TopOffset (iPhoneX ? 45 : 20)
 #define TopFunctionHeight 40
 #endif /* Macro_h */

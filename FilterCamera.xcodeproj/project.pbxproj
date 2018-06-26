@@ -117,6 +117,59 @@
 		2179F37B20BD078900B73822 /* xproMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F32F20BD078900B73822 /* xproMap.png */; };
 		2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2179F38420BD45AE00B73822 /* AnimationFilter.m */; };
 		218ECE5F20DA508500DB985D /* Checkmark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 218ECE5E20DA508400DB985D /* Checkmark@3x.png */; };
+		21ACA4E920E1ED7700943F95 /* PHAsset+Latest.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA4E820E1ED7700943F95 /* PHAsset+Latest.m */; };
+		21ACA54020E206FC00943F95 /* RTAssetCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA4ED20E206FC00943F95 /* RTAssetCollectionViewController.m */; };
+		21ACA54120E206FC00943F95 /* RTCameraPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA4EF20E206FC00943F95 /* RTCameraPreviewViewController.m */; };
+		21ACA54220E206FC00943F95 /* RTCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA4F120E206FC00943F95 /* RTCameraViewController.m */; };
+		21ACA54320E206FC00943F95 /* RTImagePickerNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA4F320E206FC00943F95 /* RTImagePickerNavigationController.m */; };
+		21ACA54420E206FC00943F95 /* RTImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA4F520E206FC00943F95 /* RTImagePickerViewController.m */; };
+		21ACA54520E206FC00943F95 /* RTShortVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA4F720E206FC00943F95 /* RTShortVideoViewController.m */; };
+		21ACA54620E206FC00943F95 /* rtimagepicker_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA4F920E206FC00943F95 /* rtimagepicker_arrow@2x.png */; };
+		21ACA54720E206FC00943F95 /* rtimagepicker_arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA4FA20E206FC00943F95 /* rtimagepicker_arrow@3x.png */; };
+		21ACA54820E206FC00943F95 /* rtimagepicker_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA4FB20E206FC00943F95 /* rtimagepicker_camera@2x.png */; };
+		21ACA54920E206FC00943F95 /* rtimagepicker_camera@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA4FC20E206FC00943F95 /* rtimagepicker_camera@3x.png */; };
+		21ACA54A20E206FC00943F95 /* rtimagepicker_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA4FD20E206FC00943F95 /* rtimagepicker_cancel@2x.png */; };
+		21ACA54B20E206FC00943F95 /* rtimagepicker_cancel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA4FE20E206FC00943F95 /* rtimagepicker_cancel@3x.png */; };
+		21ACA54C20E206FC00943F95 /* rtimagepicker_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA4FF20E206FC00943F95 /* rtimagepicker_delete@2x.png */; };
+		21ACA54D20E206FC00943F95 /* rtimagepicker_delete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50020E206FC00943F95 /* rtimagepicker_delete@3x.png */; };
+		21ACA54E20E206FC00943F95 /* rtimagepicker_dv@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50120E206FC00943F95 /* rtimagepicker_dv@2x.png */; };
+		21ACA54F20E206FC00943F95 /* rtimagepicker_dv@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50220E206FC00943F95 /* rtimagepicker_dv@3x.png */; };
+		21ACA55020E206FC00943F95 /* rtimagepicker_flash_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50320E206FC00943F95 /* rtimagepicker_flash_off@2x.png */; };
+		21ACA55120E206FC00943F95 /* rtimagepicker_flash_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50420E206FC00943F95 /* rtimagepicker_flash_off@3x.png */; };
+		21ACA55220E206FC00943F95 /* rtimagepicker_flash_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50520E206FC00943F95 /* rtimagepicker_flash_on@2x.png */; };
+		21ACA55320E206FC00943F95 /* rtimagepicker_flash_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50620E206FC00943F95 /* rtimagepicker_flash_on@3x.png */; };
+		21ACA55420E206FC00943F95 /* rtimagepicker_indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50720E206FC00943F95 /* rtimagepicker_indicator@2x.png */; };
+		21ACA55520E206FC00943F95 /* rtimagepicker_indicator@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50820E206FC00943F95 /* rtimagepicker_indicator@3x.png */; };
+		21ACA55620E206FC00943F95 /* rtimagepicker_send@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50920E206FC00943F95 /* rtimagepicker_send@2x.png */; };
+		21ACA55720E206FC00943F95 /* rtimagepicker_send@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50A20E206FC00943F95 /* rtimagepicker_send@3x.png */; };
+		21ACA55820E206FC00943F95 /* rtimagepicker_send_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50B20E206FC00943F95 /* rtimagepicker_send_unselected@2x.png */; };
+		21ACA55920E206FC00943F95 /* rtimagepicker_send_unselected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50C20E206FC00943F95 /* rtimagepicker_send_unselected@3x.png */; };
+		21ACA55A20E206FC00943F95 /* rtimagepicker_snap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50D20E206FC00943F95 /* rtimagepicker_snap@2x.png */; };
+		21ACA55B20E206FC00943F95 /* rtimagepicker_snap@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50E20E206FC00943F95 /* rtimagepicker_snap@3x.png */; };
+		21ACA55C20E206FC00943F95 /* rtimagepicker_switch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA50F20E206FC00943F95 /* rtimagepicker_switch@2x.png */; };
+		21ACA55D20E206FC00943F95 /* rtimagepicker_switch@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA51020E206FC00943F95 /* rtimagepicker_switch@3x.png */; };
+		21ACA55E20E206FC00943F95 /* RTImagePickerUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA51320E206FC00943F95 /* RTImagePickerUtils.m */; };
+		21ACA55F20E206FC00943F95 /* LLSimpleCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA51720E206FC00943F95 /* LLSimpleCamera.m */; };
+		21ACA56020E206FC00943F95 /* UIImage+FixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA51920E206FC00943F95 /* UIImage+FixOrientation.m */; };
+		21ACA56120E206FC00943F95 /* RTImagePickerPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA51C20E206FC00943F95 /* RTImagePickerPhoto.m */; };
+		21ACA56220E206FC00943F95 /* RTImagePickerPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA51E20E206FC00943F95 /* RTImagePickerPhotoBrowser.m */; };
+		21ACA56320E206FC00943F95 /* RTImagePickerTapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA52220E206FC00943F95 /* RTImagePickerTapDetectingImageView.m */; };
+		21ACA56420E206FC00943F95 /* RTImagePickerTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA52420E206FC00943F95 /* RTImagePickerTapDetectingView.m */; };
+		21ACA56520E206FC00943F95 /* RTImagePickerZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA52620E206FC00943F95 /* RTImagePickerZoomingScrollView.m */; };
+		21ACA56620E206FC00943F95 /* UIImage+RTImagePickerPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA52820E206FC00943F95 /* UIImage+RTImagePickerPhotoBrowser.m */; };
+		21ACA56720E206FC00943F95 /* VIMVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA52B20E206FC00943F95 /* VIMVideoPlayer.m */; };
+		21ACA56820E206FC00943F95 /* VIMVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA52D20E206FC00943F95 /* VIMVideoPlayerView.m */; };
+		21ACA56920E206FC00943F95 /* RTAlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA53020E206FC00943F95 /* RTAlbumTableViewCell.m */; };
+		21ACA56A20E206FC00943F95 /* RTAssetCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA53220E206FC00943F95 /* RTAssetCollectionViewCell.m */; };
+		21ACA56B20E206FC00943F95 /* RTCheckMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA53420E206FC00943F95 /* RTCheckMarkView.m */; };
+		21ACA56C20E206FC00943F95 /* RTImagePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21ACA53520E206FC00943F95 /* RTImagePicker.storyboard */; };
+		21ACA56D20E206FC00943F95 /* RTImagePickerTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA53720E206FC00943F95 /* RTImagePickerTitleButton.m */; };
+		21ACA56E20E206FC00943F95 /* RTImagePickerToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA53920E206FC00943F95 /* RTImagePickerToolbarView.m */; };
+		21ACA56F20E206FC00943F95 /* RTImagePickerUnauthorizedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA53B20E206FC00943F95 /* RTImagePickerUnauthorizedView.m */; };
+		21ACA57020E206FC00943F95 /* RTVideoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA53D20E206FC00943F95 /* RTVideoIconView.m */; };
+		21ACA57120E206FC00943F95 /* RTVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA53F20E206FC00943F95 /* RTVideoIndicatorView.m */; };
+		21ACA57720E207A100943F95 /* UIView+Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA57420E207A100943F95 /* UIView+Geometry.m */; };
+		21ACA57820E207A100943F95 /* UIView+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA57620E207A100943F95 /* UIView+Size.m */; };
 		21B361EE20D39D8A00EF7F3A /* COCameraFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E720D39D8900EF7F3A /* COCameraFilterView.m */; };
 		21B361EF20D39D8A00EF7F3A /* COPhotoFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E920D39D8900EF7F3A /* COPhotoFilterView.m */; };
 		21B361F020D39D8A00EF7F3A /* FilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361EB20D39D8900EF7F3A /* FilterModel.m */; };
@@ -314,6 +367,89 @@
 		2179F38320BD45AE00B73822 /* AnimationFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationFilter.h; sourceTree = "<group>"; };
 		2179F38420BD45AE00B73822 /* AnimationFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationFilter.m; sourceTree = "<group>"; };
 		218ECE5E20DA508400DB985D /* Checkmark@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark@3x.png"; sourceTree = "<group>"; };
+		21ACA4E720E1ED7700943F95 /* PHAsset+Latest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PHAsset+Latest.h"; sourceTree = "<group>"; };
+		21ACA4E820E1ED7700943F95 /* PHAsset+Latest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PHAsset+Latest.m"; sourceTree = "<group>"; };
+		21ACA4EC20E206FC00943F95 /* RTAssetCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTAssetCollectionViewController.h; sourceTree = "<group>"; };
+		21ACA4ED20E206FC00943F95 /* RTAssetCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTAssetCollectionViewController.m; sourceTree = "<group>"; };
+		21ACA4EE20E206FC00943F95 /* RTCameraPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCameraPreviewViewController.h; sourceTree = "<group>"; };
+		21ACA4EF20E206FC00943F95 /* RTCameraPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTCameraPreviewViewController.m; sourceTree = "<group>"; };
+		21ACA4F020E206FC00943F95 /* RTCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCameraViewController.h; sourceTree = "<group>"; };
+		21ACA4F120E206FC00943F95 /* RTCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTCameraViewController.m; sourceTree = "<group>"; };
+		21ACA4F220E206FC00943F95 /* RTImagePickerNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTImagePickerNavigationController.h; sourceTree = "<group>"; };
+		21ACA4F320E206FC00943F95 /* RTImagePickerNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTImagePickerNavigationController.m; sourceTree = "<group>"; };
+		21ACA4F420E206FC00943F95 /* RTImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTImagePickerViewController.h; sourceTree = "<group>"; };
+		21ACA4F520E206FC00943F95 /* RTImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTImagePickerViewController.m; sourceTree = "<group>"; };
+		21ACA4F620E206FC00943F95 /* RTShortVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTShortVideoViewController.h; sourceTree = "<group>"; };
+		21ACA4F720E206FC00943F95 /* RTShortVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTShortVideoViewController.m; sourceTree = "<group>"; };
+		21ACA4F920E206FC00943F95 /* rtimagepicker_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_arrow@2x.png"; sourceTree = "<group>"; };
+		21ACA4FA20E206FC00943F95 /* rtimagepicker_arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_arrow@3x.png"; sourceTree = "<group>"; };
+		21ACA4FB20E206FC00943F95 /* rtimagepicker_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_camera@2x.png"; sourceTree = "<group>"; };
+		21ACA4FC20E206FC00943F95 /* rtimagepicker_camera@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_camera@3x.png"; sourceTree = "<group>"; };
+		21ACA4FD20E206FC00943F95 /* rtimagepicker_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_cancel@2x.png"; sourceTree = "<group>"; };
+		21ACA4FE20E206FC00943F95 /* rtimagepicker_cancel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_cancel@3x.png"; sourceTree = "<group>"; };
+		21ACA4FF20E206FC00943F95 /* rtimagepicker_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_delete@2x.png"; sourceTree = "<group>"; };
+		21ACA50020E206FC00943F95 /* rtimagepicker_delete@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_delete@3x.png"; sourceTree = "<group>"; };
+		21ACA50120E206FC00943F95 /* rtimagepicker_dv@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_dv@2x.png"; sourceTree = "<group>"; };
+		21ACA50220E206FC00943F95 /* rtimagepicker_dv@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_dv@3x.png"; sourceTree = "<group>"; };
+		21ACA50320E206FC00943F95 /* rtimagepicker_flash_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_flash_off@2x.png"; sourceTree = "<group>"; };
+		21ACA50420E206FC00943F95 /* rtimagepicker_flash_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_flash_off@3x.png"; sourceTree = "<group>"; };
+		21ACA50520E206FC00943F95 /* rtimagepicker_flash_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_flash_on@2x.png"; sourceTree = "<group>"; };
+		21ACA50620E206FC00943F95 /* rtimagepicker_flash_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_flash_on@3x.png"; sourceTree = "<group>"; };
+		21ACA50720E206FC00943F95 /* rtimagepicker_indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_indicator@2x.png"; sourceTree = "<group>"; };
+		21ACA50820E206FC00943F95 /* rtimagepicker_indicator@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_indicator@3x.png"; sourceTree = "<group>"; };
+		21ACA50920E206FC00943F95 /* rtimagepicker_send@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_send@2x.png"; sourceTree = "<group>"; };
+		21ACA50A20E206FC00943F95 /* rtimagepicker_send@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_send@3x.png"; sourceTree = "<group>"; };
+		21ACA50B20E206FC00943F95 /* rtimagepicker_send_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_send_unselected@2x.png"; sourceTree = "<group>"; };
+		21ACA50C20E206FC00943F95 /* rtimagepicker_send_unselected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_send_unselected@3x.png"; sourceTree = "<group>"; };
+		21ACA50D20E206FC00943F95 /* rtimagepicker_snap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_snap@2x.png"; sourceTree = "<group>"; };
+		21ACA50E20E206FC00943F95 /* rtimagepicker_snap@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_snap@3x.png"; sourceTree = "<group>"; };
+		21ACA50F20E206FC00943F95 /* rtimagepicker_switch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_switch@2x.png"; sourceTree = "<group>"; };
+		21ACA51020E206FC00943F95 /* rtimagepicker_switch@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtimagepicker_switch@3x.png"; sourceTree = "<group>"; };
+		21ACA51220E206FC00943F95 /* RTImagePickerUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTImagePickerUtils.h; sourceTree = "<group>"; };
+		21ACA51320E206FC00943F95 /* RTImagePickerUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTImagePickerUtils.m; sourceTree = "<group>"; };
+		21ACA51620E206FC00943F95 /* LLSimpleCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSimpleCamera.h; sourceTree = "<group>"; };
+		21ACA51720E206FC00943F95 /* LLSimpleCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSimpleCamera.m; sourceTree = "<group>"; };
+		21ACA51820E206FC00943F95 /* UIImage+FixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FixOrientation.h"; sourceTree = "<group>"; };
+		21ACA51920E206FC00943F95 /* UIImage+FixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FixOrientation.m"; sourceTree = "<group>"; };
+		21ACA51B20E206FC00943F95 /* RTImagePickerPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTImagePickerPhoto.h; sourceTree = "<group>"; };
+		21ACA51C20E206FC00943F95 /* RTImagePickerPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTImagePickerPhoto.m; sourceTree = "<group>"; };
+		21ACA51D20E206FC00943F95 /* RTImagePickerPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTImagePickerPhotoBrowser.h; sourceTree = "<group>"; };
+		21ACA51E20E206FC00943F95 /* RTImagePickerPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTImagePickerPhotoBrowser.m; sourceTree = "<group>"; };
+		21ACA51F20E206FC00943F95 /* RTImagePickerPhotoBrowserPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTImagePickerPhotoBrowserPrivate.h; sourceTree = "<group>"; };
+		21ACA52020E206FC00943F95 /* RTImagePickerPhotoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTImagePickerPhotoProtocol.h; sourceTree = "<group>"; };
+		21ACA52120E206FC00943F95 /* RTImagePickerTapDetectingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTImagePickerTapDetectingImageView.h; sourceTree = "<group>"; };
+		21ACA52220E206FC00943F95 /* RTImagePickerTapDetectingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTImagePickerTapDetectingImageView.m; sourceTree = "<group>"; };
+		21ACA52320E206FC00943F95 /* RTImagePickerTapDetectingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTImagePickerTapDetectingView.h; sourceTree = "<group>"; };
+		21ACA52420E206FC00943F95 /* RTImagePickerTapDetectingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTImagePickerTapDetectingView.m; sourceTree = "<group>"; };
+		21ACA52520E206FC00943F95 /* RTImagePickerZoomingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTImagePickerZoomingScrollView.h; sourceTree = "<group>"; };
+		21ACA52620E206FC00943F95 /* RTImagePickerZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTImagePickerZoomingScrollView.m; sourceTree = "<group>"; };
+		21ACA52720E206FC00943F95 /* UIImage+RTImagePickerPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RTImagePickerPhotoBrowser.h"; sourceTree = "<group>"; };
+		21ACA52820E206FC00943F95 /* UIImage+RTImagePickerPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RTImagePickerPhotoBrowser.m"; sourceTree = "<group>"; };
+		21ACA52A20E206FC00943F95 /* VIMVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIMVideoPlayer.h; sourceTree = "<group>"; };
+		21ACA52B20E206FC00943F95 /* VIMVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIMVideoPlayer.m; sourceTree = "<group>"; };
+		21ACA52C20E206FC00943F95 /* VIMVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIMVideoPlayerView.h; sourceTree = "<group>"; };
+		21ACA52D20E206FC00943F95 /* VIMVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIMVideoPlayerView.m; sourceTree = "<group>"; };
+		21ACA52F20E206FC00943F95 /* RTAlbumTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTAlbumTableViewCell.h; sourceTree = "<group>"; };
+		21ACA53020E206FC00943F95 /* RTAlbumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTAlbumTableViewCell.m; sourceTree = "<group>"; };
+		21ACA53120E206FC00943F95 /* RTAssetCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTAssetCollectionViewCell.h; sourceTree = "<group>"; };
+		21ACA53220E206FC00943F95 /* RTAssetCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTAssetCollectionViewCell.m; sourceTree = "<group>"; };
+		21ACA53320E206FC00943F95 /* RTCheckMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCheckMarkView.h; sourceTree = "<group>"; };
+		21ACA53420E206FC00943F95 /* RTCheckMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTCheckMarkView.m; sourceTree = "<group>"; };
+		21ACA53520E206FC00943F95 /* RTImagePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RTImagePicker.storyboard; sourceTree = "<group>"; };
+		21ACA53620E206FC00943F95 /* RTImagePickerTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTImagePickerTitleButton.h; sourceTree = "<group>"; };
+		21ACA53720E206FC00943F95 /* RTImagePickerTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTImagePickerTitleButton.m; sourceTree = "<group>"; };
+		21ACA53820E206FC00943F95 /* RTImagePickerToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTImagePickerToolbarView.h; sourceTree = "<group>"; };
+		21ACA53920E206FC00943F95 /* RTImagePickerToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTImagePickerToolbarView.m; sourceTree = "<group>"; };
+		21ACA53A20E206FC00943F95 /* RTImagePickerUnauthorizedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTImagePickerUnauthorizedView.h; sourceTree = "<group>"; };
+		21ACA53B20E206FC00943F95 /* RTImagePickerUnauthorizedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTImagePickerUnauthorizedView.m; sourceTree = "<group>"; };
+		21ACA53C20E206FC00943F95 /* RTVideoIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTVideoIconView.h; sourceTree = "<group>"; };
+		21ACA53D20E206FC00943F95 /* RTVideoIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTVideoIconView.m; sourceTree = "<group>"; };
+		21ACA53E20E206FC00943F95 /* RTVideoIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTVideoIndicatorView.h; sourceTree = "<group>"; };
+		21ACA53F20E206FC00943F95 /* RTVideoIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTVideoIndicatorView.m; sourceTree = "<group>"; };
+		21ACA57320E207A100943F95 /* UIView+Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Geometry.h"; sourceTree = "<group>"; };
+		21ACA57420E207A100943F95 /* UIView+Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Geometry.m"; sourceTree = "<group>"; };
+		21ACA57520E207A100943F95 /* UIView+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Size.h"; sourceTree = "<group>"; };
+		21ACA57620E207A100943F95 /* UIView+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Size.m"; sourceTree = "<group>"; };
 		21B361E620D39D8900EF7F3A /* COCameraFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COCameraFilterView.h; sourceTree = "<group>"; };
 		21B361E720D39D8900EF7F3A /* COCameraFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COCameraFilterView.m; sourceTree = "<group>"; };
 		21B361E820D39D8900EF7F3A /* COPhotoFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COPhotoFilterView.h; sourceTree = "<group>"; };
@@ -400,6 +536,9 @@
 		214AB80C20BFBE8C00D4B73C /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				21ACA57220E207A100943F95 /* UIView */,
+				21ACA4EA20E206FC00943F95 /* RTImagePicker */,
+				21ACA4E620E1ED7700943F95 /* PHAsset */,
 				2147A8B520D0CC9100504434 /* CompressImage */,
 				21CBBA1620C0D70600C5AC30 /* ClipImage */,
 				214AB81520BFF41600D4B73C /* Orientation */,
@@ -895,6 +1034,174 @@
 			path = "fw_XproII_雅熙";
 			sourceTree = "<group>";
 		};
+		21ACA4E620E1ED7700943F95 /* PHAsset */ = {
+			isa = PBXGroup;
+			children = (
+				21ACA4E720E1ED7700943F95 /* PHAsset+Latest.h */,
+				21ACA4E820E1ED7700943F95 /* PHAsset+Latest.m */,
+			);
+			path = PHAsset;
+			sourceTree = "<group>";
+		};
+		21ACA4EA20E206FC00943F95 /* RTImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				21ACA4EB20E206FC00943F95 /* Controller */,
+				21ACA4F820E206FC00943F95 /* RTResources */,
+				21ACA51120E206FC00943F95 /* Utils */,
+				21ACA51420E206FC00943F95 /* Vendors */,
+				21ACA52E20E206FC00943F95 /* View */,
+			);
+			path = RTImagePicker;
+			sourceTree = "<group>";
+		};
+		21ACA4EB20E206FC00943F95 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				21ACA4EC20E206FC00943F95 /* RTAssetCollectionViewController.h */,
+				21ACA4ED20E206FC00943F95 /* RTAssetCollectionViewController.m */,
+				21ACA4EE20E206FC00943F95 /* RTCameraPreviewViewController.h */,
+				21ACA4EF20E206FC00943F95 /* RTCameraPreviewViewController.m */,
+				21ACA4F020E206FC00943F95 /* RTCameraViewController.h */,
+				21ACA4F120E206FC00943F95 /* RTCameraViewController.m */,
+				21ACA4F220E206FC00943F95 /* RTImagePickerNavigationController.h */,
+				21ACA4F320E206FC00943F95 /* RTImagePickerNavigationController.m */,
+				21ACA4F420E206FC00943F95 /* RTImagePickerViewController.h */,
+				21ACA4F520E206FC00943F95 /* RTImagePickerViewController.m */,
+				21ACA4F620E206FC00943F95 /* RTShortVideoViewController.h */,
+				21ACA4F720E206FC00943F95 /* RTShortVideoViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		21ACA4F820E206FC00943F95 /* RTResources */ = {
+			isa = PBXGroup;
+			children = (
+				21ACA4F920E206FC00943F95 /* rtimagepicker_arrow@2x.png */,
+				21ACA4FA20E206FC00943F95 /* rtimagepicker_arrow@3x.png */,
+				21ACA4FB20E206FC00943F95 /* rtimagepicker_camera@2x.png */,
+				21ACA4FC20E206FC00943F95 /* rtimagepicker_camera@3x.png */,
+				21ACA4FD20E206FC00943F95 /* rtimagepicker_cancel@2x.png */,
+				21ACA4FE20E206FC00943F95 /* rtimagepicker_cancel@3x.png */,
+				21ACA4FF20E206FC00943F95 /* rtimagepicker_delete@2x.png */,
+				21ACA50020E206FC00943F95 /* rtimagepicker_delete@3x.png */,
+				21ACA50120E206FC00943F95 /* rtimagepicker_dv@2x.png */,
+				21ACA50220E206FC00943F95 /* rtimagepicker_dv@3x.png */,
+				21ACA50320E206FC00943F95 /* rtimagepicker_flash_off@2x.png */,
+				21ACA50420E206FC00943F95 /* rtimagepicker_flash_off@3x.png */,
+				21ACA50520E206FC00943F95 /* rtimagepicker_flash_on@2x.png */,
+				21ACA50620E206FC00943F95 /* rtimagepicker_flash_on@3x.png */,
+				21ACA50720E206FC00943F95 /* rtimagepicker_indicator@2x.png */,
+				21ACA50820E206FC00943F95 /* rtimagepicker_indicator@3x.png */,
+				21ACA50920E206FC00943F95 /* rtimagepicker_send@2x.png */,
+				21ACA50A20E206FC00943F95 /* rtimagepicker_send@3x.png */,
+				21ACA50B20E206FC00943F95 /* rtimagepicker_send_unselected@2x.png */,
+				21ACA50C20E206FC00943F95 /* rtimagepicker_send_unselected@3x.png */,
+				21ACA50D20E206FC00943F95 /* rtimagepicker_snap@2x.png */,
+				21ACA50E20E206FC00943F95 /* rtimagepicker_snap@3x.png */,
+				21ACA50F20E206FC00943F95 /* rtimagepicker_switch@2x.png */,
+				21ACA51020E206FC00943F95 /* rtimagepicker_switch@3x.png */,
+			);
+			path = RTResources;
+			sourceTree = "<group>";
+		};
+		21ACA51120E206FC00943F95 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				21ACA51220E206FC00943F95 /* RTImagePickerUtils.h */,
+				21ACA51320E206FC00943F95 /* RTImagePickerUtils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		21ACA51420E206FC00943F95 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				21ACA51520E206FC00943F95 /* LLSimpleCamera */,
+				21ACA51A20E206FC00943F95 /* PhotoBrowser */,
+				21ACA52920E206FC00943F95 /* VIMVideoPlayer */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		21ACA51520E206FC00943F95 /* LLSimpleCamera */ = {
+			isa = PBXGroup;
+			children = (
+				21ACA51620E206FC00943F95 /* LLSimpleCamera.h */,
+				21ACA51720E206FC00943F95 /* LLSimpleCamera.m */,
+				21ACA51820E206FC00943F95 /* UIImage+FixOrientation.h */,
+				21ACA51920E206FC00943F95 /* UIImage+FixOrientation.m */,
+			);
+			path = LLSimpleCamera;
+			sourceTree = "<group>";
+		};
+		21ACA51A20E206FC00943F95 /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				21ACA51B20E206FC00943F95 /* RTImagePickerPhoto.h */,
+				21ACA51C20E206FC00943F95 /* RTImagePickerPhoto.m */,
+				21ACA51D20E206FC00943F95 /* RTImagePickerPhotoBrowser.h */,
+				21ACA51E20E206FC00943F95 /* RTImagePickerPhotoBrowser.m */,
+				21ACA51F20E206FC00943F95 /* RTImagePickerPhotoBrowserPrivate.h */,
+				21ACA52020E206FC00943F95 /* RTImagePickerPhotoProtocol.h */,
+				21ACA52120E206FC00943F95 /* RTImagePickerTapDetectingImageView.h */,
+				21ACA52220E206FC00943F95 /* RTImagePickerTapDetectingImageView.m */,
+				21ACA52320E206FC00943F95 /* RTImagePickerTapDetectingView.h */,
+				21ACA52420E206FC00943F95 /* RTImagePickerTapDetectingView.m */,
+				21ACA52520E206FC00943F95 /* RTImagePickerZoomingScrollView.h */,
+				21ACA52620E206FC00943F95 /* RTImagePickerZoomingScrollView.m */,
+				21ACA52720E206FC00943F95 /* UIImage+RTImagePickerPhotoBrowser.h */,
+				21ACA52820E206FC00943F95 /* UIImage+RTImagePickerPhotoBrowser.m */,
+			);
+			path = PhotoBrowser;
+			sourceTree = "<group>";
+		};
+		21ACA52920E206FC00943F95 /* VIMVideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				21ACA52A20E206FC00943F95 /* VIMVideoPlayer.h */,
+				21ACA52B20E206FC00943F95 /* VIMVideoPlayer.m */,
+				21ACA52C20E206FC00943F95 /* VIMVideoPlayerView.h */,
+				21ACA52D20E206FC00943F95 /* VIMVideoPlayerView.m */,
+			);
+			path = VIMVideoPlayer;
+			sourceTree = "<group>";
+		};
+		21ACA52E20E206FC00943F95 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21ACA52F20E206FC00943F95 /* RTAlbumTableViewCell.h */,
+				21ACA53020E206FC00943F95 /* RTAlbumTableViewCell.m */,
+				21ACA53120E206FC00943F95 /* RTAssetCollectionViewCell.h */,
+				21ACA53220E206FC00943F95 /* RTAssetCollectionViewCell.m */,
+				21ACA53320E206FC00943F95 /* RTCheckMarkView.h */,
+				21ACA53420E206FC00943F95 /* RTCheckMarkView.m */,
+				21ACA53520E206FC00943F95 /* RTImagePicker.storyboard */,
+				21ACA53620E206FC00943F95 /* RTImagePickerTitleButton.h */,
+				21ACA53720E206FC00943F95 /* RTImagePickerTitleButton.m */,
+				21ACA53820E206FC00943F95 /* RTImagePickerToolbarView.h */,
+				21ACA53920E206FC00943F95 /* RTImagePickerToolbarView.m */,
+				21ACA53A20E206FC00943F95 /* RTImagePickerUnauthorizedView.h */,
+				21ACA53B20E206FC00943F95 /* RTImagePickerUnauthorizedView.m */,
+				21ACA53C20E206FC00943F95 /* RTVideoIconView.h */,
+				21ACA53D20E206FC00943F95 /* RTVideoIconView.m */,
+				21ACA53E20E206FC00943F95 /* RTVideoIndicatorView.h */,
+				21ACA53F20E206FC00943F95 /* RTVideoIndicatorView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		21ACA57220E207A100943F95 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				21ACA57320E207A100943F95 /* UIView+Geometry.h */,
+				21ACA57420E207A100943F95 /* UIView+Geometry.m */,
+				21ACA57520E207A100943F95 /* UIView+Size.h */,
+				21ACA57620E207A100943F95 /* UIView+Size.m */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
 		21B361E020D39D8900EF7F3A /* browserView */ = {
 			isa = PBXGroup;
 			children = (
@@ -978,7 +1285,6 @@
 				21570CF920BB8D8B002585CB /* Frameworks */,
 				21570CFA20BB8D8B002585CB /* Resources */,
 				3423209EE795D7CFE36CA79D /* [CP] Copy Pods Resources */,
-				73653AB40B41BA22036A16A2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1078,16 +1384,25 @@
 				2179F36E20BD078900B73822 /* toasterOverlayMapWarm.png in Resources */,
 				2179F33120BD078900B73822 /* blackboard1024.png in Resources */,
 				22C562B420BEE2AC0011014A /* qmkit_takephoto_btn@3x.png in Resources */,
+				21ACA55120E206FC00943F95 /* rtimagepicker_flash_off@3x.png in Resources */,
+				21ACA55920E206FC00943F95 /* rtimagepicker_send_unselected@3x.png in Resources */,
+				21ACA54B20E206FC00943F95 /* rtimagepicker_cancel@3x.png in Resources */,
 				2179F36F20BD078900B73822 /* toasterSoftLight.png in Resources */,
+				21ACA54720E206FC00943F95 /* rtimagepicker_arrow@3x.png in Resources */,
+				21ACA55320E206FC00943F95 /* rtimagepicker_flash_on@3x.png in Resources */,
 				2179F35520BD078900B73822 /* config.json in Resources */,
 				2179F34520BD078900B73822 /* hefeGradientMap.png in Resources */,
+				21ACA55620E206FC00943F95 /* rtimagepicker_send@2x.png in Resources */,
 				2179F37A20BD078900B73822 /* vignetteMap.png in Resources */,
 				2179F33020BD078900B73822 /* amaroMap.png in Resources */,
 				2179F36720BD078900B73822 /* sutroMetal.png in Resources */,
 				21D37DBE20D88C60001E7042 /* arrowDown@3x.png in Resources */,
 				2179F36820BD078900B73822 /* vignetteMap.png in Resources */,
 				2179F37620BD078900B73822 /* vignetteMap.png in Resources */,
+				21ACA55520E206FC00943F95 /* rtimagepicker_indicator@3x.png in Resources */,
 				2179F35B20BD078900B73822 /* overlayMap.png in Resources */,
+				21ACA54C20E206FC00943F95 /* rtimagepicker_delete@2x.png in Resources */,
+				21ACA54E20E206FC00943F95 /* rtimagepicker_dv@2x.png in Resources */,
 				2179F33E20BD078900B73822 /* earlyBirdCurves.png in Resources */,
 				2179F36C20BD078900B73822 /* toasterCurves.png in Resources */,
 				21570E1F20BBDFEA002585CB /* qmkit_rotate_btn@3x.png in Resources */,
@@ -1100,12 +1415,17 @@
 				2179F36420BD078900B73822 /* softLight.png in Resources */,
 				2179F36020BD078900B73822 /* sierraMap.png in Resources */,
 				2179F34320BD078900B73822 /* edgeBurn.png in Resources */,
+				21ACA54D20E206FC00943F95 /* rtimagepicker_delete@3x.png in Resources */,
 				2179F35120BD078900B73822 /* config.json in Resources */,
 				2179F34920BD078900B73822 /* config.json in Resources */,
+				21ACA55820E206FC00943F95 /* rtimagepicker_send_unselected@2x.png in Resources */,
 				2179F35920BD078900B73822 /* config.json in Resources */,
+				21ACA55220E206FC00943F95 /* rtimagepicker_flash_on@2x.png in Resources */,
+				21ACA54620E206FC00943F95 /* rtimagepicker_arrow@2x.png in Resources */,
 				2179F37720BD078900B73822 /* waldenMap.png in Resources */,
 				2179F33720BD078900B73822 /* brannanLuma.png in Resources */,
 				2179F37220BD078900B73822 /* valenciaGradientMap.png in Resources */,
+				21ACA54F20E206FC00943F95 /* rtimagepicker_dv@3x.png in Resources */,
 				21570DFD20BB9145002585CB /* frame1.png in Resources */,
 				2179F35F20BD078900B73822 /* overlayMap.png in Resources */,
 				2179F34820BD078900B73822 /* hefeSoftLight.png in Resources */,
@@ -1117,13 +1437,18 @@
 				2179F33D20BD078900B73822 /* earlybirdBlowout.png in Resources */,
 				2179F37420BD078900B73822 /* config.json in Resources */,
 				21570D0C20BB8D8B002585CB /* LaunchScreen.storyboard in Resources */,
+				21ACA55C20E206FC00943F95 /* rtimagepicker_switch@2x.png in Resources */,
 				2179F33520BD078900B73822 /* brannanBlowout.png in Resources */,
 				2179F34D20BD078900B73822 /* overlayMap.png in Resources */,
 				21570D0920BB8D8B002585CB /* Assets.xcassets in Resources */,
 				2179F33220BD078900B73822 /* config.json in Resources */,
 				2179F33C20BD078900B73822 /* config.json in Resources */,
+				21ACA54820E206FC00943F95 /* rtimagepicker_camera@2x.png in Resources */,
 				2179F37320BD078900B73822 /* valenciaMap.png in Resources */,
 				2179F34C20BD078900B73822 /* hudsonMap.png in Resources */,
+				21ACA55B20E206FC00943F95 /* rtimagepicker_snap@3x.png in Resources */,
+				21ACA55420E206FC00943F95 /* rtimagepicker_indicator@2x.png in Resources */,
+				21ACA54A20E206FC00943F95 /* rtimagepicker_cancel@2x.png in Resources */,
 				22A3E2C020D6A1EE00F3B46B /* lookup_amatorka.png in Resources */,
 				2179F34020BD078900B73822 /* earlybirdOverlayMap.png in Resources */,
 				21570D0720BB8D8B002585CB /* Main.storyboard in Resources */,
@@ -1136,16 +1461,22 @@
 				2179F33A20BD078900B73822 /* config.json in Resources */,
 				2179F36920BD078900B73822 /* config.json in Resources */,
 				2179F33820BD078900B73822 /* brannanProcess.png in Resources */,
+				21ACA55A20E206FC00943F95 /* rtimagepicker_snap@2x.png in Resources */,
+				21ACA54920E206FC00943F95 /* rtimagepicker_camera@3x.png in Resources */,
 				228546DB20C4080000F22E3D /* LUTSource.bundle in Resources */,
 				2179F35C20BD078900B73822 /* riseMap.png in Resources */,
 				2179F33420BD078900B73822 /* overlayMap.png in Resources */,
+				21ACA55720E206FC00943F95 /* rtimagepicker_send@3x.png in Resources */,
 				2179F35D20BD078900B73822 /* config.json in Resources */,
 				2179F37020BD078900B73822 /* config.json in Resources */,
 				2179F33F20BD078900B73822 /* earlybirdMap.png in Resources */,
 				2179F35820BD078900B73822 /* blackboard1024.png in Resources */,
 				2179F36620BD078900B73822 /* sutroEdgeBurn.png in Resources */,
+				21ACA55020E206FC00943F95 /* rtimagepicker_flash_off@2x.png in Resources */,
 				218ECE5F20DA508500DB985D /* Checkmark@3x.png in Resources */,
 				2179F36B20BD078900B73822 /* toasterColorShift.png in Resources */,
+				21ACA56C20E206FC00943F95 /* RTImagePicker.storyboard in Resources */,
+				21ACA55D20E206FC00943F95 /* rtimagepicker_switch@3x.png in Resources */,
 				22A3E2BF20D6A1EE00F3B46B /* amatorka_action_2.png in Resources */,
 				2179F34B20BD078900B73822 /* hudsonBackground.png in Resources */,
 				2179F36220BD078900B73822 /* config.json in Resources */,
@@ -1200,6 +1531,7 @@
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
+				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -1208,25 +1540,11 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		73653AB40B41BA22036A16A2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1236,16 +1554,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21ACA54120E206FC00943F95 /* RTCameraPreviewViewController.m in Sources */,
 				21570DF020BB9145002585CB /* FWSixInputFilter.m in Sources */,
 				2179F36A20BD078900B73822 /* FWToasterFilter.m in Sources */,
 				2179F36320BD078900B73822 /* FWSutroFilter.m in Sources */,
 				21B361F020D39D8A00EF7F3A /* FilterModel.m in Sources */,
 				21570D0420BB8D8B002585CB /* ViewController.m in Sources */,
+				21ACA57120E206FC00943F95 /* RTVideoIndicatorView.m in Sources */,
 				21570E0A20BBA8CF002585CB /* COStillCameraPreview.m in Sources */,
 				2210509D20CFFA4100AB0D9C /* COPhotoItemController.m in Sources */,
 				21CBBA2C20C145FB00C5AC30 /* GLBBaseViewController.m in Sources */,
 				2179F37520BD078900B73822 /* FWWaldenFilter.m in Sources */,
 				22A3E2C920D9253800F3B46B /* YQImageCompressTool.m in Sources */,
+				21ACA56220E206FC00943F95 /* RTImagePickerPhotoBrowser.m in Sources */,
 				21570E1A20BBC576002585CB /* ShakeButton.m in Sources */,
 				2179F35A20BD078900B73822 /* FWRiseFilter.m in Sources */,
 				21570D0F20BB8D8B002585CB /* main.m in Sources */,
@@ -1255,39 +1576,64 @@
 				2179F34A20BD078900B73822 /* FWHudsonFilter.m in Sources */,
 				22A3E2C120D6A1EE00F3B46B /* LUTAmatorkaFilter.m in Sources */,
 				21570E0F20BBA995002585CB /* COCameraViewController.m in Sources */,
+				21ACA55F20E206FC00943F95 /* LLSimpleCamera.m in Sources */,
 				21570DFA20BB9145002585CB /* CustomAlphaBlendFilter.m in Sources */,
 				22A3E2CA20D9253800F3B46B /* YQImageTool.m in Sources */,
+				21ACA54420E206FC00943F95 /* RTImagePickerViewController.m in Sources */,
 				21570DF120BB9145002585CB /* GPUImageFourInputFilter.m in Sources */,
 				2179F34120BD078900B73822 /* FWEarlybirdFilter.m in Sources */,
 				2147A8B820D0CD0200504434 /* UIImage+compress.m in Sources */,
+				21ACA56820E206FC00943F95 /* VIMVideoPlayerView.m in Sources */,
 				221050A020D0111D00AB0D9C /* GPUCommonLUTFilter.m in Sources */,
+				21ACA54020E206FC00943F95 /* RTAssetCollectionViewController.m in Sources */,
 				21CBBA1F20C0F50E00C5AC30 /* COBaseNavigationController.m in Sources */,
+				21ACA56620E206FC00943F95 /* UIImage+RTImagePickerPhotoBrowser.m in Sources */,
 				21570DEF20BB9145002585CB /* FWFiveInputFilter.m in Sources */,
 				2179F34F20BD078900B73822 /* FWInkwellFilter.m in Sources */,
 				21B361EF20D39D8A00EF7F3A /* COPhotoFilterView.m in Sources */,
 				21570E0720BBA8AE002585CB /* COStillCamera.m in Sources */,
 				21570DFF20BB9145002585CB /* CustomSketchFilter.m in Sources */,
+				21ACA54220E206FC00943F95 /* RTCameraViewController.m in Sources */,
+				21ACA57720E207A100943F95 /* UIView+Geometry.m in Sources */,
+				21ACA54520E206FC00943F95 /* RTShortVideoViewController.m in Sources */,
+				21ACA56920E206FC00943F95 /* RTAlbumTableViewCell.m in Sources */,
 				2179F34420BD078900B73822 /* FWHefeFilter.m in Sources */,
+				21ACA56020E206FC00943F95 /* UIImage+FixOrientation.m in Sources */,
+				21ACA56A20E206FC00943F95 /* RTAssetCollectionViewCell.m in Sources */,
 				21B361F320D3BC6F00EF7F3A /* COPhotoBrowserView.m in Sources */,
 				2179F37920BD078900B73822 /* FWXproIIFilter.m in Sources */,
+				21ACA56F20E206FC00943F95 /* RTImagePickerUnauthorizedView.m in Sources */,
+				21ACA55E20E206FC00943F95 /* RTImagePickerUtils.m in Sources */,
 				21570DF220BB9145002585CB /* YJHalfGrayFilter.m in Sources */,
 				21570E0020BB9145002585CB /* SimpleSketchController.m in Sources */,
 				2179F35E20BD078900B73822 /* FWSierraFilter.m in Sources */,
 				2179F37120BD078900B73822 /* FWValenciaFilter.m in Sources */,
+				21ACA56320E206FC00943F95 /* RTImagePickerTapDetectingImageView.m in Sources */,
 				21570DFE20BB9145002585CB /* FrameBlendController.m in Sources */,
 				21570DF420BB9145002585CB /* HalfSketchFilter.m in Sources */,
 				21570D0120BB8D8B002585CB /* AppDelegate.m in Sources */,
 				2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */,
 				2179F33320BD078900B73822 /* FWAmaroFilter.m in Sources */,
+				21ACA4E920E1ED7700943F95 /* PHAsset+Latest.m in Sources */,
 				21CBBA1C20C0F2DF00C5AC30 /* COPhotoDisplayController.m in Sources */,
+				21ACA54320E206FC00943F95 /* RTImagePickerNavigationController.m in Sources */,
+				21ACA56B20E206FC00943F95 /* RTCheckMarkView.m in Sources */,
+				21ACA56420E206FC00943F95 /* RTImagePickerTapDetectingView.m in Sources */,
 				21570DFB20BB9145002585CB /* CustomFrameBlendThreeFilter.m in Sources */,
+				21ACA56120E206FC00943F95 /* RTImagePickerPhoto.m in Sources */,
+				21ACA57020E206FC00943F95 /* RTVideoIconView.m in Sources */,
+				21ACA56E20E206FC00943F95 /* RTImagePickerToolbarView.m in Sources */,
+				21ACA56D20E206FC00943F95 /* RTImagePickerTitleButton.m in Sources */,
 				21570DF920BB9145002585CB /* YJOldPhoteFilter.m in Sources */,
+				21ACA57820E207A100943F95 /* UIView+Size.m in Sources */,
 				21B361EE20D39D8A00EF7F3A /* COCameraFilterView.m in Sources */,
 				2179F35620BD078900B73822 /* FWNashvilleFilter.m in Sources */,
 				2179F35220BD078900B73822 /* FWLomofiFilter.m in Sources */,
 				22A3E2C420D9220300F3B46B /* UIImage+Resize.m in Sources */,
 				214AB81420BFC21300D4B73C /* UIImage+Rotate.m in Sources */,
+				21ACA56520E206FC00943F95 /* RTImagePickerZoomingScrollView.m in Sources */,
 				2179F33B20BD078900B73822 /* FWBrannanFilter.m in Sources */,
+				21ACA56720E206FC00943F95 /* VIMVideoPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

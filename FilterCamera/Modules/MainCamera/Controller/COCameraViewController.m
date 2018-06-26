@@ -12,6 +12,8 @@
 #import "ShakeButton.h"
 #import "COCameraFilterView.h"
 #import "COPhotoDisplayController.h"
+#import <Photos/Photos.h>
+#import "RTImagePickerViewController.h"
 typedef NS_ENUM(NSInteger,CameraRatioType){
     CameraRatioType43,
     CameraRatioType11,
@@ -19,13 +21,15 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 };
 
 
-@interface COCameraViewController (){
+@interface COCameraViewController () <RTImagePickerViewControllerDelegate>
+{
 }
 
 @property (nonatomic, strong) COStillCamera *stillCamera;
 @property (nonatomic, strong) COStillCameraPreview *imageView;
 @property (nonatomic, strong) COCameraFilterView *cameraFilterView;
 @property (nonatomic, strong) UIButton *takePhotoBtn;
+@property (nonatomic, strong) UIButton *photoBtn;
 @property (nonatomic, strong) GPUImageFilter *filter;
 @property (nonatomic, strong) GPUImageFilter *passFilter;
 @property (nonatomic, weak) AppDelegate *appDelegate;
@@ -67,6 +71,29 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
    
     [self.stillCamera startCameraCapture];
     self.takePhotoBtn.userInteractionEnabled = YES;
+    
+    // 相册加载
+    PHAuthorizationStatus authStatus = [PHPhotoLibrary authorizationStatus];
+    if (authStatus != PHAuthorizationStatusAuthorized) {
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            if (status == PHAuthorizationStatusAuthorized) {
+                [self asyncLoadLatestImageFromPhotoLib];
+            }
+        }];
+    }else {
+        [self asyncLoadLatestImageFromPhotoLib];
+    }
+}
+- (void)asyncLoadLatestImageFromPhotoLib
+{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [PHAsset latestImageWithSize:CGSizeMake(30, 30) completeBlock:^(UIImage *image) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_photoBtn setImage:image forState:UIControlStateNormal];
+                [_photoBtn setImage:image forState:UIControlStateHighlighted];
+            });
+        }];
+    });
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -199,11 +226,13 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     }];
     _takePhotoBtn = button;
     //相册按钮
-    CGFloat picBtnWidth = 25; CGFloat picBtnHeight = 30;
+    CGFloat picBtnWidth = kCameraPhotoBtnIconSize; CGFloat picBtnHeight = kCameraPhotoBtnIconSize;
     UIButton *picBtn = [[UIButton alloc]init];
-    picBtn.layer.borderWidth = 1;
-    picBtn.layer.borderColor = [UIColor whiteColor].CGColor;
+    picBtn.layer.cornerRadius = kCameraPhotoBtnIconSize/2;
+    picBtn.layer.borderColor = [UIColor clearColor].CGColor;
+    picBtn.layer.masksToBounds = YES;
     [self.view addSubview:picBtn];
+    _photoBtn = picBtn;
     [picBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(picBtnWidth);
         make.height.mas_equalTo(picBtnHeight);
@@ -212,7 +241,19 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         make.left.mas_equalTo(@(x));
     }];
     [[picBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        
+        [wself choseImageFromPhotoLibrary];
+//        @strongify(self);
+//        TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
+//        [self presentViewController:imagePickerVc animated:YES completion:nil];
+//        [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+//            UIImage *image = photos.lastObject;
+//            UIImage *SourceImage = [image fixOrientation];
+//            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+//            vc.sourceImage = SourceImage;
+//            NSAssert(SourceImage !=nil, @"SourceImage 是空");
+//            vc.filterClass = NSClassFromString(@"GPUImageFilter");
+//            [self.navigationController pushViewController:vc animated:YES];
+//        }];
     }];
     
     //
@@ -226,9 +267,19 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     self.cameraFilterView.filterClick = ^(NSInteger index) {
         [wself switchToFilterWithIndex:index];
         [wself.imageView scrollToIndex:index];
-        NSLog(@"index------%d",index);
     };
     
+}
+- (void)choseImageFromPhotoLibrary
+{
+    RTImagePickerViewController *imagePickerController = [RTImagePickerViewController new];
+    imagePickerController.delegate = self;
+    imagePickerController.mediaType = RTImagePickerMediaTypeImage;
+    // imagePickerController.allowsMultipleSelection = YES;
+    imagePickerController.showsNumberOfSelectedAssets = YES;
+    imagePickerController.maximumNumberOfSelection = 2;
+    imagePickerController.minimumNumberOfSelection = 1;
+    [self.navigationController pushViewController:imagePickerController animated:YES];
 }
 - (void)switchToFilterWithIndex:(NSInteger)index{
     runAsynchronouslyOnVideoProcessingQueue(^{
@@ -314,6 +365,62 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
+}
+//
+#pragma mark - RTImagePickerViewControllerDelegate
+- (void)rt_imagePickerController:(RTImagePickerViewController *)imagePickerController didFinishPickingImages:(NSArray<UIImage *> *)images
+{
+//    TOCropViewController *cropViewController = [[TOCropViewController alloc] initWithImage:[images lastObject]];
+//    cropViewController.delegate = self;
+//    [imagePickerController.navigationController pushViewController:cropViewController animated:YES];
+}
+
+- (void)rt_imagePickerControllerDidCancel:(RTImagePickerViewController *)imagePickerController
+{
+    [imagePickerController.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)rt_imagePickerController:(RTImagePickerViewController *)imagePickerController didSelectAsset:(PHAsset *)asset
+{
+    PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
+    option.resizeMode = PHImageRequestOptionsResizeModeFast;
+    option.networkAccessAllowed = YES;
+    [[PHImageManager defaultManager] requestImageDataForAsset:asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+        //根据请求会调中的参数重 NSDictionary *info 是否有cloudKey 来判断是否是  iCloud
+        BOOL downloadFinined = (![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey]);
+        if (downloadFinined && imageData) {
+            UIImage *image = [UIImage imageWithData:imageData];
+            UIImage *SourceImage = [image fixOrientation];
+
+            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+            vc.sourceImage = SourceImage;
+            NSAssert(image !=nil, @"SourceImage 是空");
+            vc.filterClass = NSClassFromString(@"GPUImageFilter");
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+
+        // Download image from iCloud / 从iCloud下载图片
+        if ([info objectForKey:PHImageResultIsInCloudKey] && !imageData) {
+            PHImageRequestOptions *option = [[PHImageRequestOptions alloc]init];
+            option.networkAccessAllowed = YES;
+            option.resizeMode = PHImageRequestOptionsResizeModeFast;
+            
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+            hud.label.text = @"同步iCloud照片中...";
+            [[PHImageManager defaultManager] requestImageDataForAsset:asset options:option resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+                [hud hideAnimated:YES];
+                UIImage *resultImage = [UIImage imageWithData:imageData];
+                UIImage *SourceImage = [resultImage fixOrientation];
+
+                COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+                vc.sourceImage = SourceImage;
+                NSAssert(SourceImage !=nil, @"SourceImage 是空");
+                vc.filterClass = NSClassFromString(@"GPUImageFilter");
+                [self.navigationController pushViewController:vc animated:YES];
+            }];
+        }
+    }];
+
 }
 
 @end

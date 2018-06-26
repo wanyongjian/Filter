@@ -27,4 +27,6 @@
 #import "UIImage+Resize.h"
 #import "MBProgressHUD.h"
 #import "FilterModel.h"
+#import "PHAsset+Latest.h"
+#import "TZImagePickerController.h"
 #endif /* Coco_pch */
