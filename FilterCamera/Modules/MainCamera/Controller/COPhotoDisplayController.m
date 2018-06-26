@@ -14,6 +14,8 @@
 
 @interface COPhotoDisplayController ()
 
+@property (nonatomic, strong) UIButton *imageButton;//imageview下面，监测按下动作，显示原图和filter图
+@property (nonatomic, strong) UIImage *filterImage;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) COPhotoFilterView *photoFilterView;
 @property (nonatomic, strong) UIView *topView;
@@ -24,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = self.view.backgroundColor = HEX_COLOR(0x252525);
+    self.filterImage = self.sourceImage;
     [self setUpUI];
     [self layoutViews];
     
@@ -43,10 +46,14 @@
         make.height.mas_equalTo(TopOffset+TopFunctionHeight);
     }];
     
-    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.imageButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(self.view);
         make.top.mas_equalTo(self.topView.mas_bottom);
         make.bottom.mas_equalTo(self.photoFilterView.mas_top);
+    }];
+    
+    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.imageButton);
     }];
 }
 
@@ -74,16 +81,20 @@
             //释放GPU缓存
             [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
             wself.imageView.image = image;
+            wself.filterImage = image;
         };
     };
     //顶部
     self.topView = [[UIView alloc]init];
     [self.view addSubview:self.topView];
     //中部
+    self.imageButton = [[UIButton alloc]init];
+    [self.view addSubview:self.imageButton];
+    
     self.imageView = [[UIImageView alloc]init];
     self.imageView.backgroundColor = HEX_COLOR(0x252525);
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.view addSubview:self.imageView];
+    [self.imageButton addSubview:self.imageView];
     
     GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.sourceImage];
     NSAssert(pic!=nil, @"self.sourceImage是空");
@@ -95,6 +106,16 @@
     //释放GPU缓存
     //    [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
     self.imageView.image = image;
+    self.filterImage = image;
+    @weakify(self);
+    [[self.imageButton rac_signalForControlEvents:UIControlEventTouchDown] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self);
+        self.imageView.image = self.sourceImage;
+    }];
+    [[self.imageButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self);
+        self.imageView.image = self.filterImage;
+    }];
 
     //返回按钮
     UIButton *backBtn = [[UIButton alloc]init];
@@ -119,7 +140,6 @@
         make.right.mas_equalTo(self.topView).mas_offset(-20);
     }];
     
-    @weakify(self);
     [[saveBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self);
         self.hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
