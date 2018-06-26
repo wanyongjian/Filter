@@ -40,7 +40,7 @@
                                                  position:LLCameraPositionRear
                                              videoEnabled:NO];
     
-    self.rt_toolbarView = [(RTImagePickerNavigationController *)wself.navigationController toolBarView];
+    wself.rt_toolbarView = [(RTImagePickerNavigationController *)wself.navigationController toolBarView];
     [wself.rt_toolbarView.cameraFlashButton addTarget:self action:@selector(flashButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [wself.rt_toolbarView.cameraSwitchButton addTarget:self action:@selector(switchButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [wself.rt_toolbarView.cameraSnapButton addTarget:self action:@selector(snapButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -127,16 +127,17 @@
 
 - (void)flashButtonPressed:(id)sender
 {
+    weakSelf();
     if(self.camera.flash == LLCameraFlashOff) {
         BOOL done = [self.camera updateFlashMode:LLCameraFlashOn];
         if(done) {
-            [_rt_toolbarView setFlashState:YES];
+            [wself.rt_toolbarView setFlashState:YES];
         }
     }
     else {
         BOOL done = [self.camera updateFlashMode:LLCameraFlashOff];
         if(done) {
-            [_rt_toolbarView setFlashState:NO];
+            [wself.rt_toolbarView setFlashState:NO];
         }
     }
 }

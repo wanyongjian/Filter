@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '73B86C61AFD834328FAA38CA8807C0D8'
-               BlueprintName = 'SDWebImage'
+               BlueprintIdentifier = 'BC53E07CFFCCCCFC9DB5470CDBB4FFD1'
+               BlueprintName = 'TZImagePickerController'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libSDWebImage.a'>
+               BuildableName = 'libTZImagePickerController.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '73B86C61AFD834328FAA38CA8807C0D8'
-               BlueprintName = 'SDWebImage'
+               BlueprintIdentifier = 'AC139CEF10BCCB200972B4617F3CA14E'
+               BlueprintName = 'MLeaksFinder'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libSDWebImage.a'>
+               BuildableName = 'libMLeaksFinder.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

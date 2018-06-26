@@ -140,8 +140,8 @@ static NSString * const reuseIdentifier = @"AssetCell";
     // Scroll to bottom
     [self scrollToBottomAnimated:NO];
     
-    if(self.toolBarView) {
-        [self.toolBarView SwitchToMode:RTImagePickerToolbarModeImagePicker];
+    if(wself.toolBarView) {
+        [wself.toolBarView SwitchToMode:RTImagePickerToolbarModeImagePicker];
     }
     [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
 }
@@ -223,8 +223,8 @@ static NSString * const reuseIdentifier = @"AssetCell";
 - (void)setupToolBarView
 {
     weakSelf();
-    if(!self.toolBarView) {
-        self.toolBarView = [[RTImagePickerToolbarView alloc] initWithFrame:CGRectMake(0.0f, ScreenHeight - 150.0f, ScreenWidth, 150.0f)];
+    if(!wself.toolBarView) {
+        wself.toolBarView = [[RTImagePickerToolbarView alloc] initWithFrame:CGRectMake(0.0f, ScreenHeight - 150.0f, ScreenWidth, 150.0f)];
         wself.toolBarView.viewController = wself;
         [(RTImagePickerNavigationController *)wself.navigationController setupToolBarView:wself.toolBarView];
     }
@@ -639,7 +639,7 @@ static NSString * const reuseIdentifier = @"AssetCell";
         
         [UIView animateWithDuration:albumListAnimateDuration delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.albumsTableView.top = 0.0f;
-            self.toolBarView.top = ScreenHeight;
+            wself.toolBarView.top = ScreenHeight;
         } completion:^(BOOL finished) {
             
         }];

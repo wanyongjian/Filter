@@ -27,7 +27,7 @@
 - (void)setupToolBarView:(RTImagePickerToolbarView *)toolBarView
 {
     weakSelf();
-    self.toolBarView = (RTImagePickerToolbarView *)toolBarView;
+    wself.toolBarView = (RTImagePickerToolbarView *)toolBarView;
     [self.view addSubview:wself.toolBarView];
 }
 

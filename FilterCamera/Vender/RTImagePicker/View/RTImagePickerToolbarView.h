@@ -25,7 +25,7 @@ typedef NS_ENUM(NSInteger, RTImagePickerToolbarMode) {
 @property (nonatomic, strong) UIView                            *photoBrowserToolbarBackgroundView;
 @property (nonatomic, strong) UIView                            *cameraToolBarBackgroundView;
 
-@property (nonatomic, strong) RTAssetCollectionViewController     *viewController;
+@property (nonatomic, weak) RTAssetCollectionViewController     *viewController;
 
 /**
  *  Buttons for camera

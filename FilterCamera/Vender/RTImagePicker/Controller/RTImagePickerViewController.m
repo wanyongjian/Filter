@@ -52,8 +52,9 @@
         [self setUpAlbumsViewController];
         
         // Set instance
-        RTAssetCollectionViewController *albumsViewController = (RTAssetCollectionViewController *)self.assetNavigationController.topViewController;
         weakSelf();
+        RTAssetCollectionViewController *albumsViewController = (RTAssetCollectionViewController *)wself.assetNavigationController.topViewController;
+        
         albumsViewController.imagePickerController = wself;
     }
     

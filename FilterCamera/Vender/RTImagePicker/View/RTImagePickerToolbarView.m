@@ -180,7 +180,7 @@
 - (void)cancelButtonPressed:(id)sender
 {
     weakSelf();
-    if(self.viewController) {
+    if(wself.viewController) {
         if ([wself.viewController.imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerControllerDidCancel:)]) {
             [wself.viewController.imagePickerController.delegate rt_imagePickerControllerDidCancel:wself.viewController.imagePickerController];
         }
@@ -205,8 +205,9 @@
 
 - (void)cameraButtonPressed:(id)sender
 {
+    weakSelf();
     camera = [[RTCameraViewController alloc]init];
-    [self.viewController.navigationController pushViewController:camera animated:YES];
+    [wself.viewController.navigationController pushViewController:camera animated:YES];
 }
 
 - (void)sendButtonPressed:(id)sender

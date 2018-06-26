@@ -410,6 +410,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
             [[PHImageManager defaultManager] requestImageDataForAsset:asset options:option resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
                 [hud hideAnimated:YES];
                 UIImage *resultImage = [UIImage imageWithData:imageData];
+                
                 UIImage *SourceImage = [resultImage fixOrientation];
 
                 COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
@@ -419,6 +420,9 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
                 [self.navigationController pushViewController:vc animated:YES];
             }];
         }
+        
+        
+        
     }];
 
 }
