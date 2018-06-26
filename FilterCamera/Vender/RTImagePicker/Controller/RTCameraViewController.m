@@ -33,16 +33,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    weakSelf();
     self.view.backgroundColor = [UIColor blackColor];
 
     self.camera = [[LLSimpleCamera alloc] initWithQuality:AVCaptureSessionPresetHigh
                                                  position:LLCameraPositionRear
                                              videoEnabled:NO];
     
-    self.rt_toolbarView = [(RTImagePickerNavigationController *)self.navigationController toolBarView];
-    [_rt_toolbarView.cameraFlashButton addTarget:self action:@selector(flashButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_rt_toolbarView.cameraSwitchButton addTarget:self action:@selector(switchButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_rt_toolbarView.cameraSnapButton addTarget:self action:@selector(snapButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    self.rt_toolbarView = [(RTImagePickerNavigationController *)wself.navigationController toolBarView];
+    [wself.rt_toolbarView.cameraFlashButton addTarget:self action:@selector(flashButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [wself.rt_toolbarView.cameraSwitchButton addTarget:self action:@selector(switchButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [wself.rt_toolbarView.cameraSnapButton addTarget:self action:@selector(snapButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     

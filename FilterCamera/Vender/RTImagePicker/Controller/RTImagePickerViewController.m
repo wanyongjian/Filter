@@ -53,7 +53,8 @@
         
         // Set instance
         RTAssetCollectionViewController *albumsViewController = (RTAssetCollectionViewController *)self.assetNavigationController.topViewController;
-        albumsViewController.imagePickerController = self;
+        weakSelf();
+        albumsViewController.imagePickerController = wself;
     }
     
     return self;
@@ -91,6 +92,6 @@
 }
 
 - (void)dealloc{
-    NSLog(@"******** 释放了RTImageViewController");
+    NSLog(@"******** 释放了RTImagePickerViewController");
 }
 @end

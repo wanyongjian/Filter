@@ -26,9 +26,12 @@
 
 - (void)setupToolBarView:(RTImagePickerToolbarView *)toolBarView
 {
+    weakSelf();
     self.toolBarView = (RTImagePickerToolbarView *)toolBarView;
-    [self.view addSubview:_toolBarView];
+    [self.view addSubview:wself.toolBarView];
 }
 
-
+- (void)dealloc{
+    NSLog(@"******* 释放了RTImagePickernavigationController");
+}
 @end

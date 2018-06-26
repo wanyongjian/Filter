@@ -179,9 +179,10 @@
 
 - (void)cancelButtonPressed:(id)sender
 {
+    weakSelf();
     if(self.viewController) {
-        if ([self.viewController.imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerControllerDidCancel:)]) {
-            [self.viewController.imagePickerController.delegate rt_imagePickerControllerDidCancel:self.viewController.imagePickerController];
+        if ([wself.viewController.imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerControllerDidCancel:)]) {
+            [wself.viewController.imagePickerController.delegate rt_imagePickerControllerDidCancel:wself.viewController.imagePickerController];
         }
     }
 }
@@ -196,9 +197,9 @@
 //            [self.viewController.imagePickerController.delegate rt_imagePickerControllerDidSelectShortVideo:self.viewController.imagePickerController];
 //        }
 //    }
-    
+    weakSelf();
     RTShortVideoViewController *vc = [[RTShortVideoViewController alloc] init];
-    [self.viewController.navigationController pushViewController:vc animated:YES];
+    [wself.viewController.navigationController pushViewController:vc animated:YES];
     
 }
 
@@ -210,17 +211,18 @@
 
 - (void)sendButtonPressed:(id)sender
 {
+    weakSelf();
     if(currentMode == RTImagePickerToolbarModeImagePicker || currentMode == RTImagePickerToolbarModePhotoBrowser) {
-        if(self.viewController) {
-            if ([self.viewController.imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerController:didFinishPickingImages:)]) {
-                [self.viewController.imagePickerController.delegate rt_imagePickerController:self.viewController.imagePickerController didFinishPickingImages:self.previewImageArray];
+        if(wself.viewController) {
+            if ([wself.viewController.imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerController:didFinishPickingImages:)]) {
+                [wself.viewController.imagePickerController.delegate rt_imagePickerController:wself.viewController.imagePickerController didFinishPickingImages:wself.previewImageArray];
             }
         }
     } else if (currentMode == RTImagePickerToolbarModeCameraPreview) {
-        if(self.viewController && self.cameraImage) {
+        if(wself.viewController && wself.cameraImage) {
             UIImageWriteToSavedPhotosAlbum(self.cameraImage, nil, nil, nil);
-            if ([self.viewController.imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerController:didFinishPickingImages:)]) {
-                [self.viewController.imagePickerController.delegate rt_imagePickerController:self.viewController.imagePickerController didFinishPickingImages:@[self.cameraImage]];
+            if ([wself.viewController.imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerController:didFinishPickingImages:)]) {
+                [wself.viewController.imagePickerController.delegate rt_imagePickerController:wself.viewController.imagePickerController didFinishPickingImages:@[self.cameraImage]];
             }
         }
     }
@@ -236,7 +238,8 @@
             [browser reloadData];
         }
     } else if (currentMode == RTImagePickerToolbarModeCameraPreview) {
-        [self.viewController.navigationController popViewControllerAnimated:YES];
+        weakSelf();
+        [wself.viewController.navigationController popViewControllerAnimated:YES];
     }
 }
 
@@ -244,6 +247,7 @@
 
 - (void)addAsset:(PHAsset *)asset
 {
+    weakSelf();
     [self.selectedAssets addObject:asset];
     [self updateLayoutWhenUpdatingAsset];
     
@@ -261,8 +265,7 @@
     // If set to default option delivery mode, then the result handler will be called more than once
     PHImageRequestOptions *options = [PHImageRequestOptions new];
     [options setDeliveryMode:PHImageRequestOptionsDeliveryModeHighQualityFormat];
-    self.viewController.collectionView.userInteractionEnabled = NO;
-    
+    wself.viewController.collectionView.userInteractionEnabled = NO;
     [self.imageManager requestImageForAsset:asset
                                  targetSize:itemSize
                                 contentMode:PHImageContentModeAspectFill
@@ -274,7 +277,7 @@
                                           RTImagePickerPhoto *photo = [RTImagePickerPhoto photoWithImage:result];
                                           [self.previewPhotoArray addObject:photo];
                                           previewImageView.image = result;
-                                          self.viewController.collectionView.userInteractionEnabled = YES;
+                                          wself.viewController.collectionView.userInteractionEnabled = YES;
                                           
                                           [previewImageView addGestureRecognizer:tapGesture];
                                           [previewImageView addGestureRecognizer:panGesture];
@@ -312,11 +315,12 @@
 
 - (void)deleteAssetAtIndex:(NSInteger)index
 {
+    weakSelf();
     PHAsset *asset = [self.selectedAssets objectAtIndex:index];
     
     [self.selectedAssets removeObjectAtIndex:index];
     
-    NSMutableOrderedSet *selectedAssets = self.viewController.imagePickerController.selectedAssets;
+    NSMutableOrderedSet *selectedAssets = wself.viewController.imagePickerController.selectedAssets;
     [selectedAssets removeObject:asset];
     
     [self updateLayoutWhenUpdatingAsset];
@@ -416,6 +420,7 @@
  */
 - (void)updateLayoutWhenUpdatingAsset
 {
+    weakSelf();
     if(self.selectedAssets.count > 0) {
         if(self.sendButton.hidden) {
             CGFloat margin_width = (self.width - 46.0f * 4.0f - 44.0f) /3.0f;
@@ -425,7 +430,7 @@
             CGFloat sendButtonLeft_new = dvButtonLeft_new + button_width + margin_width;
             self.sendButton.hidden = NO;
             
-            UICollectionViewFlowLayout *collectionViewLayout = (UICollectionViewFlowLayout *)self.viewController.collectionView.collectionViewLayout;
+            UICollectionViewFlowLayout *collectionViewLayout = (UICollectionViewFlowLayout *)wself.viewController.collectionView.collectionViewLayout;
             [collectionViewLayout setFooterReferenceSize:CGSizeMake(ScreenWidth, self.height)];
             
             [UIView animateWithDuration:layoutUpdateAnimateDuration delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -445,10 +450,10 @@
             CGFloat dvButtonLeft_new = cameraButtonLeft_new + button_width + margin_width;
             CGFloat sendButtonLeft_new = dvButtonLeft_new + button_width + margin_width;
             
-            UICollectionViewFlowLayout *collectionViewLayout = (UICollectionViewFlowLayout *)self.viewController.collectionView.collectionViewLayout;
+            UICollectionViewFlowLayout *collectionViewLayout = (UICollectionViewFlowLayout *)wself.viewController.collectionView.collectionViewLayout;
             [collectionViewLayout setFooterReferenceSize:CGSizeMake(ScreenWidth, self.height/2.0f)];
             
-            self.viewController.collectionView.userInteractionEnabled = NO;
+            wself.viewController.collectionView.userInteractionEnabled = NO;
             [UIView animateWithDuration:layoutUpdateAnimateDuration delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 self.cameraButton.left = cameraButtonLeft_new;
                 self.dvButton.left = dvButtonLeft_new;
@@ -460,7 +465,7 @@
                 }
                 [self.previewImageViewArray removeAllObjects];
                 [self.previewImageArray removeAllObjects];
-                self.viewController.collectionView.userInteractionEnabled = YES;
+                wself.viewController.collectionView.userInteractionEnabled = YES;
                 self.sendButton.hidden = YES;
             }];
         }
@@ -508,6 +513,7 @@
 
 - (void)imageTap:(UITapGestureRecognizer *)gesture
 {
+    weakSelf();
     UIImage *currentImage = [(UIImageView *)gesture.view image];
     NSInteger currentIndex = 0;
     
@@ -526,11 +532,12 @@
     browser.autoPlayOnAppear = NO;
     [browser setCurrentPhotoIndex:currentIndex];
 
-    [self.viewController.navigationController pushViewController:browser animated:YES];
+    [wself.viewController.navigationController pushViewController:browser animated:YES];
 }
 
 - (void)imagePan:(UILongPressGestureRecognizer *)gesture
 {
+    weakSelf();
     switch (gesture.state) {
         case UIGestureRecognizerStateBegan:
         {
@@ -541,7 +548,7 @@
             [self.previewScrollView bringSubviewToFront:imageView];
             currentCenter = imageView.center;
             [imageView.layer addAnimation:[self animationForImageViewToSelected] forKey:@"fuck"];
-            self.viewController.collectionView.userInteractionEnabled = NO;
+            wself.viewController.collectionView.userInteractionEnabled = NO;
         }
             break;
         case UIGestureRecognizerStateChanged:
@@ -559,9 +566,9 @@
                         [imageView.layer addAnimation:[self animationForImageViewToScaleToThumb:NO] forKey:@"scaleBigger"];
                     }
                 }
-                if(self.viewController.view.alpha < 0.7f) {
+                if(wself.viewController.view.alpha < 0.7f) {
                     [UIView animateWithDuration:0.15f animations:^{
-                        self.viewController.view.alpha = 1.0f;
+                        wself.viewController.view.alpha = 1.0f;
                     }];
                 }
                 [self rearrangePreviewImageView:imageView];
@@ -571,9 +578,9 @@
                     [imageView.layer removeAnimationForKey:@"scaleBigger"];
                     [imageView.layer addAnimation:[self animationForImageViewToScaleToThumb:YES] forKey:@"scaleSmaller"];
                 }
-                if(self.viewController.view.alpha > 0.7f) {
+                if(wself.viewController.view.alpha > 0.7f) {
                     [UIView animateWithDuration:0.15f animations:^{
-                        self.viewController.view.alpha = 0.6f;
+                        wself.viewController.view.alpha = 0.6f;
                     }];
                 }
             }
@@ -581,7 +588,7 @@
             break;
         case UIGestureRecognizerStateEnded:
         {
-            self.viewController.view.alpha = 1.0f;
+            wself.viewController.view.alpha = 1.0f;
             UIImageView *imageView = (UIImageView *)gesture.view;
             CGPoint point = [gesture locationInView:self.previewScrollView];
             CGPoint translation = CGPointMake(point.x - currentLocation.x, point.y - currentLocation.y);
@@ -592,9 +599,9 @@
                 } completion:^(BOOL finished) {
                     [imageView.layer removeAllAnimations];
                     [self deleteAssetAtIndex:currentPanImageViewIndex];
-                    [self.viewController.collectionView reloadData];
+                    [wself.viewController.collectionView reloadData];
                     [self rearrangePreviewImageView:nil];
-                    self.viewController.collectionView.userInteractionEnabled = YES;
+                    wself.viewController.collectionView.userInteractionEnabled = YES;
                 }];
             } else {
                 CGFloat t_x = currentCenter.x + translation.x;
@@ -629,14 +636,14 @@
                     }
                 }
                 [self rearrangePreviewImageView:nil];
-                self.viewController.collectionView.userInteractionEnabled = YES;
+                wself.viewController.collectionView.userInteractionEnabled = YES;
             }
         }
             break;
         default:
         {
             // reset state
-            self.viewController.collectionView.userInteractionEnabled = YES;
+            wself.viewController.collectionView.userInteractionEnabled = YES;
             UIImageView *imageView = (UIImageView *)gesture.view;
             imageView.center = currentCenter;
             [imageView.layer removeAllAnimations];
@@ -788,9 +795,10 @@
 
 - (void)didSelectVideoWithFileName:(NSString *)fileName captureImage:(UIImage *)image
 {
-    if(self.viewController) {
-        if([self.viewController.imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerController:didFinishPickingVideoWithFileName:withCaptureImage:)]) {
-            [self.viewController.imagePickerController.delegate rt_imagePickerController:self.viewController.imagePickerController didFinishPickingVideoWithFileName:fileName withCaptureImage:image];
+    weakSelf();
+    if(wself.viewController) {
+        if([wself.viewController.imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerController:didFinishPickingVideoWithFileName:withCaptureImage:)]) {
+            [wself.viewController.imagePickerController.delegate rt_imagePickerController:wself.viewController.imagePickerController didFinishPickingVideoWithFileName:fileName withCaptureImage:image];
         }
     }
 }

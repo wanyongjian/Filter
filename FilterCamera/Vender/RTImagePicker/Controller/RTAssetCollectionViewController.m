@@ -57,6 +57,7 @@ static NSString * const reuseIdentifier = @"AssetCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    weakSelf();
     albumListAnimateDuration = 0.3f;
     hasAuthorized = NO;
     
@@ -81,7 +82,7 @@ static NSString * const reuseIdentifier = @"AssetCell";
                         [titleButton rt_setTitle:self.assetCollection.localizedTitle arrowAppearance:YES];
                         
                         // Configure collection view
-                        self.collectionView.allowsMultipleSelection = self.imagePickerController.allowsMultipleSelection;
+                        self.collectionView.allowsMultipleSelection = wself.imagePickerController.allowsMultipleSelection;
                         
                         [self.collectionView reloadData];
                         
@@ -126,12 +127,12 @@ static NSString * const reuseIdentifier = @"AssetCell";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    weakSelf();
     // Configure navigation item
     [titleButton rt_setTitle:self.assetCollection.localizedTitle arrowAppearance:YES];
     
     // Configure collection view
-    self.collectionView.allowsMultipleSelection = self.imagePickerController.allowsMultipleSelection;
+    self.collectionView.allowsMultipleSelection = wself.imagePickerController.allowsMultipleSelection;
     self.collectionView.userInteractionEnabled = YES;
 
     [self.collectionView reloadData];
@@ -189,6 +190,7 @@ static NSString * const reuseIdentifier = @"AssetCell";
 {
     // Deregister observer
 //    [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
+    NSLog(@"******* 释放了RTAssetCollectionViewController");
 }
 
 #pragma mark - Accessors
@@ -220,10 +222,11 @@ static NSString * const reuseIdentifier = @"AssetCell";
 
 - (void)setupToolBarView
 {
+    weakSelf();
     if(!self.toolBarView) {
         self.toolBarView = [[RTImagePickerToolbarView alloc] initWithFrame:CGRectMake(0.0f, ScreenHeight - 150.0f, ScreenWidth, 150.0f)];
-        _toolBarView.viewController = self;
-        [(RTImagePickerNavigationController *)self.navigationController setupToolBarView:_toolBarView];
+        wself.toolBarView.viewController = wself;
+        [(RTImagePickerNavigationController *)wself.navigationController setupToolBarView:wself.toolBarView];
     }
 }
 
@@ -352,6 +355,7 @@ static NSString * const reuseIdentifier = @"AssetCell";
 
 - (void)photoLibraryDidChange:(PHChange *)changeInstance
 {
+    weakSelf();
     dispatch_async(dispatch_get_main_queue(), ^{
         // Update fetch results
         NSMutableArray *fetchResults = [self.fetchResults mutableCopy];
@@ -382,7 +386,7 @@ static NSString * const reuseIdentifier = @"AssetCell";
         }
         
         for(PHAsset *asset in array) {
-            [self.toolBarView deleteAsset:asset];
+            [wself.toolBarView deleteAsset:asset];
         }
         
         PHFetchResultChangeDetails *collectionChanges = [changeInstance changeDetailsForFetchResult:self.fetchResult];
@@ -473,9 +477,10 @@ static NSString * const reuseIdentifier = @"AssetCell";
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerController:shouldSelectAsset:)]) {
+    weakSelf();
+    if ([wself.imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerController:shouldSelectAsset:)]) {
         PHAsset *asset = self.fetchResult[indexPath.item];
-        return [self.imagePickerController.delegate rt_imagePickerController:self.imagePickerController shouldSelectAsset:asset];
+        return [wself.imagePickerController.delegate rt_imagePickerController:wself.imagePickerController shouldSelectAsset:asset];
     }
     
     if ([self isAutoDeselectEnabled]) {
@@ -485,7 +490,7 @@ static NSString * const reuseIdentifier = @"AssetCell";
     BOOL flag = [self isMaximumSelectionLimitReached];
     
     if(flag) {
-        [self.toolBarView shakePreviewScrollView];
+        [wself.toolBarView shakePreviewScrollView];
     }
     
     return !flag;
@@ -493,7 +498,8 @@ static NSString * const reuseIdentifier = @"AssetCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    RTImagePickerViewController *imagePickerController = self.imagePickerController;
+    weakSelf();
+    RTImagePickerViewController *imagePickerController = wself.imagePickerController;
     NSMutableOrderedSet *selectedAssets = imagePickerController.selectedAssets;
     
     PHAsset *asset = self.fetchResult[indexPath.item];
@@ -511,39 +517,40 @@ static NSString * const reuseIdentifier = @"AssetCell";
         
         // Add asset to set
         [selectedAssets addObject:asset];
-        [self.toolBarView addAsset:asset];
+        [wself.toolBarView addAsset:asset];
         
         self.lastSelectedItemIndexPath = indexPath;
     } else {
-        if ([imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerController:didFinishPickingAssets:)]) {
-            [imagePickerController.delegate rt_imagePickerController:imagePickerController didFinishPickingAssets:@[asset]];
+        if ([wself.imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerController:didFinishPickingAssets:)]) {
+            [wself.imagePickerController.delegate rt_imagePickerController:wself.imagePickerController didFinishPickingAssets:@[asset]];
         }
     }
     
-    if ([imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerController:didSelectAsset:)]) {
-        [imagePickerController.delegate rt_imagePickerController:imagePickerController didSelectAsset:asset];
+    if ([wself.imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerController:didSelectAsset:)]) {
+        [wself.imagePickerController.delegate rt_imagePickerController:wself.imagePickerController didSelectAsset:asset];
     }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    weakSelf();
     if (!self.imagePickerController.allowsMultipleSelection) {
         return;
     }
     
-    RTImagePickerViewController *imagePickerController = self.imagePickerController;
+    RTImagePickerViewController *imagePickerController = wself.imagePickerController;
     NSMutableOrderedSet *selectedAssets = imagePickerController.selectedAssets;
     
     PHAsset *asset = self.fetchResult[indexPath.item];
     
     // Remove asset from set
     [selectedAssets removeObject:asset];
-    [self.toolBarView deleteAsset:asset];
+    [wself.toolBarView deleteAsset:asset];
     
     self.lastSelectedItemIndexPath = nil;
 
-    if ([imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerController:didDeselectAsset:)]) {
-        [imagePickerController.delegate rt_imagePickerController:imagePickerController didDeselectAsset:asset];
+    if ([wself.imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerController:didDeselectAsset:)]) {
+        [wself.imagePickerController.delegate rt_imagePickerController:wself.imagePickerController didDeselectAsset:asset];
     }
 }
 
@@ -625,6 +632,7 @@ static NSString * const reuseIdentifier = @"AssetCell";
 }
 
 - (void)titleButtonPressed:(id)sender {
+    weakSelf();
     if(self.albumsTableView.top < 0.0f) {
         
         [titleButton rt_setTitle:[NSString stringWithFormat:@"相簿"] arrowAppearance:NO];
@@ -640,7 +648,7 @@ static NSString * const reuseIdentifier = @"AssetCell";
 
         [UIView animateWithDuration:albumListAnimateDuration delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.albumsTableView.top = -ScreenHeight;
-            self.toolBarView.top = ScreenHeight - _toolBarView.height;
+            wself.toolBarView.top = ScreenHeight - wself.toolBarView.height;
         } completion:^(BOOL finished) {
             
         }];
@@ -666,6 +674,7 @@ static NSString * const reuseIdentifier = @"AssetCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    weakSelf();
     self.assetCollection = self.assetCollections[self.albumsTableView.indexPathForSelectedRow.row];
     [titleButton rt_setTitle:[NSString stringWithFormat:@"%@",self.assetCollection.localizedTitle] arrowAppearance:YES];
     
@@ -675,7 +684,7 @@ static NSString * const reuseIdentifier = @"AssetCell";
     if(self.albumsTableView.top >= 0.0f) {
         [UIView animateWithDuration:albumListAnimateDuration delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.albumsTableView.top = -ScreenHeight;
-            self.toolBarView.top = ScreenHeight - _toolBarView.height;
+            wself.toolBarView.top = ScreenHeight - wself.toolBarView.height;
         } completion:^(BOOL finished) {
             
         }];
@@ -794,8 +803,9 @@ static NSString * const reuseIdentifier = @"AssetCell";
 
 - (void)UnAuthorizedViewHidden:(BOOL)hidden
 {
+    weakSelf();
     if(!self.unAuthorizedView) {
-        self.unAuthorizedView = [[RTImagePickerUnauthorizedView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, ScreenWidth, ScreenHeight - self.toolBarView.height)];
+        self.unAuthorizedView = [[RTImagePickerUnauthorizedView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, ScreenWidth, ScreenHeight - wself.toolBarView.height)];
         _unAuthorizedView.permissionTitleLabel.text = @"Flow想开启你的相册";
         _unAuthorizedView.onPermissionButton = ^(){
             NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
@@ -824,4 +834,6 @@ static NSString * const reuseIdentifier = @"AssetCell";
         }];
     }
 }
+
+
 @end
