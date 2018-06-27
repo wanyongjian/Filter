@@ -61,7 +61,4 @@
     self.increase += 0.01;
     self.filter.x = self.increase;
 }
-
-
-
 @end

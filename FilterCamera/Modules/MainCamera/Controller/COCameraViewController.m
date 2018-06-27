@@ -51,6 +51,24 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [self setUpOrientationValue];
     [self initCamraUI];
     self.takePhotoBtn.userInteractionEnabled = NO;
+    
+    
+}
+- (void)addBackgroundNoti{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActive:)
+                                                 name:UIApplicationWillResignActiveNotification object:nil]; //监听是否触发home键挂起程序，（把程序放在后台执行其他操作）
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:)
+                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
+}
+- (void)applicationWillResignActive:(NSNotification*)noti{
+    dispatch_sync(dispatch_get_global_queue(0, 0), ^{
+        [self.stillCamera stopCameraCapture];
+    });
+}
+- (void)applicationDidBecomeActive:(NSNotification*)noti{
+    dispatch_sync(dispatch_get_global_queue(0, 0), ^{
+        [self.stillCamera startCameraCapture];
+    });
 }
 - (void)initCamraUI{
     [self switchToFilterWithIndex:0];
@@ -69,7 +87,10 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
    
-    [self.stillCamera startCameraCapture];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [self.stillCamera startCameraCapture];
+    });
+    
     self.takePhotoBtn.userInteractionEnabled = YES;
     
     // 相册加载
@@ -98,7 +119,9 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
-    [self.stillCamera stopCameraCapture];
+    dispatch_sync(dispatch_get_global_queue(0, 0), ^{
+        [self.stillCamera stopCameraCapture];
+    });
 }
 - (void)setUpOrientationValue{
     weakSelf();
@@ -286,18 +309,20 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     weakSelf();
     wself.takePhotoBtn.userInteractionEnabled = NO;
     [wself.stillCamera capturePhotoAsImageProcessedUpToFilter:wself.passFilter withOrientation:wself.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-            NSAssert(processedImage !=nil, @"processedImage 是空");
+//            NSAssert(processedImage !=nil, @"processedImage 是空");
+        if (processedImage == nil) {
+            wself.takePhotoBtn.userInteractionEnabled = YES;
+            return;
+        }
             UIImage *SourceClipImage = [UIImage clipOrientationImage:processedImage withRatio:wself.currentCameraViewRatio];
             UIImage *SourceImage = [SourceClipImage fixOrientation];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
-                vc.sourceImage = SourceImage;
-                NSAssert(SourceImage !=nil, @"SourceImage 是空");
-                vc.filterClass = wself.filterClass;
-                [wself.navigationController pushViewController:vc animated:NO];
-                wself.takePhotoBtn.userInteractionEnabled = YES;
-            });
+        
+            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+            vc.sourceImage = SourceImage;
+            NSAssert(SourceImage !=nil, @"SourceImage 是空");
+            vc.filterClass = wself.filterClass;
+            [wself.navigationController pushViewController:vc animated:NO];
+            wself.takePhotoBtn.userInteractionEnabled = YES;
         }];
 
 }

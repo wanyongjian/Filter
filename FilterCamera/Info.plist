@@ -23,11 +23,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>使用相机</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>使用相册</string>
+	<string>需要允许开启相机才能拍照</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>需要使用相册</string>
+	<string>需要允许打开相册才能保存和编辑照片</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
