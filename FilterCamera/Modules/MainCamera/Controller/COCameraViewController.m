@@ -397,6 +397,17 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         }
         // Download image from iCloud / 从iCloud下载图片
         if ([info objectForKey:PHImageResultIsInCloudKey] && !imageData) {
+            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            if (!delegate.netReachable) {
+                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.label.text = @"网络未连接，无法从iCloud下载照片。";
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [hud hideAnimated:YES];
+                });
+                return ;
+            }
+            
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             hud.mode = MBProgressHUDModeAnnularDeterminate;
             hud.label.text = @"载入iCloud照片中...";

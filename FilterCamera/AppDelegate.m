@@ -29,6 +29,7 @@
     [self.window makeKeyAndVisible];
     CODeviceOrientation = [[DeviceOrientation alloc]initWithDelegate:self];
     [CODeviceOrientation startMonitor];
+    [self monitorNetworking];
     return YES;
 }
 
@@ -90,4 +91,15 @@
     }
 }
 
+- (void)monitorNetworking
+{
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (status == AFNetworkReachabilityStatusReachableViaWWAN || status == AFNetworkReachabilityStatusReachableViaWiFi) {
+            self.netReachable = YES;
+        }else{
+            self.netReachable = NO;
+        }
+    }];
+}
 @end

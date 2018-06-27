@@ -8,4 +8,5 @@ pod 'SDWebImage'
 pod 'MBProgressHUD', '~> 1.1.0'
 pod 'TZImagePickerController'
 pod 'MLeaksFinder'
+pod 'AFNetworking', '~> 3.0'
 end

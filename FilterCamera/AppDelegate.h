@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (assign, nonatomic) UIImageOrientation imageOrientation;
+@property (assign, nonatomic) BOOL netReachable;
 @end
 

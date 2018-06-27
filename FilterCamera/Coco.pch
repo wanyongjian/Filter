@@ -29,4 +29,5 @@
 #import "FilterModel.h"
 #import "PHAsset+Latest.h"
 #import "TZImagePickerController.h"
+#import "AFNetworking.h"
 #endif /* Coco_pch */
