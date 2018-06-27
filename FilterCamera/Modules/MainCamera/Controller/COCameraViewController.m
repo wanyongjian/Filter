@@ -270,17 +270,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     };
     
 }
-- (void)choseImageFromPhotoLibrary
-{
-    RTImagePickerViewController *imagePickerController = [RTImagePickerViewController new];
-    imagePickerController.delegate = self;
-    imagePickerController.mediaType = RTImagePickerMediaTypeImage;
-    // imagePickerController.allowsMultipleSelection = YES;
-    imagePickerController.showsNumberOfSelectedAssets = YES;
-    imagePickerController.maximumNumberOfSelection = 2;
-    imagePickerController.minimumNumberOfSelection = 1;
-    [self.navigationController pushViewController:imagePickerController animated:YES];
-}
+
 - (void)switchToFilterWithIndex:(NSInteger)index{
     runAsynchronouslyOnVideoProcessingQueue(^{
         FilterModel *model = self.cameraFilterView.filterModleArray[index];
@@ -366,6 +356,17 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
+- (void)choseImageFromPhotoLibrary
+{
+    RTImagePickerViewController *imagePickerController = [RTImagePickerViewController new];
+    imagePickerController.delegate = self;
+    imagePickerController.mediaType = RTImagePickerMediaTypeImage;
+    // imagePickerController.allowsMultipleSelection = YES;
+    imagePickerController.showsNumberOfSelectedAssets = YES;
+    imagePickerController.maximumNumberOfSelection = 2;
+    imagePickerController.minimumNumberOfSelection = 1;
+    [self.navigationController pushViewController:imagePickerController animated:YES];
+}
 //
 #pragma mark - RTImagePickerViewControllerDelegate
 - (void)rt_imagePickerController:(RTImagePickerViewController *)imagePickerController didFinishPickingImages:(NSArray<UIImage *> *)images
@@ -384,33 +385,34 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 {
     PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
     option.resizeMode = PHImageRequestOptionsResizeModeFast;
-    option.networkAccessAllowed = YES;
-    [[PHImageManager defaultManager] requestImageDataForAsset:asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-        //根据请求会调中的参数重 NSDictionary *info 是否有cloudKey 来判断是否是  iCloud
+    [[PHImageManager defaultManager] requestImageDataForAsset:asset options:option resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) {
         BOOL downloadFinined = (![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey]);
         if (downloadFinined && imageData) {
-            UIImage *image = [UIImage imageWithData:imageData];
-            UIImage *SourceImage = [image fixOrientation];
-
+            UIImage *SourceImage = [UIImage imageWithData:imageData];
             COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
             vc.sourceImage = SourceImage;
-            NSAssert(image !=nil, @"SourceImage 是空");
+            NSAssert(SourceImage !=nil, @"SourceImage 是空");
             vc.filterClass = NSClassFromString(@"GPUImageFilter");
             [self.navigationController pushViewController:vc animated:YES];
         }
-
         // Download image from iCloud / 从iCloud下载图片
         if ([info objectForKey:PHImageResultIsInCloudKey] && !imageData) {
-            PHImageRequestOptions *option = [[PHImageRequestOptions alloc]init];
-            option.networkAccessAllowed = YES;
-            option.resizeMode = PHImageRequestOptionsResizeModeFast;
-            
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-            hud.label.text = @"同步iCloud照片中...";
-            [[PHImageManager defaultManager] requestImageDataForAsset:asset options:option resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+            hud.mode = MBProgressHUDModeAnnularDeterminate;
+            hud.label.text = @"载入iCloud照片中...";
+            PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
+            options.progressHandler = ^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSLog(@"下载进度---- %f",progress);
+                    [MBProgressHUD HUDForView:self.navigationController.view].progress = progress;
+                });
+            };
+            options.networkAccessAllowed = YES;
+            options.resizeMode = PHImageRequestOptionsResizeModeFast;
+            [[PHImageManager defaultManager] requestImageDataForAsset:asset options:options resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) {
                 [hud hideAnimated:YES];
+                NSAssert(imageData !=nil, @"imageData 是空");
                 UIImage *resultImage = [UIImage imageWithData:imageData];
-                
                 UIImage *SourceImage = [resultImage fixOrientation];
 
                 COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
@@ -420,11 +422,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
                 [self.navigationController pushViewController:vc animated:YES];
             }];
         }
-        
-        
-        
     }];
-
 }
 
 @end

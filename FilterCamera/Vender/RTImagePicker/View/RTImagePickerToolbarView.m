@@ -9,8 +9,6 @@
 #import "RTImagePickerToolbarView.h"
 #import "RTImagePickerUtils.h"
 #import "RTImagePickerPhotoBrowser.h"
-#import "RTCameraViewController.h"
-#import "RTShortVideoViewController.h"
 
 @interface RTImagePickerToolbarView() <RTImagePickerPhotoBrowserDelegate>
 {
@@ -22,7 +20,7 @@
     CGFloat layoutUpdateAnimateDuration;
     
     RTImagePickerPhotoBrowser *browser;
-    RTCameraViewController *camera;
+//    RTCameraViewController *camera;
     
     RTImagePickerToolbarMode currentMode;
     
@@ -43,8 +41,8 @@
  *  Buttons for image picker
  */
 @property (nonatomic, strong) UIButton                          *cancelButton;
-@property (nonatomic, strong) UIButton                          *cameraButton;
-@property (nonatomic, strong) UIButton                          *dvButton;
+//@property (nonatomic, strong) UIButton                          *cameraButton;
+//@property (nonatomic, strong) UIButton                          *dvButton;
 @property (nonatomic, strong) UIButton                          *sendButton;
 
 /**
@@ -101,43 +99,11 @@
     backgroundView.backgroundColor = [UIColor blackColor];
     [_imagePickerToolbarBackgroundView addSubview:backgroundView];
     
-    self.cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(22.0f, (backgroundView.height - button_width)/2.0f, button_width, button_width)];
+    self.cancelButton = [[UIButton alloc] initWithFrame:CGRectMake((backgroundView.width - button_width)/2.0f, (backgroundView.height - button_width)/2.0f, button_width, button_width)];
     [_cancelButton setImage:[UIImage imageNamed:@"rtimagepicker_cancel"] forState:UIControlStateNormal];
     [_cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [backgroundView addSubview:_cancelButton];
     
-    self.cameraButton = [[UIButton alloc] initWithFrame:CGRectMake(_cancelButton.right + margin_width, _cancelButton.top, button_width, button_width)];
-    [_cameraButton setImage:[UIImage imageNamed:@"rtimagepicker_camera"] forState:UIControlStateNormal];
-    [_cameraButton addTarget:self action:@selector(cameraButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [backgroundView addSubview:_cameraButton];
-    
-    self.dvButton = [[UIButton alloc] initWithFrame:CGRectMake(_cameraButton.right + margin_width, _cancelButton.top, button_width, button_width)];
-    [_dvButton setImage:[UIImage imageNamed:@"rtimagepicker_dv"] forState:UIControlStateNormal];
-    [_dvButton addTarget:self action:@selector(dvButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [backgroundView addSubview:_dvButton];
-    
-    self.sendButton = [[UIButton alloc] initWithFrame:CGRectMake(_dvButton.right + margin_width, _cancelButton.top, button_width, button_width)];
-    _sendButton.hidden = YES;
-    [_sendButton setImage:[UIImage imageNamed:@"rtimagepicker_send"] forState:UIControlStateNormal];
-    [_sendButton addTarget:self action:@selector(sendButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [backgroundView addSubview:_sendButton];
-    
-    /**
-     Photo browser subViews
-     */
-    self.photoBrowserToolbarBackgroundView = [[UIView alloc]initWithFrame:CGRectMake(0.0f, self.height, ScreenWidth, self.height/2.0f)];
-    _photoBrowserToolbarBackgroundView.backgroundColor = [UIColor blackColor];
-    [self addSubview:_photoBrowserToolbarBackgroundView];
-    
-    self.photoBrowserDeleteButton = [[UIButton alloc] initWithFrame:CGRectMake(22.0f, (_photoBrowserToolbarBackgroundView.height - button_width)/2.0f, button_width, button_width)];
-    [_photoBrowserDeleteButton setImage:[UIImage imageNamed:@"rtimagepicker_delete"] forState:UIControlStateNormal];
-    [_photoBrowserDeleteButton addTarget:self action:@selector(deleteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_photoBrowserToolbarBackgroundView addSubview:_photoBrowserDeleteButton];
-    
-    self.photoBrowserSendButton = [[UIButton alloc] initWithFrame:CGRectMake(_photoBrowserToolbarBackgroundView.width - 22.0f - button_width, _photoBrowserDeleteButton.top, button_width, button_width)];
-    [_photoBrowserSendButton setImage:[UIImage imageNamed:@"rtimagepicker_send"] forState:UIControlStateNormal];
-    [_photoBrowserSendButton addTarget:self action:@selector(sendButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_photoBrowserToolbarBackgroundView addSubview:_photoBrowserSendButton];
 
     /**
      Camera subViews
@@ -169,13 +135,13 @@
 
 #pragma mark - Actions
 
-- (void)cameraCancelButtonPressed:(id)sender
-{
-    if(camera) {
-        [camera.navigationController setNavigationBarHidden:NO animated:YES];
-        [camera.navigationController popViewControllerAnimated:YES];
-    }
-}
+//- (void)cameraCancelButtonPressed:(id)sender
+//{
+//    if(camera) {
+//        [camera.navigationController setNavigationBarHidden:NO animated:YES];
+//        [camera.navigationController popViewControllerAnimated:YES];
+//    }
+//}
 
 - (void)cancelButtonPressed:(id)sender
 {
@@ -185,29 +151,6 @@
             [wself.viewController.imagePickerController.delegate rt_imagePickerControllerDidCancel:wself.viewController.imagePickerController];
         }
     }
-}
-
-- (void)dvButtonPressed:(id)sender
-{
-    // If selecting shooting short videos, the logic must be implemented in the view controller before. So you have to
-    // dismiss the current controller here.
-    
-//    if(self.viewController) {
-//        if ([self.viewController.imagePickerController.delegate respondsToSelector:@selector(rt_imagePickerControllerDidSelectShortVideo:)]) {
-//            [self.viewController.imagePickerController.delegate rt_imagePickerControllerDidSelectShortVideo:self.viewController.imagePickerController];
-//        }
-//    }
-    weakSelf();
-    RTShortVideoViewController *vc = [[RTShortVideoViewController alloc] init];
-    [wself.viewController.navigationController pushViewController:vc animated:YES];
-    
-}
-
-- (void)cameraButtonPressed:(id)sender
-{
-    weakSelf();
-    camera = [[RTCameraViewController alloc]init];
-    [wself.viewController.navigationController pushViewController:camera animated:YES];
 }
 
 - (void)sendButtonPressed:(id)sender
@@ -370,7 +313,7 @@
                 _imagePickerToolbarBackgroundView.top = self.height - _imagePickerToolbarBackgroundView.height;
                 _cameraToolBarBackgroundView.top = self.height;
             } completion:^(BOOL finished) {
-                camera = nil;
+//                camera = nil;
             }];
         }
             break;
@@ -382,7 +325,7 @@
                 _imagePickerToolbarBackgroundView.top = self.height;
                 _cameraToolBarBackgroundView.top = self.height;
             } completion:^(BOOL finished) {
-                camera = nil;
+//                camera = nil;
             }];
         }
             break;
@@ -435,8 +378,8 @@
             [collectionViewLayout setFooterReferenceSize:CGSizeMake(ScreenWidth, self.height)];
             
             [UIView animateWithDuration:layoutUpdateAnimateDuration delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                self.cameraButton.left = cameraButtonLeft_new;
-                self.dvButton.left = dvButtonLeft_new;
+//                self.cameraButton.left = cameraButtonLeft_new;
+//                self.dvButton.left = dvButtonLeft_new;
                 self.sendButton.left = sendButtonLeft_new;
                 _previewScrollView.top = 0.0f;
             } completion:^(BOOL finished) {
@@ -456,8 +399,8 @@
             
             wself.viewController.collectionView.userInteractionEnabled = NO;
             [UIView animateWithDuration:layoutUpdateAnimateDuration delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                self.cameraButton.left = cameraButtonLeft_new;
-                self.dvButton.left = dvButtonLeft_new;
+//                self.cameraButton.left = cameraButtonLeft_new;
+//                self.dvButton.left = dvButtonLeft_new;
                 self.sendButton.left = sendButtonLeft_new;
                 _previewScrollView.top = self.height/2.0f;
             } completion:^(BOOL finished) {

@@ -6,22 +6,10 @@
  "imagePath" : "LUTSource/精选"
  },
  {
- "name" : "网红风",
- "type" : "1",
- "path" : "LUTSource/网红风/FilterConfig.json",
- "imagePath" : "LUTSource/网红风"
- },
- {
  "name" : "美食",
  "type" : "1",
  "path" : "LUTSource/美食/FilterConfig.json",
  "imagePath" : "LUTSource/美食"
- },
- {
- "name" : "文艺日系",
- "type" : "1",
- "path" : "LUTSource/文艺日系/FilterConfig.json",
- "imagePath" : "LUTSource/文艺日系"
  },
  {
  "name" : "GoPro户外",
@@ -30,7 +18,27 @@
  "imagePath" : "LUTSource/30组GoPro专用"
  },
  {
- "name" : "组建筑复古",
+ "name" : "黑白风格",
+ "type" : "1",
+ "path" : "LUTSource/50组黑白/FilterConfig.json",
+ "imagePath" : "LUTSource/50组黑白"
+ },
+ {
+ "name" : "INS网红",
+ "type" : "1",
+ "path" : "LUTSource/网红风/FilterConfig.json",
+ "imagePath" : "LUTSource/网红风"
+ },
+ 
+ {
+ "name" : "文艺日系",
+ "type" : "1",
+ "path" : "LUTSource/文艺日系/FilterConfig.json",
+ "imagePath" : "LUTSource/文艺日系"
+ },
+
+ {
+ "name" : "复古建筑",
  "type" : "1",
  "path" : "LUTSource/24组建筑复古/FilterConfig.json",
  "imagePath" : "LUTSource/24组建筑复古"
@@ -47,12 +55,7 @@
  "path" : "LUTSource/50组唯美柔和/FilterConfig.json",
  "imagePath" : "LUTSource/50组唯美柔和"
  },
- {
- "name" : "黑白风格",
- "type" : "1",
- "path" : "LUTSource/50组黑白/FilterConfig.json",
- "imagePath" : "LUTSource/50组黑白"
- },
+ 
  {
  "name" : "索尼SLOG3",
  "type" : "1",
@@ -60,7 +63,7 @@
  "imagePath" : "LUTSource/索尼SLOG3"
  },
  {
- "name" : "电影大片",
+ "name" : "影视大片",
  "type" : "1",
  "path" : "LUTSource/122组电影大片/FilterConfig.json",
  "imagePath" : "LUTSource/122组电影大片"
