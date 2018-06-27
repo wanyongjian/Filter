@@ -191,6 +191,10 @@
 		22A3E2CA20D9253800F3B46B /* YQImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A3E2C820D9253800F3B46B /* YQImageTool.m */; };
 		22C562B420BEE2AC0011014A /* qmkit_takephoto_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */; };
 		22C562B920C0275C0011014A /* DeviceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C562B820C0275C0011014A /* DeviceOrientation.m */; };
+		22F91E4820E3CCDE00F04597 /* des11.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F91E4720E3CCDD00F04597 /* des11.png */; };
+		22F91E4A20E3CCE800F04597 /* luanch1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22F91E4920E3CCE800F04597 /* luanch1.jpg */; };
+		22F91E4C20E3CE6E00F04597 /* des22.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F91E4B20E3CE6E00F04597 /* des22.png */; };
+		22F91E4E20E3DDFA00F04597 /* 水印.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F91E4D20E3DDFA00F04597 /* 水印.png */; };
 		46520FC3277AC77D1B267CA2 /* libPods-FilterCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */; };
 /* End PBXBuildFile section */
 
@@ -486,6 +490,10 @@
 		22C562B320BEE2AB0011014A /* qmkit_takephoto_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_takephoto_btn@3x.png"; sourceTree = "<group>"; };
 		22C562B720C0275C0011014A /* DeviceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceOrientation.h; sourceTree = "<group>"; };
 		22C562B820C0275C0011014A /* DeviceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceOrientation.m; sourceTree = "<group>"; };
+		22F91E4720E3CCDD00F04597 /* des11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = des11.png; sourceTree = "<group>"; };
+		22F91E4920E3CCE800F04597 /* luanch1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = luanch1.jpg; sourceTree = "<group>"; };
+		22F91E4B20E3CE6E00F04597 /* des22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = des22.png; sourceTree = "<group>"; };
+		22F91E4D20E3DDFA00F04597 /* 水印.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "水印.png"; sourceTree = "<group>"; };
 		51D1F414044E7FC6FE339144 /* Pods-FilterCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilterCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera.debug.xcconfig"; sourceTree = "<group>"; };
 		C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FilterCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -596,6 +604,7 @@
 				21570E0220BBA887002585CB /* Modules */,
 				21570D3120BB9145002585CB /* FilterController */,
 				21570CFF20BB8D8B002585CB /* AppDelegate.h */,
+				22F91E4D20E3DDFA00F04597 /* 水印.png */,
 				21570D0020BB8D8B002585CB /* AppDelegate.m */,
 				21570D0220BB8D8B002585CB /* ViewController.h */,
 				21570D0320BB8D8B002585CB /* ViewController.m */,
@@ -604,6 +613,9 @@
 				21570D0520BB8D8B002585CB /* Main.storyboard */,
 				21570D0820BB8D8B002585CB /* Assets.xcassets */,
 				21570D0A20BB8D8B002585CB /* LaunchScreen.storyboard */,
+				22F91E4720E3CCDD00F04597 /* des11.png */,
+				22F91E4B20E3CE6E00F04597 /* des22.png */,
+				22F91E4920E3CCE800F04597 /* luanch1.jpg */,
 				21570D0D20BB8D8B002585CB /* Info.plist */,
 				21570D0E20BB8D8B002585CB /* main.m */,
 				21570E0120BB934A002585CB /* Coco.pch */,
@@ -1285,6 +1297,7 @@
 				21570CF920BB8D8B002585CB /* Frameworks */,
 				21570CFA20BB8D8B002585CB /* Resources */,
 				3423209EE795D7CFE36CA79D /* [CP] Copy Pods Resources */,
+				B43D65B96E0C25634889F906 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1391,8 +1404,10 @@
 				21ACA54720E206FC00943F95 /* rtimagepicker_arrow@3x.png in Resources */,
 				21ACA55320E206FC00943F95 /* rtimagepicker_flash_on@3x.png in Resources */,
 				2179F35520BD078900B73822 /* config.json in Resources */,
+				22F91E4820E3CCDE00F04597 /* des11.png in Resources */,
 				2179F34520BD078900B73822 /* hefeGradientMap.png in Resources */,
 				21ACA55620E206FC00943F95 /* rtimagepicker_send@2x.png in Resources */,
+				22F91E4E20E3DDFA00F04597 /* 水印.png in Resources */,
 				2179F37A20BD078900B73822 /* vignetteMap.png in Resources */,
 				2179F33020BD078900B73822 /* amaroMap.png in Resources */,
 				2179F36720BD078900B73822 /* sutroMetal.png in Resources */,
@@ -1457,6 +1472,7 @@
 				2179F35320BD078900B73822 /* lomoMap.png in Resources */,
 				2179F34E20BD078900B73822 /* config.json in Resources */,
 				2179F22420BCDE5800B73822 /* qmkit_fiter_btn@3x.png in Resources */,
+				22F91E4C20E3CE6E00F04597 /* des22.png in Resources */,
 				2179F35020BD078900B73822 /* inkwellMap.png in Resources */,
 				2179F33A20BD078900B73822 /* config.json in Resources */,
 				2179F36920BD078900B73822 /* config.json in Resources */,
@@ -1476,6 +1492,7 @@
 				218ECE5F20DA508500DB985D /* Checkmark@3x.png in Resources */,
 				2179F36B20BD078900B73822 /* toasterColorShift.png in Resources */,
 				21ACA56C20E206FC00943F95 /* RTImagePicker.storyboard in Resources */,
+				22F91E4A20E3CCE800F04597 /* luanch1.jpg in Resources */,
 				21ACA55D20E206FC00943F95 /* rtimagepicker_switch@3x.png in Resources */,
 				22A3E2BF20D6A1EE00F3B46B /* amatorka_action_2.png in Resources */,
 				2179F34B20BD078900B73822 /* hudsonBackground.png in Resources */,
@@ -1545,6 +1562,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B43D65B96E0C25634889F906 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

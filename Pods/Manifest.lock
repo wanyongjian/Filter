@@ -36,18 +36,6 @@ DEPENDENCIES:
   - SDWebImage
   - TZImagePickerController
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - AFNetworking
-    - FBRetainCycleDetector
-    - GPUImage
-    - Masonry
-    - MBProgressHUD
-    - MLeaksFinder
-    - ReactiveObjC
-    - SDWebImage
-    - TZImagePickerController
-
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
@@ -61,4 +49,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: bbcec0d574f675078f529e3f0587444c865807d1
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.4.0
