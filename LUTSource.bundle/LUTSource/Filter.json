@@ -12,16 +12,16 @@
  "imagePath" : "LUTSource/美食"
  },
  {
- "name" : "GoPro户外",
- "type" : "1",
- "path" : "LUTSource/30组GoPro专用/FilterConfig.json",
- "imagePath" : "LUTSource/30组GoPro专用"
- },
- {
  "name" : "黑白风格",
  "type" : "1",
  "path" : "LUTSource/50组黑白/FilterConfig.json",
  "imagePath" : "LUTSource/50组黑白"
+ },
+ {
+ "name" : "GoPro户外",
+ "type" : "1",
+ "path" : "LUTSource/30组GoPro专用/FilterConfig.json",
+ "imagePath" : "LUTSource/30组GoPro专用"
  },
  {
  "name" : "INS网红",

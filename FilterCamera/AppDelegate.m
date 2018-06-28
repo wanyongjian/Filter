@@ -30,6 +30,8 @@
     CODeviceOrientation = [[DeviceOrientation alloc]initWithDelegate:self];
     [CODeviceOrientation startMonitor];
     [self monitorNetworking];
+    
+    [NSThread sleepForTimeInterval:1];
     return YES;
 }
 
