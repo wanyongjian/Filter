@@ -30,4 +30,5 @@
 #import "PHAsset+Latest.h"
 #import "TZImagePickerController.h"
 #import "AFNetworking.h"
+#import "FontTool.h"
 #endif /* Coco_pch */

@@ -20,6 +20,7 @@
 @property (nonatomic, strong) COPhotoFilterView *photoFilterView;
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) MBProgressHUD *hud;
+@property (nonatomic, strong) UIButton *saveBtn;
 @end
 @implementation COPhotoDisplayController
 
@@ -127,23 +128,23 @@
     [self.topView addSubview:backBtn];
     [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.topView);
-        make.left.mas_equalTo(self.topView).mas_offset(20);
-        make.width.height.mas_equalTo(40);
+        make.left.mas_equalTo(self.topView).mas_offset(17);
+        make.width.height.mas_equalTo(35);
     }];
     [[backBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         [wself.navigationController popViewControllerAnimated:NO];
     }];
     //保存按钮
     UIButton *saveBtn = [[UIButton alloc]init];
-    [saveBtn setTitle:@"保存" forState:UIControlStateNormal];
-    saveBtn.titleLabel.font = [UIFont fontWithName:@"DFWaWaSC-W5" size:12];
     [saveBtn setTitleColor:HEX_COLOR(0x00c8ff) forState:UIControlStateHighlighted];
+    [saveBtn setTitle:@"保存" forState:UIControlStateNormal];
+    saveBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [self.topView addSubview:saveBtn];
     [saveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.topView);
-        make.right.mas_equalTo(self.topView).mas_offset(-20);
+        make.right.mas_equalTo(self.topView).mas_offset(-25);
+        make.width.height.mas_equalTo(35);
     }];
-    
     [[saveBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self);
         self.hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
@@ -153,6 +154,8 @@
             UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
         });
     }];
+    self.saveBtn = saveBtn;
+//    [FontTool asynchronouslySetFontName:@"DFWaWaSC-W5" label:wself.saveBtn.titleLabel size:24];
 }
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {

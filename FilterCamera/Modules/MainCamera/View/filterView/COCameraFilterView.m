@@ -13,6 +13,8 @@
 #define kCameraFilterCollectionImageViewTag       100
 #define kCameraFilterCollectionLabelTag           101
 #define kCameraFilterCollectionMaskViewTag        102
+
+#define kCameraFilterViewItemWidth                70
 @interface COCameraFilterView() <UICollectionViewDelegate,UICollectionViewDataSource>
 
 @end
@@ -33,7 +35,7 @@
 - (UICollectionViewFlowLayout *)collectionViewForFlowLayout
 {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(kCameraFilterViewItemSize, kCameraFilterViewItemSize*(4/5.0));
+    layout.itemSize = CGSizeMake(kCameraFilterViewItemSize, kCameraFilterViewItemSize*(5/4.0));
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.minimumLineSpacing = 5;
     layout.sectionInset = UIEdgeInsetsMake(5, 5, 0, 5);
@@ -106,20 +108,20 @@
         imageView.image = [UIImage imageNamed:@"amatorka_action_2"];
         [cell.contentView addSubview:imageView];
     }
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        FilterModel *model = self.filterModleArray[indexPath.row];
-//        GPUImageFilter *filter = [[NSClassFromString(model.vc) alloc]init];
-//        GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:[UIImage imageNamed:@"amatorka_action_2"]];
-//        [pic addTarget:filter];
-//        [filter useNextFrameForImageCapture];
-//        [pic processImage];
-//        UIImage *DesImage = [filter imageFromCurrentFramebuffer];
-//        //释放GPU缓存
-////        [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            imageView.image = DesImage;
-//        });
-//    });
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        FilterModel *model = self.filterModleArray[indexPath.row];
+        GPUImageFilter *filter = [[NSClassFromString(model.vc) alloc]init];
+        GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:[UIImage imageNamed:@"woman.jpg"]];
+        [pic addTarget:filter];
+        [filter useNextFrameForImageCapture];
+        [pic processImage];
+        UIImage *DesImage = [filter imageFromCurrentFramebuffer];
+        //释放GPU缓存
+        [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            imageView.image = DesImage;
+        });
+    });
     
     UILabel *label = [cell.contentView viewWithTag:kCameraFilterCollectionLabelTag];
     if (!label) {
