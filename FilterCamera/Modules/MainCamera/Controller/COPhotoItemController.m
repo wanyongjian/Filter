@@ -28,6 +28,8 @@
 @property (nonatomic,strong) NSIndexPath *lastIndexPath;
 @property (nonatomic,strong) NSArray<LUTFilterModel *> *filterModleArray;
 @property (nonatomic,strong) NSMutableArray *itemSelectArray; //数据源解决cell重用导致的重叠问题
+@property (nonatomic,strong) UIButton *backBtn;
+@property (nonatomic,strong) UIButton *saveBtn;
 @end
 
 @implementation COPhotoItemController
@@ -79,9 +81,11 @@
     GoBackView.backgroundColor = CollectionBackColor;
     [self.view addSubview:GoBackView];
     UIButton *backBtn = [[UIButton alloc]init];
-//    [button setBackgroundImage:[UIImage imageNamed:@"arrowDown"] forState:UIControlStateNormal];
-    [backBtn setTitle:@"返回" forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"can_btn_normal"] forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"can_btn_select"] forState:UIControlStateHighlighted];
+    backBtn.imageEdgeInsets = UIEdgeInsetsMake(14, 14, 14, 14);
     [GoBackView addSubview:backBtn];
+    self.backBtn = backBtn;
     [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         CGFloat x = kScreenWidth/4.0-kFootHeight/2;
         make.top.mas_equalTo(GoBackView);
@@ -94,11 +98,14 @@
     }];
     
     UIButton *saveBtn = [[UIButton alloc]init];
-    [saveBtn setTitle:@"应用" forState:UIControlStateNormal];
+    [saveBtn setImage:[UIImage imageNamed:@"select_btn_normal"] forState:UIControlStateNormal];
+    [saveBtn setImage:[UIImage imageNamed:@"select_btn_hightlight"] forState:UIControlStateHighlighted];
+    saveBtn.imageEdgeInsets = UIEdgeInsetsMake(12, 12, 12, 12);
     [GoBackView addSubview:saveBtn];
+    self.saveBtn = saveBtn;
     [saveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         CGFloat x = kScreenWidth/4.0 * 3-kFootHeight/2;
-        make.top.mas_equalTo(GoBackView);
+        make.centerY.mas_equalTo(GoBackView);
         make.left.mas_equalTo(@(x));
         make.width.height.mas_equalTo(kFootHeight);
     }];

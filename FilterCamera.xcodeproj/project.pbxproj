@@ -20,6 +20,13 @@
 		214A23AB20E4B6AD00961127 /* lightWhiteNormal_ffffff@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 214A23A720E4B6AC00961127 /* lightWhiteNormal_ffffff@3x.png */; };
 		214A23AC20E4B6AD00961127 /* lightGrayNomal_707070@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 214A23A820E4B6AD00961127 /* lightGrayNomal_707070@3x.png */; };
 		214A23AD20E4B6AD00961127 /* lightGraySelect_707070@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 214A23A920E4B6AD00961127 /* lightGraySelect_707070@3x.png */; };
+		214A23B220E4D6BD00961127 /* select_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 214A23B120E4D6BC00961127 /* select_btn@3x.png */; };
+		214A23BD20E4DD7E00961127 /* back_btn_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 214A23BB20E4DD7D00961127 /* back_btn_normal.png */; };
+		214A23BE20E4DD7E00961127 /* back_btn_highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 214A23BC20E4DD7E00961127 /* back_btn_highlight.png */; };
+		214A23C120E4DDDA00961127 /* select_btn_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 214A23BF20E4DDD900961127 /* select_btn_normal.png */; };
+		214A23C220E4DDDA00961127 /* select_btn_hightlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 214A23C020E4DDD900961127 /* select_btn_hightlight.png */; };
+		214A23C520E4DE0F00961127 /* can_btn_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 214A23C320E4DE0E00961127 /* can_btn_normal.png */; };
+		214A23C620E4DE0F00961127 /* can_btn_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 214A23C420E4DE0E00961127 /* can_btn_select.png */; };
 		214AB81420BFC21300D4B73C /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 214AB81320BFC21300D4B73C /* UIImage+Rotate.m */; };
 		214AB81A20BFF45100D4B73C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214AB81920BFF45100D4B73C /* CoreMotion.framework */; };
 		214AB81C20BFF45800D4B73C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214AB81B20BFF45800D4B73C /* CoreGraphics.framework */; };
@@ -242,6 +249,13 @@
 		214A23A720E4B6AC00961127 /* lightWhiteNormal_ffffff@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightWhiteNormal_ffffff@3x.png"; sourceTree = "<group>"; };
 		214A23A820E4B6AD00961127 /* lightGrayNomal_707070@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightGrayNomal_707070@3x.png"; sourceTree = "<group>"; };
 		214A23A920E4B6AD00961127 /* lightGraySelect_707070@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightGraySelect_707070@3x.png"; sourceTree = "<group>"; };
+		214A23B120E4D6BC00961127 /* select_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select_btn@3x.png"; sourceTree = "<group>"; };
+		214A23BB20E4DD7D00961127 /* back_btn_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_btn_normal.png; sourceTree = "<group>"; };
+		214A23BC20E4DD7E00961127 /* back_btn_highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_btn_highlight.png; sourceTree = "<group>"; };
+		214A23BF20E4DDD900961127 /* select_btn_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_btn_normal.png; sourceTree = "<group>"; };
+		214A23C020E4DDD900961127 /* select_btn_hightlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_btn_hightlight.png; sourceTree = "<group>"; };
+		214A23C320E4DE0E00961127 /* can_btn_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = can_btn_normal.png; sourceTree = "<group>"; };
+		214A23C420E4DE0E00961127 /* can_btn_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = can_btn_select.png; sourceTree = "<group>"; };
 		214AB81220BFC21300D4B73C /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
 		214AB81320BFC21300D4B73C /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
 		214AB81920BFF45100D4B73C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -821,6 +835,13 @@
 		21570E1D20BBDFEA002585CB /* IconButton */ = {
 			isa = PBXGroup;
 			children = (
+				214A23C320E4DE0E00961127 /* can_btn_normal.png */,
+				214A23C420E4DE0E00961127 /* can_btn_select.png */,
+				214A23BF20E4DDD900961127 /* select_btn_normal.png */,
+				214A23C020E4DDD900961127 /* select_btn_hightlight.png */,
+				214A23BC20E4DD7E00961127 /* back_btn_highlight.png */,
+				214A23BB20E4DD7D00961127 /* back_btn_normal.png */,
+				214A23B120E4D6BC00961127 /* select_btn@3x.png */,
 				214A23A820E4B6AD00961127 /* lightGrayNomal_707070@3x.png */,
 				214A23A920E4B6AD00961127 /* lightGraySelect_707070@3x.png */,
 				214A23A720E4B6AC00961127 /* lightWhiteNormal_ffffff@3x.png */,
@@ -1448,6 +1469,7 @@
 				2179F36820BD078900B73822 /* vignetteMap.png in Resources */,
 				2179F37620BD078900B73822 /* vignetteMap.png in Resources */,
 				214A239720E47D7A00961127 /* filter_btn_707070@3x.png in Resources */,
+				214A23C120E4DDDA00961127 /* select_btn_normal.png in Resources */,
 				21ACA55520E206FC00943F95 /* rtimagepicker_indicator@3x.png in Resources */,
 				2179F35B20BD078900B73822 /* overlayMap.png in Resources */,
 				21ACA54C20E206FC00943F95 /* rtimagepicker_delete@2x.png in Resources */,
@@ -1467,6 +1489,7 @@
 				2179F34320BD078900B73822 /* edgeBurn.png in Resources */,
 				21ACA54D20E206FC00943F95 /* rtimagepicker_delete@3x.png in Resources */,
 				2179F35120BD078900B73822 /* config.json in Resources */,
+				214A23BE20E4DD7E00961127 /* back_btn_highlight.png in Resources */,
 				2179F34920BD078900B73822 /* config.json in Resources */,
 				21ACA55820E206FC00943F95 /* rtimagepicker_send_unselected@2x.png in Resources */,
 				2179F35920BD078900B73822 /* config.json in Resources */,
@@ -1491,8 +1514,10 @@
 				2179F37420BD078900B73822 /* config.json in Resources */,
 				21570D0C20BB8D8B002585CB /* LaunchScreen.storyboard in Resources */,
 				21ACA55C20E206FC00943F95 /* rtimagepicker_switch@2x.png in Resources */,
+				214A23C620E4DE0F00961127 /* can_btn_select.png in Resources */,
 				2179F33520BD078900B73822 /* brannanBlowout.png in Resources */,
 				2179F34D20BD078900B73822 /* overlayMap.png in Resources */,
+				214A23C220E4DDDA00961127 /* select_btn_hightlight.png in Resources */,
 				21570D0920BB8D8B002585CB /* Assets.xcassets in Resources */,
 				2179F33220BD078900B73822 /* config.json in Resources */,
 				2179F33C20BD078900B73822 /* config.json in Resources */,
@@ -1505,6 +1530,7 @@
 				22A3E2C020D6A1EE00F3B46B /* lookup_amatorka.png in Resources */,
 				2179F34020BD078900B73822 /* earlybirdOverlayMap.png in Resources */,
 				21570D0720BB8D8B002585CB /* Main.storyboard in Resources */,
+				214A23C520E4DE0F00961127 /* can_btn_normal.png in Resources */,
 				2179F34620BD078900B73822 /* hefeMap.png in Resources */,
 				214A23AA20E4B6AD00961127 /* lightWhiteSelect_ffffff@3x.png in Resources */,
 				214A23AC20E4B6AD00961127 /* lightGrayNomal_707070@3x.png in Resources */,
@@ -1525,6 +1551,7 @@
 				214A23A120E4849E00961127 /* ratio_btn_ffffff@3x.png in Resources */,
 				21ACA55720E206FC00943F95 /* rtimagepicker_send@3x.png in Resources */,
 				2179F35D20BD078900B73822 /* config.json in Resources */,
+				214A23BD20E4DD7E00961127 /* back_btn_normal.png in Resources */,
 				2179F37020BD078900B73822 /* config.json in Resources */,
 				2179F33F20BD078900B73822 /* earlybirdMap.png in Resources */,
 				2179F35820BD078900B73822 /* blackboard1024.png in Resources */,
@@ -1536,6 +1563,7 @@
 				2179F36B20BD078900B73822 /* toasterColorShift.png in Resources */,
 				21ACA56C20E206FC00943F95 /* RTImagePicker.storyboard in Resources */,
 				22F91E4A20E3CCE800F04597 /* luanch1.jpg in Resources */,
+				214A23B220E4D6BD00961127 /* select_btn@3x.png in Resources */,
 				21ACA55D20E206FC00943F95 /* rtimagepicker_switch@3x.png in Resources */,
 				22A3E2BF20D6A1EE00F3B46B /* amatorka_action_2.png in Resources */,
 				2179F34B20BD078900B73822 /* hudsonBackground.png in Resources */,

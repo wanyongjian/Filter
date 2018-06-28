@@ -119,13 +119,16 @@
 
     //返回按钮
     UIButton *backBtn = [[UIButton alloc]init];
-    [backBtn setTitle:@"返回" forState:UIControlStateNormal];
-    [backBtn setTitleColor:HEX_COLOR(0x00c8ff) forState:UIControlStateHighlighted];
-
+//    [backBtn setTitle:@"返回" forState:UIControlStateNormal];
+//    [backBtn setTitleColor:HEX_COLOR(0x00c8ff) forState:UIControlStateHighlighted];
+    [backBtn setImage:[UIImage imageNamed:@"back_btn_normal"] forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"back_btn_highlight"] forState:UIControlStateHighlighted];
+    backBtn.imageEdgeInsets = UIEdgeInsetsMake(8, 8, 8, 8);
     [self.topView addSubview:backBtn];
     [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.topView);
         make.left.mas_equalTo(self.topView).mas_offset(20);
+        make.width.height.mas_equalTo(40);
     }];
     [[backBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         [wself.navigationController popViewControllerAnimated:NO];
@@ -133,6 +136,7 @@
     //保存按钮
     UIButton *saveBtn = [[UIButton alloc]init];
     [saveBtn setTitle:@"保存" forState:UIControlStateNormal];
+    saveBtn.titleLabel.font = [UIFont fontWithName:@"DFWaWaSC-W5" size:12];
     [saveBtn setTitleColor:HEX_COLOR(0x00c8ff) forState:UIControlStateHighlighted];
     [self.topView addSubview:saveBtn];
     [saveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
