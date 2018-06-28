@@ -41,6 +41,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 @property (nonatomic, strong) Class filterClass;
 @property (nonatomic, assign) CGFloat currentCameraViewRatio;
 @property (nonatomic, strong) NSMutableArray *ratioArray;
+@property (nonatomic, assign) AVCaptureTorchMode currentTorchModel;
 
 @end
 
@@ -50,30 +51,32 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
-    [self setRatioData];
+    [self setInitData];
     [self setUPCamera];
     [self setCameraUI];
     [self setUpOrientationValue];
     [self initCamraUI];
+    [self addBackgroundNoti];
     self.takePhotoBtn.userInteractionEnabled = NO;
     
     
 }
 - (void)addBackgroundNoti{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActive:)
-                                                 name:UIApplicationWillResignActiveNotification object:nil]; //监听是否触发home键挂起程序，（把程序放在后台执行其他操作）
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:)
-                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
-}
-- (void)applicationWillResignActive:(NSNotification*)noti{
-    dispatch_sync(dispatch_get_global_queue(0, 0), ^{
-        [self.stillCamera stopCameraCapture];
-    });
-}
-- (void)applicationDidBecomeActive:(NSNotification*)noti{
-    dispatch_sync(dispatch_get_global_queue(0, 0), ^{
-        [self.stillCamera startCameraCapture];
-    });
+    @weakify(self);
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIApplicationWillResignActiveNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+        @strongify(self);
+        dispatch_sync(dispatch_get_global_queue(0, 0), ^{
+            [self.stillCamera stopCameraCapture];
+        });
+    }];
+    
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIApplicationDidBecomeActiveNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+        @strongify(self);
+        dispatch_sync(dispatch_get_global_queue(0, 0), ^{
+            [self.stillCamera setTorchModel:self.currentTorchModel];
+            [self.stillCamera startCameraCapture];
+        });
+    }];
 }
 - (void)initCamraUI{
     [self switchToFilterWithIndex:0];
@@ -93,6 +96,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [self.navigationController setNavigationBarHidden:YES];
    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [self.stillCamera setTorchModel:self.currentTorchModel];
         [self.stillCamera startCameraCapture];
     });
     
@@ -161,9 +165,10 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         }
     }];
 }
-- (void)setRatioData{
+- (void)setInitData{
     self.ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"],@[@"9:16",@"1.78"]].mutableCopy;
     self.currentCameraViewRatio = 1.33;
+    self.currentTorchModel = AVCaptureTorchModeOff;
 }
 - (void)setCameraUI{
     weakSelf();
@@ -232,6 +237,14 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [[self.lightBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self);
         self.lightBtn.selected = !self.lightBtn.selected;
+        if (self.lightBtn.selected == YES) {
+            [self.stillCamera setTorchModel:AVCaptureTorchModeOn];
+            self.currentTorchModel = AVCaptureTorchModeOn;
+        }else{
+            [self.stillCamera setTorchModel:AVCaptureTorchModeOff];
+            self.currentTorchModel = AVCaptureTorchModeOff;
+        }
+        
     }];
     //点击相机屏幕
     [_imageView.tapGestureSignal subscribeNext:^(id  _Nullable x) {

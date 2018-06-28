@@ -9,5 +9,5 @@
 #import "GPUImageStillCamera.h"
 
 @interface COStillCamera : GPUImageStillCamera
-
+- (void)setTorchModel:(AVCaptureTorchMode)torchModel;
 @end

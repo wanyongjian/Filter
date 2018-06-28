@@ -10,4 +10,18 @@
 
 @implementation COStillCamera
 
+- (void)setTorchModel:(AVCaptureTorchMode)torchModel
+{
+    if ([self inputCamera].torchMode == torchModel) {
+        return;
+    }
+    
+    if ([[self inputCamera] isTorchModeSupported:torchModel]) {
+        NSError *error;
+        if ([[self inputCamera] lockForConfiguration:&error]) {
+            [self inputCamera].torchMode = torchModel;
+            [[self inputCamera] unlockForConfiguration];
+        }
+    }
+}
 @end
