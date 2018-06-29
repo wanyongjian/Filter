@@ -214,7 +214,6 @@
 		22F91E4C20E3CE6E00F04597 /* des22.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F91E4B20E3CE6E00F04597 /* des22.png */; };
 		22F91E4E20E3DDFA00F04597 /* 水印.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F91E4D20E3DDFA00F04597 /* 水印.png */; };
 		22F91E5120E5278500F04597 /* FontTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F91E5020E5278500F04597 /* FontTool.m */; };
-		22F91E5520E5381F00F04597 /* woman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22F91E5420E5381F00F04597 /* woman.jpg */; };
 		46520FC3277AC77D1B267CA2 /* libPods-FilterCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */; };
 /* End PBXBuildFile section */
 
@@ -534,7 +533,6 @@
 		22F91E4D20E3DDFA00F04597 /* 水印.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "水印.png"; sourceTree = "<group>"; };
 		22F91E4F20E5278500F04597 /* FontTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontTool.h; sourceTree = "<group>"; };
 		22F91E5020E5278500F04597 /* FontTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FontTool.m; sourceTree = "<group>"; };
-		22F91E5420E5381F00F04597 /* woman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woman.jpg; sourceTree = "<group>"; };
 		51D1F414044E7FC6FE339144 /* Pods-FilterCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilterCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera.debug.xcconfig"; sourceTree = "<group>"; };
 		C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FilterCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -686,7 +684,6 @@
 		21570D3120BB9145002585CB /* FilterController */ = {
 			isa = PBXGroup;
 			children = (
-				22F91E5420E5381F00F04597 /* woman.jpg */,
 				21570D8D20BB9145002585CB /* FWFiveInputFilter.h */,
 				21570D8E20BB9145002585CB /* FWFiveInputFilter.m */,
 				21570D8F20BB9145002585CB /* FWSixInputFilter.h */,
@@ -1572,7 +1569,6 @@
 				21ACA56C20E206FC00943F95 /* RTImagePicker.storyboard in Resources */,
 				22F91E4A20E3CCE800F04597 /* luanch1.jpg in Resources */,
 				214A23B220E4D6BD00961127 /* select_btn@3x.png in Resources */,
-				22F91E5520E5381F00F04597 /* woman.jpg in Resources */,
 				21ACA55D20E206FC00943F95 /* rtimagepicker_switch@3x.png in Resources */,
 				22A3E2BF20D6A1EE00F3B46B /* amatorka_action_2.png in Resources */,
 				2179F34B20BD078900B73822 /* hudsonBackground.png in Resources */,

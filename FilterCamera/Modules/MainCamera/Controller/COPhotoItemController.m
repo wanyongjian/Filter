@@ -19,7 +19,7 @@
 #define CollectionBackColor HEX_COLOR(0x252525)
 #define kPhotoItemWidth (kScreenWidth/2-10)
 #define kHeaderHeight 44
-#define KCellBorderWidth 2
+#define KCellBorderWidth 1
 #define kFootHeight 50
 @interface COPhotoItemController () <UICollectionViewDelegate,UICollectionViewDataSource>{
     CGFloat _imageRatio;
@@ -191,7 +191,7 @@
     
     BOOL selected = [_itemSelectArray[indexPath.row] boolValue];
     if (selected) {
-        cell.layer.borderColor = [UIColor whiteColor].CGColor;
+        cell.layer.borderColor = COGreenColor.CGColor;
         cell.layer.borderWidth = KCellBorderWidth;
     }else{
         cell.layer.borderColor = CollectionBackColor.CGColor;
@@ -209,7 +209,7 @@
     }
     
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.layer.borderColor = [UIColor whiteColor].CGColor;
+    cell.layer.borderColor = COGreenColor.CGColor;
     cell.layer.borderWidth = KCellBorderWidth;
     UIImageView *imageView = [cell.contentView viewWithTag:kCameraFilterCollectionImageViewTag];
     

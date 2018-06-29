@@ -136,7 +136,7 @@
     }];
     //保存按钮
     UIButton *saveBtn = [[UIButton alloc]init];
-    [saveBtn setTitleColor:HEX_COLOR(0x00c8ff) forState:UIControlStateHighlighted];
+    [saveBtn setTitleColor:COGreenColor forState:UIControlStateHighlighted];
     [saveBtn setTitle:@"保存" forState:UIControlStateNormal];
     saveBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [self.topView addSubview:saveBtn];

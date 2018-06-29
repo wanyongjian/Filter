@@ -14,9 +14,11 @@
 #define kCameraFilterCollectionLabelTag           101
 #define kCameraFilterCollectionMaskViewTag        102
 
-#define kCameraFilterViewItemWidth                70
+#define kCameraFilterViewItemWidth                60
+#define kCameraFilterViewItemHeight               90
+#define kGreenLineWidth 2
 @interface COCameraFilterView() <UICollectionViewDelegate,UICollectionViewDataSource>
-
+@property (nonatomic,strong) NSMutableArray *itemSelectArray; //数据源解决cell重用导致的重叠问题
 @end
 
 @implementation COCameraFilterView
@@ -24,32 +26,38 @@
 - (instancetype)init{
     if(self = [super init]){
         self.hidden = YES;
-//        self.backgroundColor = RGBAColor(0xff, 0xff, 0xff, 1);
         self.backgroundColor = [UIColor clearColor];
-        _filterModleArray = [FilterModel getModleArrayFromName:[LUTBUNDLE stringByAppendingPathComponent:@"LUTSource/精选/FilterConfig.json"]];
+        [self initData];
         [self addCollectionView];
         self.lastIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     }
     return self;
 }
+- (void)initData{
+    _filterModleArray = [FilterModel getModleArrayFromName:[LUTBUNDLE stringByAppendingPathComponent:@"LUTSource/精选/FilterConfig.json"]];
+    _itemSelectArray = @[].mutableCopy;
+    for (NSInteger i=0; i<_filterModleArray.count; i++) {
+        [_itemSelectArray addObject:@(NO)];
+    }
+}
 - (UICollectionViewFlowLayout *)collectionViewForFlowLayout
 {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(kCameraFilterViewItemSize, kCameraFilterViewItemSize*(5/4.0));
+    layout.itemSize = CGSizeMake(kCameraFilterViewItemWidth, kCameraFilterViewItemHeight);
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.minimumLineSpacing = 5;
-    layout.sectionInset = UIEdgeInsetsMake(5, 5, 0, 5);
+    layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     return layout;
 }
 - (void)addCollectionView{
     UICollectionViewFlowLayout *layout = [self collectionViewForFlowLayout];
-    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kCameraFilterCollectionViewHeight) collectionViewLayout:layout];
+    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kCameraFilterCollectionViewHeight+kGreenLineWidth*2) collectionViewLayout:layout];
+    collectionView.backgroundColor = HEX_COLOR(0x11100e);
     collectionView.delegate = self;
     collectionView.dataSource = self;
     collectionView.scrollsToTop = NO;
     collectionView.showsVerticalScrollIndicator = NO;
     collectionView.showsHorizontalScrollIndicator = NO;
-    collectionView.backgroundColor = [UIColor clearColor];
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kCameraFilterCollectionViewCellID];
     [self addSubview:collectionView];
     _collectionView = collectionView;
@@ -97,63 +105,82 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
      UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCameraFilterCollectionViewCellID forIndexPath:indexPath];
-    
     UIImageView *imageView = [cell.contentView viewWithTag:kCameraFilterCollectionImageViewTag];
     if (!imageView) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
-        CGRect rect = CGRectMake(0, 0, layout.itemSize.width, layout.itemSize.height);
+        CGRect rect = CGRectMake(0, 2, layout.itemSize.width, layout.itemSize.height-20);
         imageView = [[UIImageView alloc] initWithFrame:rect];
         imageView.tag = kCameraFilterCollectionImageViewTag;
-        imageView.contentMode = UIViewContentModeScaleToFill;
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.clipsToBounds = YES;
         imageView.image = [UIImage imageNamed:@"amatorka_action_2"];
         [cell.contentView addSubview:imageView];
     }
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        FilterModel *model = self.filterModleArray[indexPath.row];
-        GPUImageFilter *filter = [[NSClassFromString(model.vc) alloc]init];
-        GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:[UIImage imageNamed:@"woman.jpg"]];
-        [pic addTarget:filter];
-        [filter useNextFrameForImageCapture];
-        [pic processImage];
-        UIImage *DesImage = [filter imageFromCurrentFramebuffer];
-        //释放GPU缓存
-        [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            imageView.image = DesImage;
-        });
-    });
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        FilterModel *model = self.filterModleArray[indexPath.row];
+//        GPUImageFilter *filter = [[NSClassFromString(model.vc) alloc]init];
+//        GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:[UIImage imageNamed:@"amatorka_action_2"]];
+
+//        [pic addTarget:filter];
+//        [filter useNextFrameForImageCapture];
+//        [pic processImage];
+//        UIImage *DesImage = [filter imageFromCurrentFramebuffer];
+//        //释放GPU缓存
+//        [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            imageView.image = DesImage;
+//        });
+//    });
     
     UILabel *label = [cell.contentView viewWithTag:kCameraFilterCollectionLabelTag];
     if (!label) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
-        CGRect rect = CGRectMake(0, layout.itemSize.height-18, layout.itemSize.width, 18);
+        CGRect rect = CGRectMake(0, layout.itemSize.height-20-kGreenLineWidth, layout.itemSize.width, 20);
         label = [[UILabel alloc] initWithFrame:rect];
         label.tag = kCameraFilterCollectionLabelTag;
-        label.font = [UIFont systemFontOfSize:12];
+        label.font = [UIFont systemFontOfSize:10];
         label.textColor = [UIColor whiteColor];
         label.textAlignment = NSTextAlignmentCenter;
-        label.backgroundColor = [UIColor colorWithRed:8/255.0 green:157/255.0 blue:184/255.0 alpha:0.4f];
+        label.backgroundColor = HEX_COLOR(0x555a5d);
         [cell.contentView addSubview:label];
     }
-    //    cell.layer.cornerRadius = 22.0f;
-    cell.layer.masksToBounds = YES;
     FilterModel *model = _filterModleArray[indexPath.row];
     label.text = model.name;
     
+    BOOL selected = [_itemSelectArray[indexPath.row] boolValue];
+    if (selected) {
+        cell.backgroundColor = COGreenColor;
+    }else{
+        cell.backgroundColor = [UIColor clearColor];
+    }
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [self.collectionView reloadData]; //解决cell 划出屏幕取出未空，无法取消选中状态BUG
+    UICollectionViewCell *lastCell = [collectionView cellForItemAtIndexPath:self.lastIndexPath];
+    if (lastCell) {
+        lastCell.backgroundColor = [UIColor clearColor];
+    }
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = COGreenColor;
     [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     if(self.filterClick){
         self.filterClick(indexPath.row);
     }
-    
+    [_itemSelectArray replaceObjectAtIndex:self.lastIndexPath.row withObject:@(NO)];
+    [_itemSelectArray replaceObjectAtIndex:indexPath.row withObject:@(YES)];
     self.lastIndexPath = indexPath;
 }
 
 - (void)scrollToIndex:(NSInteger)index{
+    UICollectionViewCell *lastCell = [self.collectionView cellForItemAtIndexPath:self.lastIndexPath];
+    lastCell.backgroundColor = [UIColor clearColor];
+    [_itemSelectArray replaceObjectAtIndex:self.lastIndexPath.row withObject:@(NO)];
     self.lastIndexPath = [NSIndexPath indexPathForRow:index inSection:self.lastIndexPath.section];
+    [_itemSelectArray replaceObjectAtIndex:self.lastIndexPath.row withObject:@(YES)];
+    UICollectionViewCell *newCell = [self.collectionView cellForItemAtIndexPath:self.lastIndexPath];
+    newCell.backgroundColor = COGreenColor;
     [_collectionView scrollToItemAtIndexPath:self.lastIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 }
 @end
