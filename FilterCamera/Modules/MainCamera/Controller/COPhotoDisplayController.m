@@ -9,9 +9,6 @@
 #import "COPhotoDisplayController.h"
 #import "COPhotoFilterView.h"
 #import "COPhotoItemController.h"
-
-#define kCameraFilterViewHeight (kScreenHeight-kScreenWidth*4.0f/3.0f)
-
 @interface COPhotoDisplayController ()
 
 @property (nonatomic, strong) UIButton *imageButton;//imageview下面，监测按下动作，显示原图和filter图

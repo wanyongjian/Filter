@@ -32,8 +32,7 @@ typedef NS_ENUM(NSInteger,SelectFilterType){
 
 
 #define kFilterPath [[NSBundle mainBundle] pathForResource:@"COFilters" ofType:nil]
-#define kCameraFilterViewItemSize                 100
-#define kCameraFilterCollectionViewHeight         100
+
 
 #define UNNULL_STRING(A) ((A && ![A isKindOfClass:[NSNull class]]) ? A : @"")
 
@@ -51,4 +50,11 @@ typedef NS_ENUM(NSInteger,SelectFilterType){
 #define TopFunctionHeight 40
 
 #define COGreenColor HEX_COLOR(0x00c8ff)
+#define kCameraFilterViewHeight (kScreenHeight-kScreenWidth*4.0f/3.0f)
+#define kCameraFilterViewItemSize                 100
+#define kCameraFilterCollectionViewHeight         120
+
+#define kCameraFilterCollectionImageViewTag       100
+#define kCameraFilterCollectionLabelTag           101
+#define kCameraFilterCollectionMaskViewTag        102
 #endif /* Macro_h */

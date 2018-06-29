@@ -8,14 +8,12 @@
 
 #import "COPhotoItemController.h"
 #import "COPhotoBrowserView.h"
-#define kCameraFilterViewHeight (kScreenHeight-kScreenWidth*4.0f/3.0f)
+
 #define kPhotoFilterItemCollectionViewCellID         @"PhotoFilterItemCollectionViewCellID"
 #define headerViewIdentifier  @"hederviewReuse"
 #define footViewIdentifier  @"footviewReuse"
 
-#define kCameraFilterCollectionImageViewTag       100
-#define kCameraFilterCollectionLabelTag           101
-#define kCameraFilterCollectionMaskViewTag        102
+
 
 #define CollectionBackColor HEX_COLOR(0x252525)
 #define kPhotoItemWidth (kScreenWidth/2-10)
@@ -183,7 +181,7 @@
         CGRect rect = CGRectMake(0, layout.itemSize.height-20, layout.itemSize.width, 18);
         label = [[UILabel alloc] initWithFrame:rect];
         label.tag = kCameraFilterCollectionLabelTag;
-        label.font = [UIFont systemFontOfSize:14];
+        label.font = [UIFont systemFontOfSize:12];
         label.textColor = [UIColor whiteColor];
         label.textAlignment = NSTextAlignmentCenter;
         [cell.contentView addSubview:label];
