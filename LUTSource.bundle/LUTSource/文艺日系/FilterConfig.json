@@ -1,6 +1,6 @@
 [
  {
- "filterName" : " FairyTale",
+ "filterName" : "FairyTale",
  "ImageName" : " FairyTale.png"
  },
  {
@@ -8,7 +8,7 @@
  "ImageName" : "Age.png"
  },
  {
- "filterName" : "Age2",
+ "filterName" : "Age-2",
  "ImageName" : "Age2.png"
  },
  {

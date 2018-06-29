@@ -1,30 +1,30 @@
 [
  {
- "filterName" : "city_1",
+ "filterName" : "City-1",
  "ImageName" : "city_1.png"
  },
  {
- "filterName" : "city_2",
+ "filterName" : "City-2",
  "ImageName" : "city_2.png"
  },
  {
- "filterName" : "city_3",
+ "filterName" : "City-3",
  "ImageName" : "city_3.png"
  },
  {
- "filterName" : "city_4",
+ "filterName" : "City-4",
  "ImageName" : "city_4.png"
  },
  {
- "filterName" : "city_5",
+ "filterName" : "City-5",
  "ImageName" : "city_5.png"
  },
  {
- "filterName" : "city_6",
+ "filterName" : "City-6",
  "ImageName" : "city_6.png"
  },
  {
- "filterName" : "city_7",
+ "filterName" : "City-7",
  "ImageName" : "city_7.png"
  },
  {
@@ -32,67 +32,68 @@
  "ImageName" : "city_8.png"
  },
  {
- "filterName" : "city_9",
+ "filterName" : "City-9",
  "ImageName" : "city_9.png"
  },
  {
- "filterName" : "city_10",
+ "filterName" : "City-10",
  "ImageName" : "city_10.png"
  },
  {
- "filterName" : "city_11",
+ "filterName" : "City-11",
  "ImageName" : "city_11.png"
  },
  {
- "filterName" : "city_12",
+ "filterName" : "City-12",
  "ImageName" : "city_12.png"
  },
  {
- "filterName" : "city_13",
+ "filterName" : "City-13",
  "ImageName" : "city_13.png"
  },
  {
- "filterName" : "city_15",
+ "filterName" : "City-24",
+ "ImageName" : "city_24.png"
+ },
+ {
+ "filterName" : "City-15",
  "ImageName" : "city_15.png"
  },
  {
- "filterName" : "city_16",
+ "filterName" : "City-16",
  "ImageName" : "city_16.png"
  },
  {
- "filterName" : "city_17",
+ "filterName" : "City-17",
  "ImageName" : "city_17.png"
  },
  {
- "filterName" : "city_18",
+ "filterName" : "City-18",
  "ImageName" : "city_18.png"
  },
  {
- "filterName" : "city_19",
+ "filterName" : "City-19",
  "ImageName" : "city_19.png"
  },
  {
- "filterName" : "city_19",
+ "filterName" : "City-19",
  "ImageName" : "city_19.png"
  },
  {
- "filterName" : "city_20",
+ "filterName" : "City-20",
  "ImageName" : "city_20.png"
  },
  {
- "filterName" : "city_21",
+ "filterName" : "City-21",
  "ImageName" : "city_21.png"
  },
  {
- "filterName" : "city_22",
+ "filterName" : "City-22",
  "ImageName" : "city_22.png"
  },
  {
- "filterName" : "city_23",
+ "filterName" : "City-23",
  "ImageName" : "city_23.png"
  },
- {
- "filterName" : "city_24",
- "ImageName" : "city_24.png"
- },
+ 
 ]

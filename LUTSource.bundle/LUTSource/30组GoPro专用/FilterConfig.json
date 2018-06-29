@@ -1,115 +1,114 @@
 [
  {
- "filterName" : "gopor_1",
+ "filterName" : "GoPro-1",
  "ImageName" : "gopor_1.png"
  },
  {
- "filterName" : "gopor_2",
+ "filterName" : "GoPro-2",
  "ImageName" : "gopor_2.png"
  },
  {
- "filterName" : "gopor_3",
+ "filterName" : "GoPro-3",
  "ImageName" : "gopor_3.png"
  },
  {
- "filterName" : "gopor_4",
+ "filterName" : "GoPro-4",
  "ImageName" : "gopor_4.png"
  },
  {
- "filterName" : "gopor_5",
+ "filterName" : "GoPro-5",
  "ImageName" : "gopor_5.png"
  },
  {
- "filterName" : "gopor_6",
+ "filterName" : "GoPro-6",
  "ImageName" : "gopor_6.png"
  },
  {
- "filterName" : "gopor_7",
+ "filterName" : "GoPro-7",
  "ImageName" : "gopor_7.png"
  },
  {
- "filterName" : "gopor_8",
+ "filterName" : "GoPro-8",
  "ImageName" : "gopor_8.png"
  },
  {
- "filterName" : "gopor_10",
+ "filterName" : "GoPro-35",
+ "ImageName" : "gopor_35.png"
+ },
+ {
+ "filterName" : "GoPro-10",
  "ImageName" : "gopor_10.png"
  },
  {
- "filterName" : "gopor_11",
+ "filterName" : "GoPro-11",
  "ImageName" : "gopor_11.png"
  },
  {
- "filterName" : "gopor_12",
+ "filterName" : "GoPro-12",
  "ImageName" : "gopor_12.png"
  },
  {
- "filterName" : "gopor_13",
+ "filterName" : "GoPro-13",
  "ImageName" : "gopor_13.png"
  },
  {
- "filterName" : "gopor_14",
+ "filterName" : "GoPro-14",
  "ImageName" : "gopor_14.png"
  },
  {
- "filterName" : "gopor_15",
+ "filterName" : "GoPro-15",
  "ImageName" : "gopor_15.png"
  },
  {
- "filterName" : "gopor_16",
+ "filterName" : "GoPro-16",
  "ImageName" : "gopor_16.png"
  },
  {
- "filterName" : "gopor_18",
- "ImageName" : "gopor_18.png"
- },
- {
- "filterName" : "gopor_20",
- "ImageName" : "gopor_20.png"
- },
- {
- "filterName" : "gopor_21",
- "ImageName" : "gopor_21.png"
- },
- {
- "filterName" : "gopor_22",
- "ImageName" : "gopor_22.png"
- },
- {
- "filterName" : "gopor_23",
- "ImageName" : "gopor_23.png"
- },
- {
- "filterName" : "gopor_25",
- "ImageName" : "gopor_25.png"
- },
- {
- "filterName" : "gopor_28",
- "ImageName" : "gopor_28.png"
- },
- {
- "filterName" : "gopor_29",
- "ImageName" : "gopor_29.png"
- },
- {
- "filterName" : "gopor_30",
- "ImageName" : "gopor_30.png"
- },
- {
- "filterName" : "gopor_31",
- "ImageName" : "gopor_31.png"
- },
- {
- "filterName" : "gopor_32",
- "ImageName" : "gopor_32.png"
- },
- {
- "filterName" : "gopor_33",
+ "filterName" : "GoPro-17",
  "ImageName" : "gopor_33.png"
  },
  {
- "filterName" : "gopor_35",
- "ImageName" : "gopor_35.png"
- }
- 
+ "filterName" : "GoPro-18",
+ "ImageName" : "gopor_18.png"
+ },
+ {
+ "filterName" : "GoPro-19",
+ "ImageName" : "gopor_32.png"
+ },
+ {
+ "filterName" : "GoPro-20",
+ "ImageName" : "gopor_20.png"
+ },
+ {
+ "filterName" : "GoPro-21",
+ "ImageName" : "gopor_21.png"
+ },
+ {
+ "filterName" : "GoPro-22",
+ "ImageName" : "gopor_22.png"
+ },
+ {
+ "filterName" : "GoPro-23",
+ "ImageName" : "gopor_23.png"
+ },
+ {
+ "filterName" : "GoPro-24",
+ "ImageName" : "gopor_31.png"
+ },
+ {
+ "filterName" : "GoPro-25",
+ "ImageName" : "gopor_25.png"
+ },
+ {
+ "filterName" : "GoPro-26",
+ "ImageName" : "gopor_28.png"
+ },
+ {
+ "filterName" : "GoPro-27",
+ "ImageName" : "gopor_29.png"
+ },
+ {
+ "filterName" : "GoPro-28",
+ "ImageName" : "gopor_30.png"
+ },
 ]

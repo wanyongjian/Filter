@@ -11,6 +11,7 @@
 #define kCameraFilterViewHeight (kScreenHeight-kScreenWidth*4.0f/3.0f)
 #define kPhotoFilterItemCollectionViewCellID         @"PhotoFilterItemCollectionViewCellID"
 #define headerViewIdentifier  @"hederviewReuse"
+#define footViewIdentifier  @"footviewReuse"
 
 #define kCameraFilterCollectionImageViewTag       100
 #define kCameraFilterCollectionLabelTag           101
@@ -20,7 +21,7 @@
 #define kPhotoItemWidth (kScreenWidth/2-10)
 #define kHeaderHeight 44
 #define KCellBorderWidth 1
-#define kFootHeight 50
+#define kFootHeight 60
 @interface COPhotoItemController () <UICollectionViewDelegate,UICollectionViewDataSource>{
     CGFloat _imageRatio;
 }
@@ -63,7 +64,7 @@
 
 - (void)setUpUI{
     UICollectionViewFlowLayout *layout = [self collectionViewForFlowLayout];
-    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kFootHeight) collectionViewLayout:layout];
+    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kFootHeight-1) collectionViewLayout:layout];
     collectionView.delegate = self;
     collectionView.dataSource = self;
     collectionView.showsHorizontalScrollIndicator = NO;
@@ -74,6 +75,9 @@
     [collectionView registerClass:[UICollectionReusableView class]
        forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
               withReuseIdentifier:headerViewIdentifier];
+    [collectionView registerClass:[UICollectionReusableView class]
+       forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+              withReuseIdentifier:footViewIdentifier];
     [self.view addSubview:collectionView];
     _collectionView = collectionView;
     
@@ -83,14 +87,14 @@
     UIButton *backBtn = [[UIButton alloc]init];
     [backBtn setImage:[UIImage imageNamed:@"can_btn_normal"] forState:UIControlStateNormal];
     [backBtn setImage:[UIImage imageNamed:@"can_btn_select"] forState:UIControlStateHighlighted];
-    backBtn.imageEdgeInsets = UIEdgeInsetsMake(14, 14, 14, 14);
+    backBtn.imageEdgeInsets = UIEdgeInsetsMake(16, 16, 16, 16);
     [GoBackView addSubview:backBtn];
     self.backBtn = backBtn;
     [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         CGFloat x = kScreenWidth/4.0-kFootHeight/2;
-        make.top.mas_equalTo(GoBackView);
+        make.centerY.mas_equalTo(GoBackView);
         make.left.mas_equalTo(@(x));
-        make.width.height.mas_equalTo(kFootHeight);
+        make.width.height.mas_equalTo(50);
     }];
     weakSelf();
     [[backBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
@@ -100,14 +104,14 @@
     UIButton *saveBtn = [[UIButton alloc]init];
     [saveBtn setImage:[UIImage imageNamed:@"select_btn_normal"] forState:UIControlStateNormal];
     [saveBtn setImage:[UIImage imageNamed:@"select_btn_hightlight"] forState:UIControlStateHighlighted];
-    saveBtn.imageEdgeInsets = UIEdgeInsetsMake(12, 12, 12, 12);
+    saveBtn.imageEdgeInsets = UIEdgeInsetsMake(14, 14, 14, 14);
     [GoBackView addSubview:saveBtn];
     self.saveBtn = saveBtn;
     [saveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         CGFloat x = kScreenWidth/4.0 * 3-kFootHeight/2;
         make.centerY.mas_equalTo(GoBackView);
         make.left.mas_equalTo(@(x));
-        make.width.height.mas_equalTo(kFootHeight);
+        make.width.height.mas_equalTo(50);
     }];
     
     @weakify(self);
@@ -126,9 +130,10 @@
     layout.itemSize = CGSizeMake(kPhotoItemWidth, kPhotoItemWidth*_imageRatio);
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     layout.minimumLineSpacing = 5;
-    layout.sectionInset = UIEdgeInsetsMake(5, 5, 0, 5);
+    layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     layout.headerReferenceSize=CGSizeMake(kScreenWidth, kHeaderHeight); //设置collectionView头视图的大小
     //header
+    layout.footerReferenceSize=CGSizeMake(kScreenWidth, kHeaderHeight);
     layout.sectionHeadersPinToVisibleBounds = YES;
     return layout;
 }
@@ -175,19 +180,18 @@
     UILabel *label = [cell.contentView viewWithTag:kCameraFilterCollectionLabelTag];
     if (!label) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
-        CGRect rect = CGRectMake(0, layout.itemSize.height-18, layout.itemSize.width, 18);
+        CGRect rect = CGRectMake(0, layout.itemSize.height-20, layout.itemSize.width, 18);
         label = [[UILabel alloc] initWithFrame:rect];
         label.tag = kCameraFilterCollectionLabelTag;
-        label.font = [UIFont systemFontOfSize:10];
+        label.font = [UIFont systemFontOfSize:14];
         label.textColor = [UIColor whiteColor];
         label.textAlignment = NSTextAlignmentCenter;
-        label.backgroundColor = [UIColor colorWithRed:8/255.0 green:157/255.0 blue:184/255.0 alpha:0.6f];
         [cell.contentView addSubview:label];
     }
     
     cell.layer.masksToBounds = YES;
     LUTFilterModel *model = _filterModleArray[indexPath.row];
-    label.text = model.ImageName;
+    label.text = model.filterName;
     
     BOOL selected = [_itemSelectArray[indexPath.row] boolValue];
     if (selected) {
@@ -257,6 +261,9 @@
             make.center.mas_equalTo(header);
         }];
         return header;
+    }else if ([kind isEqualToString:UICollectionElementKindSectionFooter]){
+        UICollectionReusableView *foot=[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:footViewIdentifier forIndexPath:indexPath];
+        return foot;
     }
     //如果底部视图
     return nil;

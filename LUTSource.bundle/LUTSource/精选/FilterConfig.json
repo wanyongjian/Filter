@@ -1,58 +1,58 @@
 [
  {
- "name" : "原图",
+ "filterName" : "原图",
  "vc" : "GPUImageFilter"
  },
  {
- "name" : "Nash",
+ "filterName" : "Nash",
  "vc" : "FWNashvilleFilter"
  },
  {
- "name" : "Wander",
+ "filterName" : "Wander",
  "vc" : "FWWaldenFilter"
  },
  {
- "name" : "Everlasting",
+ "filterName" : "Everlasting",
  "vc" : "FWRiseFilter"
  },
  {
- "name" : "Sandy",
+ "filterName" : "Sandy",
  "vc" : "FWValenciaFilter"
  },
  {
- "name" : "Fall",
+ "filterName" : "Fall",
  "vc" : "FWAmaroFilter"
  },
  {
- "name" : "Knight",
+ "filterName" : "Knight",
  "vc" : "FWHudsonFilter"
  },
  {
- "name" : "Anson",
+ "filterName" : "Anson",
  "vc" : "FWBrannanFilter"
  },
  {
- "name" : "Neko",
+ "filterName" : "Neko",
  "vc" : "FWEarlybirdFilter"
  },
  {
- "name" : "Sayan",
+ "filterName" : "Sayan",
  "vc" : "FWHefeFilter"
  },
  {
- "name" : "Hola",
+ "filterName" : "Hola",
  "vc" : "FWLomofiFilter"
  },
  {
- "name" : "Misaki",
+ "filterName" : "Misaki",
  "vc" : "FWSierraFilter"
  },
  {
- "name" : "Ruka",
+ "filterName" : "Ruka",
  "vc" : "FWToasterFilter"
  },
  {
- "name" : "Rigel",
+ "filterName" : "Rigel",
  "vc" : "FWXproIIFilter"
  }
 ]

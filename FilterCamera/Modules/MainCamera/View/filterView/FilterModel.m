@@ -53,7 +53,7 @@
     NSMutableArray <FilterModel *> *filters = @[].mutableCopy;
     for (NSDictionary *dict in array) {
         FilterModel *model = [[FilterModel alloc]init];
-        model.name = dict[@"name"];
+        model.name = dict[@"filterName"];
         model.vc = dict[@"vc"];
         [filters addObject:model];
     }
@@ -72,7 +72,7 @@
     NSMutableArray <LUTFilterGroupModel *> *FilterArray = @[].mutableCopy;
     for (NSDictionary *dict in array) {
         LUTFilterGroupModel *model = [[LUTFilterGroupModel alloc]init];
-        model.name = dict[@"name"];
+        model.name = dict[@"filterName"];
         model.type = dict[@"type"];
         model.path = dict[@"path"];
         model.imagePath = dict[@"imagePath"];
@@ -95,7 +95,7 @@
         LUTFilterModel *model = [[LUTFilterModel alloc]init];
         model.filterName = dict[@"filterName"];
         model.ImageName = dict[@"ImageName"];
-        model.name = dict[@"name"];
+//        model.name = dict[@"name"];
         model.vc = dict[@"vc"];
         [FilterArray addObject:model];
     }
