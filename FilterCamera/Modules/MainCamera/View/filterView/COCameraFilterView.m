@@ -49,7 +49,7 @@
 }
 - (void)addCollectionView{
     UICollectionViewFlowLayout *layout = [self collectionViewForFlowLayout];
-    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kCameraFilterCollectionViewHeight+kGreenLineWidth*2) collectionViewLayout:layout];
+    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, (kCameraFilterViewHeight- kCameraFilterCollectionViewHeight)/2.0, kScreenWidth, kCameraFilterCollectionViewHeight+kGreenLineWidth*2) collectionViewLayout:layout];
     collectionView.backgroundColor = HEX_COLOR(0x252525);
     collectionView.delegate = self;
     collectionView.dataSource = self;
@@ -102,33 +102,34 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    FilterModel *model = _filterModleArray[indexPath.row];
      UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCameraFilterCollectionViewCellID forIndexPath:indexPath];
     UIImageView *imageView = [cell.contentView viewWithTag:kCameraFilterCollectionImageViewTag];
     if (!imageView) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
-        CGRect rect = CGRectMake(0, kGreenLineWidth, layout.itemSize.width, layout.itemSize.height-kCameraFilterViewLabelHeight);
+        CGRect rect = CGRectMake(0, kGreenLineWidth, layout.itemSize.width, layout.itemSize.height-kGreenLineWidth*2);
         imageView = [[UIImageView alloc] initWithFrame:rect];
         imageView.tag = kCameraFilterCollectionImageViewTag;
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
-        imageView.image = [UIImage imageNamed:@"amatorka_action_2"];
         [cell.contentView addSubview:imageView];
     }
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        FilterModel *model = self.filterModleArray[indexPath.row];
-        GPUImageFilter *filter = [[NSClassFromString(model.vc) alloc]init];
-        GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:[UIImage imageNamed:@"amatorka_action_2"]];
-
-        [pic addTarget:filter];
-        [filter useNextFrameForImageCapture];
-        [pic processImage];
-        UIImage *DesImage = [filter imageFromCurrentFramebuffer];
-        //释放GPU缓存
-        [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            imageView.image = DesImage;
-        });
-    });
+    imageView.image = [UIImage imageWithContentsOfFile:[LUTBUNDLE stringByAppendingPathComponent:model.filterImgPath]];
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        FilterModel *model = self.filterModleArray[indexPath.row];
+//        GPUImageFilter *filter = [[NSClassFromString(model.vc) alloc]init];
+//        GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:[UIImage imageNamed:@"back.png"]];
+//
+//        [pic addTarget:filter];
+//        [filter useNextFrameForImageCapture];
+//        [pic processImage];
+//        UIImage *DesImage = [filter imageFromCurrentFramebuffer];
+//        //释放GPU缓存
+//        [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            imageView.image = DesImage;
+//        });
+//    });
     
     UILabel *label = [cell.contentView viewWithTag:kCameraFilterCollectionLabelTag];
     if (!label) {
@@ -139,11 +140,10 @@
         label.font = [UIFont systemFontOfSize:10];
         label.textColor = [UIColor whiteColor];
         label.textAlignment = NSTextAlignmentCenter;
-        label.backgroundColor = HEX_COLOR(0x555a5d);
-//        label.backgroundColor = [UIColor blueColor];
+        label.backgroundColor = [HEX_COLOR(0x555a5d) colorWithAlphaComponent:0.8];
         [cell.contentView addSubview:label];
     }
-    FilterModel *model = _filterModleArray[indexPath.row];
+    
     label.text = model.name;
     
     BOOL selected = [_itemSelectArray[indexPath.row] boolValue];

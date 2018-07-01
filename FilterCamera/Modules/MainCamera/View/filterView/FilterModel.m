@@ -55,6 +55,7 @@
         FilterModel *model = [[FilterModel alloc]init];
         model.name = dict[@"filterName"];
         model.vc = dict[@"vc"];
+        model.filterImgPath = dict[@"filterImgPath"];
         [filters addObject:model];
     }
     return filters;
@@ -76,6 +77,7 @@
         model.type = dict[@"type"];
         model.path = dict[@"path"];
         model.imagePath = dict[@"imagePath"];
+        model.filterImgPath = dict[@"filterImgPath"];
         [FilterArray addObject:model];
     }
     return FilterArray;

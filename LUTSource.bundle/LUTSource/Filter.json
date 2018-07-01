@@ -3,70 +3,65 @@
  "filterName" : "精选",
  "type" : "0",
  "path" : "LUTSource/精选/FilterConfig.json",
- "imagePath" : "LUTSource/精选"
+ "imagePath" : "LUTSource/精选",
+ "filterImgPath":"FilterShowImg/best.png"
  },
  {
- "filterName" : "美食",
+ "filterName" : "美食少女",
  "type" : "1",
  "path" : "LUTSource/美食/FilterConfig.json",
- "imagePath" : "LUTSource/美食"
+ "imagePath" : "LUTSource/美食",
+ "filterImgPath":"FilterShowImg/food.png"
+ },
+ {
+ "filterName" : "浪漫婚礼",
+ "type" : "1",
+ "path" : "LUTSource/50组唯美柔和/FilterConfig.json",
+ "imagePath" : "LUTSource/50组唯美柔和",
+ "filterImgPath":"FilterShowImg/wedding3.png"
+ },
+ {
+ "filterName" : "复古建筑",
+ "type" : "1",
+ "path" : "LUTSource/24组建筑复古/FilterConfig.json",
+ "imagePath" : "LUTSource/24组建筑复古",
+ "filterImgPath":"FilterShowImg/building.png"
  },
  {
  "filterName" : "黑白风格",
  "type" : "1",
  "path" : "LUTSource/50组黑白/FilterConfig.json",
- "imagePath" : "LUTSource/50组黑白"
+ "imagePath" : "LUTSource/50组黑白",
+ "filterImgPath":"FilterShowImg/black.png"
  },
  {
  "filterName" : "GoPro户外",
  "type" : "1",
  "path" : "LUTSource/30组GoPro专用/FilterConfig.json",
- "imagePath" : "LUTSource/30组GoPro专用"
+ "imagePath" : "LUTSource/30组GoPro专用",
+ "filterImgPath":"FilterShowImg/gopro.png"
  },
  {
  "filterName" : "INS网红",
  "type" : "1",
  "path" : "LUTSource/网红风/FilterConfig.json",
- "imagePath" : "LUTSource/网红风"
+ "imagePath" : "LUTSource/网红风",
+ "filterImgPath":"FilterShowImg/ins3.png"
  },
  
  {
  "filterName" : "文艺日系",
  "type" : "1",
  "path" : "LUTSource/文艺日系/FilterConfig.json",
- "imagePath" : "LUTSource/文艺日系"
- },
-
- {
- "filterName" : "复古建筑",
- "type" : "1",
- "path" : "LUTSource/24组建筑复古/FilterConfig.json",
- "imagePath" : "LUTSource/24组建筑复古"
+ "imagePath" : "LUTSource/文艺日系",
+ "filterImgPath":"FilterShowImg/fresh.png"
  },
  {
- "filterName" : "街头涂鸦",
- "type" : "1",
- "path" : "LUTSource/30种街头涂鸦/FilterConfig.json",
- "imagePath" : "LUTSource/30种街头涂鸦"
- },
- {
- "filterName" : "浪漫婚礼",
- "type" : "1",
- "path" : "LUTSource/50组唯美柔和/FilterConfig.json",
- "imagePath" : "LUTSource/50组唯美柔和"
- },
- 
- {
- "filterName" : "索尼SLOG3",
- "type" : "1",
- "path" : "LUTSource/索尼SLOG3/FilterConfig.json",
- "imagePath" : "LUTSource/索尼SLOG3"
- },
- {
- "filterName" : "影视大片",
+ "filterName" : "电影风格",
  "type" : "1",
  "path" : "LUTSource/122组电影大片/FilterConfig.json",
- "imagePath" : "LUTSource/122组电影大片"
+ "imagePath" : "LUTSource/122组电影大片",
+ "filterImgPath":"FilterShowImg/movie.png"
  }
  
 ]

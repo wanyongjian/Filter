@@ -11,6 +11,7 @@
 @interface FilterModel : NSObject
 @property (nonatomic, strong)NSString *name;
 @property (nonatomic, strong)NSString *vc;
+@property (nonatomic, strong)NSString *filterImgPath;
 
 + (FilterModel *)getModleFromPath:(NSString *)path;
 + (NSArray<FilterModel *> *)getModleArrayWihtPath:(NSString *)path;
@@ -23,6 +24,7 @@
 @property (nonatomic, strong)NSString *type;
 @property (nonatomic, strong)NSString *path;
 @property (nonatomic, strong)NSString *imagePath;
+@property (nonatomic, strong)NSString *filterImgPath;//滤镜展示图片
 + (NSArray <LUTFilterGroupModel *>*)getLUTFilterGroupArrayWithPath:(NSString *)path;
 @end
 

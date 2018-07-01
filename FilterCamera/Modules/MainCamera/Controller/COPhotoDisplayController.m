@@ -121,12 +121,12 @@
 //    [backBtn setTitleColor:HEX_COLOR(0x00c8ff) forState:UIControlStateHighlighted];
     [backBtn setImage:[UIImage imageNamed:@"back_btn_normal"] forState:UIControlStateNormal];
     [backBtn setImage:[UIImage imageNamed:@"back_btn_highlight"] forState:UIControlStateHighlighted];
-    backBtn.imageEdgeInsets = UIEdgeInsetsMake(8, 8, 8, 8);
+    backBtn.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
     [self.topView addSubview:backBtn];
     [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.topView);
-        make.left.mas_equalTo(self.topView).mas_offset(17);
-        make.width.height.mas_equalTo(35);
+        make.left.mas_equalTo(self.topView).mas_offset(15);
+        make.width.height.mas_equalTo(40);
     }];
     [[backBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         [wself.navigationController popViewControllerAnimated:NO];
@@ -140,7 +140,8 @@
     [saveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.topView);
         make.right.mas_equalTo(self.topView).mas_offset(-25);
-        make.width.height.mas_equalTo(35);
+        make.width.mas_equalTo(45);
+        make.height.mas_equalTo(35);
     }];
     [[saveBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self);

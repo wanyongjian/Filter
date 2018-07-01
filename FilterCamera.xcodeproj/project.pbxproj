@@ -200,6 +200,7 @@
 		21D37DBE20D88C60001E7042 /* arrowDown@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21D37DBD20D88C5F001E7042 /* arrowDown@3x.png */; };
 		2210509D20CFFA4100AB0D9C /* COPhotoItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */; };
 		221050A020D0111D00AB0D9C /* GPUCommonLUTFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509F20D0111D00AB0D9C /* GPUCommonLUTFilter.m */; };
+		223ACB7E20E8D07500F73549 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 223ACB7D20E8D07400F73549 /* back.png */; };
 		228546DB20C4080000F22E3D /* LUTSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 228546DA20C4080000F22E3D /* LUTSource.bundle */; };
 		22A3E2BE20D6A1EE00F3B46B /* amatorka2.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A3E2B920D6A1EE00F3B46B /* amatorka2.png */; };
 		22A3E2BF20D6A1EE00F3B46B /* amatorka_action_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A3E2BA20D6A1EE00F3B46B /* amatorka_action_2.png */; };
@@ -513,6 +514,7 @@
 		2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COPhotoItemController.m; sourceTree = "<group>"; };
 		2210509E20D0111D00AB0D9C /* GPUCommonLUTFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUCommonLUTFilter.h; sourceTree = "<group>"; };
 		2210509F20D0111D00AB0D9C /* GPUCommonLUTFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUCommonLUTFilter.m; sourceTree = "<group>"; };
+		223ACB7D20E8D07400F73549 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		228546DA20C4080000F22E3D /* LUTSource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LUTSource.bundle; sourceTree = "<group>"; };
 		22A3E2B920D6A1EE00F3B46B /* amatorka2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amatorka2.png; sourceTree = "<group>"; };
 		22A3E2BA20D6A1EE00F3B46B /* amatorka_action_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amatorka_action_2.png; sourceTree = "<group>"; };
@@ -1285,6 +1287,7 @@
 		21B361E520D39D8900EF7F3A /* filterView */ = {
 			isa = PBXGroup;
 			children = (
+				223ACB7D20E8D07400F73549 /* back.png */,
 				21B361E620D39D8900EF7F3A /* COCameraFilterView.h */,
 				21B361E720D39D8900EF7F3A /* COCameraFilterView.m */,
 				21B361E820D39D8900EF7F3A /* COPhotoFilterView.h */,
@@ -1509,6 +1512,7 @@
 				2179F34820BD078900B73822 /* hefeSoftLight.png in Resources */,
 				2179F36520BD078900B73822 /* sutroCurves.png in Resources */,
 				214A23A320E48F0E00961127 /* filter_btn_ffffff@3x.png in Resources */,
+				223ACB7E20E8D07500F73549 /* back.png in Resources */,
 				21570DFC20BB9145002585CB /* frame.png in Resources */,
 				2179F34220BD078900B73822 /* config.json in Resources */,
 				2179F33920BD078900B73822 /* brannanScreen.png in Resources */,

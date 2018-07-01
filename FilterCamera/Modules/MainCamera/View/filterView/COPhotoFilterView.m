@@ -70,19 +70,20 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    LUTFilterGroupModel *model = _filterModleArray[indexPath.row];
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPhotoFilterCollectionViewCellID forIndexPath:indexPath];
     UIImageView *imageView = [cell.contentView viewWithTag:kCameraFilterCollectionImageViewTag];
     if (!imageView) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
-        CGRect rect = CGRectMake(0, kGreenLineWidth, layout.itemSize.width, layout.itemSize.height-kCameraFilterViewLabelHeight);
+        CGRect rect = CGRectMake(0, kGreenLineWidth, layout.itemSize.width, layout.itemSize.height-kGreenLineWidth*2);
         imageView = [[UIImageView alloc] initWithFrame:rect];
         imageView.tag = kCameraFilterCollectionImageViewTag;
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
-        imageView.image = [UIImage imageNamed:@"amatorka_action_2"];
         [cell.contentView addSubview:imageView];
     }
-    
+    imageView.image = [UIImage imageWithContentsOfFile:[LUTBUNDLE stringByAppendingPathComponent:model.filterImgPath]];
+                                                         
     UILabel *label = [cell.contentView viewWithTag:kCameraFilterCollectionLabelTag];
     if (!label) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
@@ -92,11 +93,10 @@
         label.font = [UIFont systemFontOfSize:10];
         label.textColor = [UIColor whiteColor];
         label.textAlignment = NSTextAlignmentCenter;
-        label.backgroundColor = HEX_COLOR(0x555a5d);
+        label.backgroundColor = [HEX_COLOR(0x555a5d) colorWithAlphaComponent:0.8];
         [cell.contentView addSubview:label];
     }
     cell.layer.masksToBounds = YES;
-    LUTFilterGroupModel *model = _filterModleArray[indexPath.row];
     label.text = model.name;
     
     BOOL selected = [_itemSelectArray[indexPath.row] boolValue];
