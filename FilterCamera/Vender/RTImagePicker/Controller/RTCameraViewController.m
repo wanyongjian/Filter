@@ -166,7 +166,7 @@
 {
     if(!self.unAuthorizedView) {
         self.unAuthorizedView = [[RTImagePickerUnauthorizedView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, ScreenWidth, ScreenHeight - [(RTImagePickerNavigationController *)self.navigationController toolBarView].height)];
-        _unAuthorizedView.permissionTitleLabel.text = @"Flow想开启你的相机";
+        _unAuthorizedView.permissionTitleLabel.text = @"需要开启相机才能拍照";
         _unAuthorizedView.onPermissionButton = ^(){
             NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
             if ([[UIApplication sharedApplication] canOpenURL:url]) {

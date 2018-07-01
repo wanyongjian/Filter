@@ -14,6 +14,8 @@
 #import "COPhotoDisplayController.h"
 #import <Photos/Photos.h>
 #import "RTImagePickerViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+typedef void(^cameraPermit)(BOOL value);
 typedef NS_ENUM(NSInteger,CameraRatioType){
     CameraRatioType43,
     CameraRatioType11,
@@ -51,6 +53,8 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
+    [self checkCameraPermit:nil];
+    [self checkPhotoPermit:nil];
     [self setInitData];
     [self setUPCamera];
     [self setCameraUI];
@@ -58,8 +62,57 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [self initCamraUI];
     [self addBackgroundNoti];
     self.takePhotoBtn.userInteractionEnabled = NO;
-    
-    
+}
+- (void)checkPhotoPermit:(cameraPermit)block{
+    ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
+    if (author ==kCLAuthorizationStatusRestricted || author ==kCLAuthorizationStatusDenied){
+        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"" message:@"检测到手机未开启相册服务，无法编辑图片。请在“设置-COCO相机”中开启）" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            if ([[UIApplication sharedApplication]canOpenURL:url]) {
+                [[UIApplication sharedApplication]openURL:url];
+            }
+        }];
+        [controller addAction:action];
+        [self presentViewController:controller animated:NO completion:nil];
+        if (block) {
+            block(NO);
+        }
+    }else{
+        // 这里是摄像头可以使用的处理逻辑
+        if (block) {
+            block(YES);
+        }
+    }
+}
+- (void)checkCameraPermit:(cameraPermit)block{
+    /// 先判断摄像头硬件是否好用
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        // 用户是否允许摄像头使用
+        NSString * mediaType = AVMediaTypeVideo;
+        AVAuthorizationStatus  authorizationStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+        // 不允许弹出提示框
+        if (authorizationStatus == AVAuthorizationStatusRestricted|| authorizationStatus == AVAuthorizationStatusDenied) {
+            UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"" message:@"检测到手机未开启相机服务，暂不可拍照。请在“设置-COCO相机”中开启" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                if ([[UIApplication sharedApplication]canOpenURL:url]) {
+                    [[UIApplication sharedApplication]openURL:url];
+                }
+            }];
+            [controller addAction:action];
+            [self presentViewController:controller animated:NO completion:nil];
+            if (block) {
+               block(NO);
+            }
+        }else{
+            // 这里是摄像头可以使用的处理逻辑
+            if (block) {
+                block(YES);
+            }
+        }
+    }
 }
 - (void)addBackgroundNoti{
     @weakify(self);
@@ -300,7 +353,11 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         make.left.mas_equalTo(@(x));
     }];
     [[picBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [wself choseImageFromPhotoLibrary];
+        [wself checkPhotoPermit:^(BOOL value) {
+            if (value) {
+                [wself choseImageFromPhotoLibrary];
+            }
+        }];
     }];
     
     //
@@ -331,24 +388,27 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 }
 - (void)takePhotoAction{
     weakSelf();
-    wself.takePhotoBtn.userInteractionEnabled = NO;
-    [wself.stillCamera capturePhotoAsImageProcessedUpToFilter:wself.passFilter withOrientation:wself.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-//            NSAssert(processedImage !=nil, @"processedImage 是空");
-        if (processedImage == nil) {
-            wself.takePhotoBtn.userInteractionEnabled = YES;
-            return;
+    [wself checkCameraPermit:^(BOOL value) {
+        if (value) {
+            wself.takePhotoBtn.userInteractionEnabled = NO;
+            [wself.stillCamera capturePhotoAsImageProcessedUpToFilter:wself.passFilter withOrientation:wself.imageOrientation withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+                //            NSAssert(processedImage !=nil, @"processedImage 是空");
+                if (processedImage == nil) {
+                    wself.takePhotoBtn.userInteractionEnabled = YES;
+                    return;
+                }
+                UIImage *SourceClipImage = [UIImage clipOrientationImage:processedImage withRatio:wself.currentCameraViewRatio];
+                UIImage *SourceImage = [SourceClipImage fixOrientation];
+                
+                COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+                vc.sourceImage = SourceImage;
+                NSAssert(SourceImage !=nil, @"SourceImage 是空");
+                vc.filterClass = wself.filterClass;
+                [wself.navigationController pushViewController:vc animated:NO];
+                wself.takePhotoBtn.userInteractionEnabled = YES;
+            }];
         }
-            UIImage *SourceClipImage = [UIImage clipOrientationImage:processedImage withRatio:wself.currentCameraViewRatio];
-            UIImage *SourceImage = [SourceClipImage fixOrientation];
-        
-            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
-            vc.sourceImage = SourceImage;
-            NSAssert(SourceImage !=nil, @"SourceImage 是空");
-            vc.filterClass = wself.filterClass;
-            [wself.navigationController pushViewController:vc animated:NO];
-            wself.takePhotoBtn.userInteractionEnabled = YES;
-        }];
-
+    }];
 }
 - (void)setCameraRatio:(CameraRatioType)ratioType{
     NSMutableArray *array = self.ratioArray[ratioType];

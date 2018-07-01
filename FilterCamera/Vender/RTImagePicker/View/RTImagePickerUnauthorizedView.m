@@ -19,7 +19,7 @@
 {
     self = [super initWithFrame:frame];
     if(self) {
-        self.permissionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(100.0f, 200.0f, self.width - 200.0f, 25.0f)];
+        self.permissionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 200.0f, self.width, 25.0f)];
         _permissionTitleLabel.font = [UIFont systemFontOfSize:17.0f];
         _permissionTitleLabel.textColor = [UIColor colorWithRed:113.0f/255.0f green:113.0f/255.0f blue:113.0f/255.0f alpha:1.0f];
         _permissionTitleLabel.textAlignment = NSTextAlignmentCenter;

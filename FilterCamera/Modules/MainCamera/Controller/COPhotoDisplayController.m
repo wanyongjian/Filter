@@ -9,6 +9,9 @@
 #import "COPhotoDisplayController.h"
 #import "COPhotoFilterView.h"
 #import "COPhotoItemController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+typedef void(^cameraPermit)(BOOL value);
+
 @interface COPhotoDisplayController ()
 
 @property (nonatomic, strong) UIButton *imageButton;//imageview下面，监测按下动作，显示原图和filter图
@@ -145,12 +148,17 @@
     }];
     [[saveBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self);
-        self.hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-        self.hud.label.text = @"保存中...";
-        self.hud.minSize = CGSizeMake(150.f, 100.f);
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
-        });
+        [self checkPhotoPermit:^(BOOL value) {
+            if (value) {
+                self.hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+                self.hud.label.text = @"保存中...";
+                self.hud.minSize = CGSizeMake(150.f, 100.f);
+                dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                    UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+                });
+            }
+        }];
+        
     }];
     self.saveBtn = saveBtn;
 //    [FontTool asynchronouslySetFontName:@"DFWaWaSC-W5" label:wself.saveBtn.titleLabel size:24];
@@ -182,5 +190,28 @@
 
 - (void)dealloc{
     NSLog(@"****** 释放PhotoDisplayController");
+}
+
+- (void)checkPhotoPermit:(cameraPermit)block{
+    ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
+    if (author ==kCLAuthorizationStatusRestricted || author ==kCLAuthorizationStatusDenied){
+        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"" message:@"检测到手机未开启相册服务，无法编辑图片。请在“设置-COCO相机”中开启）" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            if ([[UIApplication sharedApplication]canOpenURL:url]) {
+                [[UIApplication sharedApplication]openURL:url];
+            }
+        }];
+        [controller addAction:action];
+        [self presentViewController:controller animated:NO completion:nil];
+        if (block) {
+            block(NO);
+        }
+    }else{
+        // 这里是摄像头可以使用的处理逻辑
+        if (block) {
+            block(YES);
+        }
+    }
 }
 @end

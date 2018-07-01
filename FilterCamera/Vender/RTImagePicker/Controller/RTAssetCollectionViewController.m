@@ -806,7 +806,7 @@ static NSString * const reuseIdentifier = @"AssetCell";
     weakSelf();
     if(!self.unAuthorizedView) {
         self.unAuthorizedView = [[RTImagePickerUnauthorizedView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, ScreenWidth, ScreenHeight - wself.toolBarView.height)];
-        _unAuthorizedView.permissionTitleLabel.text = @"Flow想开启你的相册";
+        _unAuthorizedView.permissionTitleLabel.text = @"需要开启相册才能编辑图片";
         _unAuthorizedView.onPermissionButton = ^(){
             NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
             if ([[UIApplication sharedApplication] canOpenURL:url]) {
