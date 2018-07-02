@@ -57,6 +57,7 @@
 		21570E0F20BBA995002585CB /* COCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E0E20BBA995002585CB /* COCameraViewController.m */; };
 		21570E1A20BBC576002585CB /* ShakeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E1920BBC576002585CB /* ShakeButton.m */; };
 		21570E1F20BBDFEA002585CB /* qmkit_rotate_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21570E1E20BBDFEA002585CB /* qmkit_rotate_btn@3x.png */; };
+		216B4CE420EA1720006441DC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216B4CE320EA1720006441DC /* StoreKit.framework */; };
 		2179F22420BCDE5800B73822 /* qmkit_fiter_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F22320BCDE5800B73822 /* qmkit_fiter_btn@3x.png */; };
 		2179F33020BD078900B73822 /* amaroMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F2C720BD078900B73822 /* amaroMap.png */; };
 		2179F33120BD078900B73822 /* blackboard1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F2C820BD078900B73822 /* blackboard1024.png */; };
@@ -315,6 +316,7 @@
 		21570E1820BBC576002585CB /* ShakeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShakeButton.h; sourceTree = "<group>"; };
 		21570E1920BBC576002585CB /* ShakeButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShakeButton.m; sourceTree = "<group>"; };
 		21570E1E20BBDFEA002585CB /* qmkit_rotate_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_rotate_btn@3x.png"; sourceTree = "<group>"; };
+		216B4CE320EA1720006441DC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2179F22320BCDE5800B73822 /* qmkit_fiter_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_fiter_btn@3x.png"; sourceTree = "<group>"; };
 		2179F2C720BD078900B73822 /* amaroMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amaroMap.png; sourceTree = "<group>"; };
 		2179F2C820BD078900B73822 /* blackboard1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackboard1024.png; sourceTree = "<group>"; };
@@ -547,6 +549,7 @@
 				214AB81C20BFF45800D4B73C /* CoreGraphics.framework in Frameworks */,
 				214AB81A20BFF45100D4B73C /* CoreMotion.framework in Frameworks */,
 				46520FC3277AC77D1B267CA2 /* libPods-FilterCamera.a in Frameworks */,
+				216B4CE420EA1720006441DC /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1340,6 +1343,7 @@
 		BAADFFE61C90C61551197A81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				216B4CE320EA1720006441DC /* StoreKit.framework */,
 				214AB81B20BFF45800D4B73C /* CoreGraphics.framework */,
 				214AB81920BFF45100D4B73C /* CoreMotion.framework */,
 				C28BC55EB39A6840AB95792C /* libPods-FilterCamera.a */,
@@ -1418,6 +1422,11 @@
 					21570CFB20BB8D8B002585CB = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					21570D1320BB8D8B002585CB = {
 						CreatedOnToolsVersion = 9.2;
