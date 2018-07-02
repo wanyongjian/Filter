@@ -1926,7 +1926,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FilterCamera/Coco.pch";
 				INFOPLIST_FILE = FilterCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wan.test.FilterCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wan.coco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1943,7 +1943,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FilterCamera/Coco.pch";
 				INFOPLIST_FILE = FilterCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wan.test.FilterCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wan.coco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
