@@ -60,7 +60,14 @@ static NSString * const reuseIdentifier = @"AssetCell";
     weakSelf();
     albumListAnimateDuration = 0.3f;
     hasAuthorized = NO;
-    
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self setupToolBarView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    weakSelf();
     switch ([PHPhotoLibrary authorizationStatus]) {
         case PHAuthorizationStatusNotDetermined:
         {
@@ -119,15 +126,6 @@ static NSString * const reuseIdentifier = @"AssetCell";
             break;
     }
     
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    
-    [self setupToolBarView];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    weakSelf();
     // Configure navigation item
     [titleButton rt_setTitle:self.assetCollection.localizedTitle arrowAppearance:YES];
     
@@ -635,7 +633,7 @@ static NSString * const reuseIdentifier = @"AssetCell";
     weakSelf();
     if(self.albumsTableView.top < 0.0f) {
         
-        [titleButton rt_setTitle:[NSString stringWithFormat:@"相簿"] arrowAppearance:NO];
+//        [titleButton rt_setTitle:[NSString stringWithFormat:@"相簿"] arrowAppearance:NO];
         
         [UIView animateWithDuration:albumListAnimateDuration delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.albumsTableView.top = 0.0f;
