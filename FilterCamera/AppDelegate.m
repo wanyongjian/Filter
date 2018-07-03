@@ -30,7 +30,7 @@
     CODeviceOrientation = [[DeviceOrientation alloc]initWithDelegate:self];
     [CODeviceOrientation startMonitor];
     [self monitorNetworking];
-    
+    [self requsetGoods];
     [NSThread sleepForTimeInterval:1];
     return YES;
 }
@@ -103,5 +103,8 @@
             self.netReachable = NO;
         }
     }];
+}
+- (void)requsetGoods{
+    [[IAPManager sharedManager] requestGoods];
 }
 @end

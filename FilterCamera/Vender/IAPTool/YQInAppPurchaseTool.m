@@ -105,11 +105,10 @@ static YQInAppPurchaseTool *storeTool;
  */
 - (void)buyProduct:(NSString *)productID
 {
+    [SVProgressHUD showWithStatus:nil];
     SKProduct *product = self.productDict[productID];
-    
     // 要购买产品(店员给用户开了个小票)
     SKPayment *payment = [SKPayment paymentWithProduct:product];
-    
     // 去收银台排队，准备购买(异步网络)
     [[SKPaymentQueue defaultQueue] addPayment:payment];
 }
@@ -130,7 +129,7 @@ static YQInAppPurchaseTool *storeTool;
         // 如果小票状态是购买完成
         if (SKPaymentTransactionStatePurchased == transaction.transactionState) {
             //NSLog(@"购买完成 %@", transaction.payment.productIdentifier);
-            
+            [SVProgressHUD dismiss];
             if(self.CheckAfterPay){
                 //需要向苹果服务器验证一下
                 //通知代理
@@ -148,14 +147,14 @@ static YQInAppPurchaseTool *storeTool;
             
         } else if (SKPaymentTransactionStateRestored == transaction.transactionState) {
             //NSLog(@"恢复成功 :%@", transaction.payment.productIdentifier);
-            
+            [SVProgressHUD dismiss];
             // 通知代理
             [self.delegate IAPToolRestoredProductID:transaction.payment.productIdentifier];
             
             // 将交易从交易队列中删除
             [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
         } else if (SKPaymentTransactionStateFailed == transaction.transactionState){
-            
+            [SVProgressHUD dismiss];
             // 将交易从交易队列中删除
             [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
             //NSLog(@"交易失败");
@@ -167,6 +166,7 @@ static YQInAppPurchaseTool *storeTool;
         }else{
             NSLog(@"state:%ld",(long)transaction.transactionState);
             NSLog(@"已经购买");
+            [SVProgressHUD dismiss];
             // 将交易从交易队列中删除
             [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
         }

@@ -27,13 +27,7 @@
 - (instancetype)init{
     if(self = [super init]){
         self.backgroundColor = HEX_COLOR(0x252525);
-        
-        if (![StdUserDefault objectForKey:PayIDString]) {
-            NSMutableArray *array = @[@"COCOID1",@"COCOID2",@"COCOID3",@"COCOID4"].mutableCopy;
-            [StdUserDefault setObject:array forKey:PayIDString];
-            [StdUserDefault synchronize];
-        }
-        
+                
         _filterModleArray = [LUTFilterGroupModel getLUTFilterGroupArrayWithPath:[LUTBUNDLE stringByAppendingPathComponent:@"LUTSource/Filter.json"]];
         _itemSelectArray = @[].mutableCopy;
         for (NSInteger i=0; i<_filterModleArray.count; i++) {
@@ -41,7 +35,11 @@
         }
         self.lastIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         [self addCollectionView];
-      
+        @weakify(self);
+        [RACObserve([IAPManager sharedManager], productArray) subscribeNext:^(id  _Nullable x) {
+            @strongify(self);
+            self.productArray = x;
+        }];
     }
     return self;
 }
@@ -143,13 +141,14 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     LUTFilterGroupModel *model = _filterModleArray[indexPath.row];
     
+    //已本地保存为准，在ipamanager里面查找productArray 里面是否有SKProduct，如果没有则未请求到内购商品给个提示“稍后尝试”
+    //
     NSMutableArray *payIDArray = [StdUserDefault objectForKey:PayIDString];
     NSString *payStr = model.payID;
     if ([payIDArray containsObject:payStr]) {
-        [SVProgressHUD showWithStatus:@"需要购买"];
         for (SKProduct *product in self.productArray) {
             if ([product.productIdentifier isEqualToString:payStr]) {
-                [self BuyProduct:product];
+                [[IAPManager sharedManager] BuyProduct:product];
             }
         }
     }else{
@@ -174,9 +173,5 @@
     
 }
 
-//购买商品
--(void)BuyProduct:(SKProduct *)product{
-    [SVProgressHUD showWithStatus:@"正在购买商品"];
-    [[YQInAppPurchaseTool defaultTool]buyProduct:product.productIdentifier];
-}
+
 @end

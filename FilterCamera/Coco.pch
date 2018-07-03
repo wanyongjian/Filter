@@ -33,4 +33,6 @@
 #import "FontTool.h"
 #import "YQInAppPurchaseTool.h"
 #import "SVProgressHUD.h"
+#import "IAPManager.h"
+#import "ShowHud.h"
 #endif /* Coco_pch */

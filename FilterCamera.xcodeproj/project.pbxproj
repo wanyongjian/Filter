@@ -203,6 +203,8 @@
 		21D37DBE20D88C60001E7042 /* arrowDown@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21D37DBD20D88C5F001E7042 /* arrowDown@3x.png */; };
 		2210509D20CFFA4100AB0D9C /* COPhotoItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */; };
 		221050A020D0111D00AB0D9C /* GPUCommonLUTFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509F20D0111D00AB0D9C /* GPUCommonLUTFilter.m */; };
+		2224CCE320EBB6E700199633 /* IAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224CCE220EBB6E700199633 /* IAPManager.m */; };
+		2224CCE620EBC14000199633 /* ShowHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224CCE520EBC14000199633 /* ShowHud.m */; };
 		223ACB7E20E8D07500F73549 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 223ACB7D20E8D07400F73549 /* back.png */; };
 		228546DB20C4080000F22E3D /* LUTSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 228546DA20C4080000F22E3D /* LUTSource.bundle */; };
 		22A3E2BE20D6A1EE00F3B46B /* amatorka2.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A3E2B920D6A1EE00F3B46B /* amatorka2.png */; };
@@ -521,6 +523,10 @@
 		2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COPhotoItemController.m; sourceTree = "<group>"; };
 		2210509E20D0111D00AB0D9C /* GPUCommonLUTFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUCommonLUTFilter.h; sourceTree = "<group>"; };
 		2210509F20D0111D00AB0D9C /* GPUCommonLUTFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUCommonLUTFilter.m; sourceTree = "<group>"; };
+		2224CCE120EBB6E700199633 /* IAPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAPManager.h; sourceTree = "<group>"; };
+		2224CCE220EBB6E700199633 /* IAPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAPManager.m; sourceTree = "<group>"; };
+		2224CCE420EBC14000199633 /* ShowHud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowHud.h; sourceTree = "<group>"; };
+		2224CCE520EBC14000199633 /* ShowHud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowHud.m; sourceTree = "<group>"; };
 		223ACB7D20E8D07400F73549 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		228546DA20C4080000F22E3D /* LUTSource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LUTSource.bundle; sourceTree = "<group>"; };
 		22A3E2B920D6A1EE00F3B46B /* amatorka2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amatorka2.png; sourceTree = "<group>"; };
@@ -580,6 +586,10 @@
 			children = (
 				21337D9820EB460000876E10 /* YQInAppPurchaseTool.h */,
 				21337D9920EB460000876E10 /* YQInAppPurchaseTool.m */,
+				2224CCE120EBB6E700199633 /* IAPManager.h */,
+				2224CCE220EBB6E700199633 /* IAPManager.m */,
+				2224CCE420EBC14000199633 /* ShowHud.h */,
+				2224CCE520EBC14000199633 /* ShowHud.m */,
 			);
 			path = IAPTool;
 			sourceTree = "<group>";
@@ -1681,6 +1691,7 @@
 			files = (
 				21ACA54120E206FC00943F95 /* RTCameraPreviewViewController.m in Sources */,
 				21570DF020BB9145002585CB /* FWSixInputFilter.m in Sources */,
+				2224CCE620EBC14000199633 /* ShowHud.m in Sources */,
 				2179F36A20BD078900B73822 /* FWToasterFilter.m in Sources */,
 				2179F36320BD078900B73822 /* FWSutroFilter.m in Sources */,
 				21B361F020D39D8A00EF7F3A /* FilterModel.m in Sources */,
@@ -1722,6 +1733,7 @@
 				21570DFF20BB9145002585CB /* CustomSketchFilter.m in Sources */,
 				21ACA54220E206FC00943F95 /* RTCameraViewController.m in Sources */,
 				21ACA57720E207A100943F95 /* UIView+Geometry.m in Sources */,
+				2224CCE320EBB6E700199633 /* IAPManager.m in Sources */,
 				21ACA54520E206FC00943F95 /* RTShortVideoViewController.m in Sources */,
 				21ACA56920E206FC00943F95 /* RTAlbumTableViewCell.m in Sources */,
 				2179F34420BD078900B73822 /* FWHefeFilter.m in Sources */,
