@@ -44,7 +44,12 @@ typedef void(^cameraPermit)(BOOL value);
     
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.mas_equalTo(self.view);
-        make.height.mas_equalTo(TopOffset+TopFunctionHeight);
+        if (iPhoneX) {
+            make.height.mas_equalTo(TopOffset+TopFunctionHeight+25);
+        }else{
+            make.height.mas_equalTo(TopOffset+TopFunctionHeight);
+        }
+        
     }];
     
     [self.imageButton mas_makeConstraints:^(MASConstraintMaker *make) {

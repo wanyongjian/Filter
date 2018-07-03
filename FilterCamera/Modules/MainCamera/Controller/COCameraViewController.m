@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 @interface COCameraViewController () <RTImagePickerViewControllerDelegate>
 {
 }
-
+@property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) COStillCamera *stillCamera;
 @property (nonatomic, strong) COStillCameraPreview *imageView;
 @property (nonatomic, strong) COCameraFilterView *cameraFilterView;
@@ -219,18 +219,35 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     }];
 }
 - (void)setInitData{
-    self.ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"],@[@"9:16",@"1.78"]].mutableCopy;
+    CGFloat fullRatio = kScreenHeight/kScreenWidth;
+    NSString *ratio = [NSString stringWithFormat:@"%f",fullRatio];
+    self.ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"],@[@"Full",ratio]].mutableCopy;
     self.currentCameraViewRatio = 1.33;
     self.currentTorchModel = AVCaptureTorchModeOff;
 }
 - (void)setCameraUI{
     weakSelf();
+    self.containerView = [[UIView alloc]init];
+    self.containerView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.containerView];
+    if (iPhoneX) {
+        [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.view).offset(45);
+            make.left.right.mas_equalTo(self.view);
+            make.bottom.mas_equalTo(self.view).offset(-22);
+        }];
+    }else{
+        [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(self.view);
+        }];
+    }
+    
     self.passFilter = [[GPUImageFilter alloc]init];
     _imageView = [[COStillCameraPreview alloc]init];
     _imageView.fillMode = kGPUImageFillModePreserveAspectRatioAndFill;
-    [self.view addSubview:_imageView];
+    [self.containerView addSubview:_imageView];
     [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.mas_equalTo(self.view);
+        make.top.left.right.mas_equalTo(self.containerView);
         make.height.mas_equalTo(SCREEN_WIDTH*(4.0/3.0));
     }];
 
@@ -242,7 +259,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [scaleButton setTitleColor:HEX_COLOR(0xffffff) forState:UIControlStateNormal];
     
     self.scaleBtn = scaleButton;
-    [self.view addSubview:scaleButton];
+    [self.containerView addSubview:scaleButton];
     [scaleButton mas_makeConstraints:^(MASConstraintMaker *make) {
         CGFloat btnWidth = 34;
         CGFloat x = SCREEN_WIDTH/2.0-btnWidth/2.0;
@@ -264,7 +281,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     UIButton *rotateBtn = [[ShakeButton alloc]init];
     [rotateBtn setBackgroundImage:[UIImage imageNamed:@"invertCam_ffffff"] forState:UIControlStateNormal];
     self.rotateBtn = rotateBtn;
-    [self.view addSubview:rotateBtn];
+    [self.containerView addSubview:rotateBtn];
     [self.rotateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         CGFloat btnWidth = 34;
         make.width.height.mas_equalTo(btnWidth);
@@ -279,7 +296,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     UIButton *lightBtn = [[ShakeButton alloc]init];
     [lightBtn setBackgroundImage:[UIImage imageNamed:@"lightWhiteNormal_ffffff"] forState:UIControlStateNormal];
     [lightBtn setBackgroundImage:[UIImage imageNamed:@"lightWhiteSelect_ffffff"] forState:UIControlStateSelected];
-    [self.view addSubview:lightBtn];
+    [self.containerView addSubview:lightBtn];
     self.lightBtn = lightBtn;
     [self.lightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         CGFloat btnWidth = 34;
@@ -308,7 +325,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [filterBtn setBackgroundImage:[UIImage imageNamed:@"filter_btn_707070"] forState:UIControlStateNormal];
 //    [filterBtn setImage:[UIImage imageNamed:@"qmkit_fiter_btn"] forState:UIControlStateHighlighted];
     self.filterBtn = filterBtn;
-    [self.view addSubview:filterBtn];
+    [self.containerView addSubview:filterBtn];
     [filterBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.mas_equalTo(kFilterBtnWidth);
         CGFloat x = kScreenWidth*(1-1/4.0)-kFilterBtnWidth/2+15;
@@ -321,16 +338,16 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     _cameraFilterView = [[COCameraFilterView alloc]init];
     
     [[filterBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [wself.cameraFilterView toggleInView:wself.view];
+        [wself.cameraFilterView toggleInView:wself.containerView];
     }];
     //拍照按钮
     UIButton *button = [[UIButton alloc]init];
     [button setBackgroundImage:[UIImage imageNamed:@"takePhoto_btn"] forState:UIControlStateNormal];
 //    [button setBackgroundImage:[UIImage imageNamed:@"qmkit_takephoto_btn"] forState:UIControlStateHighlighted];
-    [self.view addSubview:button];
+    [self.containerView addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.mas_equalTo(kCameraTakePhotoIconSize);
-        make.centerX.mas_equalTo(self.view);
+        make.centerX.mas_equalTo(self.containerView);
         make.centerY.mas_equalTo(filterBtn);
     }];
     [[button rac_signalForControlEvents:UIControlEventTouchDown] subscribeNext:^(__kindof UIControl * _Nullable x) {
@@ -343,7 +360,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     picBtn.layer.cornerRadius = kCameraPhotoBtnIconSize/2;
     picBtn.layer.borderColor = [UIColor clearColor].CGColor;
     picBtn.layer.masksToBounds = YES;
-    [self.view addSubview:picBtn];
+    [self.containerView addSubview:picBtn];
     _photoBtn = picBtn;
     [picBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(picBtnWidth);
@@ -420,10 +437,10 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         case CameraRatioType43:{
             [UIView animateWithDuration:0.4 animations:^{
                 [self.imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-                    make.top.left.right.mas_equalTo(self.view);
+                    make.top.left.right.mas_equalTo(self.containerView);
                     make.height.mas_equalTo(height);
                 }];
-                [self.view layoutIfNeeded];
+                [self.containerView layoutIfNeeded];
             }];
             
             [self.rotateBtn setBackgroundImage:[UIImage imageNamed:@"invertCam_ffffff"] forState:UIControlStateNormal];
@@ -437,11 +454,11 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         case CameraRatioType11:{
             [UIView animateWithDuration:0.4 animations:^{
                 [self.imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-                    make.left.right.mas_equalTo(self.view);
-                    make.top.mas_equalTo(self.view).mas_offset(TopOffset+TopFunctionHeight);
+                    make.left.right.mas_equalTo(self.containerView);
+                    make.top.mas_equalTo(self.containerView).mas_offset(TopOffset+TopFunctionHeight);
                     make.height.mas_equalTo(height);
                 }];
-                [self.view layoutIfNeeded];
+                [self.containerView layoutIfNeeded];
             }];
             [self.rotateBtn setBackgroundImage:[UIImage imageNamed:@"invertCam_707070"] forState:UIControlStateNormal];
             [self.filterBtn setBackgroundImage:[UIImage imageNamed:@"filter_btn_707070"] forState:UIControlStateNormal];
@@ -454,11 +471,11 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         case CameraRatioType916:{
             [UIView animateWithDuration:0.4 animations:^{
                 [self.imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-                    make.left.right.mas_equalTo(self.view);
-                    make.top.mas_equalTo(self.view);
-                    make.height.mas_equalTo(height);
+                    make.left.right.mas_equalTo(self.containerView);
+                    make.top.mas_equalTo(self.containerView);
+                    make.bottom.mas_equalTo(self.containerView);
                 }];
-                [self.view layoutIfNeeded];
+                [self.containerView layoutIfNeeded];
             }];
             [self.rotateBtn setBackgroundImage:[UIImage imageNamed:@"invertCam_ffffff"] forState:UIControlStateNormal];
             [self.filterBtn setBackgroundImage:[UIImage imageNamed:@"filter_btn_ffffff"] forState:UIControlStateNormal];

@@ -149,9 +149,10 @@ static NSString * const reuseIdentifier = @"AssetCell";
     if(self.fetchResult) {
         if (self.fetchResult.count > 0 && !self.disableScrollToBottom) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:(self.fetchResult.count - 1) inSection:0];
+            [self.view layoutIfNeeded];
             [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:animated];
         }
-    }
+    }    
 }
 - (void)viewWillDisappear:(BOOL)animated
 {

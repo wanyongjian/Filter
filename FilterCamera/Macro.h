@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger,SelectFilterType){
 #define kFilterBtnWidth 35
 #define kCameraTakePhotoIconSize   85
 #define kCameraPhotoBtnIconSize   50
-#define TopOffset (iPhoneX ? 45 : 20)
+#define TopOffset (20)
 #define TopFunctionHeight 40
 
 #define COGreenColor HEX_COLOR(0x00c8ff)

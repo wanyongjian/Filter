@@ -109,8 +109,9 @@ static CGContextRef CreateRGBABitmapContextWithCGImage(CGImageRef aCGImage)
     if (ratioHeight <= height) {
         rect = CGRectMake(0, height/2 - ratioHeight/2, width, ratioHeight);
     }else {
-        CGFloat ratioWidth = height/ratio;
-        rect = CGRectMake(width/2-ratioWidth/2, 0, ratioWidth, height);
+//        CGFloat ratioWidth = height/ratio;
+//        rect = CGRectMake(width/2-ratioWidth/2, 0, ratioWidth, height);
+        rect = CGRectMake(0, 0, width, height);
     }
     return [UIImage clipImageFromImageOrientaion:image withRect:rect];
 }

@@ -72,7 +72,7 @@
         make.edges.mas_equalTo(_scrollView);
         make.height.mas_equalTo(_scrollView.mas_height);
     }];
-    
+
     UIView *lastView;
     for (NSInteger i=0; i<_filterModleArray.count; i++) {
         FilterModel *model = _filterModleArray[i];
