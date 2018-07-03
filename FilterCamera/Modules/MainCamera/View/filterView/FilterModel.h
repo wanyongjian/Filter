@@ -25,6 +25,7 @@
 @property (nonatomic, strong)NSString *path;
 @property (nonatomic, strong)NSString *imagePath;
 @property (nonatomic, strong)NSString *filterImgPath;//滤镜展示图片
+@property (nonatomic, strong)NSString *payID;//滤镜展示图片
 + (NSArray <LUTFilterGroupModel *>*)getLUTFilterGroupArrayWithPath:(NSString *)path;
 @end
 

@@ -41,7 +41,8 @@ typedef NS_ENUM(NSInteger,SelectFilterType){
 
 #define LUTBUNDLE [[NSBundle mainBundle] pathForResource:@"LUTSource" ofType:@"bundle"]
 
-
+#define PayIDString (@"COCOPayIDString")
+#define StdUserDefault [NSUserDefaults standardUserDefaults]
 #define kCameraViewBottomBGHeight   ((kScreenHeight)-(kScreenWidth)*(4.0f/3.0f))
 #define kFilterBtnWidth 35
 #define kCameraTakePhotoIconSize   85
@@ -57,4 +58,5 @@ typedef NS_ENUM(NSInteger,SelectFilterType){
 #define kCameraFilterCollectionImageViewTag       100
 #define kCameraFilterCollectionLabelTag           101
 #define kCameraFilterCollectionMaskViewTag        102
+#define kCameraFilterCollectionPayImageViewTag       103
 #endif /* Macro_h */

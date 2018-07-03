@@ -31,4 +31,6 @@
 #import "TZImagePickerController.h"
 #import "AFNetworking.h"
 #import "FontTool.h"
+#import "YQInAppPurchaseTool.h"
+#import "SVProgressHUD.h"
 #endif /* Coco_pch */

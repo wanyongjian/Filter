@@ -78,6 +78,7 @@
         model.path = dict[@"path"];
         model.imagePath = dict[@"imagePath"];
         model.filterImgPath = dict[@"filterImgPath"];
+        model.payID = dict[@"payID"];
         [FilterArray addObject:model];
     }
     return FilterArray;

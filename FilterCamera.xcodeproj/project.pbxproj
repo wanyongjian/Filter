@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21337D9A20EB460000876E10 /* YQInAppPurchaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 21337D9920EB460000876E10 /* YQInAppPurchaseTool.m */; };
+		21337D9C20EB693800876E10 /* buy.png in Resources */ = {isa = PBXBuildFile; fileRef = 21337D9B20EB693700876E10 /* buy.png */; };
 		2147A8B820D0CD0200504434 /* UIImage+compress.m in Sources */ = {isa = PBXBuildFile; fileRef = 2147A8B720D0CD0200504434 /* UIImage+compress.m */; };
 		214A239120E4775A00961127 /* takePhoto_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 214A239020E4775A00961127 /* takePhoto_btn@3x.png */; };
 		214A239520E47C7D00961127 /* filter_btn_9e9e9e@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 214A239420E47C7D00961127 /* filter_btn_9e9e9e@3x.png */; };
@@ -238,6 +240,9 @@
 
 /* Begin PBXFileReference section */
 		1615DFB7149362BBBCE8FCD7 /* Pods-FilterCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilterCamera.release.xcconfig"; path = "Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera.release.xcconfig"; sourceTree = "<group>"; };
+		21337D9820EB460000876E10 /* YQInAppPurchaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQInAppPurchaseTool.h; sourceTree = "<group>"; };
+		21337D9920EB460000876E10 /* YQInAppPurchaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQInAppPurchaseTool.m; sourceTree = "<group>"; };
+		21337D9B20EB693700876E10 /* buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy.png; sourceTree = "<group>"; };
 		2147A8B620D0CD0200504434 /* UIImage+compress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+compress.h"; sourceTree = "<group>"; };
 		2147A8B720D0CD0200504434 /* UIImage+compress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+compress.m"; sourceTree = "<group>"; };
 		214A239020E4775A00961127 /* takePhoto_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "takePhoto_btn@3x.png"; sourceTree = "<group>"; };
@@ -570,6 +575,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21337D9720EB460000876E10 /* IAPTool */ = {
+			isa = PBXGroup;
+			children = (
+				21337D9820EB460000876E10 /* YQInAppPurchaseTool.h */,
+				21337D9920EB460000876E10 /* YQInAppPurchaseTool.m */,
+			);
+			path = IAPTool;
+			sourceTree = "<group>";
+		};
 		2147A8B520D0CC9100504434 /* CompressImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -588,6 +602,7 @@
 		214AB80C20BFBE8C00D4B73C /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				21337D9720EB460000876E10 /* IAPTool */,
 				21ACA57220E207A100943F95 /* UIView */,
 				21ACA4EA20E206FC00943F95 /* RTImagePicker */,
 				21ACA4E620E1ED7700943F95 /* PHAsset */,
@@ -843,6 +858,7 @@
 		21570E1D20BBDFEA002585CB /* IconButton */ = {
 			isa = PBXGroup;
 			children = (
+				21337D9B20EB693700876E10 /* buy.png */,
 				214A23C320E4DE0E00961127 /* can_btn_normal.png */,
 				214A23C420E4DE0E00961127 /* can_btn_select.png */,
 				214A23BF20E4DDD900961127 /* select_btn_normal.png */,
@@ -1363,7 +1379,6 @@
 				21570CF920BB8D8B002585CB /* Frameworks */,
 				21570CFA20BB8D8B002585CB /* Resources */,
 				3423209EE795D7CFE36CA79D /* [CP] Copy Pods Resources */,
-				B43D65B96E0C25634889F906 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1511,6 +1526,7 @@
 				21ACA55820E206FC00943F95 /* rtimagepicker_send_unselected@2x.png in Resources */,
 				2179F35920BD078900B73822 /* config.json in Resources */,
 				21ACA55220E206FC00943F95 /* rtimagepicker_flash_on@2x.png in Resources */,
+				21337D9C20EB693800876E10 /* buy.png in Resources */,
 				21ACA54620E206FC00943F95 /* rtimagepicker_arrow@2x.png in Resources */,
 				2179F37720BD078900B73822 /* waldenMap.png in Resources */,
 				2179F33720BD078900B73822 /* brannanLuma.png in Resources */,
@@ -1638,6 +1654,7 @@
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1647,26 +1664,12 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B43D65B96E0C25634889F906 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1709,6 +1712,7 @@
 				21ACA56820E206FC00943F95 /* VIMVideoPlayerView.m in Sources */,
 				221050A020D0111D00AB0D9C /* GPUCommonLUTFilter.m in Sources */,
 				21ACA54020E206FC00943F95 /* RTAssetCollectionViewController.m in Sources */,
+				21337D9A20EB460000876E10 /* YQInAppPurchaseTool.m in Sources */,
 				21CBBA1F20C0F50E00C5AC30 /* COBaseNavigationController.m in Sources */,
 				21ACA56620E206FC00943F95 /* UIImage+RTImagePickerPhotoBrowser.m in Sources */,
 				21570DEF20BB9145002585CB /* FWFiveInputFilter.m in Sources */,

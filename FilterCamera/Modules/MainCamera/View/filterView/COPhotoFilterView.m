@@ -28,6 +28,12 @@
     if(self = [super init]){
         self.backgroundColor = HEX_COLOR(0x252525);
         
+        if (![StdUserDefault objectForKey:PayIDString]) {
+            NSMutableArray *array = @[@"COCOID1",@"COCOID2",@"COCOID3",@"COCOID4"].mutableCopy;
+            [StdUserDefault setObject:array forKey:PayIDString];
+            [StdUserDefault synchronize];
+        }
+        
         _filterModleArray = [LUTFilterGroupModel getLUTFilterGroupArrayWithPath:[LUTBUNDLE stringByAppendingPathComponent:@"LUTSource/Filter.json"]];
         _itemSelectArray = @[].mutableCopy;
         for (NSInteger i=0; i<_filterModleArray.count; i++) {
@@ -35,10 +41,17 @@
         }
         self.lastIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         [self addCollectionView];
+      
     }
     return self;
 }
 
+-(NSMutableArray *)productArray{
+    if(!_productArray){
+        _productArray = [NSMutableArray array];
+    }
+    return _productArray;
+}
 - (UICollectionViewFlowLayout *)collectionViewForFlowLayout
 {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -83,7 +96,26 @@
         [cell.contentView addSubview:imageView];
     }
     imageView.image = [UIImage imageWithContentsOfFile:[LUTBUNDLE stringByAppendingPathComponent:model.filterImgPath]];
-                                                         
+    
+    UIImageView *payImg = [cell.contentView viewWithTag:kCameraFilterCollectionPayImageViewTag];
+    if (!payImg) {
+        UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
+        CGRect rect = CGRectMake(layout.itemSize.width-30,kGreenLineWidth, 30, 30);
+        payImg = [[UIImageView alloc] initWithFrame:rect];
+        payImg.tag = kCameraFilterCollectionPayImageViewTag;
+        payImg.contentMode = UIViewContentModeScaleAspectFill;
+        payImg.clipsToBounds = YES;
+        payImg.image = [UIImage imageNamed:@"buy"];
+        [cell.contentView addSubview:payImg];
+    }
+    NSMutableArray *payIDArray = [StdUserDefault objectForKey:PayIDString];
+    NSString *payStr = model.payID;
+    if ([payIDArray containsObject:payStr]) {
+        payImg.hidden = NO;
+    }else{
+        payImg.hidden = YES;
+    }
+    
     UILabel *label = [cell.contentView viewWithTag:kCameraFilterCollectionLabelTag];
     if (!label) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
@@ -106,26 +138,45 @@
         cell.backgroundColor = [UIColor clearColor];
     }
     return cell;
-    return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-    [self.collectionView reloadData]; //解决cell 划出屏幕取出未空，无法取消选中状态BUG
-    UICollectionViewCell *lastCell = [collectionView cellForItemAtIndexPath:self.lastIndexPath];
-    if (lastCell) {
-        lastCell.backgroundColor = [UIColor clearColor];
-    }
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = COGreenColor;
-    
     LUTFilterGroupModel *model = _filterModleArray[indexPath.row];
-    if(self.filterClick){
-        self.filterClick(model);
+    
+    NSMutableArray *payIDArray = [StdUserDefault objectForKey:PayIDString];
+    NSString *payStr = model.payID;
+    if ([payIDArray containsObject:payStr]) {
+        [SVProgressHUD showWithStatus:@"需要购买"];
+        for (SKProduct *product in self.productArray) {
+            if ([product.productIdentifier isEqualToString:payStr]) {
+                [self BuyProduct:product];
+            }
+        }
+    }else{
+        [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+        [self.collectionView reloadData]; //解决cell 划出屏幕取出未空，无法取消选中状态BUG
+        UICollectionViewCell *lastCell = [collectionView cellForItemAtIndexPath:self.lastIndexPath];
+        if (lastCell) {
+            lastCell.backgroundColor = [UIColor clearColor];
+        }
+        UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+        cell.backgroundColor = COGreenColor;
+        
+        
+        if(self.filterClick){
+            self.filterClick(model);
+        }
+        
+        [_itemSelectArray replaceObjectAtIndex:self.lastIndexPath.row withObject:@(NO)];
+        [_itemSelectArray replaceObjectAtIndex:indexPath.row withObject:@(YES)];
+        self.lastIndexPath = indexPath;
     }
     
-    [_itemSelectArray replaceObjectAtIndex:self.lastIndexPath.row withObject:@(NO)];
-    [_itemSelectArray replaceObjectAtIndex:indexPath.row withObject:@(YES)];
-    self.lastIndexPath = indexPath;
+}
+
+//购买商品
+-(void)BuyProduct:(SKProduct *)product{
+    [SVProgressHUD showWithStatus:@"正在购买商品"];
+    [[YQInAppPurchaseTool defaultTool]buyProduct:product.productIdentifier];
 }
 @end

@@ -24,6 +24,7 @@ PODS:
   - SDWebImage (4.2.2):
     - SDWebImage/Core (= 4.2.2)
   - SDWebImage/Core (4.2.2)
+  - SVProgressHUD (2.2.5)
   - TZImagePickerController (2.1.5)
 
 DEPENDENCIES:
@@ -34,7 +35,21 @@ DEPENDENCIES:
   - MLeaksFinder
   - ReactiveObjC
   - SDWebImage
+  - SVProgressHUD
   - TZImagePickerController
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - FBRetainCycleDetector
+    - GPUImage
+    - Masonry
+    - MBProgressHUD
+    - MLeaksFinder
+    - ReactiveObjC
+    - SDWebImage
+    - SVProgressHUD
+    - TZImagePickerController
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -45,8 +60,9 @@ SPEC CHECKSUMS:
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
   ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TZImagePickerController: e60a73665cf665c18abd45cdf48e912094eefff5
 
-PODFILE CHECKSUM: bbcec0d574f675078f529e3f0587444c865807d1
+PODFILE CHECKSUM: e83c93498360240624f9300c1780c622e7a5cb61
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3
