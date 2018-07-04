@@ -52,7 +52,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Modules/MainCamera/Controller/COPhotoDisplayController.m"
-            timestampString = "552322520.570137"
+            timestampString = "552401629.837494"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
@@ -68,7 +68,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Modules/MainCamera/Controller/COCameraViewController.m"
-            timestampString = "552322520.570616"
+            timestampString = "552401629.8379641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "292"
@@ -116,7 +116,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Modules/MainCamera/View/filterView/COPhotoFilterView.m"
-            timestampString = "552322520.571101"
+            timestampString = "552397309.888114"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
@@ -132,7 +132,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Modules/MainCamera/View/filterView/COPhotoFilterView.m"
-            timestampString = "552322520.571189"
+            timestampString = "552397309.8884929"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -148,11 +148,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/IAPManager.m"
-            timestampString = "552322520.5712709"
+            timestampString = "552398190.832894"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
             endingLineNumber = "86"
+            landmarkName = "-IAPToolGotProducts:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FilterCamera/Vender/IAPTool/IAPManager.m"
+            timestampString = "552398190.832993"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "-IAPToolGotProducts:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FilterCamera/Vender/IAPTool/IAPManager.m"
+            timestampString = "552398190.833083"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "-IAPToolCanceldWithProductID:"
             landmarkType = "7">
          </BreakpointContent>
@@ -164,43 +196,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/IAPManager.m"
-            timestampString = "552322520.571683"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "-IAPToolBeginCheckingdWithProductID:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FilterCamera/Vender/IAPTool/IAPManager.m"
-            timestampString = "552322520.572026"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "-IAPToolCheckRedundantWithProductID:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FilterCamera/Vender/IAPTool/IAPManager.m"
-            timestampString = "552322520.572366"
+            timestampString = "552398190.833174"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
             endingLineNumber = "106"
+            landmarkName = "IAPManager"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FilterCamera/Vender/IAPTool/IAPManager.m"
+            timestampString = "552398190.833263"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "-IAPToolBoughtProductSuccessedWithProductID:andInfo:"
             landmarkType = "7">
          </BreakpointContent>
@@ -212,28 +228,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/IAPManager.m"
-            timestampString = "552322520.572703"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "-IAPToolCheckFailedWithProductID:andInfo:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FilterCamera/Vender/IAPTool/IAPManager.m"
-            timestampString = "552322520.573107"
+            timestampString = "552398190.833352"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
             endingLineNumber = "122"
-            landmarkName = "-IAPToolRestoredProductID:"
+            landmarkName = "-IAPToolBoughtProductSuccessedWithProductID:andInfo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -244,12 +244,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/IAPManager.m"
-            timestampString = "552322520.573557"
+            timestampString = "552398190.8334399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "127"
             endingLineNumber = "127"
-            landmarkName = "-IAPToolSysWrong"
+            landmarkName = "-IAPToolBoughtProductSuccessedWithProductID:andInfo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -260,7 +260,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "552322520.573917"
+            timestampString = "552401629.838643"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "165"
@@ -276,7 +276,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "552322520.574347"
+            timestampString = "552401629.838993"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "159"
@@ -292,7 +292,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "552322520.5746779"
+            timestampString = "552401629.839276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "152"
@@ -308,7 +308,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "552322520.575006"
+            timestampString = "552401629.839555"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
