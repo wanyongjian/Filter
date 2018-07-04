@@ -13,5 +13,5 @@ typedef void (^filterClickBlock)(LUTFilterGroupModel *model);
 
 @interface COPhotoFilterView : UIView
 @property (nonatomic,copy) filterClickBlock filterClick;
-@property (nonatomic,strong) NSMutableArray *productArray;
+//@property (nonatomic,strong) NSMutableArray *productArray;
 @end

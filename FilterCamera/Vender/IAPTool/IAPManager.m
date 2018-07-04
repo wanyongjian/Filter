@@ -27,6 +27,7 @@
 -(void)BuyProduct:(SKProduct *)product{
     
     [[YQInAppPurchaseTool defaultTool]buyProduct:product.productIdentifier];
+    
 }
 
 - (void)requestGoods{
@@ -37,9 +38,10 @@
     IAPTool.delegate = self;
     
     //购买后，向苹果服务器验证一下购买结果。默认为YES。不建议关闭
-    //IAPTool.CheckAfterPay = NO;
+    IAPTool.CheckAfterPay = NO;
     
-    [SVProgressHUD showWithStatus:@"向苹果询问哪些商品能够购买"];
+//    [SVProgressHUD showWithStatus:@"向苹果询问哪些商品能够购买"];
+//    [ShowHud withText:@"请求购买商品列表" duration:1.5];
     
     //向苹果询问哪些商品能够购买
     [IAPTool requestProductsWithProductArray:@[@"COCOID1",
@@ -52,6 +54,7 @@
         [StdUserDefault setObject:array forKey:PayIDString];
         [StdUserDefault synchronize];
     }
+//    [self restoreGoods];
 }
 
 -(NSMutableArray *)productArray{
@@ -77,7 +80,16 @@
     self.productArray = products;
     //    [self.tabV reloadData];
     
-    [SVProgressHUD showSuccessWithStatus:@"成功获取到可购买的商品"];
+//    NSMutableArray *array = @[].mutableCopy;
+//    for (SKProduct *product in self.productArray) {
+//        NSString *payID = product.productIdentifier;
+//        [array addObject:payID];
+//    }
+//    [StdUserDefault setObject:array forKey:PayIDString];
+//    [StdUserDefault synchronize];
+//    [self.updateSignal sendNext:nil];
+//    [SVProgressHUD showSuccessWithStatus:@"成功获取到可购买的商品"];
+//    [ShowHud withText:@"成功获取到可购买的商品" duration:1.5];
 }
 //支付失败/取消
 -(void)IAPToolCanceldWithProductID:(NSString *)productID {
@@ -102,8 +114,23 @@
                                           andInfo:(NSDictionary *)infoDic {
     NSLog(@"BoughtSuccessed:%@",productID);
     NSLog(@"successedInfo:%@",infoDic);
+    SKProduct *tempProduct;
+    for (SKProduct *product in self.productArray) {
+        if ([product.productIdentifier isEqualToString:productID]) {
+            tempProduct = product;
+        };
+    }
+    if ([self.productArray containsObject:tempProduct]) {
+        [self.productArray removeObject:tempProduct];
+    }
     
-    [SVProgressHUD showSuccessWithStatus:@"购买成功！(相关信息已打印)"];
+    NSMutableArray *goodsArray = [NSMutableArray arrayWithArray:[StdUserDefault objectForKey:PayIDString]];
+    if ([goodsArray containsObject:productID]) {
+        [goodsArray removeObject:productID];
+    }
+    [StdUserDefault setObject:goodsArray forKey:PayIDString];
+    [StdUserDefault synchronize];
+    [self.updateSignal sendNext:nil];
 }
 //商品购买成功了，但向苹果服务器验证失败了
 //2种可能：
@@ -113,17 +140,47 @@
                                andInfo:(NSData *)infoData {
     NSLog(@"CheckFailed:%@",productID);
     
-    [SVProgressHUD showErrorWithStatus:@"验证失败了"];
+//    [SVProgressHUD showErrorWithStatus:@"验证失败了"];
+    [ShowHud withText:@"验证失败" duration:1.5];
 }
 //恢复了已购买的商品（仅限永久有效商品）
 -(void)IAPToolRestoredProductID:(NSString *)productID {
     NSLog(@"Restored:%@",productID);
     
-    [SVProgressHUD showSuccessWithStatus:@"成功恢复了商品（已打印）"];
+    SKProduct *tempProduct;
+    for (SKProduct *product in self.productArray) {
+        if ([product.productIdentifier isEqualToString:productID]) {
+            tempProduct = product;
+        };
+    }
+    if ([self.productArray containsObject:tempProduct]) {
+        [self.productArray removeObject:tempProduct];
+    }
+    
+    
+    NSMutableArray *goodsArray = [NSMutableArray arrayWithArray:[StdUserDefault objectForKey:PayIDString]];
+    if ([goodsArray containsObject:productID]) {
+        [goodsArray removeObject:productID];
+    }
+    [StdUserDefault setObject:goodsArray forKey:PayIDString];
+    [StdUserDefault synchronize];
+    [self.updateSignal sendNext:nil];
+//    [SVProgressHUD showSuccessWithStatus:@"成功恢复了商品（已打印）"];
+    [ShowHud withText:@"恢复完成" duration:1.5];
 }
 //内购系统错误了
 -(void)IAPToolSysWrong {
     NSLog(@"SysWrong");
-    [SVProgressHUD showErrorWithStatus:@"内购系统出错"];
+//    [SVProgressHUD showErrorWithStatus:@"内购系统出错"];
+    [ShowHud withText:@"内购系统异常，请稍后重试" duration:1.5];
+}
+- (RACSubject *)updateSignal{
+    if (!_updateSignal) {
+        _updateSignal = [RACSubject subject];
+    }
+    return _updateSignal;
+}
+- (void)restoreGoods{
+    [[YQInAppPurchaseTool defaultTool] restorePurchase];
 }
 @end

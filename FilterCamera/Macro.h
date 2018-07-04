@@ -59,4 +59,6 @@ typedef NS_ENUM(NSInteger,SelectFilterType){
 #define kCameraFilterCollectionLabelTag           101
 #define kCameraFilterCollectionMaskViewTag        102
 #define kCameraFilterCollectionPayImageViewTag       103
+
+#define COCOAPPDelegate (AppDelegate *)[UIApplication sharedApplication].delegate
 #endif /* Macro_h */

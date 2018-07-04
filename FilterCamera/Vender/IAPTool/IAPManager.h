@@ -10,8 +10,9 @@
 
 @interface IAPManager : NSObject
 @property (nonatomic,strong) NSMutableArray *productArray;
-
+@property (nonatomic,strong) RACSubject *updateSignal;
 + (IAPManager *)sharedManager;
 - (void)requestGoods;
--(void)BuyProduct:(SKProduct *)product;
+- (void)BuyProduct:(SKProduct *)product;
+- (void)restoreGoods;
 @end

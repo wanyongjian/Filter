@@ -15,6 +15,7 @@
 
 #define kPhotoFilterCollectionViewCellID         @"PhotoFilterCollectionViewCellID"
 #define kCameraFilterCollectionMaskViewTag        102
+#define footViewIdentifier  @"footviewReuse"
 @interface COPhotoFilterView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic,strong) UICollectionView *collectionView;
@@ -35,21 +36,22 @@
         }
         self.lastIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         [self addCollectionView];
+        
         @weakify(self);
-        [RACObserve([IAPManager sharedManager], productArray) subscribeNext:^(id  _Nullable x) {
+        [[IAPManager sharedManager].updateSignal subscribeNext:^(id  _Nullable x) {
             @strongify(self);
-            self.productArray = x;
+            [self.collectionView reloadData];
         }];
     }
     return self;
 }
 
--(NSMutableArray *)productArray{
-    if(!_productArray){
-        _productArray = [NSMutableArray array];
-    }
-    return _productArray;
-}
+//-(NSMutableArray *)productArray{
+//    if(!_productArray){
+//        _productArray = [NSMutableArray array];
+//    }
+//    return _productArray;
+//}
 - (UICollectionViewFlowLayout *)collectionViewForFlowLayout
 {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -57,6 +59,7 @@
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.minimumLineSpacing = 5;
     layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+    layout.footerReferenceSize=CGSizeMake(40, kCameraFilterViewItemHeight);
     return layout;
 }
 
@@ -70,6 +73,9 @@
     collectionView.showsHorizontalScrollIndicator = NO;
     collectionView.backgroundColor = [UIColor clearColor];
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kPhotoFilterCollectionViewCellID];
+    [collectionView registerClass:[UICollectionReusableView class]
+       forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+              withReuseIdentifier:footViewIdentifier];
     [self addSubview:collectionView];
     
     _collectionView = collectionView;
@@ -95,23 +101,45 @@
     }
     imageView.image = [UIImage imageWithContentsOfFile:[LUTBUNDLE stringByAppendingPathComponent:model.filterImgPath]];
     
-    UIImageView *payImg = [cell.contentView viewWithTag:kCameraFilterCollectionPayImageViewTag];
-    if (!payImg) {
+//    UIImageView *payImg = [cell.contentView viewWithTag:kCameraFilterCollectionPayImageViewTag];
+//    if (!payImg) {
+//        UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
+//        CGRect rect = CGRectMake(layout.itemSize.width-30,kGreenLineWidth, 30, 30);
+//        payImg = [[UIImageView alloc] initWithFrame:rect];
+//        payImg.tag = kCameraFilterCollectionPayImageViewTag;
+//        payImg.contentMode = UIViewContentModeScaleAspectFill;
+//        payImg.clipsToBounds = YES;
+//        payImg.image = [UIImage imageNamed:@"buy"];
+//        [cell.contentView addSubview:payImg];
+//    }
+    UIView *payView = [cell.contentView viewWithTag:kCameraFilterCollectionPayImageViewTag];
+    if (!payView) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
-        CGRect rect = CGRectMake(layout.itemSize.width-30,kGreenLineWidth, 30, 30);
-        payImg = [[UIImageView alloc] initWithFrame:rect];
-        payImg.tag = kCameraFilterCollectionPayImageViewTag;
-        payImg.contentMode = UIViewContentModeScaleAspectFill;
-        payImg.clipsToBounds = YES;
-        payImg.image = [UIImage imageNamed:@"buy"];
-        [cell.contentView addSubview:payImg];
+        CGFloat width = 80;
+        CGFloat height = 20;
+        CGFloat offset = 26;
+        payView = [[UIView alloc]initWithFrame:CGRectMake(layout.itemSize.width-width, kGreenLineWidth, width, width)];
+        payView.layer.masksToBounds = YES;
+        payView.tag = kCameraFilterCollectionPayImageViewTag;
+//        CGRect rect = CGRectMake(layout.itemSize.width-width+offset,kGreenLineWidth+(width-height)/2-offset, width, height);
+        CGRect rect = CGRectMake(offset,(width-height)/2-offset, width, height);
+        UILabel *payLabel = [[UILabel alloc]initWithFrame:rect];
+        payLabel.text = @"付费";
+        payLabel.textColor = [UIColor blackColor];
+        payLabel.textAlignment = NSTextAlignmentCenter;
+        payLabel.backgroundColor = [UIColor yellowColor];
+        payLabel.font = [UIFont systemFontOfSize:12];
+        payLabel.transform =CGAffineTransformMakeRotation(M_PI_4);
+        [payView addSubview:payLabel];
+        [cell.contentView addSubview:payView];
     }
-    NSMutableArray *payIDArray = [StdUserDefault objectForKey:PayIDString];
+    
+    NSMutableArray *payIDArray =[NSMutableArray arrayWithArray:[StdUserDefault objectForKey:PayIDString]];
     NSString *payStr = model.payID;
     if ([payIDArray containsObject:payStr]) {
-        payImg.hidden = NO;
+        payView.hidden = NO;
     }else{
-        payImg.hidden = YES;
+        payView.hidden = YES;
     }
     
     UILabel *label = [cell.contentView viewWithTag:kCameraFilterCollectionLabelTag];
@@ -143,10 +171,19 @@
     
     //已本地保存为准，在ipamanager里面查找productArray 里面是否有SKProduct，如果没有则未请求到内购商品给个提示“稍后尝试”
     //
-    NSMutableArray *payIDArray = [StdUserDefault objectForKey:PayIDString];
+    NSMutableArray *payIDArray = [NSMutableArray arrayWithArray:[StdUserDefault objectForKey:PayIDString]];
     NSString *payStr = model.payID;
     if ([payIDArray containsObject:payStr]) {
-        for (SKProduct *product in self.productArray) {
+        AppDelegate *delegate = COCOAPPDelegate;
+        if (!delegate.netReachable) {
+            [ShowHud withText:@"无法购买，请检查网络连接后重试" duration:1.5];
+            return;
+        }
+        if ([IAPManager sharedManager].productArray.count<=0) {
+            [ShowHud withText:@"无可购买商品" duration:1.5];
+            return;
+        }
+        for (SKProduct *product in [IAPManager sharedManager].productArray) {
             if ([product.productIdentifier isEqualToString:payStr]) {
                 [[IAPManager sharedManager] BuyProduct:product];
             }
@@ -173,5 +210,30 @@
     
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
 
+    if ([kind isEqualToString:UICollectionElementKindSectionFooter]){
+        UICollectionReusableView *foot=[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:footViewIdentifier forIndexPath:indexPath];
+        UIButton *button = [[UIButton alloc]init];
+        [button setTitle:@"恢\n复\n购\n买" forState:UIControlStateNormal];
+        button.titleLabel.textColor = [UIColor whiteColor];
+        button.titleLabel.numberOfLines = 0;
+        button.titleLabel.textAlignment = NSTextAlignmentCenter;
+        button.titleLabel.font = [UIFont systemFontOfSize:15];
+//        [button.titleLabel setLineBreakMode:NSLineBreakByWordWrapping];
+        [foot addSubview:button];
+        [button mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(foot);
+        }];
+//        @weakify(self);
+        [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+//            @strongify(self);
+            [[IAPManager sharedManager] restoreGoods];
+        }];
+        return foot;
+    }
+    //如果底部视图
+    return nil;
+}
 @end

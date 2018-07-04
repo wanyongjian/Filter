@@ -150,7 +150,6 @@ static YQInAppPurchaseTool *storeTool;
             [SVProgressHUD dismiss];
             // 通知代理
             [self.delegate IAPToolRestoredProductID:transaction.payment.productIdentifier];
-            
             // 将交易从交易队列中删除
             [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
         } else if (SKPaymentTransactionStateFailed == transaction.transactionState){
@@ -180,6 +179,7 @@ static YQInAppPurchaseTool *storeTool;
 - (void)restorePurchase
 {
     // 恢复已经完成的所有交易.（仅限永久有效商品）
+    [SVProgressHUD showWithStatus:@"恢复已购商品中..."];
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
 

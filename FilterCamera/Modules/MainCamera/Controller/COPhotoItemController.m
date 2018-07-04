@@ -153,13 +153,14 @@
         imageView.tag = kCameraFilterCollectionImageViewTag;
         imageView.contentMode = UIViewContentModeScaleToFill;
         [cell.contentView addSubview:imageView];
-        imageView.image = self.compressImage;
         maskView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
         [imageView addSubview:maskView];
         [maskView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(imageView);
         }];
     }
+    imageView.image = self.compressImage;
+    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         id filter = [self getFilterFromIndexPath:indexPath];
         GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.compressImage];
