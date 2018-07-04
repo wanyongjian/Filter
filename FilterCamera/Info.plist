@@ -19,11 +19,13 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.1</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>需要允许开启相机才能拍照</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>需要允许使用麦克风</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>需要允许打开相册才能保存和编辑照片</string>
 	<key>UILaunchStoryboardName</key>
