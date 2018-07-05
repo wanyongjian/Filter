@@ -42,7 +42,6 @@
 		21570DEF20BB9145002585CB /* FWFiveInputFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570D8E20BB9145002585CB /* FWFiveInputFilter.m */; };
 		21570DF020BB9145002585CB /* FWSixInputFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570D9020BB9145002585CB /* FWSixInputFilter.m */; };
 		21570DF120BB9145002585CB /* GPUImageFourInputFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570D9220BB9145002585CB /* GPUImageFourInputFilter.m */; };
-		21570DF220BB9145002585CB /* YJHalfGrayFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570D9520BB9145002585CB /* YJHalfGrayFilter.m */; };
 		21570DF320BB9145002585CB /* HalfSketchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570D9820BB9145002585CB /* HalfSketchController.m */; };
 		21570DF420BB9145002585CB /* HalfSketchFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570D9A20BB9145002585CB /* HalfSketchFilter.m */; };
 		21570DF920BB9145002585CB /* YJOldPhoteFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570DA320BB9145002585CB /* YJOldPhoteFilter.m */; };
@@ -58,6 +57,10 @@
 		21570E0F20BBA995002585CB /* COCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E0E20BBA995002585CB /* COCameraViewController.m */; };
 		21570E1A20BBC576002585CB /* ShakeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21570E1920BBC576002585CB /* ShakeButton.m */; };
 		21570E1F20BBDFEA002585CB /* qmkit_rotate_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21570E1E20BBDFEA002585CB /* qmkit_rotate_btn@3x.png */; };
+		2166B83420EDE5ED006AEE5E /* COMirrorPortraitLeft.m in Sources */ = {isa = PBXBuildFile; fileRef = 2166B83220EDE5EC006AEE5E /* COMirrorPortraitLeft.m */; };
+		2166B83B20EDE6FF006AEE5E /* COMirrorPortraitRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 2166B83520EDE6FE006AEE5E /* COMirrorPortraitRight.m */; };
+		2166B84020EDE8B6006AEE5E /* COMirrorlandUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 2166B83E20EDE8B6006AEE5E /* COMirrorlandUp.m */; };
+		2166B84320EDE943006AEE5E /* COMirrorlandDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 2166B84120EDE943006AEE5E /* COMirrorlandDown.m */; };
 		216B4CE420EA1720006441DC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216B4CE320EA1720006441DC /* StoreKit.framework */; };
 		2179F22420BCDE5800B73822 /* qmkit_fiter_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F22320BCDE5800B73822 /* qmkit_fiter_btn@3x.png */; };
 		2179F33020BD078900B73822 /* amaroMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F2C720BD078900B73822 /* amaroMap.png */; };
@@ -290,8 +293,6 @@
 		21570D9020BB9145002585CB /* FWSixInputFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWSixInputFilter.m; sourceTree = "<group>"; };
 		21570D9120BB9145002585CB /* GPUImageFourInputFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFourInputFilter.h; sourceTree = "<group>"; };
 		21570D9220BB9145002585CB /* GPUImageFourInputFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageFourInputFilter.m; sourceTree = "<group>"; };
-		21570D9420BB9145002585CB /* YJHalfGrayFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHalfGrayFilter.h; sourceTree = "<group>"; };
-		21570D9520BB9145002585CB /* YJHalfGrayFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHalfGrayFilter.m; sourceTree = "<group>"; };
 		21570D9720BB9145002585CB /* HalfSketchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HalfSketchController.h; sourceTree = "<group>"; };
 		21570D9820BB9145002585CB /* HalfSketchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HalfSketchController.m; sourceTree = "<group>"; };
 		21570D9920BB9145002585CB /* HalfSketchFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HalfSketchFilter.h; sourceTree = "<group>"; };
@@ -321,6 +322,14 @@
 		21570E1820BBC576002585CB /* ShakeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShakeButton.h; sourceTree = "<group>"; };
 		21570E1920BBC576002585CB /* ShakeButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShakeButton.m; sourceTree = "<group>"; };
 		21570E1E20BBDFEA002585CB /* qmkit_rotate_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_rotate_btn@3x.png"; sourceTree = "<group>"; };
+		2166B83220EDE5EC006AEE5E /* COMirrorPortraitLeft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COMirrorPortraitLeft.m; sourceTree = "<group>"; };
+		2166B83320EDE5ED006AEE5E /* COMirrorPortraitLeft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COMirrorPortraitLeft.h; sourceTree = "<group>"; };
+		2166B83520EDE6FE006AEE5E /* COMirrorPortraitRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COMirrorPortraitRight.m; sourceTree = "<group>"; };
+		2166B83620EDE6FF006AEE5E /* COMirrorPortraitRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COMirrorPortraitRight.h; sourceTree = "<group>"; };
+		2166B83E20EDE8B6006AEE5E /* COMirrorlandUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COMirrorlandUp.m; sourceTree = "<group>"; };
+		2166B83F20EDE8B6006AEE5E /* COMirrorLandUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COMirrorLandUp.h; sourceTree = "<group>"; };
+		2166B84120EDE943006AEE5E /* COMirrorlandDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COMirrorlandDown.m; sourceTree = "<group>"; };
+		2166B84220EDE943006AEE5E /* COMirrorLandDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COMirrorLandDown.h; sourceTree = "<group>"; };
 		216B4CE320EA1720006441DC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2179F22320BCDE5800B73822 /* qmkit_fiter_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_fiter_btn@3x.png"; sourceTree = "<group>"; };
 		2179F2C720BD078900B73822 /* amaroMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amaroMap.png; sourceTree = "<group>"; };
@@ -718,22 +727,12 @@
 				21570D9020BB9145002585CB /* FWSixInputFilter.m */,
 				21570D9120BB9145002585CB /* GPUImageFourInputFilter.h */,
 				21570D9220BB9145002585CB /* GPUImageFourInputFilter.m */,
-				21570D9320BB9145002585CB /* HalfGray */,
 				21570D9620BB9145002585CB /* HalfSketch */,
 				21570DA120BB9145002585CB /* OldPhoto */,
 				21570DA420BB9145002585CB /* PhotoFrame */,
 				21570DAD20BB9145002585CB /* SimpleSketch */,
 			);
 			path = FilterController;
-			sourceTree = "<group>";
-		};
-		21570D9320BB9145002585CB /* HalfGray */ = {
-			isa = PBXGroup;
-			children = (
-				21570D9420BB9145002585CB /* YJHalfGrayFilter.h */,
-				21570D9520BB9145002585CB /* YJHalfGrayFilter.m */,
-			);
-			path = HalfGray;
 			sourceTree = "<group>";
 		};
 		21570D9620BB9145002585CB /* HalfSketch */ = {
@@ -902,9 +901,33 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2166B82D20EDC076006AEE5E /* COMirror */ = {
+			isa = PBXGroup;
+			children = (
+				2166B82E20EDC076006AEE5E /* portrait */,
+			);
+			path = COMirror;
+			sourceTree = "<group>";
+		};
+		2166B82E20EDC076006AEE5E /* portrait */ = {
+			isa = PBXGroup;
+			children = (
+				2166B84220EDE943006AEE5E /* COMirrorLandDown.h */,
+				2166B84120EDE943006AEE5E /* COMirrorlandDown.m */,
+				2166B83F20EDE8B6006AEE5E /* COMirrorLandUp.h */,
+				2166B83E20EDE8B6006AEE5E /* COMirrorlandUp.m */,
+				2166B83520EDE6FE006AEE5E /* COMirrorPortraitRight.m */,
+				2166B83620EDE6FF006AEE5E /* COMirrorPortraitRight.h */,
+				2166B83320EDE5ED006AEE5E /* COMirrorPortraitLeft.h */,
+				2166B83220EDE5EC006AEE5E /* COMirrorPortraitLeft.m */,
+			);
+			path = portrait;
+			sourceTree = "<group>";
+		};
 		2179F22B20BD00F500B73822 /* FilterSource */ = {
 			isa = PBXGroup;
 			children = (
+				2166B82D20EDC076006AEE5E /* COMirror */,
 				21570E1B20BBDFEA002585CB /* Resources */,
 				2179F2C520BD078900B73822 /* COFilters */,
 			);
@@ -1705,6 +1728,7 @@
 				21570D0F20BB8D8B002585CB /* main.m in Sources */,
 				21570DF320BB9145002585CB /* HalfSketchController.m in Sources */,
 				22C562B920C0275C0011014A /* DeviceOrientation.m in Sources */,
+				2166B84020EDE8B6006AEE5E /* COMirrorlandUp.m in Sources */,
 				21CBBA1920C0D70600C5AC30 /* UIImage+Clip.m in Sources */,
 				2179F34A20BD078900B73822 /* FWHudsonFilter.m in Sources */,
 				22A3E2C120D6A1EE00F3B46B /* LUTAmatorkaFilter.m in Sources */,
@@ -1739,7 +1763,6 @@
 				2179F37920BD078900B73822 /* FWXproIIFilter.m in Sources */,
 				21ACA56F20E206FC00943F95 /* RTImagePickerUnauthorizedView.m in Sources */,
 				21ACA55E20E206FC00943F95 /* RTImagePickerUtils.m in Sources */,
-				21570DF220BB9145002585CB /* YJHalfGrayFilter.m in Sources */,
 				21570E0020BB9145002585CB /* SimpleSketchController.m in Sources */,
 				2179F35E20BD078900B73822 /* FWSierraFilter.m in Sources */,
 				2179F37120BD078900B73822 /* FWValenciaFilter.m in Sources */,
@@ -1747,11 +1770,13 @@
 				21570DFE20BB9145002585CB /* FrameBlendController.m in Sources */,
 				21570DF420BB9145002585CB /* HalfSketchFilter.m in Sources */,
 				21570D0120BB8D8B002585CB /* AppDelegate.m in Sources */,
+				2166B84320EDE943006AEE5E /* COMirrorlandDown.m in Sources */,
 				2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */,
 				2179F33320BD078900B73822 /* FWAmaroFilter.m in Sources */,
 				21ACA4E920E1ED7700943F95 /* PHAsset+Latest.m in Sources */,
 				21CBBA1C20C0F2DF00C5AC30 /* COPhotoDisplayController.m in Sources */,
 				21ACA54320E206FC00943F95 /* RTImagePickerNavigationController.m in Sources */,
+				2166B83420EDE5ED006AEE5E /* COMirrorPortraitLeft.m in Sources */,
 				21ACA56B20E206FC00943F95 /* RTCheckMarkView.m in Sources */,
 				21ACA56420E206FC00943F95 /* RTImagePickerTapDetectingView.m in Sources */,
 				21570DFB20BB9145002585CB /* CustomFrameBlendThreeFilter.m in Sources */,
@@ -1764,6 +1789,7 @@
 				21B361EE20D39D8A00EF7F3A /* COCameraFilterView.m in Sources */,
 				2179F35620BD078900B73822 /* FWNashvilleFilter.m in Sources */,
 				2179F35220BD078900B73822 /* FWLomofiFilter.m in Sources */,
+				2166B83B20EDE6FF006AEE5E /* COMirrorPortraitRight.m in Sources */,
 				22A3E2C420D9220300F3B46B /* UIImage+Resize.m in Sources */,
 				214AB81420BFC21300D4B73C /* UIImage+Rotate.m in Sources */,
 				21ACA56520E206FC00943F95 /* RTImagePickerZoomingScrollView.m in Sources */,

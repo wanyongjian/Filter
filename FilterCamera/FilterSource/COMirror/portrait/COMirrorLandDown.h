@@ -8,6 +8,6 @@
 
 #import "GPUImageFilter.h"
 
-@interface YJHalfGrayFilter : GPUImageFilter
+@interface COMirrorLandDown : GPUImageFilter
 
 @end

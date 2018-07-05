@@ -10,6 +10,10 @@
 #import "FWHudsonFilter.h"
 #import "FWRiseFilter.h"
 #import "AnimationFilter.h"
+#import "COMirrorPortraitRight.h"
+#import "COMirrorLandUp.h"
+#import "COMirrorLandDown.h"
+#import "COMirrorPortraitLeft.h"
 //#import <GPUImage.h>
 @interface ViewController ()
 @property (nonatomic, strong) GPUImageView *imageView;
@@ -32,9 +36,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.increase = 0.0;
-    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTextColor)];
-    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     
     self.imageView = [[GPUImageView alloc]initWithFrame:self.view.frame];
     [self.view addSubview:self.imageView];
@@ -46,19 +47,12 @@
     self.camera.horizontallyMirrorFrontFacingCamera = YES;//设置是否为镜像
     self.camera.horizontallyMirrorRearFacingCamera = NO;
     
-    FWRiseFilter *rise = [[FWRiseFilter alloc]init];
+    COMirrorPortraitLeft *rise = [[COMirrorPortraitLeft alloc]init];
     [self.camera addTarget:rise];
-    self.filter = [[AnimationFilter alloc]init];
-
-    [self.camera addTarget:self.filter];
-    [rise addTarget:self.filter];
-    [self.filter addTarget:self.imageView];
+    [rise addTarget:self.imageView];
     [self.camera startCameraCapture];
 }
 
 
--(void)updateTextColor{
-    self.increase += 0.01;
-    self.filter.x = self.increase;
-}
+
 @end

@@ -8,7 +8,6 @@
 
 #import "HalfSketchController.h"
 #import <GPUImage.h>
-#import "YJHalfGrayFilter.h"
 #import "CustomAlphaBlendFilter.h"
 #import "CustomFrameBlendThreeFilter.h"
 #import "YJOldPhoteFilter.h"

@@ -6,38 +6,37 @@
 //  Copyright © 2018年 wan. All rights reserved.
 //
 
-#import "YJHalfGrayFilter.h"
+#import "COMirrorLandUp.h"
 
 
-NSString *const YJHalfGrayFragmentShaderString = SHADER_STRING
+NSString *const YJMirrorLandUpFragmentShaderString = SHADER_STRING
 (
  precision highp float;
  
  varying vec2 textureCoordinate;
  
  uniform sampler2D inputImageTexture;
- 
- const highp vec3 W = vec3(0.2125, 0.7154, 0.0721);
 
  void main()
  {
+     vec2 textureCoordinate2 = vec2(textureCoordinate.x,1.0-textureCoordinate.y);
+     vec4 color2 = texture2D(inputImageTexture, textureCoordinate2);
      vec4 color = texture2D(inputImageTexture, textureCoordinate);
      vec4 desColor;
-     if(textureCoordinate.x < 0.5){
+     if(textureCoordinate.y < 0.5){
          desColor = color;
      }else{
-         float luminance = dot(color.rgb, W);
-         desColor = vec4(vec3(luminance),color.a);
+         desColor = color2;
      }
      gl_FragColor = desColor;
  }
  );
 
-@implementation YJHalfGrayFilter
+@implementation COMirrorLandUp
 
 - (instancetype)init
 {
-    if (self = [super initWithFragmentShaderFromString:YJHalfGrayFragmentShaderString]) {
+    if (self = [super initWithFragmentShaderFromString:YJMirrorLandUpFragmentShaderString]) {
     }
     return self;
 }
