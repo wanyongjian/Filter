@@ -1,139 +1,111 @@
 [
  {
  "filterName" : "RM-1",
- "ImageName" : "romantic_1.png"
+ "ImageName" : "romantic_1.jpeg"
  },
  {
  "filterName" : "RM-2",
- "ImageName" : "romantic_2.png"
+ "ImageName" : "romantic_2.jpeg"
  },
  {
  "filterName" : "RM-3",
- "ImageName" : "romantic_3.png"
+ "ImageName" : "romantic_38.jpeg"
  },
  {
  "filterName" : "RM-4",
- "ImageName" : "romantic_4.png"
+ "ImageName" : "romantic_4.jpeg"
  },
  {
  "filterName" : "RM-5",
- "ImageName" : "wedding_17.png"
+ "ImageName" : "wedding_17.jpeg"
  },
  {
  "filterName" : "RM-6",
- "ImageName" : "wedding_15.png"
+ "ImageName" : "wedding_15.jpeg"
  },
  {
  "filterName" : "RM-7",
- "ImageName" : "romantic_7.png"
+ "ImageName" : "romantic_7.jpeg"
  },
  {
  "filterName" : "RM-8",
- "ImageName" : "romantic_8.png"
+ "ImageName" : "romantic_8.jpeg"
  },
  {
  "filterName" : "RM-9",
- "ImageName" : "romantic_9.png"
+ "ImageName" : "romantic_9.jpeg"
  },
  {
  "filterName" : "RM-10",
- "ImageName" : "romantic_10.png"
+ "ImageName" : "romantic_10.jpeg"
  },
  {
  "filterName" : "RM-11",
- "ImageName" : "wedding_10.png"
+ "ImageName" : "wedding_10.jpeg"
  },
  {
  "filterName" : "RM-12",
- "ImageName" : "wedding_5.png"
+ "ImageName" : "wedding_5.jpeg"
  },
  {
  "filterName" : "RM-13",
- "ImageName" : "romantic_13.png"
+ "ImageName" : "romantic_46.jpeg"
  },
  {
  "filterName" : "RM-14",
- "ImageName" : "romantic_14.png"
+ "ImageName" : "romantic_14.jpeg"
  },
  {
  "filterName" : "RM-15",
- "ImageName" : "romantic_15.png"
+ "ImageName" : "romantic_15.jpeg"
  },
  {
  "filterName" : "RM-16",
- "ImageName" : "romantic_16.png"
+ "ImageName" : "romantic_16.jpeg"
  },
  {
  "filterName" : "RM-17",
- "ImageName" : "romantic_17.png"
+ "ImageName" : "romantic_39.jpeg"
  },
  {
  "filterName" : "RM-18",
- "ImageName" : "wedding_2.png"
+ "ImageName" : "wedding_2.jpeg"
  },
  {
  "filterName" : "RM-19",
- "ImageName" : "wedding_1.png"
+ "ImageName" : "wedding_1.jpeg"
  },
  {
  "filterName" : "RM-20",
- "ImageName" : "romantic_20.png"
+ "ImageName" : "romantic_20.jpeg"
  },
  {
  "filterName" : "RM-21",
- "ImageName" : "romantic_50.png"
+ "ImageName" : "romantic_50.jpeg"
  },
  {
  "filterName" : "RM-22",
- "ImageName" : "romantic_22.png"
+ "ImageName" : "romantic_33.jpeg"
  },
  {
  "filterName" : "RM-23",
- "ImageName" : "romantic_23.png"
+ "ImageName" : "romantic_23.jpeg"
  },
  {
  "filterName" : "RM-24",
- "ImageName" : "romantic_24.png"
+ "ImageName" : "romantic_28.jpeg"
  },
  {
  "filterName" : "RM-25",
- "ImageName" : "romantic_25.png"
+ "ImageName" : "romantic_43.jpeg"
  },
  {
  "filterName" : "RM-26",
- "ImageName" : "romantic_26.png"
+ "ImageName" : "romantic_26.jpeg"
  },
  {
  "filterName" : "RM-27",
- "ImageName" : "romantic_48.png"
- },
-
- {
- "filterName" : "RM-28",
- "ImageName" : "romantic_28.png"
- },
- {
- "filterName" : "RM-29",
- "ImageName" : "romantic_33.png"
- },
- {
- "filterName" : "RM-30",
- "ImageName" : "romantic_38.png"
- },
- {
- "filterName" : "RM-31",
- "ImageName" : "romantic_39.png"
- },
- {
- "filterName" : "RM-32",
- "ImageName" : "romantic_43.png"
- },
- {
- "filterName" : "RM-33",
- "ImageName" : "romantic_45.png"
- },
- {
- "filterName" : "RM-34",
- "ImageName" : "romantic_46.png"
+ "ImageName" : "romantic_45.jpeg"
  }
+
 ]
