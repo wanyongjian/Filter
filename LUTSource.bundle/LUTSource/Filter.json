@@ -24,7 +24,7 @@
  "payID":"null"
  },
  {
- "filterName" : "复古建筑",
+ "filterName" : "城市复古",
  "type" : "1",
  "path" : "LUTSource/24组建筑复古/FilterConfig.json",
  "imagePath" : "LUTSource/24组建筑复古",
