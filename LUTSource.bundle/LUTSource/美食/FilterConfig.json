@@ -1,159 +1,160 @@
 [
  {
  "filterName" : "BQ-1",
- "ImageName" : "BQ1.png"
+ "ImageName" : "BQ1.jpeg"
  },
  {
  "filterName" : "BQ-2",
- "ImageName" : "BQ2.png"
+ "ImageName" : "BQ2.jpeg"
  },
  {
  "filterName" : "BQ-3",
- "ImageName" : "BQ3.png"
- },
- {
- "filterName" : "CH-1",
- "ImageName" : "CH1.png"
- },
- {
- "filterName" : "CH-2",
- "ImageName" : "CH2.png"
- },
- {
- "filterName" : "CH-3",
- "ImageName" : "CH3.png"
- },
- {
- "filterName" : "CH-4",
- "ImageName" : "CH4.png"
- },
- {
- "filterName" : "CR-1",
- "ImageName" : "CR1.png"
- },
- {
- "filterName" : "CR-2",
- "ImageName" : "CR2.png"
- },
- {
- "filterName" : "FR-1",
- "ImageName" : "FR1.png"
- },
- {
- "filterName" : "FR-2",
- "ImageName" : "FR2.png"
- },
- {
- "filterName" : "FR-3",
- "ImageName" : "FR3.png"
- },
- {
- "filterName" : "FR-4",
- "ImageName" : "FR4.png"
+ "ImageName" : "BQ3.jpeg"
  },
  {
  "filterName" : "PL-1",
- "ImageName" : "PL1.png"
+ "ImageName" : "PL1.jpeg"
  },
  {
  "filterName" : "PL-2",
- "ImageName" : "PL2.png"
+ "ImageName" : "PL2.jpeg"
  },
  {
  "filterName" : "PL-3",
- "ImageName" : "PL3.png"
+ "ImageName" : "PL3.jpeg"
  },
  {
+ "filterName" : "CH-1",
+ "ImageName" : "CH1.jpeg"
+ },
+ {
+ "filterName" : "CH-2",
+ "ImageName" : "CH2.jpeg"
+ },
+ {
+ "filterName" : "CH-3",
+ "ImageName" : "CH3.jpeg"
+ },
+ {
+ "filterName" : "CH-4",
+ "ImageName" : "CH4.jpeg"
+ },
+ {
+ "filterName" : "CR-1",
+ "ImageName" : "CR1.jpeg"
+ },
+ {
+ "filterName" : "CR-2",
+ "ImageName" : "CR2.jpeg"
+ },
+ {
+ "filterName" : "FR-1",
+ "ImageName" : "FR1.jpeg"
+ },
+ {
+ "filterName" : "FR-2",
+ "ImageName" : "FR2.jpeg"
+ },
+ {
+ "filterName" : "FR-3",
+ "ImageName" : "FR3.jpeg"
+ },
+ {
+ "filterName" : "FR-4",
+ "ImageName" : "FR4.jpeg"
+ },
+ 
+ {
  "filterName" : "PO-1",
- "ImageName" : "PO1.png"
+ "ImageName" : "PO1.jpeg"
  },
  {
  "filterName" : "PO-2",
- "ImageName" : "PO2.png"
+ "ImageName" : "PO2.jpeg"
  },
  {
  "filterName" : "PO-3",
- "ImageName" : "PO3.png"
+ "ImageName" : "PO3.jpeg"
  },
  {
  "filterName" : "PO-4",
- "ImageName" : "PO4.png"
+ "ImageName" : "PO4.jpeg"
  },
  {
  "filterName" : "PO-5",
- "ImageName" : "PO5.png"
+ "ImageName" : "PO5.jpeg"
  },
  {
  "filterName" : "RO-1",
- "ImageName" : "RO1.png"
+ "ImageName" : "RO1.jpeg"
  },
  {
  "filterName" : "RO-2",
- "ImageName" : "RO2.png"
+ "ImageName" : "RO2.jpeg"
  },
  {
  "filterName" : "RO-3",
- "ImageName" : "RO3.png"
+ "ImageName" : "RO3.jpeg"
  },
  {
  "filterName" : "RO-4",
- "ImageName" : "RO4.png"
+ "ImageName" : "RO4.jpeg"
  },
  {
  "filterName" : "RO-5",
- "ImageName" : "RO5.png"
+ "ImageName" : "RO5.jpeg"
  },
  {
  "filterName" : "SW-1",
- "ImageName" : "SW1.png"
+ "ImageName" : "SW1.jpeg"
  },
  {
  "filterName" : "SW-2",
- "ImageName" : "SW2.png"
+ "ImageName" : "SW2.jpeg"
  },
  {
  "filterName" : "SW-3",
- "ImageName" : "SW3.png"
+ "ImageName" : "SW3.jpeg"
  },
  {
  "filterName" : "SW-4",
- "ImageName" : "SW4.png"
+ "ImageName" : "SW4.jpeg"
  },
  {
  "filterName" : "TR-1",
- "ImageName" : "TR1.png"
+ "ImageName" : "TR1.jpeg"
  },
  {
  "filterName" : "TR-2",
- "ImageName" : "TR2.png"
+ "ImageName" : "TR2.jpeg"
  },
  {
  "filterName" : "TR-3",
- "ImageName" : "TR3.png"
+ "ImageName" : "TR3.jpeg"
  },
  {
  "filterName" : "TR-4",
- "ImageName" : "TR4.png"
+ "ImageName" : "TR4.jpeg"
  },
  {
  "filterName" : "YU-1",
- "ImageName" : "YU1.png"
+ "ImageName" : "YU1.jpeg"
  },
  {
  "filterName" : "YU-2",
- "ImageName" : "YU2.png"
+ "ImageName" : "YU2.jpeg"
  },
  {
  "filterName" : "YU-3",
- "ImageName" : "YU3.png"
+ "ImageName" : "YU3.jpeg"
  },
  {
  "filterName" : "YU-4",
- "ImageName" : "YU4.png"
+ "ImageName" : "YU4.jpeg"
  },
  {
  "filterName" : "YU-5",
- "ImageName" : "YU5.png"
+ "ImageName" : "YU5.jpeg"
  }
  
 ]
