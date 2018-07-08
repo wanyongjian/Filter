@@ -231,13 +231,13 @@
 		225F9A8120F1D34000CF2540 /* ins3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 225F9A7820F1D34000CF2540 /* ins3.jpeg */; };
 		225F9A8220F1D34000CF2540 /* movie.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 225F9A7920F1D34000CF2540 /* movie.jpeg */; };
 		225F9A8320F1D34000CF2540 /* wedding3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 225F9A7A20F1D34000CF2540 /* wedding3.jpeg */; };
+		225F9A8720F1DBBF00CF2540 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 225F9A8620F1DBBF00CF2540 /* logo.png */; };
 		228546DB20C4080000F22E3D /* LUTSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 228546DA20C4080000F22E3D /* LUTSource.bundle */; };
 		22A3E2C420D9220300F3B46B /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A3E2C320D9220300F3B46B /* UIImage+Resize.m */; };
 		22A3E2C920D9253800F3B46B /* YQImageCompressTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A3E2C520D9253700F3B46B /* YQImageCompressTool.m */; };
 		22A3E2CA20D9253800F3B46B /* YQImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A3E2C820D9253800F3B46B /* YQImageTool.m */; };
 		22C562B920C0275C0011014A /* DeviceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C562B820C0275C0011014A /* DeviceOrientation.m */; };
 		22F91E4820E3CCDE00F04597 /* des11.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F91E4720E3CCDD00F04597 /* des11.png */; };
-		22F91E4A20E3CCE800F04597 /* luanch1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22F91E4920E3CCE800F04597 /* luanch1.jpg */; };
 		22F91E4C20E3CE6E00F04597 /* des22.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F91E4B20E3CE6E00F04597 /* des22.png */; };
 		22F91E4E20E3DDFA00F04597 /* 水印.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F91E4D20E3DDFA00F04597 /* 水印.png */; };
 		22F91E5120E5278500F04597 /* FontTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F91E5020E5278500F04597 /* FontTool.m */; };
@@ -578,6 +578,7 @@
 		225F9A7820F1D34000CF2540 /* ins3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ins3.jpeg; sourceTree = "<group>"; };
 		225F9A7920F1D34000CF2540 /* movie.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = movie.jpeg; sourceTree = "<group>"; };
 		225F9A7A20F1D34000CF2540 /* wedding3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wedding3.jpeg; sourceTree = "<group>"; };
+		225F9A8620F1DBBF00CF2540 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		228546DA20C4080000F22E3D /* LUTSource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LUTSource.bundle; sourceTree = "<group>"; };
 		22A3E2C220D9220200F3B46B /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		22A3E2C320D9220300F3B46B /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
@@ -588,7 +589,6 @@
 		22C562B720C0275C0011014A /* DeviceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceOrientation.h; sourceTree = "<group>"; };
 		22C562B820C0275C0011014A /* DeviceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceOrientation.m; sourceTree = "<group>"; };
 		22F91E4720E3CCDD00F04597 /* des11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = des11.png; sourceTree = "<group>"; };
-		22F91E4920E3CCE800F04597 /* luanch1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = luanch1.jpg; sourceTree = "<group>"; };
 		22F91E4B20E3CE6E00F04597 /* des22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = des22.png; sourceTree = "<group>"; };
 		22F91E4D20E3DDFA00F04597 /* 水印.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "水印.png"; sourceTree = "<group>"; };
 		22F91E4F20E5278500F04597 /* FontTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontTool.h; sourceTree = "<group>"; };
@@ -729,7 +729,7 @@
 				21570D0A20BB8D8B002585CB /* LaunchScreen.storyboard */,
 				22F91E4720E3CCDD00F04597 /* des11.png */,
 				22F91E4B20E3CE6E00F04597 /* des22.png */,
-				22F91E4920E3CCE800F04597 /* luanch1.jpg */,
+				225F9A8620F1DBBF00CF2540 /* logo.png */,
 				21570D0D20BB8D8B002585CB /* Info.plist */,
 				21570D0E20BB8D8B002585CB /* main.m */,
 				21570E0120BB934A002585CB /* Coco.pch */,
@@ -1713,9 +1713,9 @@
 				225F99FC20EFAF3B00CF2540 /* config.json in Resources */,
 				225F9A0520EFAF3B00CF2540 /* edgeBurn.png in Resources */,
 				225F99FF20EFAF3B00CF2540 /* earlybirdBlowout.png in Resources */,
-				22F91E4A20E3CCE800F04597 /* luanch1.jpg in Resources */,
 				225F9A0B20EFAF3B00CF2540 /* config.json in Resources */,
 				225F9A7D20F1D34000CF2540 /* building.jpeg in Resources */,
+				225F9A8720F1DBBF00CF2540 /* logo.png in Resources */,
 				225F9A7E20F1D34000CF2540 /* food.jpeg in Resources */,
 				225F99F420EFAF3B00CF2540 /* amatorka_action_2.png in Resources */,
 				214A23B220E4D6BD00961127 /* select_btn@3x.png in Resources */,

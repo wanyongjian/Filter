@@ -19,35 +19,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="luanch1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="aS7-ki-z6Q">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="des11.png" translatesAutoresizingMaskIntoConstraints="NO" id="hCV-uf-d93">
-                                <rect key="frame" x="40" y="527.5" width="295" height="35.5"/>
+                                <rect key="frame" x="57.5" y="318" width="260" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hCV-uf-d93" secondAttribute="height" multiplier="752:90" id="0u8-au-Jit"/>
+                                    <constraint firstAttribute="width" constant="260" id="C5y-Vv-MJU"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="des22.png" highlightedImage="desLabelSubtitle.png" translatesAutoresizingMaskIntoConstraints="NO" id="hwk-Zc-zes">
-                                <rect key="frame" x="100" y="562.5" width="175" height="64.5"/>
+                                <rect key="frame" x="147.5" y="628" width="80" height="29"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="dBu-ff-bOr"/>
                                     <constraint firstAttribute="width" secondItem="hwk-Zc-zes" secondAttribute="height" multiplier="245:90" id="z1X-B5-nGR"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lr8-Ze-iEH">
+                                <rect key="frame" x="119" y="164.5" width="136" height="136"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Lr8-Ze-iEH" secondAttribute="height" multiplier="136:136" id="Kwf-zX-Bim"/>
+                                    <constraint firstAttribute="width" constant="136" id="qcr-5y-efW"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hwk-Zc-zes" secondAttribute="trailing" constant="100" id="31r-Nm-5zq"/>
-                            <constraint firstItem="hCV-uf-d93" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="AyW-YO-SVF"/>
-                            <constraint firstItem="aS7-ki-z6Q" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Dod-Q1-Rnl"/>
-                            <constraint firstItem="aS7-ki-z6Q" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="E6t-GK-gSs"/>
-                            <constraint firstItem="aS7-ki-z6Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lwd-eE-TLH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hCV-uf-d93" secondAttribute="bottom" constant="104" id="Ns2-Ha-MUK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hwk-Zc-zes" secondAttribute="bottom" constant="40" id="WWh-oy-x5H"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hCV-uf-d93" secondAttribute="trailing" constant="40" id="ZkK-Oh-Kvf"/>
-                            <constraint firstItem="hwk-Zc-zes" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="fGT-In-zZP"/>
-                            <constraint firstItem="aS7-ki-z6Q" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="jjs-Ac-nJW"/>
+                            <constraint firstItem="hCV-uf-d93" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="0Ro-lv-oVO"/>
+                            <constraint firstItem="hCV-uf-d93" firstAttribute="top" secondItem="Lr8-Ze-iEH" secondAttribute="bottom" constant="17.5" id="6aN-JE-X4f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hwk-Zc-zes" secondAttribute="bottom" constant="10" id="WWh-oy-x5H"/>
+                            <constraint firstItem="Lr8-Ze-iEH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="fel-RC-lQ6"/>
                             <constraint firstItem="hwk-Zc-zes" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="p1C-Ny-9Nx"/>
+                            <constraint firstItem="hCV-uf-d93" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="slQ-QP-boy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -61,6 +62,6 @@
         <image name="des11.png" width="752" height="90"/>
         <image name="des22.png" width="345" height="90"/>
         <image name="desLabelSubtitle.png" width="345" height="90"/>
-        <image name="luanch1.jpg" width="3456" height="5184"/>
+        <image name="logo.png" width="300" height="300"/>
     </resources>
 </document>
