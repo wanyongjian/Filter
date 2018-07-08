@@ -99,19 +99,7 @@
         imageView.clipsToBounds = YES;
         [cell.contentView addSubview:imageView];
     }
-    imageView.image = [UIImage imageWithContentsOfFile:[LUTBUNDLE stringByAppendingPathComponent:model.filterImgPath]];
-    
-//    UIImageView *payImg = [cell.contentView viewWithTag:kCameraFilterCollectionPayImageViewTag];
-//    if (!payImg) {
-//        UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
-//        CGRect rect = CGRectMake(layout.itemSize.width-30,kGreenLineWidth, 30, 30);
-//        payImg = [[UIImageView alloc] initWithFrame:rect];
-//        payImg.tag = kCameraFilterCollectionPayImageViewTag;
-//        payImg.contentMode = UIViewContentModeScaleAspectFill;
-//        payImg.clipsToBounds = YES;
-//        payImg.image = [UIImage imageNamed:@"buy"];
-//        [cell.contentView addSubview:payImg];
-//    }
+    imageView.image = [UIImage imageNamed:model.filterImgPath];
     UIView *payView = [cell.contentView viewWithTag:kCameraFilterCollectionPayImageViewTag];
     if (!payView) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;

@@ -114,22 +114,8 @@
         imageView.clipsToBounds = YES;
         [cell.contentView addSubview:imageView];
     }
-    imageView.image = [UIImage imageWithContentsOfFile:[LUTBUNDLE stringByAppendingPathComponent:model.filterImgPath]];
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        FilterModel *model = self.filterModleArray[indexPath.row];
-//        GPUImageFilter *filter = [[NSClassFromString(model.vc) alloc]init];
-//        GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:[UIImage imageNamed:@"back.png"]];
-//
-//        [pic addTarget:filter];
-//        [filter useNextFrameForImageCapture];
-//        [pic processImage];
-//        UIImage *DesImage = [filter imageFromCurrentFramebuffer];
-//        //释放GPU缓存
-//        [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            imageView.image = DesImage;
-//        });
-//    });
+//    imageView.image = [UIImage imageWithContentsOfFile:[LUTBUNDLE stringByAppendingPathComponent:model.filterImgPath]];
+    imageView.image = [UIImage imageNamed:model.filterImgPath];
     
     UILabel *label = [cell.contentView viewWithTag:kCameraFilterCollectionLabelTag];
     if (!label) {

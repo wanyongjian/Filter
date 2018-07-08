@@ -4,7 +4,7 @@
  "type" : "0",
  "path" : "LUTSource/精选/FilterConfig.json",
  "imagePath" : "LUTSource/精选",
- "filterImgPath":"FilterShowImg/best.png",
+ "filterImgPath":"best.jpeg",
  "payID":"null"
  },
  {
@@ -12,7 +12,7 @@
  "type" : "1",
  "path" : "LUTSource/美食/FilterConfig.json",
  "imagePath" : "LUTSource/美食",
- "filterImgPath":"FilterShowImg/food.png",
+ "filterImgPath":"food.jpeg",
  "payID":"null"
  },
  {
@@ -20,7 +20,7 @@
  "type" : "1",
  "path" : "LUTSource/50组唯美柔和/FilterConfig.json",
  "imagePath" : "LUTSource/50组唯美柔和",
- "filterImgPath":"FilterShowImg/wedding3.png",
+ "filterImgPath":"wedding3.jpeg",
  "payID":"null"
  },
  {
@@ -28,7 +28,7 @@
  "type" : "1",
  "path" : "LUTSource/24组建筑复古/FilterConfig.json",
  "imagePath" : "LUTSource/24组建筑复古",
- "filterImgPath":"FilterShowImg/building.png",
+ "filterImgPath":"building.jpeg",
  "payID":"null"
  },
  {
@@ -36,7 +36,7 @@
  "type" : "1",
  "path" : "LUTSource/50组黑白/FilterConfig.json",
  "imagePath" : "LUTSource/50组黑白",
- "filterImgPath":"FilterShowImg/black.png",
+ "filterImgPath":"black.jpeg",
  "payID":"null"
  },
  {
@@ -44,7 +44,7 @@
  "type" : "1",
  "path" : "LUTSource/30组GoPro专用/FilterConfig.json",
  "imagePath" : "LUTSource/30组GoPro专用",
- "filterImgPath":"FilterShowImg/gopro.png",
+ "filterImgPath":"gopro.jpeg",
  "payID":"COCOID1"
  },
  {
@@ -52,7 +52,7 @@
  "type" : "1",
  "path" : "LUTSource/网红风/FilterConfig.json",
  "imagePath" : "LUTSource/网红风",
- "filterImgPath":"FilterShowImg/ins3.png",
+ "filterImgPath":"ins3.jpeg",
  "payID":"COCOID2"
  },
  
@@ -61,7 +61,7 @@
  "type" : "1",
  "path" : "LUTSource/文艺日系/FilterConfig.json",
  "imagePath" : "LUTSource/文艺日系",
- "filterImgPath":"FilterShowImg/fresh.png",
+ "filterImgPath":"fresh.jpeg",
  "payID":"COCOID3"
  },
  {
@@ -69,7 +69,7 @@
  "type" : "1",
  "path" : "LUTSource/122组电影大片/FilterConfig.json",
  "imagePath" : "LUTSource/122组电影大片",
- "filterImgPath":"FilterShowImg/movie.png",
+ "filterImgPath":"movie.jpeg",
  "payID":"COCOID4"
  }
  

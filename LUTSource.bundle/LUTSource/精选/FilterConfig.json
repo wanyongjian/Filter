@@ -2,71 +2,71 @@
  {
  "filterName" : "原图",
  "vc" : "GPUImageFilter",
- "filterImgPath":"CameraFilterImg/原图.png"
+ "filterImgPath":"原图.png"
  },
  {
  "filterName" : "Nash",
  "vc" : "FWNashvilleFilter",
- "filterImgPath":"CameraFilterImg/nash.png"
+ "filterImgPath":"nash.png"
  },
  {
  "filterName" : "Wander",
  "vc" : "FWWaldenFilter",
- "filterImgPath":"CameraFilterImg/wander.png"
+ "filterImgPath":"wander.png"
  },
  {
  "filterName" : "Everlasting",
  "vc" : "FWRiseFilter",
- "filterImgPath":"CameraFilterImg/everlasting.png"
+ "filterImgPath":"everlasting.png"
  },
  {
  "filterName" : "Sandy",
  "vc" : "FWValenciaFilter",
- "filterImgPath":"CameraFilterImg/sandy.png"
+ "filterImgPath":"sandy.png"
  },
  {
  "filterName" : "Fall",
  "vc" : "FWAmaroFilter",
- "filterImgPath":"CameraFilterImg/fall.png"
+ "filterImgPath":"fall.png"
  },
  {
  "filterName" : "Knight",
  "vc" : "FWHudsonFilter",
- "filterImgPath":"CameraFilterImg/knight.png"
+ "filterImgPath":"knight.png"
  },
  {
  "filterName" : "Anson",
  "vc" : "FWBrannanFilter",
- "filterImgPath":"CameraFilterImg/anson.png"
+ "filterImgPath":"anson.png"
  },
  {
  "filterName" : "Neko",
  "vc" : "FWEarlybirdFilter",
- "filterImgPath":"CameraFilterImg/neko.png"
+ "filterImgPath":"neko.png"
  },
  {
  "filterName" : "Sayan",
  "vc" : "FWHefeFilter",
- "filterImgPath":"CameraFilterImg/sayan.png"
+ "filterImgPath":"sayan.png"
  },
  {
  "filterName" : "Hola",
  "vc" : "FWLomofiFilter",
- "filterImgPath":"CameraFilterImg/hola.png"
+ "filterImgPath":"hola.png"
  },
  {
  "filterName" : "Misaki",
  "vc" : "FWSierraFilter",
- "filterImgPath":"CameraFilterImg/misaki.png"
+ "filterImgPath":"misaki.png"
  },
  {
  "filterName" : "Ruka",
  "vc" : "FWToasterFilter",
- "filterImgPath":"CameraFilterImg/ruka.png"
+ "filterImgPath":"ruka.png"
  },
  {
  "filterName" : "Rigel",
  "vc" : "FWXproIIFilter",
- "filterImgPath":"CameraFilterImg/rigel.png"
+ "filterImgPath":"rigel.png"
  }
 ]
