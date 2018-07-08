@@ -65,7 +65,7 @@ NSString *const kFWHudsonShaderString = SHADER_STRING
     FWFilter5 *filter = [[FWFilter5 alloc] init];
     [self addFilter:filter];
     
-    UIImage *image = [UIImage imageNamed:@"hudsonBackground"];
+    UIImage *image = [UIImage imageNamed:@"hudsonBackground.jpg"];
     imageSource1 = [[GPUImagePicture alloc] initWithImage:image];
     [imageSource1 addTarget:filter atTextureLocation:1];
     [imageSource1 processImage];

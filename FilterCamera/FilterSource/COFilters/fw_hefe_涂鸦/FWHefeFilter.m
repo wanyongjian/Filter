@@ -98,7 +98,7 @@ NSString *const kFWHefeShaderString = SHADER_STRING
     [imageSource4 addTarget:filter atTextureLocation:4];
     [imageSource4 processImage];
     
-    UIImage *image4 = [UIImage imageNamed:@"hefeMetal"];
+    UIImage *image4 = [UIImage imageNamed:@"hefeMetal.jpg"];
     imageSource5 = [[GPUImagePicture alloc] initWithImage:image4];
     [imageSource5 addTarget:filter atTextureLocation:5];
     [imageSource5 processImage];

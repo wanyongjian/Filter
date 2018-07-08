@@ -65,7 +65,7 @@ NSString *const kFWRiseShaderString = SHADER_STRING
     FWFilter4 *filter = [[FWFilter4 alloc] init];
     [self addFilter:filter];
     
-    UIImage *image = [UIImage imageNamed:@"blackboard1024"];
+    UIImage *image = [UIImage imageNamed:@"blackboard1024.jpg"];
     imageSource1 = [[GPUImagePicture alloc] initWithImage:image];
     [imageSource1 addTarget:filter atTextureLocation:1];
     [imageSource1 processImage];

@@ -65,7 +65,7 @@ NSString *const kFWSierraShaderString = SHADER_STRING
     FWFilter11 *filter = [[FWFilter11 alloc] init];
     [self addFilter:filter];
     
-    UIImage *image = [UIImage imageNamed:@"sierraVignette"];
+    UIImage *image = [UIImage imageNamed:@"sierraVignette.jpg"];
     imageSource1 = [[GPUImagePicture alloc] initWithImage:image];
     [imageSource1 addTarget:filter atTextureLocation:1];
     [imageSource1 processImage];
