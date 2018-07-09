@@ -9,6 +9,7 @@
 #import "COPhotoDisplayController.h"
 #import "COPhotoFilterView.h"
 #import "COPhotoItemController.h"
+#import "COPhotoShareController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 typedef void(^cameraPermit)(BOOL value);
 
@@ -158,8 +159,9 @@ typedef void(^cameraPermit)(BOOL value);
                 self.hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
                 self.hud.label.text = @"保存中...";
                 self.hud.minSize = CGSizeMake(150.f, 100.f);
+
                 dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                    UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+                    UIImageWriteToSavedPhotosAlbum(self.filterImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
                 });
             }
         }];
@@ -177,6 +179,7 @@ typedef void(^cameraPermit)(BOOL value);
     self.hud.label.text = @"完成";
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.hud hideAnimated:YES];
+        [self.navigationController pushViewController:[[COPhotoShareController alloc]init] animated:YES];
     });
     NSLog(@"image = %@, error = %@, contextInfo = %@", image, error, contextInfo);
 }
