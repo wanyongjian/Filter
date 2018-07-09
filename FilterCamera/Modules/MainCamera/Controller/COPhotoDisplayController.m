@@ -176,10 +176,10 @@ typedef void(^cameraPermit)(BOOL value);
     UIImageView *imageView = [[UIImageView alloc] initWithImage:checkMark];
     self.hud.customView = imageView;
     self.hud.mode = MBProgressHUDModeCustomView;
-    self.hud.label.text = @"完成";
+    self.hud.label.text = @"照片保存成功";
+    [self.navigationController pushViewController:[[COPhotoShareController alloc]init] animated:YES];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.hud hideAnimated:YES];
-        [self.navigationController pushViewController:[[COPhotoShareController alloc]init] animated:YES];
     });
     NSLog(@"image = %@, error = %@, contextInfo = %@", image, error, contextInfo);
 }

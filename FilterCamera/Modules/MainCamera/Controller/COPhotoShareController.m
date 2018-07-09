@@ -18,7 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = HEX_COLOR(0x122b3f);
+    self.title = @"照片分享";
     // Do any additional setup after loading the view.
     [self setUI];
     [self layoutViews];
@@ -88,6 +89,11 @@
         
     }];
 }
+
+- (BOOL)prefersStatusBarHidden{
+    return YES;
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
