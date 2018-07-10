@@ -153,7 +153,6 @@ static YQInAppPurchaseTool *storeTool;
             // 将交易从交易队列中删除
             [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
         } else if (SKPaymentTransactionStateFailed == transaction.transactionState){
-            [SVProgressHUD dismiss];
             // 将交易从交易队列中删除
             [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
             //NSLog(@"交易失败");
