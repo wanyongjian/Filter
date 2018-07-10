@@ -177,7 +177,9 @@ typedef void(^cameraPermit)(BOOL value);
     self.hud.customView = imageView;
     self.hud.mode = MBProgressHUDModeCustomView;
     self.hud.label.text = @"照片保存成功";
-    [self.navigationController pushViewController:[[COPhotoShareController alloc]init] animated:YES];
+    COPhotoShareController *shareVC = [[COPhotoShareController alloc]init];
+    shareVC.soureceImage = self.filterImage;
+    [self.navigationController pushViewController:shareVC animated:YES];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.hud hideAnimated:YES];
     });

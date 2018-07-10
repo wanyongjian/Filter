@@ -10,4 +10,5 @@
 
 @interface COPhotoShareController : UIViewController
 
+@property (nonatomic, strong) UIImage *soureceImage;
 @end

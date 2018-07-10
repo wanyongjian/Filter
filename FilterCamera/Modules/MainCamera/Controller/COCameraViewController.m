@@ -250,7 +250,6 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         make.top.left.right.mas_equalTo(self.containerView);
         make.height.mas_equalTo(SCREEN_WIDTH*(4.0/3.0));
     }];
-
     //比例按钮
     UIButton *scaleButton = [[ShakeButton alloc]init];
     scaleButton.tag = 0;

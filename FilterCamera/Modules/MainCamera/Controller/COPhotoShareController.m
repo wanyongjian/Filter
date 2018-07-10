@@ -12,6 +12,7 @@
 
 @interface COPhotoShareController ()
 @property (nonatomic, strong) UIView *topView;
+@property (nonatomic, strong) UIImage *shareImage;
 @end
 
 @implementation COPhotoShareController
@@ -27,9 +28,43 @@
     //显示分享面板
     [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
         // 根据获取的platformType确定所选平台进行下一步操作
+        [self shareImageToPlatformType:platformType];
     }];
 }
 
+- (void)blendImage:(UIImage *)sourceImage{
+    
+    GPUImageSourceOverBlendFilter *blendFilter = [[GPUImageSourceOverBlendFilter alloc]init];
+    CGFloat sourceWidth = sourceImage.size.width;
+    CGFloat sourceHeight = sourceImage.size.height;
+    CGFloat imgWidth = 80;
+    CGFloat imgHeight = 80*(90/442.0);
+    UIImage *image = [UIImage imageNamed:@"水印"];
+    UIImageView *imgView = [[UIImageView alloc]initWithImage:image];
+    imgView.alpha = 0.8;
+    imgView.frame = CGRectMake(10, kScreenHeight*sourceWidth/sourceHeight-10-imgHeight, imgWidth, imgHeight);
+    
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*sourceHeight/sourceWidth)];
+    view.backgroundColor = [UIColor clearColor];
+    [view addSubview:imgView];
+    
+    GPUImageUIElement *element = [[GPUImageUIElement alloc]initWithView:view];
+    [element addTarget:blendFilter];
+    
+    GPUImagePicture *imageSource = [[GPUImagePicture alloc]initWithImage:sourceImage];
+    [imageSource addTarget:blendFilter];
+    
+    [blendFilter useNextFrameForImageCapture];
+    [element update];
+    [imageSource processImage];
+    UIImage *desImg = [blendFilter imageFromCurrentFramebuffer];
+    NSLog(@"");
+}
+- (void)setSoureceImage:(UIImage *)soureceImage{
+    _soureceImage = soureceImage;
+//    self.shareImage = soureceImage;
+    [self blendImage:soureceImage];
+}
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
