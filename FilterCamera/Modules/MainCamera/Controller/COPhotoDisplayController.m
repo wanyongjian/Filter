@@ -138,6 +138,7 @@ typedef void(^cameraPermit)(BOOL value);
     }];
     [[backBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         [wself.navigationController popViewControllerAnimated:NO];
+        [SVProgressHUD dismiss];
     }];
     //保存按钮
     UIButton *saveBtn = [[UIButton alloc]init];

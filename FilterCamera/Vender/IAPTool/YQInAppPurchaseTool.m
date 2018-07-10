@@ -158,8 +158,7 @@ static YQInAppPurchaseTool *storeTool;
             [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
             //NSLog(@"交易失败");
             [self.delegate IAPToolCanceldWithProductID:transaction.payment.productIdentifier];
-            
-            
+            [SVProgressHUD dismiss];
         }else if(SKPaymentTransactionStatePurchasing == transaction.transactionState){
             NSLog(@"正在购买");
         }else{
