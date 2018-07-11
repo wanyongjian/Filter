@@ -32,38 +32,39 @@
     }];
 }
 
-- (void)blendImage:(UIImage *)sourceImage{
-    
+- (UIImage *)blendImage:(UIImage *)sourceImage{
     GPUImageSourceOverBlendFilter *blendFilter = [[GPUImageSourceOverBlendFilter alloc]init];
     CGFloat sourceWidth = sourceImage.size.width;
     CGFloat sourceHeight = sourceImage.size.height;
-    CGFloat imgWidth = 80;
-    CGFloat imgHeight = 80*(90/442.0);
+    
+    CGFloat ratio = sourceWidth/kScreenWidth;
+    
+    CGFloat imgWidth = 80 * ratio;
+    CGFloat imgHeight = 80 * ratio *(90/442.0);
+    
     UIImage *image = [UIImage imageNamed:@"水印"];
     UIImageView *imgView = [[UIImageView alloc]initWithImage:image];
-    imgView.alpha = 0.8;
-    imgView.frame = CGRectMake(10, kScreenHeight*sourceWidth/sourceHeight-10-imgHeight, imgWidth, imgHeight);
+    imgView.alpha = 0.7;
+    imgView.frame = CGRectMake(10*ratio, sourceHeight-10*ratio-imgHeight, imgWidth, imgHeight);
     
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*sourceHeight/sourceWidth)];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, sourceWidth, sourceHeight)];
     view.backgroundColor = [UIColor clearColor];
     [view addSubview:imgView];
-    
     GPUImageUIElement *element = [[GPUImageUIElement alloc]initWithView:view];
-    [element addTarget:blendFilter];
     
     GPUImagePicture *imageSource = [[GPUImagePicture alloc]initWithImage:sourceImage];
     [imageSource addTarget:blendFilter];
+    [element addTarget:blendFilter];
     
     [blendFilter useNextFrameForImageCapture];
     [element update];
     [imageSource processImage];
     UIImage *desImg = [blendFilter imageFromCurrentFramebuffer];
-    NSLog(@"");
+    return desImg;
 }
 - (void)setSoureceImage:(UIImage *)soureceImage{
     _soureceImage = soureceImage;
-//    self.shareImage = soureceImage;
-    [self blendImage:soureceImage];
+    _shareImage = [self blendImage:soureceImage];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
