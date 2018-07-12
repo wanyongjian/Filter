@@ -28,9 +28,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    COCameraViewController *vc = [[COCameraViewController alloc]init];
+    COCameraViewController *vc = [[COCameraViewController alloc]init];
 //    ViewController *vc = [[ViewController alloc]init];
-    COPhotoShareController *vc = [[COPhotoShareController alloc]init];
+//    COPhotoShareController *vc = [[COPhotoShareController alloc]init];
     COBaseNavigationController *nav = [[COBaseNavigationController alloc]initWithRootViewController:vc];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
@@ -129,9 +129,9 @@
 
 - (void)configUSharePlatforms
 {
-//    [[UMSocialManager defaultManager] setUmSocialAppkey:@"57b432afe0f55a9832001a0a"];
+    [[UMSocialManager defaultManager] setUmSocialAppkey:@"5b475d56b27b0a6be8000094"];
     /* 设置微信的appKey和appSecret */
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxdc1e388c3822c80b" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:APPKEY_WX appSecret:APPSECRET_WX redirectURL:@"http://mobile.umeng.com/social"];
     /*
      * 移除相应平台的分享，如微信收藏
      */

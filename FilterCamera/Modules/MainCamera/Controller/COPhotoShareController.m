@@ -83,9 +83,9 @@
     //创建图片内容对象
     UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
     //如果有缩略图，则设置缩略图
-    shareObject.thumbImage = [UIImage imageNamed:@"icon"];
-    [shareObject setShareImage:@"https://mobile.umeng.com/images/pic/home/social/img-1.png"];
-    
+//    shareObject.thumbImage = [UIImage imageNamed:@"icon"];
+//    [shareObject setShareImage:@"https://mobile.umeng.com/images/pic/home/social/img-1.png"];
+    [shareObject setShareImage:_shareImage];
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;
     
