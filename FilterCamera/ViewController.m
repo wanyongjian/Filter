@@ -21,7 +21,7 @@
 @property (nonatomic, strong) GPUImageView *imageView;
 @property (nonatomic, strong) GPUImageStillCamera *camera;
 @property (nonatomic, strong) UISlider *slider;
-@property (nonatomic, strong)  GPUImageLuminanceThresholdFilter *lumiFilter;
+@property (nonatomic, strong) GPUImageLuminanceThresholdFilter *lumiFilter;
 @property (nonatomic, strong) UIView *blendView;
 @property (nonatomic, strong) UIImageView *coverImgView;
 
@@ -44,12 +44,9 @@
     self.camera.outputImageOrientation = UIInterfaceOrientationPortrait;
     self.imageView = [[GPUImageView alloc]initWithFrame:self.view.frame];
     [self.view addSubview:self.imageView];
-    
-    
     //这个混合滤镜是混合算法是= 原图像*(1-目标的alpha)+目标图像*alpha
     //主要作用是将目标图像的非透明区域替换到源图像上，所已第一个输入源必须是源图像，self.camera 要先添加，之后才是self.element
     GPUImageSourceOverBlendFilter *blendFilter = [[GPUImageSourceOverBlendFilter alloc]init];
-    
     //加这个直通滤镜是为了在这个滤镜的回调里面更新element
     GPUImageFilter *filter = [[GPUImageFilter alloc]init];
     [self.camera addTarget:filter];
@@ -65,7 +62,6 @@
     [backView addSubview:imgView];
     self.element = [[GPUImageUIElement alloc]initWithView:backView];
     [self.element addTarget:blendFilter];
-    
     
     [blendFilter addTarget:self.imageView];
     

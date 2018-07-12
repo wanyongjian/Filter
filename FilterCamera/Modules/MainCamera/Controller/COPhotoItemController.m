@@ -167,7 +167,7 @@
         [pic addTarget:filter];
         [filter useNextFrameForImageCapture];
         [pic processImage];
-        UIImage *DesImage = [filter imageFromCurrentFramebufferWithOrientation:self.sourceImage.imageOrientation];
+        UIImage *DesImage = [filter imageFromCurrentFramebufferWithOrientation:self.compressImage.imageOrientation];
         //释放GPU缓存
         [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
         dispatch_async(dispatch_get_main_queue(), ^{
