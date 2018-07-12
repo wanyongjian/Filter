@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "COBaseNavigationController.h"
 #import <UMShare/UMShare.h>
+#import "COPhotoShareController.h"
 @interface AppDelegate () <DeviceOrientationDelegate>
 {
     DeviceOrientation *CODeviceOrientation;
@@ -24,8 +25,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    COCameraViewController *vc = [[COCameraViewController alloc]init];
+//    COCameraViewController *vc = [[COCameraViewController alloc]init];
 //    ViewController *vc = [[ViewController alloc]init];
+    COPhotoShareController *vc = [[COPhotoShareController alloc]init];
     COBaseNavigationController *nav = [[COBaseNavigationController alloc]initWithRootViewController:vc];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];

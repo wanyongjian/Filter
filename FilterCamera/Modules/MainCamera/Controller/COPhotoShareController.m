@@ -13,6 +13,9 @@
 @interface COPhotoShareController ()
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UIImage *shareImage;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIView *shareView;
+@property (nonatomic, strong) NSMutableArray *buttonArray;
 @end
 
 @implementation COPhotoShareController
@@ -117,6 +120,18 @@
     [[backBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         [wself.navigationController popViewControllerAnimated:NO];
     }];
+    
+    UILabel *titleLabel = [[UILabel alloc]init];
+    titleLabel.textColor = [UIColor whiteColor];
+    [self.topView addSubview:titleLabel];
+    self.titleLabel = titleLabel;
+    titleLabel.text = @"照片分享";
+    //本地是否安装
+    //分享按钮
+    self.shareView = [[UIView alloc]init];
+    self.shareView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.shareView];
+    
 }
 
 - (void)layoutViews{
@@ -128,6 +143,17 @@
             make.height.mas_equalTo(TopOffset+TopFunctionHeight);
         }
         
+    }];
+    
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(self.topView);
+    }];
+    
+    [self.shareView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.view).offset(20);
+        make.right.mas_equalTo(self.view).offset(-20);
+        make.top.mas_equalTo(self.titleLabel.mas_bottom).offset(50);
+        make.height.mas_equalTo(120);
     }];
 }
 

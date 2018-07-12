@@ -87,6 +87,4 @@
 //    [self.camera startCameraCapture];
 }
 
-
-
 @end
