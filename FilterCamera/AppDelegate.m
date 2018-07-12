@@ -12,6 +12,9 @@
 #import "COBaseNavigationController.h"
 #import <UMShare/UMShare.h>
 #import "COPhotoShareController.h"
+
+#define APPKEY_WX @"wx08bda7b6cda08222"
+#define APPSECRET_WX @"76f43e4faff8f9ba68439dcada368b17"
 @interface AppDelegate () <DeviceOrientationDelegate>
 {
     DeviceOrientation *CODeviceOrientation;
