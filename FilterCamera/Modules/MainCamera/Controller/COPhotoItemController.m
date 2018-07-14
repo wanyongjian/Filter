@@ -29,6 +29,7 @@
 @property (nonatomic,strong) NSMutableArray *itemSelectArray; //数据源解决cell重用导致的重叠问题
 @property (nonatomic,strong) UIButton *backBtn;
 @property (nonatomic,strong) UIButton *saveBtn;
+@property (nonatomic,strong) NSMutableArray *filterImageArray; //存储滤镜后照片，避免每次刷新cell 重复渲染照片
 @end
 
 @implementation COPhotoItemController
@@ -40,6 +41,12 @@
 
 - (void)initData{
     _filterModleArray = [LUTFilterModel getLUTFilterArrayWithPath:[LUTBUNDLE stringByAppendingPathComponent:self.groupModel.path]];
+    
+    _filterImageArray = @[].mutableCopy;
+    for (NSInteger i=0; i<_filterModleArray.count; i++) {
+        [_filterImageArray addObject:@""];
+    }
+    
     _itemSelectArray = @[].mutableCopy;
     for (NSInteger i=0; i<_filterModleArray.count; i++) {
         [_itemSelectArray addObject:@(NO)];
@@ -155,22 +162,31 @@
     if (!self.compressImage) {
         [self compressSourceImage];
     }
-    imageView.image = self.compressImage;
     
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        id filter = [self getFilterFromIndexPath:indexPath];
-        GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.compressImage];
-        [pic addTarget:filter];
-        [filter useNextFrameForImageCapture];
-        [pic processImage];
-        UIImage *DesImage = [filter imageFromCurrentFramebufferWithOrientation:self.compressImage.imageOrientation];
-        //释放GPU缓存
-        [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            imageView.image = DesImage;
-            [maskView removeFromSuperview];
+    if ([[_filterImageArray objectAtIndex:indexPath.row] isKindOfClass:[UIImage class]]) {
+        imageView.image = [_filterImageArray objectAtIndex:indexPath.row];
+        [maskView removeFromSuperview];
+    }else{
+        imageView.image = self.compressImage;
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            id filter = [self getFilterFromIndexPath:indexPath];
+            GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.compressImage];
+            [pic addTarget:filter];
+            [filter useNextFrameForImageCapture];
+            [pic processImage];
+            UIImage *DesImage = [filter imageFromCurrentFramebufferWithOrientation:self.compressImage.imageOrientation];
+            //释放GPU缓存
+            [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                imageView.image = DesImage;
+                [_filterImageArray replaceObjectAtIndex:indexPath.row withObject:DesImage];
+                [maskView removeFromSuperview];
+            });
         });
-    });
+    }
+    
+    
+    
     
     UILabel *label = [cell.contentView viewWithTag:kCameraFilterCollectionLabelTag];
     if (!label) {
