@@ -156,6 +156,8 @@
 		21EBD5DC20F988E1004CD3C5 /* umsocial_wechat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EBD5D820F988E0004CD3C5 /* umsocial_wechat@3x.png */; };
 		21EBD5DD20F988E1004CD3C5 /* umsocial_qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EBD5D920F988E0004CD3C5 /* umsocial_qq@3x.png */; };
 		21EBD5DE20F988E1004CD3C5 /* umsocial_wechat_timeline@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EBD5DA20F988E0004CD3C5 /* umsocial_wechat_timeline@3x.png */; };
+		21EBD5E420F9DEF4004CD3C5 /* shareCamera@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EBD5E220F9DEF3004CD3C5 /* shareCamera@3x.png */; };
+		21EBD5E520F9DEF4004CD3C5 /* shareEdit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EBD5E320F9DEF3004CD3C5 /* shareEdit@3x.png */; };
 		2210509D20CFFA4100AB0D9C /* COPhotoItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */; };
 		221050A020D0111D00AB0D9C /* GPUCommonLUTFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509F20D0111D00AB0D9C /* GPUCommonLUTFilter.m */; };
 		2224CCE320EBB6E700199633 /* IAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224CCE220EBB6E700199633 /* IAPManager.m */; };
@@ -509,6 +511,8 @@
 		21EBD5D820F988E0004CD3C5 /* umsocial_wechat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umsocial_wechat@3x.png"; sourceTree = "<group>"; };
 		21EBD5D920F988E0004CD3C5 /* umsocial_qq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umsocial_qq@3x.png"; sourceTree = "<group>"; };
 		21EBD5DA20F988E0004CD3C5 /* umsocial_wechat_timeline@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umsocial_wechat_timeline@3x.png"; sourceTree = "<group>"; };
+		21EBD5E220F9DEF3004CD3C5 /* shareCamera@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shareCamera@3x.png"; sourceTree = "<group>"; };
+		21EBD5E320F9DEF3004CD3C5 /* shareEdit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shareEdit@3x.png"; sourceTree = "<group>"; };
 		2210509B20CFFA4100AB0D9C /* COPhotoItemController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COPhotoItemController.h; sourceTree = "<group>"; };
 		2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COPhotoItemController.m; sourceTree = "<group>"; };
 		2210509E20D0111D00AB0D9C /* GPUCommonLUTFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUCommonLUTFilter.h; sourceTree = "<group>"; };
@@ -1136,6 +1140,8 @@
 		21570E1D20BBDFEA002585CB /* IconButton */ = {
 			isa = PBXGroup;
 			children = (
+				21EBD5E220F9DEF3004CD3C5 /* shareCamera@3x.png */,
+				21EBD5E320F9DEF3004CD3C5 /* shareEdit@3x.png */,
 				21EBD5D920F988E0004CD3C5 /* umsocial_qq@3x.png */,
 				21EBD5D720F988DF004CD3C5 /* umsocial_qzone@3x.png */,
 				21EBD5DA20F988E0004CD3C5 /* umsocial_wechat_timeline@3x.png */,
@@ -1853,6 +1859,7 @@
 				225F9A3420EFAF3B00CF2540 /* valenciaMap.png in Resources */,
 				21570DFC20BB9145002585CB /* frame.png in Resources */,
 				214A23A020E4849E00961127 /* invertCam_ffffff@3x.png in Resources */,
+				21EBD5E520F9DEF4004CD3C5 /* shareEdit@3x.png in Resources */,
 				214A239B20E4803900961127 /* ratio_btn_707070@3x.png in Resources */,
 				225F9A8F20F2411D00CF2540 /* sierraVignette.jpg in Resources */,
 				225F9A0420EFAF3B00CF2540 /* config.json in Resources */,
@@ -1889,6 +1896,7 @@
 				225F9A8320F1D34000CF2540 /* wedding3.jpeg in Resources */,
 				225F9A3820EFAF3B00CF2540 /* waldenMap.png in Resources */,
 				225F9A0120EFAF3B00CF2540 /* earlybirdMap.png in Resources */,
+				21EBD5E420F9DEF4004CD3C5 /* shareCamera@3x.png in Resources */,
 				2145804B20F3504400689B4F /* UMSocialSDKResources.bundle in Resources */,
 				214A23AC20E4B6AD00961127 /* lightGrayNomal_707070@3x.png in Resources */,
 				2179F22420BCDE5800B73822 /* qmkit_fiter_btn@3x.png in Resources */,

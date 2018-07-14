@@ -10,7 +10,8 @@
 #import "COPhotoShareController.h"
 #import <UShareUI/UShareUI.h>
 #import "WXApi.h"
-#import <TencentOpenAPI/QQApiInterface.h>  
+#import <TencentOpenAPI/QQApiInterface.h>
+#import "COCameraViewController.h"
 
 @interface COPhotoShareController ()
 @property (nonatomic, strong) UIView *topView;
@@ -124,7 +125,6 @@
     //本地是否安装
     //分享按钮
     self.shareView = [[UIView alloc]init];
-    self.shareView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.shareView];
     
     NSMutableArray *buttonArray = @[].mutableCopy;
@@ -214,7 +214,57 @@
     }
     [self.shareView layoutIfNeeded];
     
+    //返回编辑按钮
+    UIButton *editBtn = [[UIButton alloc]init];
+    editBtn.layer.cornerRadius = 4.0;
+    [editBtn setTitle:@"继续编辑" forState:UIControlStateNormal];
+    [editBtn setImage:[UIImage imageNamed:@"shareEdit"] forState:UIControlStateNormal];
+    editBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    editBtn.backgroundColor = HEX_COLOR(0x2c4df4);
+    [self.view addSubview:editBtn];
+    CGFloat backBtnWidth = (kScreenWidth-80)/2.0;
+    [editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        CGFloat x = kScreenWidth/4+7;
+        make.left.mas_equalTo(x-backBtnWidth/2);
+        make.top.mas_equalTo(self.shareView.mas_bottom).mas_offset(10);
+        make.height.mas_equalTo(80);
+        make.width.mas_equalTo(backBtnWidth);
+    }];
+    editBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;//使图片和文字水平居中显示
+    [editBtn setTitleEdgeInsets:UIEdgeInsetsMake(45 ,-editBtn.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
+    [editBtn setImageEdgeInsets:UIEdgeInsetsMake(-editBtn.imageView.frame.size.height+12, 0.0,0.0, -editBtn.titleLabel.bounds.size.width)];
+    @weakify(self);
+    [[editBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self);
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
     
+    //返回相机按钮
+    UIButton *cameraBtn = [[UIButton alloc]init];
+    cameraBtn.layer.cornerRadius = 4.0;
+    [cameraBtn setTitle:@"返回相机" forState:UIControlStateNormal];
+    [cameraBtn setImage:[UIImage imageNamed:@"shareCamera"] forState:UIControlStateNormal];
+    cameraBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    cameraBtn.backgroundColor = HEX_COLOR(0x54585b);
+    [self.view addSubview:cameraBtn];
+    [cameraBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        CGFloat x = kScreenWidth/4 *3-7;
+        make.left.mas_equalTo(x-backBtnWidth/2);
+        make.top.mas_equalTo(self.shareView.mas_bottom).mas_offset(10);
+        make.height.mas_equalTo(80);
+        make.width.mas_equalTo(backBtnWidth);
+    }];
+    cameraBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;//使图片和文字水平居中显示
+    [cameraBtn setTitleEdgeInsets:UIEdgeInsetsMake(45 ,-cameraBtn.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
+    [cameraBtn setImageEdgeInsets:UIEdgeInsetsMake(-cameraBtn.imageView.frame.size.height+12, 0.0,0.0, -cameraBtn.titleLabel.bounds.size.width)];
+    [[cameraBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self);
+        for (UIViewController *controller in self.navigationController.viewControllers) {
+            if ([controller isKindOfClass:[COCameraViewController class]]) {
+                [self.navigationController popToViewController:controller animated:YES];
+            }
+        }
+    }];
 }
 
 - (void)shareAction:(UIButton *)button{
@@ -228,7 +278,6 @@
         }else{
             make.height.mas_equalTo(TopOffset+TopFunctionHeight);
         }
-        
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -239,7 +288,7 @@
         make.left.mas_equalTo(self.view).offset(20);
         make.right.mas_equalTo(self.view).offset(-20);
         make.top.mas_equalTo(self.titleLabel.mas_bottom).offset(50);
-        make.height.mas_equalTo(120);
+        make.height.mas_equalTo(kScreenWidth/4.0);
     }];
 }
 

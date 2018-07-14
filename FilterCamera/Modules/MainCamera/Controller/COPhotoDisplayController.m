@@ -192,7 +192,7 @@ typedef void(^cameraPermit)(BOOL value);
     COPhotoShareController *shareVC = [[COPhotoShareController alloc]init];
     shareVC.soureceImage = self.filterImage;
     [self.navigationController pushViewController:shareVC animated:YES];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.hud hideAnimated:YES];
     });
     NSLog(@"image = %@, error = %@, contextInfo = %@", image, error, contextInfo);
