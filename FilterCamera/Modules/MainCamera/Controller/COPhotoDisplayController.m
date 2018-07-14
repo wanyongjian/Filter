@@ -22,6 +22,7 @@ typedef void(^cameraPermit)(BOOL value);
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) MBProgressHUD *hud;
 @property (nonatomic, strong) UIButton *saveBtn;
+@property (nonatomic, strong) UIImage *compressImage;
 @end
 @implementation COPhotoDisplayController
 
@@ -29,13 +30,23 @@ typedef void(^cameraPermit)(BOOL value);
     [super viewDidLoad];
     self.view.backgroundColor = self.view.backgroundColor = HEX_COLOR(0x252525);
     self.filterImage = self.sourceImage;
+    [self compressSourceImage];
     [self setUpUI];
     [self layoutViews];
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
     self.navigationItem.leftBarButtonItem = leftItem;
 }
-
+- (void)compressSourceImage{
+    CGFloat imageRatio = self.sourceImage.size.height/(CGFloat)self.sourceImage.size.width;
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        UIImage *image = [UIImage imageWithImageSimple:self.sourceImage scaledToSize:CGSizeMake(kScreenWidth, kScreenWidth*imageRatio)];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.compressImage = image;
+        });
+        
+    });
+}
 - (void)layoutViews{
     
     [self.photoFilterView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -77,6 +88,7 @@ typedef void(^cameraPermit)(BOOL value);
         [wself.navigationController pushViewController:vc animated:NO];
         vc.groupModel = model;
         vc.sourceImage = wself.sourceImage;
+        vc.compressImage = wself.compressImage;
         vc.filterSelect = ^(id filter) {
             strongSelf();
             GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.sourceImage];
@@ -160,7 +172,6 @@ typedef void(^cameraPermit)(BOOL value);
                 self.hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
                 self.hud.label.text = @"保存中...";
                 self.hud.minSize = CGSizeMake(150.f, 100.f);
-
                 dispatch_async(dispatch_get_global_queue(0, 0), ^{
                     UIImageWriteToSavedPhotosAlbum(self.filterImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
                 });

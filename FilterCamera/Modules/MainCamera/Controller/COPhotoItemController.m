@@ -35,7 +35,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initData];
-    [self compressSourceImage];
     [self setUpUI];
 }
 
@@ -49,15 +48,8 @@
 }
 
 - (void)compressSourceImage{
-    
-//    NSData *data = [self.sourceImage compressQualityWithMaxLength:600];
-//    self.compressImage = [UIImage imageWithData:data];
-//    [UIImage calulateImageFileSize:self.compressImage];
-    
     UIImage *image = [UIImage imageWithImageSimple:self.sourceImage scaledToSize:CGSizeMake(kScreenWidth, kScreenWidth*_imageRatio)];
-    
     self.compressImage = image;
-    [UIImage calulateImageFileSize:self.compressImage];
 }
 
 - (void)setUpUI{
@@ -158,6 +150,10 @@
         [maskView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(imageView);
         }];
+    }
+    //压缩图片操作放在上一个控制器里面，做到只压缩一次，优化性能。
+    if (!self.compressImage) {
+        [self compressSourceImage];
     }
     imageView.image = self.compressImage;
     
