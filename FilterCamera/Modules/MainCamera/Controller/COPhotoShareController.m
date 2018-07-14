@@ -9,6 +9,8 @@
 //第三方账号申请 http://dev.umeng.com/social/android/operation
 #import "COPhotoShareController.h"
 #import <UShareUI/UShareUI.h>
+#import "WXApi.h"
+#import <TencentOpenAPI/QQApiInterface.h>  
 
 @interface COPhotoShareController ()
 @property (nonatomic, strong) UIView *topView;
@@ -27,12 +29,6 @@
     // Do any additional setup after loading the view.
     [self setUI];
     [self layoutViews];
-    
-    //显示分享面板
-    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
-        // 根据获取的platformType确定所选平台进行下一步操作
-        [self shareImageToPlatformType:platformType];
-    }];
 }
 
 - (UIImage *)blendImage:(UIImage *)sourceImage{
@@ -88,9 +84,7 @@
     [shareObject setShareImage:_shareImage];
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;
-    
     //调用分享接口
-
     [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
         if (error) {
             NSLog(@"************Share fail with error %@*********",error);
@@ -126,14 +120,106 @@
     [self.topView addSubview:titleLabel];
     self.titleLabel = titleLabel;
     titleLabel.text = @"照片分享";
+    
     //本地是否安装
     //分享按钮
     self.shareView = [[UIView alloc]init];
-    self.shareView.backgroundColor = [UIColor whiteColor];
+    self.shareView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.shareView];
+    
+    NSMutableArray *buttonArray = @[].mutableCopy;
+    UIButton *lastBtn;
+    CGFloat buttonWidth = (kScreenWidth-40)/4.0;
+    for (NSInteger i=0; i<4; i++) {
+        UIButton *button = [[UIButton alloc]init];
+        button.tag = i;
+        [buttonArray addObject:button];
+        [self.shareView addSubview:button];
+        if (i==0) {
+            [button mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(self.shareView);
+                make.top.mas_equalTo(self.shareView);
+                make.width.mas_equalTo(buttonWidth);
+                make.height.mas_equalTo(buttonWidth);
+            }];
+        }else{
+            [button mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(lastBtn.mas_right);
+                make.top.mas_equalTo(self.shareView);
+                make.width.mas_equalTo(buttonWidth);
+                make.height.mas_equalTo(buttonWidth);
+            }];
+        }
+        [button addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
+        lastBtn = button;
+        
+        button.titleLabel.font = [UIFont systemFontOfSize:14];
+        if (i==0) {
+            button.tag = UMSocialPlatformType_WechatSession;
+            [button setImage:[UIImage imageNamed:@"umsocial_wechat"] forState:UIControlStateNormal];
+            [button setTitle:@"微信好友" forState:UIControlStateNormal];
+        }else if (i==1){
+            button.tag = UMSocialPlatformType_WechatTimeLine;
+            [button setImage:[UIImage imageNamed:@"umsocial_wechat_timeline"] forState:UIControlStateNormal];
+            [button setTitle:@"朋友圈" forState:UIControlStateNormal];
+        }else if (i==2){
+            button.tag = UMSocialPlatformType_QQ;
+            [button setImage:[UIImage imageNamed:@"umsocial_qq"] forState:UIControlStateNormal];
+            [button setTitle:@"QQ好友" forState:UIControlStateNormal];
+        }else if (i==3){
+            button.tag = UMSocialPlatformType_Qzone;
+            [button setImage:[UIImage imageNamed:@"umsocial_qzone"] forState:UIControlStateNormal];
+            [button setTitle:@"QQ空间" forState:UIControlStateNormal];
+        }
+        
+        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;//使图片和文字水平居中显示
+        [button setTitleEdgeInsets:UIEdgeInsetsMake(button.imageView.frame.size.height ,-button.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
+        [button setImageEdgeInsets:UIEdgeInsetsMake(-button.imageView.frame.size.height, 0.0,0.0, -button.titleLabel.bounds.size.width)];
+
+    }
+    
+    if(![WXApi isWXAppInstalled]){
+        UIButton *buttonWx = [buttonArray objectAtIndex:0];
+        [buttonWx setImage:nil forState:UIControlStateNormal];
+        [buttonWx setTitle:nil forState:UIControlStateNormal];
+        [buttonWx mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(0);
+            make.height.mas_equalTo(0);
+        }];
+        
+        UIButton *buttonTimeline = [buttonArray objectAtIndex:1];
+        [buttonTimeline setImage:nil forState:UIControlStateNormal];
+        [buttonTimeline setTitle:nil forState:UIControlStateNormal];
+        [buttonTimeline mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(0);
+            make.height.mas_equalTo(0);
+        }];
+    }
+    if(![QQApiInterface isQQInstalled]){
+        UIButton *buttonQQ = [buttonArray objectAtIndex:2];
+        [buttonQQ setImage:nil forState:UIControlStateNormal];
+        [buttonQQ setTitle:nil forState:UIControlStateNormal];
+        [buttonQQ mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(0);
+            make.height.mas_equalTo(0);
+        }];
+        
+        UIButton *buttonQzone = [buttonArray objectAtIndex:3];
+        [buttonQzone setImage:nil forState:UIControlStateNormal];
+        [buttonQzone setTitle:nil forState:UIControlStateNormal];
+        [buttonQzone mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(0);
+            make.height.mas_equalTo(0);
+        }];
+    }
+    [self.shareView layoutIfNeeded];
+    
     
 }
 
+- (void)shareAction:(UIButton *)button{
+    [self shareImageToPlatformType:button.tag];
+}
 - (void)layoutViews{
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.mas_equalTo(self.view);
@@ -161,9 +247,9 @@
     return YES;
 }
 
-
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
 }
+
 @end

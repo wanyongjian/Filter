@@ -14,9 +14,12 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - FBRetainCycleDetector (0.1.4)
   - GPUImage (0.1.7)
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
+  - MLeaksFinder (1.0.0):
+    - FBRetainCycleDetector
   - ReactiveObjC (3.0.0)
   - SDWebImage (4.2.2):
     - SDWebImage/Core (= 4.2.2)
@@ -29,21 +32,37 @@ DEPENDENCIES:
   - GPUImage
   - Masonry
   - MBProgressHUD (~> 1.1.0)
+  - MLeaksFinder
   - ReactiveObjC
   - SDWebImage
   - SVProgressHUD
   - TZImagePickerController
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - FBRetainCycleDetector
+    - GPUImage
+    - Masonry
+    - MBProgressHUD
+    - MLeaksFinder
+    - ReactiveObjC
+    - SDWebImage
+    - SVProgressHUD
+    - TZImagePickerController
+
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
   ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TZImagePickerController: e60a73665cf665c18abd45cdf48e912094eefff5
 
-PODFILE CHECKSUM: d32cca3e4149390be5e6bfff777d41847983fba3
+PODFILE CHECKSUM: 8811aeb56498fa9b4be6038e9c12cacddb358c7e
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

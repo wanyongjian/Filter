@@ -143,4 +143,5 @@
     /* 设置新浪的appKey和appSecret */
 //    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"3921700954"  appSecret:@"04b48b094faeb16683c32669824ebdad" redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
 }
+
 @end

@@ -9,4 +9,5 @@ pod 'MBProgressHUD', '~> 1.1.0'
 pod 'TZImagePickerController'
 pod 'AFNetworking', '~> 3.0'
 pod 'SVProgressHUD'
+pod 'MLeaksFinder'
 end

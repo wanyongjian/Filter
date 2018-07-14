@@ -152,6 +152,10 @@
 		21CBBA1F20C0F50E00C5AC30 /* COBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */; };
 		21CBBA2C20C145FB00C5AC30 /* GLBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA2B20C145FB00C5AC30 /* GLBBaseViewController.m */; };
 		21D37DBE20D88C60001E7042 /* arrowDown@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21D37DBD20D88C5F001E7042 /* arrowDown@3x.png */; };
+		21EBD5DB20F988E1004CD3C5 /* umsocial_qzone@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EBD5D720F988DF004CD3C5 /* umsocial_qzone@3x.png */; };
+		21EBD5DC20F988E1004CD3C5 /* umsocial_wechat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EBD5D820F988E0004CD3C5 /* umsocial_wechat@3x.png */; };
+		21EBD5DD20F988E1004CD3C5 /* umsocial_qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EBD5D920F988E0004CD3C5 /* umsocial_qq@3x.png */; };
+		21EBD5DE20F988E1004CD3C5 /* umsocial_wechat_timeline@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EBD5DA20F988E0004CD3C5 /* umsocial_wechat_timeline@3x.png */; };
 		2210509D20CFFA4100AB0D9C /* COPhotoItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */; };
 		221050A020D0111D00AB0D9C /* GPUCommonLUTFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210509F20D0111D00AB0D9C /* GPUCommonLUTFilter.m */; };
 		2224CCE320EBB6E700199633 /* IAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2224CCE220EBB6E700199633 /* IAPManager.m */; };
@@ -501,6 +505,10 @@
 		21CBBA2A20C145FB00C5AC30 /* GLBBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBBaseViewController.h; sourceTree = "<group>"; };
 		21CBBA2B20C145FB00C5AC30 /* GLBBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLBBaseViewController.m; sourceTree = "<group>"; };
 		21D37DBD20D88C5F001E7042 /* arrowDown@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowDown@3x.png"; sourceTree = "<group>"; };
+		21EBD5D720F988DF004CD3C5 /* umsocial_qzone@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umsocial_qzone@3x.png"; sourceTree = "<group>"; };
+		21EBD5D820F988E0004CD3C5 /* umsocial_wechat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umsocial_wechat@3x.png"; sourceTree = "<group>"; };
+		21EBD5D920F988E0004CD3C5 /* umsocial_qq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umsocial_qq@3x.png"; sourceTree = "<group>"; };
+		21EBD5DA20F988E0004CD3C5 /* umsocial_wechat_timeline@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umsocial_wechat_timeline@3x.png"; sourceTree = "<group>"; };
 		2210509B20CFFA4100AB0D9C /* COPhotoItemController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COPhotoItemController.h; sourceTree = "<group>"; };
 		2210509C20CFFA4100AB0D9C /* COPhotoItemController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COPhotoItemController.m; sourceTree = "<group>"; };
 		2210509E20D0111D00AB0D9C /* GPUCommonLUTFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUCommonLUTFilter.h; sourceTree = "<group>"; };
@@ -1128,6 +1136,10 @@
 		21570E1D20BBDFEA002585CB /* IconButton */ = {
 			isa = PBXGroup;
 			children = (
+				21EBD5D920F988E0004CD3C5 /* umsocial_qq@3x.png */,
+				21EBD5D720F988DF004CD3C5 /* umsocial_qzone@3x.png */,
+				21EBD5DA20F988E0004CD3C5 /* umsocial_wechat_timeline@3x.png */,
+				21EBD5D820F988E0004CD3C5 /* umsocial_wechat@3x.png */,
 				214A23C320E4DE0E00961127 /* can_btn_normal.png */,
 				214A23C420E4DE0E00961127 /* can_btn_select.png */,
 				214A23BF20E4DDD900961127 /* select_btn_normal.png */,
@@ -1684,7 +1696,6 @@
 				21570CF920BB8D8B002585CB /* Frameworks */,
 				21570CFA20BB8D8B002585CB /* Resources */,
 				3423209EE795D7CFE36CA79D /* [CP] Copy Pods Resources */,
-				641B35952E273A3429514DAA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1818,6 +1829,7 @@
 				225F9A5720F1CAB500CF2540 /* sayan.png in Resources */,
 				21ACA54C20E206FC00943F95 /* rtimagepicker_delete@2x.png in Resources */,
 				225F9A0820EFAF3B00CF2540 /* hefeMap.png in Resources */,
+				21EBD5DB20F988E1004CD3C5 /* umsocial_qzone@3x.png in Resources */,
 				2145804520F3504400689B4F /* WeiboSDK.bundle in Resources */,
 				225F9A8220F1D34000CF2540 /* movie.jpeg in Resources */,
 				21ACA54E20E206FC00943F95 /* rtimagepicker_dv@2x.png in Resources */,
@@ -1864,6 +1876,7 @@
 				2145804F20F3504400689B4F /* UMCommonLog.bundle in Resources */,
 				21ACA54A20E206FC00943F95 /* rtimagepicker_cancel@2x.png in Resources */,
 				225F9A5920F1CAB500CF2540 /* 原图.png in Resources */,
+				21EBD5DE20F988E1004CD3C5 /* umsocial_wechat_timeline@3x.png in Resources */,
 				225F99F820EFAF3B00CF2540 /* brannanContrast.png in Resources */,
 				225F99F220EFAF3B00CF2540 /* overlayMap.png in Resources */,
 				225F9A2A20EFAF3B00CF2540 /* config.json in Resources */,
@@ -1909,7 +1922,9 @@
 				225F9A1920EFAF3B00CF2540 /* nashvilleMap.png in Resources */,
 				225F9A4C20F1CAB500CF2540 /* anson.png in Resources */,
 				225F99FC20EFAF3B00CF2540 /* config.json in Resources */,
+				21EBD5DD20F988E1004CD3C5 /* umsocial_qq@3x.png in Resources */,
 				225F9A0520EFAF3B00CF2540 /* edgeBurn.png in Resources */,
+				21EBD5DC20F988E1004CD3C5 /* umsocial_wechat@3x.png in Resources */,
 				225F99FF20EFAF3B00CF2540 /* earlybirdBlowout.png in Resources */,
 				225F9A0B20EFAF3B00CF2540 /* config.json in Resources */,
 				225F9A7D20F1D34000CF2540 /* building.jpeg in Resources */,
@@ -1989,21 +2004,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		641B35952E273A3429514DAA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
