@@ -9,6 +9,7 @@
 #import "COPhotoDisplayController.h"
 #import "COPhotoFilterView.h"
 #import "COPhotoItemController.h"
+#import "COPhotoShareController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 typedef void(^cameraPermit)(BOOL value);
 
@@ -21,6 +22,7 @@ typedef void(^cameraPermit)(BOOL value);
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) MBProgressHUD *hud;
 @property (nonatomic, strong) UIButton *saveBtn;
+@property (nonatomic, strong) UIImage *compressImage;
 @end
 @implementation COPhotoDisplayController
 
@@ -28,13 +30,23 @@ typedef void(^cameraPermit)(BOOL value);
     [super viewDidLoad];
     self.view.backgroundColor = self.view.backgroundColor = HEX_COLOR(0x252525);
     self.filterImage = self.sourceImage;
+    [self compressSourceImage];
     [self setUpUI];
     [self layoutViews];
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
     self.navigationItem.leftBarButtonItem = leftItem;
 }
-
+- (void)compressSourceImage{
+    CGFloat imageRatio = self.sourceImage.size.height/(CGFloat)self.sourceImage.size.width;
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        UIImage *image = [UIImage imageWithImageSimple:self.sourceImage scaledToSize:CGSizeMake(kScreenWidth, kScreenWidth*imageRatio)];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.compressImage = image;
+        });
+        
+    });
+}
 - (void)layoutViews{
     
     [self.photoFilterView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -76,6 +88,7 @@ typedef void(^cameraPermit)(BOOL value);
         [wself.navigationController pushViewController:vc animated:NO];
         vc.groupModel = model;
         vc.sourceImage = wself.sourceImage;
+        vc.compressImage = wself.compressImage;
         vc.filterSelect = ^(id filter) {
             strongSelf();
             GPUImagePicture  *pic = [[GPUImagePicture alloc]initWithImage:self.sourceImage];
@@ -160,7 +173,7 @@ typedef void(^cameraPermit)(BOOL value);
                 self.hud.label.text = @"保存中...";
                 self.hud.minSize = CGSizeMake(150.f, 100.f);
                 dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                    UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+                    UIImageWriteToSavedPhotosAlbum(self.filterImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
                 });
             }
         }];
@@ -175,8 +188,11 @@ typedef void(^cameraPermit)(BOOL value);
     UIImageView *imageView = [[UIImageView alloc] initWithImage:checkMark];
     self.hud.customView = imageView;
     self.hud.mode = MBProgressHUDModeCustomView;
-    self.hud.label.text = @"完成";
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    self.hud.label.text = @"照片保存成功";
+    COPhotoShareController *shareVC = [[COPhotoShareController alloc]init];
+    shareVC.soureceImage = self.filterImage;
+    [self.navigationController pushViewController:shareVC animated:YES];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.hud hideAnimated:YES];
     });
     NSLog(@"image = %@, error = %@, contextInfo = %@", image, error, contextInfo);
