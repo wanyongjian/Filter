@@ -180,7 +180,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "553087781.002735"
+            timestampString = "553356809.231722"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "165"
@@ -196,7 +196,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "553087781.0031101"
+            timestampString = "553356809.232322"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "159"
@@ -212,7 +212,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "553087781.003409"
+            timestampString = "553356809.232785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "152"
@@ -228,7 +228,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "553087781.003691"
+            timestampString = "553356809.233246"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
@@ -244,11 +244,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Modules/MainCamera/Controller/COPhotoShareController.m"
-            timestampString = "553174096.193164"
+            timestampString = "553356809.2337019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "COPhotoShareController"
             landmarkType = "3">
          </BreakpointContent>
@@ -260,11 +260,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Modules/MainCamera/Controller/COPhotoShareController.m"
-            timestampString = "553174096.193701"
+            timestampString = "553356809.233815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "-shareImageToPlatformType:"
             landmarkType = "7">
          </BreakpointContent>
@@ -276,45 +276,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Modules/MainCamera/Controller/COPhotoShareController.m"
-            timestampString = "553174096.194213"
+            timestampString = "553356809.233927"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "-shareImageToPlatformType:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[COPhotoShareController shareImageToPlatformType:]"
-                  moduleName = "FilterCamera"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wan/Desktop/%E5%AE%9E%E9%AA%8C%E7%94%A8%E6%96%87%E4%BB%B6%E5%A4%B9/COCO%E7%9B%B8%E6%9C%BA/FilterCamera/FilterCamera/Modules/MainCamera/Controller/COPhotoShareController.m"
-                  timestampString = "553096846.8770649"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "94"
-                  endingLineNumber = "94"
-                  offsetFromSymbolStart = "320">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__51-[COPhotoShareController shareImageToPlatformType:]_block_invoke"
-                  moduleName = "FilterCamera"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wan/Desktop/%E5%AE%9E%E9%AA%8C%E7%94%A8%E6%96%87%E4%BB%B6%E5%A4%B9/COCO%E7%9B%B8%E6%9C%BA/FilterCamera/FilterCamera/Modules/MainCamera/Controller/COPhotoShareController.m"
-                  timestampString = "553096846.880028"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "80">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

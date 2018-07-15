@@ -12,13 +12,19 @@
 #import "WXApi.h"
 #import <TencentOpenAPI/QQApiInterface.h>
 #import "COCameraViewController.h"
+#import "COADController.h"
 
-@interface COPhotoShareController ()
+#define EGGURL @"https://www.bianxianguanjia.com/toActivityByegg/10395526/491/1"
+#define PANURL @"https://www.bianxianguanjia.com/toActivityBydzp/10395526/500/1"
+#define TIGERURL @"https://www.bianxianguanjia.com/toGamePageBylhj/10395526/501/1"
+
+@interface COPhotoShareController () <SDCycleScrollViewDelegate>
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UIImage *shareImage;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIView *shareView;
 @property (nonatomic, strong) NSMutableArray *buttonArray;
+@property (nonatomic, strong) NSMutableArray *ad_urlArray;
 @end
 
 @implementation COPhotoShareController
@@ -265,6 +271,25 @@
             }
         }
     }];
+    
+    // 本地加载图片的轮播器
+    NSArray *ad_imageArray = @[@"ad_egg.jpg",@"ad_tiger.jpg",@"ad_pan.jpg"];
+    self.ad_urlArray = @[EGGURL,TIGERURL,PANURL].mutableCopy;
+    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth-40, (kScreenWidth-40)/2.0) imageNamesGroup:ad_imageArray];
+    [self.view addSubview:cycleScrollView];
+    cycleScrollView.delegate = self;
+    cycleScrollView.autoScrollTimeInterval = 2.5;
+    
+    CGFloat ad_y = 110+kScreenWidth/4.0+100;
+    cycleScrollView.center = CGPointMake(kScreenWidth/2, ad_y +(kScreenHeight-ad_y)/2);
+}
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+    NSString *url = [self.ad_urlArray objectAtIndex:index];
+//    NSLog(@"---- %@",url);
+    COADController *vc = [[COADController alloc]init];
+    vc.urlStr = url;
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 - (void)shareAction:(UIButton *)button{

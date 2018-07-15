@@ -255,6 +255,7 @@
 		22730E5C20FB7314008C7538 /* ad_egg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22730E5920FB7314008C7538 /* ad_egg.jpg */; };
 		22730E5D20FB7314008C7538 /* ad_tiger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22730E5A20FB7314008C7538 /* ad_tiger.jpg */; };
 		22730E5E20FB7314008C7538 /* ad_pan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22730E5B20FB7314008C7538 /* ad_pan.jpg */; };
+		22730E6120FB891B008C7538 /* COADController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22730E6020FB891B008C7538 /* COADController.m */; };
 		228546DB20C4080000F22E3D /* LUTSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 228546DA20C4080000F22E3D /* LUTSource.bundle */; };
 		22A3E2C420D9220300F3B46B /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A3E2C320D9220300F3B46B /* UIImage+Resize.m */; };
 		22A3E2C920D9253800F3B46B /* YQImageCompressTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A3E2C520D9253700F3B46B /* YQImageCompressTool.m */; };
@@ -631,6 +632,8 @@
 		22730E5920FB7314008C7538 /* ad_egg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ad_egg.jpg; sourceTree = "<group>"; };
 		22730E5A20FB7314008C7538 /* ad_tiger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ad_tiger.jpg; sourceTree = "<group>"; };
 		22730E5B20FB7314008C7538 /* ad_pan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ad_pan.jpg; sourceTree = "<group>"; };
+		22730E5F20FB891B008C7538 /* COADController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COADController.h; sourceTree = "<group>"; };
+		22730E6020FB891B008C7538 /* COADController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COADController.m; sourceTree = "<group>"; };
 		228546DA20C4080000F22E3D /* LUTSource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LUTSource.bundle; sourceTree = "<group>"; };
 		22A3E2C220D9220200F3B46B /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		22A3E2C320D9220300F3B46B /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
@@ -1110,6 +1113,8 @@
 				21457FE920F3362A00689B4F /* COPhotoShareController.m */,
 				21CBBA1D20C0F50E00C5AC30 /* COBaseNavigationController.h */,
 				21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */,
+				22730E5F20FB891B008C7538 /* COADController.h */,
+				22730E6020FB891B008C7538 /* COADController.m */,
 				2210509E20D0111D00AB0D9C /* GPUCommonLUTFilter.h */,
 				2210509F20D0111D00AB0D9C /* GPUCommonLUTFilter.m */,
 			);
@@ -2126,6 +2131,7 @@
 				21ACA54320E206FC00943F95 /* RTImagePickerNavigationController.m in Sources */,
 				2166B83420EDE5ED006AEE5E /* COMirrorPortraitLeft.m in Sources */,
 				21ACA56B20E206FC00943F95 /* RTCheckMarkView.m in Sources */,
+				22730E6120FB891B008C7538 /* COADController.m in Sources */,
 				21ACA56420E206FC00943F95 /* RTImagePickerTapDetectingView.m in Sources */,
 				225F9A0320EFAF3B00CF2540 /* FWEarlybirdFilter.m in Sources */,
 				21570DFB20BB9145002585CB /* CustomFrameBlendThreeFilter.m in Sources */,
