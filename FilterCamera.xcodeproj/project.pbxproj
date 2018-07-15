@@ -252,6 +252,9 @@
 		225F9A8B20F23F9700CF2540 /* hefeMetal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 225F9A8A20F23F9700CF2540 /* hefeMetal.jpg */; };
 		225F9A8D20F2405000CF2540 /* hudsonBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 225F9A8C20F2404F00CF2540 /* hudsonBackground.jpg */; };
 		225F9A8F20F2411D00CF2540 /* sierraVignette.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 225F9A8E20F2411D00CF2540 /* sierraVignette.jpg */; };
+		22730E5C20FB7314008C7538 /* ad_egg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22730E5920FB7314008C7538 /* ad_egg.jpg */; };
+		22730E5D20FB7314008C7538 /* ad_tiger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22730E5A20FB7314008C7538 /* ad_tiger.jpg */; };
+		22730E5E20FB7314008C7538 /* ad_pan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22730E5B20FB7314008C7538 /* ad_pan.jpg */; };
 		228546DB20C4080000F22E3D /* LUTSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 228546DA20C4080000F22E3D /* LUTSource.bundle */; };
 		22A3E2C420D9220300F3B46B /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A3E2C320D9220300F3B46B /* UIImage+Resize.m */; };
 		22A3E2C920D9253800F3B46B /* YQImageCompressTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A3E2C520D9253700F3B46B /* YQImageCompressTool.m */; };
@@ -625,6 +628,9 @@
 		225F9A8A20F23F9700CF2540 /* hefeMetal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hefeMetal.jpg; sourceTree = "<group>"; };
 		225F9A8C20F2404F00CF2540 /* hudsonBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hudsonBackground.jpg; sourceTree = "<group>"; };
 		225F9A8E20F2411D00CF2540 /* sierraVignette.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sierraVignette.jpg; sourceTree = "<group>"; };
+		22730E5920FB7314008C7538 /* ad_egg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ad_egg.jpg; sourceTree = "<group>"; };
+		22730E5A20FB7314008C7538 /* ad_tiger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ad_tiger.jpg; sourceTree = "<group>"; };
+		22730E5B20FB7314008C7538 /* ad_pan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ad_pan.jpg; sourceTree = "<group>"; };
 		228546DA20C4080000F22E3D /* LUTSource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LUTSource.bundle; sourceTree = "<group>"; };
 		22A3E2C220D9220200F3B46B /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		22A3E2C320D9220300F3B46B /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
@@ -1130,6 +1136,7 @@
 		21570E1C20BBDFEA002585CB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				22730E5820FB7314008C7538 /* ad */,
 				225F9A7120F1D34000CF2540 /* FilterShowImg */,
 				225F9A3D20F1CAB400CF2540 /* CameraFilterImg */,
 				21570E1D20BBDFEA002585CB /* IconButton */,
@@ -1662,6 +1669,16 @@
 			path = FilterShowImg;
 			sourceTree = "<group>";
 		};
+		22730E5820FB7314008C7538 /* ad */ = {
+			isa = PBXGroup;
+			children = (
+				22730E5920FB7314008C7538 /* ad_egg.jpg */,
+				22730E5A20FB7314008C7538 /* ad_tiger.jpg */,
+				22730E5B20FB7314008C7538 /* ad_pan.jpg */,
+			);
+			path = ad;
+			sourceTree = "<group>";
+		};
 		72D5EB4AEE9C2B950BE5BA90 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1702,6 +1719,7 @@
 				21570CF920BB8D8B002585CB /* Frameworks */,
 				21570CFA20BB8D8B002585CB /* Resources */,
 				3423209EE795D7CFE36CA79D /* [CP] Copy Pods Resources */,
+				0B52AE74EE5E91DA6892BD19 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1814,6 +1832,7 @@
 				21ACA54720E206FC00943F95 /* rtimagepicker_arrow@3x.png in Resources */,
 				21ACA55320E206FC00943F95 /* rtimagepicker_flash_on@3x.png in Resources */,
 				225F9A3C20EFAF3B00CF2540 /* xproMap.png in Resources */,
+				22730E5D20FB7314008C7538 /* ad_tiger.jpg in Resources */,
 				225F9A2C20EFAF3B00CF2540 /* toasterColorShift.png in Resources */,
 				225F9A2D20EFAF3B00CF2540 /* toasterCurves.png in Resources */,
 				225F9A5420F1CAB500CF2540 /* rigel.png in Resources */,
@@ -1837,6 +1856,7 @@
 				225F9A0820EFAF3B00CF2540 /* hefeMap.png in Resources */,
 				21EBD5DB20F988E1004CD3C5 /* umsocial_qzone@3x.png in Resources */,
 				2145804520F3504400689B4F /* WeiboSDK.bundle in Resources */,
+				22730E5E20FB7314008C7538 /* ad_pan.jpg in Resources */,
 				225F9A8220F1D34000CF2540 /* movie.jpeg in Resources */,
 				21ACA54E20E206FC00943F95 /* rtimagepicker_dv@2x.png in Resources */,
 				225F9A5020F1CAB500CF2540 /* knight.png in Resources */,
@@ -1860,6 +1880,7 @@
 				21570DFC20BB9145002585CB /* frame.png in Resources */,
 				214A23A020E4849E00961127 /* invertCam_ffffff@3x.png in Resources */,
 				21EBD5E520F9DEF4004CD3C5 /* shareEdit@3x.png in Resources */,
+				22730E5C20FB7314008C7538 /* ad_egg.jpg in Resources */,
 				214A239B20E4803900961127 /* ratio_btn_707070@3x.png in Resources */,
 				225F9A8F20F2411D00CF2540 /* sierraVignette.jpg in Resources */,
 				225F9A0420EFAF3B00CF2540 /* config.json in Resources */,
@@ -1982,6 +2003,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0B52AE74EE5E91DA6892BD19 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FilterCamera/Pods-FilterCamera-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3423209EE795D7CFE36CA79D /* [CP] Copy Pods Resources */ = {

@@ -35,4 +35,5 @@
 #import "SVProgressHUD.h"
 #import "IAPManager.h"
 #import "ShowHud.h"
+#import "SDCycleScrollView.h"
 #endif /* Coco_pch */
