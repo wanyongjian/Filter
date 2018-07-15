@@ -282,6 +282,18 @@
     
     CGFloat ad_y = 110+kScreenWidth/4.0+100;
     cycleScrollView.center = CGPointMake(kScreenWidth/2, ad_y +(kScreenHeight-ad_y)/2);
+    
+    UILabel *label = [[UILabel alloc]init];
+    label.numberOfLines = 0;
+    label.textColor = [UIColor grayColor];
+    label.font = [UIFont systemFontOfSize:12];
+    label.text = @"声明：本产品从事的任何活动均与苹果公司无关，苹果公司既不作为赞助商也不以任何形式参与";
+    [self.view addSubview:label];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(cycleScrollView.mas_bottom).mas_offset(5);
+        make.left.mas_equalTo(cycleScrollView.mas_left);
+        make.right.mas_equalTo(cycleScrollView.mas_right);
+    }];
 }
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
     NSString *url = [self.ad_urlArray objectAtIndex:index];
