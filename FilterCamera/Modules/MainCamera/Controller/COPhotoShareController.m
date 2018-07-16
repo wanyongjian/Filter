@@ -14,17 +14,19 @@
 #import "COCameraViewController.h"
 #import "COADController.h"
 
-#define EGGURL @"https://www.bianxianguanjia.com/toActivityByegg/10395526/491/1"
-#define PANURL @"https://www.bianxianguanjia.com/toActivityBydzp/10395526/500/1"
-#define TIGERURL @"https://www.bianxianguanjia.com/toGamePageBylhj/10395526/501/1"
+//#define EGGURL @"https://www.bianxianguanjia.com/toActivityByegg/10395526/491/1"
+//#define PANURL @"https://www.bianxianguanjia.com/toActivityBydzp/10395526/500/1"
+//#define TIGERURL @"https://www.bianxianguanjia.com/toGamePageBylhj/10395526/501/1"
 
-@interface COPhotoShareController () <SDCycleScrollViewDelegate>
+@interface COPhotoShareController () <GADBannerViewDelegate>
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UIImage *shareImage;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIView *shareView;
 @property (nonatomic, strong) NSMutableArray *buttonArray;
 @property (nonatomic, strong) NSMutableArray *ad_urlArray;
+
+@property (nonatomic, strong) GADBannerView *bannerView;
 @end
 
 @implementation COPhotoShareController
@@ -86,8 +88,8 @@
     //创建图片内容对象
     UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
     //如果有缩略图，则设置缩略图
-//    shareObject.thumbImage = [UIImage imageNamed:@"icon"];
-//    [shareObject setShareImage:@"https://mobile.umeng.com/images/pic/home/social/img-1.png"];
+    //    shareObject.thumbImage = [UIImage imageNamed:@"icon"];
+    //    [shareObject setShareImage:@"https://mobile.umeng.com/images/pic/home/social/img-1.png"];
     [shareObject setShareImage:_shareImage];
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;
@@ -181,7 +183,7 @@
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;//使图片和文字水平居中显示
         [button setTitleEdgeInsets:UIEdgeInsetsMake(button.imageView.frame.size.height ,-button.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
         [button setImageEdgeInsets:UIEdgeInsetsMake(-button.imageView.frame.size.height, 0.0,0.0, -button.titleLabel.bounds.size.width)];
-
+        
     }
     
     if(![WXApi isWXAppInstalled]){
@@ -272,37 +274,60 @@
         }
     }];
     
-    // 本地加载图片的轮播器
-    NSArray *ad_imageArray = @[@"ad_egg.jpg",@"ad_tiger.jpg",@"ad_pan.jpg"];
-    self.ad_urlArray = @[EGGURL,TIGERURL,PANURL].mutableCopy;
-    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth-40, (kScreenWidth-40)/2.0) imageNamesGroup:ad_imageArray];
-    [self.view addSubview:cycleScrollView];
-    cycleScrollView.delegate = self;
-    cycleScrollView.autoScrollTimeInterval = 2.5;
-    
-    CGFloat ad_y = 110+kScreenWidth/4.0+100;
-    cycleScrollView.center = CGPointMake(kScreenWidth/2, ad_y +(kScreenHeight-ad_y)/2);
-    
-    UILabel *label = [[UILabel alloc]init];
-    label.numberOfLines = 0;
-    label.textColor = [UIColor grayColor];
-    label.font = [UIFont systemFontOfSize:12];
-    label.text = @"声明：本产品从事的任何活动均与苹果公司无关，苹果公司既不作为赞助商也不以任何形式参与";
-    [self.view addSubview:label];
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(cycleScrollView.mas_bottom).mas_offset(5);
-        make.left.mas_equalTo(cycleScrollView.mas_left);
-        make.right.mas_equalTo(cycleScrollView.mas_right);
+    // googld 广告位
+    self.bannerView = [[GADBannerView alloc]
+                       initWithAdSize:kGADAdSizeLargeBanner]; //300x100
+    [self.view addSubview:self.bannerView];
+    [self.bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.view).offset(20);
+        make.right.mas_equalTo(self.view).offset(-20);
+        make.top.mas_equalTo(editBtn.mas_bottom).mas_offset(50);
     }];
-}
-- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-    NSString *url = [self.ad_urlArray objectAtIndex:index];
-//    NSLog(@"---- %@",url);
-    COADController *vc = [[COADController alloc]init];
-    vc.urlStr = url;
-    [self.navigationController pushViewController:vc animated:YES];
+    //    self.bannerView.frame = CGRectMake(0, 0, kScreenWidth-40, (kScreenWidth-40)*250/300.0);
+    //    self.bannerView.frame = CGRectMake(0, 0, 300, 250);
+    //    CGFloat ad_y = 110+kScreenWidth/4.0+100;
+    //    self.bannerView.center = CGPointMake(kScreenWidth/2, ad_y +(kScreenHeight-ad_y)/2);
     
+    self.bannerView.delegate = self;
+    
+    self.bannerView.adUnitID = ADUNITID;
+    self.bannerView.rootViewController = self;
+    GADRequest *request = [GADRequest request];
+//        request.testDevices = @[kGADSimulatorID];
+//        request.testDevices = @[ @"c28f3c8390cdf357e7e0074d31a5287d" ];
+    [self.bannerView loadRequest:request];
+    
+    // 本地加载图片的轮播器
+    //    NSArray *ad_imageArray = @[@"ad_egg.jpg",@"ad_tiger.jpg",@"ad_pan.jpg"];
+    //    self.ad_urlArray = @[EGGURL,TIGERURL,PANURL].mutableCopy;
+    //    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth-40, (kScreenWidth-40)/2.0) imageNamesGroup:ad_imageArray];
+    //    [self.view addSubview:cycleScrollView];
+    //    cycleScrollView.delegate = self;
+    //    cycleScrollView.autoScrollTimeInterval = 2.5;
+    //
+    //    CGFloat ad_y = 110+kScreenWidth/4.0+100;
+    //    cycleScrollView.center = CGPointMake(kScreenWidth/2, ad_y +(kScreenHeight-ad_y)/2);
+    //
+    //    UILabel *label = [[UILabel alloc]init];
+    //    label.numberOfLines = 0;
+    //    label.textColor = [UIColor grayColor];
+    //    label.font = [UIFont systemFontOfSize:12];
+    //    label.text = @"声明：本产品从事的任何活动均与苹果公司无关，苹果公司既不作为赞助商也不以任何形式参与";
+    //    [self.view addSubview:label];
+    //    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.top.mas_equalTo(cycleScrollView.mas_bottom).mas_offset(5);
+    //        make.left.mas_equalTo(cycleScrollView.mas_left);
+    //        make.right.mas_equalTo(cycleScrollView.mas_right);
+    //    }];
 }
+//- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+//    NSString *url = [self.ad_urlArray objectAtIndex:index];
+////    NSLog(@"---- %@",url);
+//    COADController *vc = [[COADController alloc]init];
+//    vc.urlStr = url;
+//    [self.navigationController pushViewController:vc animated:YES];
+//
+//}
 
 - (void)shareAction:(UIButton *)button{
     [self shareImageToPlatformType:button.tag];
@@ -338,4 +363,36 @@
     [self.navigationController setNavigationBarHidden:NO];
 }
 
+/// Tells the delegate an ad request loaded an ad.
+- (void)adViewDidReceiveAd:(GADBannerView *)adView {
+    NSLog(@"adViewDidReceiveAd");
+}
+
+/// Tells the delegate an ad request failed.
+- (void)adView:(GADBannerView *)adView
+didFailToReceiveAdWithError:(GADRequestError *)error {
+    NSLog(@"adView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
+}
+
+/// Tells the delegate that a full-screen view will be presented in response
+/// to the user clicking on an ad.
+- (void)adViewWillPresentScreen:(GADBannerView *)adView {
+    NSLog(@"adViewWillPresentScreen");
+}
+
+/// Tells the delegate that the full-screen view will be dismissed.
+- (void)adViewWillDismissScreen:(GADBannerView *)adView {
+    NSLog(@"adViewWillDismissScreen");
+}
+
+/// Tells the delegate that the full-screen view has been dismissed.
+- (void)adViewDidDismissScreen:(GADBannerView *)adView {
+    NSLog(@"adViewDidDismissScreen");
+}
+
+/// Tells the delegate that a user click will open another app (such as
+/// the App Store), backgrounding the current app.
+- (void)adViewWillLeaveApplication:(GADBannerView *)adView {
+    NSLog(@"adViewWillLeaveApplication");
+}
 @end

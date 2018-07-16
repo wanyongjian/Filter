@@ -61,4 +61,14 @@ typedef NS_ENUM(NSInteger,SelectFilterType){
 #define kCameraFilterCollectionPayImageViewTag       103
 
 #define COCOAPPDelegate (AppDelegate *)[UIApplication sharedApplication].delegate
+
+#define GOOGLE_APPID @"ca-app-pub-3732842530800128~1558411290"
+#define GOOGLE_UNITID @"ca-app-pub-3940256099942544/2934735716"
+#define ADUNITID @"ca-app-pub-3732842530800128/1084618631"
+//#ifdef DEBUG
+////#define GOOGLE_APPID @"ca-app-pub-3732842530800128~1558411290"
+//#define GOOGLE_APPID @"ca-app-pub-3940256099942544/2934735716"
+//#else
+//#define GOOGLE_APPID @"ca-app-pub-3732842530800128~1558411290"
+//#endif
 #endif /* Macro_h */

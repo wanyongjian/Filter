@@ -180,7 +180,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "553358094.583093"
+            timestampString = "553441572.477459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "165"
@@ -196,7 +196,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "553358094.583685"
+            timestampString = "553441572.478137"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "159"
@@ -212,7 +212,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "553358094.584151"
+            timestampString = "553441572.478636"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "152"
@@ -228,60 +228,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "553358094.584607"
+            timestampString = "553441572.479127"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
             endingLineNumber = "133"
             landmarkName = "-paymentQueue:updatedTransactions:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FilterCamera/Modules/MainCamera/Controller/COPhotoShareController.m"
-            timestampString = "553358094.585067"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "COPhotoShareController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FilterCamera/Modules/MainCamera/Controller/COPhotoShareController.m"
-            timestampString = "553358094.585603"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-shareImageToPlatformType:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FilterCamera/Modules/MainCamera/Controller/COPhotoShareController.m"
-            timestampString = "553358094.586072"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "-shareImageToPlatformType:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

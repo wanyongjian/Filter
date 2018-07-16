@@ -36,4 +36,5 @@
 #import "IAPManager.h"
 #import "ShowHud.h"
 #import "SDCycleScrollView.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 #endif /* Coco_pch */
