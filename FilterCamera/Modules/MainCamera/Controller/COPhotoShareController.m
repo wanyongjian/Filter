@@ -17,7 +17,7 @@
 //#define EGGURL @"https://www.bianxianguanjia.com/toActivityByegg/10395526/491/1"
 //#define PANURL @"https://www.bianxianguanjia.com/toActivityBydzp/10395526/500/1"
 //#define TIGERURL @"https://www.bianxianguanjia.com/toGamePageBylhj/10395526/501/1"
-
+//
 @interface COPhotoShareController () <GADBannerViewDelegate>
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UIImage *shareImage;
@@ -25,8 +25,6 @@
 @property (nonatomic, strong) UIView *shareView;
 @property (nonatomic, strong) NSMutableArray *buttonArray;
 @property (nonatomic, strong) NSMutableArray *ad_urlArray;
-
-@property (nonatomic, strong) GADBannerView *bannerView;
 @end
 
 @implementation COPhotoShareController
@@ -68,6 +66,7 @@
     [element update];
     [imageSource processImage];
     UIImage *desImg = [blendFilter imageFromCurrentFramebuffer];
+    [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
     return desImg;
 }
 - (void)setSoureceImage:(UIImage *)soureceImage{
@@ -275,27 +274,20 @@
     }];
     
     // googld 广告位
-    self.bannerView = [[GADBannerView alloc]
-                       initWithAdSize:kGADAdSizeLargeBanner]; //300x100
-    [self.view addSubview:self.bannerView];
-    [self.bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.view).offset(20);
-        make.right.mas_equalTo(self.view).offset(-20);
+    [self.view addSubview:[BannerManager sharedManager].bannerView];
+    [[BannerManager sharedManager].bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(wself.view).offset(20);
+        make.right.mas_equalTo(wself.view).offset(-20);
         make.top.mas_equalTo(editBtn.mas_bottom).mas_offset(50);
     }];
-    //    self.bannerView.frame = CGRectMake(0, 0, kScreenWidth-40, (kScreenWidth-40)*250/300.0);
-    //    self.bannerView.frame = CGRectMake(0, 0, 300, 250);
-    //    CGFloat ad_y = 110+kScreenWidth/4.0+100;
-    //    self.bannerView.center = CGPointMake(kScreenWidth/2, ad_y +(kScreenHeight-ad_y)/2);
     
-    self.bannerView.delegate = self;
-    
-    self.bannerView.adUnitID = ADUNITID;
-    self.bannerView.rootViewController = self;
+    [BannerManager sharedManager].bannerView.adUnitID = COCO_UNITID;
+    [BannerManager sharedManager].bannerView.rootViewController = wself;
     GADRequest *request = [GADRequest request];
-//        request.testDevices = @[kGADSimulatorID];
-//        request.testDevices = @[ @"c28f3c8390cdf357e7e0074d31a5287d" ];
-    [self.bannerView loadRequest:request];
+#ifdef DEBUG
+    request.testDevices = @[ @"c28f3c8390cdf357e7e0074d31a5287d" ];
+#endif
+    [[BannerManager sharedManager].bannerView loadRequest:request];
     
     // 本地加载图片的轮播器
     //    NSArray *ad_imageArray = @[@"ad_egg.jpg",@"ad_tiger.jpg",@"ad_pan.jpg"];
@@ -363,36 +355,7 @@
     [self.navigationController setNavigationBarHidden:NO];
 }
 
-/// Tells the delegate an ad request loaded an ad.
-- (void)adViewDidReceiveAd:(GADBannerView *)adView {
-    NSLog(@"adViewDidReceiveAd");
-}
-
-/// Tells the delegate an ad request failed.
-- (void)adView:(GADBannerView *)adView
-didFailToReceiveAdWithError:(GADRequestError *)error {
-    NSLog(@"adView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
-}
-
-/// Tells the delegate that a full-screen view will be presented in response
-/// to the user clicking on an ad.
-- (void)adViewWillPresentScreen:(GADBannerView *)adView {
-    NSLog(@"adViewWillPresentScreen");
-}
-
-/// Tells the delegate that the full-screen view will be dismissed.
-- (void)adViewWillDismissScreen:(GADBannerView *)adView {
-    NSLog(@"adViewWillDismissScreen");
-}
-
-/// Tells the delegate that the full-screen view has been dismissed.
-- (void)adViewDidDismissScreen:(GADBannerView *)adView {
-    NSLog(@"adViewDidDismissScreen");
-}
-
-/// Tells the delegate that a user click will open another app (such as
-/// the App Store), backgrounding the current app.
-- (void)adViewWillLeaveApplication:(GADBannerView *)adView {
-    NSLog(@"adViewWillLeaveApplication");
+- (void)dealloc {
+    [[BannerManager sharedManager].bannerView removeFromSuperview];
 }
 @end

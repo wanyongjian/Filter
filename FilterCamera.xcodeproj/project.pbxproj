@@ -90,6 +90,7 @@
 		2179F22420BCDE5800B73822 /* qmkit_fiter_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F22320BCDE5800B73822 /* qmkit_fiter_btn@3x.png */; };
 		2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2179F38420BD45AE00B73822 /* AnimationFilter.m */; };
 		218ECE5F20DA508500DB985D /* Checkmark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 218ECE5E20DA508400DB985D /* Checkmark@3x.png */; };
+		21A09D9820FD9213005C2DFB /* BannerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A09D9720FD9213005C2DFB /* BannerManager.m */; };
 		21ACA4E920E1ED7700943F95 /* PHAsset+Latest.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA4E820E1ED7700943F95 /* PHAsset+Latest.m */; };
 		21ACA54020E206FC00943F95 /* RTAssetCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA4ED20E206FC00943F95 /* RTAssetCollectionViewController.m */; };
 		21ACA54120E206FC00943F95 /* RTCameraPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA4EF20E206FC00943F95 /* RTCameraPreviewViewController.m */; };
@@ -411,6 +412,8 @@
 		2179F38320BD45AE00B73822 /* AnimationFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationFilter.h; sourceTree = "<group>"; };
 		2179F38420BD45AE00B73822 /* AnimationFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationFilter.m; sourceTree = "<group>"; };
 		218ECE5E20DA508400DB985D /* Checkmark@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark@3x.png"; sourceTree = "<group>"; };
+		21A09D9620FD9213005C2DFB /* BannerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerManager.h; sourceTree = "<group>"; };
+		21A09D9720FD9213005C2DFB /* BannerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerManager.m; sourceTree = "<group>"; };
 		21ACA4E720E1ED7700943F95 /* PHAsset+Latest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PHAsset+Latest.h"; sourceTree = "<group>"; };
 		21ACA4E820E1ED7700943F95 /* PHAsset+Latest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PHAsset+Latest.m"; sourceTree = "<group>"; };
 		21ACA4EC20E206FC00943F95 /* RTAssetCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTAssetCollectionViewController.h; sourceTree = "<group>"; };
@@ -900,6 +903,7 @@
 		214AB80C20BFBE8C00D4B73C /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				21A09D9520FD9201005C2DFB /* ADBannerView */,
 				21337D9720EB460000876E10 /* IAPTool */,
 				21ACA57220E207A100943F95 /* UIView */,
 				21ACA4EA20E206FC00943F95 /* RTImagePicker */,
@@ -1226,6 +1230,15 @@
 			);
 			name = FilterSource;
 			path = FilterCamera/FilterSource;
+			sourceTree = "<group>";
+		};
+		21A09D9520FD9201005C2DFB /* ADBannerView */ = {
+			isa = PBXGroup;
+			children = (
+				21A09D9620FD9213005C2DFB /* BannerManager.h */,
+				21A09D9720FD9213005C2DFB /* BannerManager.m */,
+			);
+			path = ADBannerView;
 			sourceTree = "<group>";
 		};
 		21ACA4E620E1ED7700943F95 /* PHAsset */ = {
@@ -2113,6 +2126,7 @@
 				21B361F320D3BC6F00EF7F3A /* COPhotoBrowserView.m in Sources */,
 				21ACA56F20E206FC00943F95 /* RTImagePickerUnauthorizedView.m in Sources */,
 				21ACA55E20E206FC00943F95 /* RTImagePickerUtils.m in Sources */,
+				21A09D9820FD9213005C2DFB /* BannerManager.m in Sources */,
 				21570E0020BB9145002585CB /* SimpleSketchController.m in Sources */,
 				21ACA56320E206FC00943F95 /* RTImagePickerTapDetectingImageView.m in Sources */,
 				21570DFE20BB9145002585CB /* FrameBlendController.m in Sources */,
