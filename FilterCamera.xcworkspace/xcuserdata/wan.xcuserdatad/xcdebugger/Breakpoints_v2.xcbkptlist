@@ -51,22 +51,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FilterCamera/Vender/RTImagePicker/Controller/RTAssetCollectionViewController.m"
-            timestampString = "552146711.736246"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/UIView/FontTool.m"
             timestampString = "551893768.301366"
             startingColumnNumber = "9223372036854775807"
@@ -180,7 +164,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "553441572.477459"
+            timestampString = "553620520.90784"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "165"
@@ -196,7 +180,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "553441572.478137"
+            timestampString = "553620520.908476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "159"
@@ -212,7 +196,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "553441572.478636"
+            timestampString = "553620520.9089839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "152"
@@ -228,7 +212,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FilterCamera/Vender/IAPTool/YQInAppPurchaseTool.m"
-            timestampString = "553441572.479127"
+            timestampString = "553620520.9094861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"

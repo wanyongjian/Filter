@@ -1,0 +1,301 @@
+[
+ {
+ "filterName" : "AV4 Agfa Vista 400",
+ "ImageName" : "AV4 Agfa Vista 400.jpeg"
+ },
+ {
+ "filterName" : "AV8 Agfa Vista 800",
+ "ImageName" : "AV8 Agfa Vista 800.jpeg"
+ },{
+ "filterName" : "FN16 Fuji Neopan 1600",
+ "ImageName" : "FN16 Fuji Neopan 1600.jpeg"
+ },{
+ "filterName" : "FP1 Fuji Pro 160c",
+ "ImageName" : "FP1 Fuji Pro 160c.jpeg"
+ },{
+ "filterName" : "FP2 Fuji Pro 160s",
+ "ImageName" : "FP2 Fuji Pro 160s.jpeg"
+ },{
+ "filterName" : "FP8 Fuji Pro 800z",
+ "ImageName" : "FP8 Fuji Pro 800z.jpeg"
+ },{
+ "filterName" : "FR4 Fuji Provia 400X",
+ "ImageName" : "FR4 Fuji Provia 400X.jpeg"
+ },{
+ "filterName" : "FS1 Fuji Pro 160S",
+ "ImageName" : "FS1 Fuji Pro 160S.jpeg"
+ },{
+ "filterName" : "FS4 Fuji Pro 400H",
+ "ImageName" : "FS4 Fuji Pro 400H.jpeg"
+ },{
+ "filterName" : "IH5 IIford Hp5",
+ "ImageName" : "IH5 IIford Hp5.jpeg"
+ },{
+ "filterName" : "KE1 Kodak Ektar 100",
+ "ImageName" : "KE1 Kodak Ektar 100.jpeg"
+ },{
+ "filterName" : "KG2 Kodak Gold 200",
+ "ImageName" : "KG2 Kodak Gold 200.jpeg"
+ },{
+ "filterName" : "KP1 Kodak Portra 160",
+ "ImageName" : "KP1 Kodak Portra 160.jpeg"
+ },{
+ "filterName" : "KP2 Kodak Portra 160NC",
+ "ImageName" : "KP2 Kodak Portra 160NC.jpeg"
+ },{
+ "filterName" : "KP3 Kodak Portra 160VC",
+ "ImageName" : "KP3 Kodak Portra 160VC.jpeg"
+ },{
+ "filterName" : "KP4 Kodak Portra 400",
+ "ImageName" : "KP4 Kodak Portra 400.jpeg"
+ },{
+ "filterName" : "KP8 Kodak Portra 800",
+ "ImageName" : "KP8 Kodak Portra 800.jpeg"
+ },{
+ "filterName" : "KP9 Kodak Protra 100T",
+ "ImageName" : "KP9 Kodak Protra 100T.jpeg"
+ },{
+ "filterName" : "KT32 Kodak T-MAX 3200",
+ "ImageName" : "KT32 Kodak T-MAX 3200.jpeg"
+ },{
+ "filterName" : "KU4 Kodak Ultramax 400",
+ "ImageName" : "KU4 Kodak Ultramax 400.jpeg"
+ },{
+ "filterName" : "KX4 Kodak Tri-x 400",
+ "ImageName" : "KX4 Kodak Tri-x 400.jpeg"
+ },{
+ "filterName" : "L2Moutaain",
+ "ImageName" : "L2Moutaain.jpeg"
+ },{
+ "filterName" : "L3Mountain",
+ "ImageName" : "L3Mountain.jpeg"
+ },{
+ "filterName" : "L4Valley",
+ "ImageName" : "L4Valley.jpeg"
+ },{
+ "filterName" : "L5Forest",
+ "ImageName" : "L5Forest.jpeg"
+ },{
+ "filterName" : "L6Vally",
+ "ImageName" : "L6Vally.jpeg"
+ },{
+ "filterName" : "L7Beach",
+ "ImageName" : "L7Beach.jpeg"
+ },{
+ "filterName" : "L8Beach",
+ "ImageName" : "L8Beach.jpeg"
+ },{
+ "filterName" : "L9Coast",
+ "ImageName" : "L9Coast.jpeg"
+ },{
+ "filterName" : "Low Sun",
+ "ImageName" : "Low Sun.jpeg"
+ },{
+ "filterName" : "LV1Levis",
+ "ImageName" : "LV1Levis.jpeg"
+ },{
+ "filterName" : "LV2Levis",
+ "ImageName" : "LV2Levis.jpeg"
+ },{
+ "filterName" : "LV3Levis",
+ "ImageName" : "LV3Levis.jpeg"
+ },{
+ "filterName" : "M1Mood",
+ "ImageName" : "M1Mood.jpeg"
+ },{
+ "filterName" : "M2Mood",
+ "ImageName" : "M2Mood.jpeg"
+ },{
+ "filterName" : "M3Mood",
+ "ImageName" : "M3Mood.jpeg"
+ },{
+ "filterName" : "M4Fade",
+ "ImageName" : "M4Fade.jpeg"
+ },{
+ "filterName" : "M5Fade",
+ "ImageName" : "M5Fade.jpeg"
+ },{
+ "filterName" : "M6Fade",
+ "ImageName" : "M6Fade.jpeg"
+ },{
+ "filterName" : "N1NewModern",
+ "ImageName" : "N1NewModern.jpeg"
+ },{
+ "filterName" : "N2NewModern",
+ "ImageName" : "N2NewModern.jpeg"
+ },{
+ "filterName" : "N3NewModern",
+ "ImageName" : "N3NewModern.jpeg"
+ },{
+ "filterName" : "NC1Neocha",
+ "ImageName" : "NC1Neocha.jpeg"
+ },{
+ "filterName" : "OAK3 Oakley PRIZM Snow",
+ "ImageName" : "OAK3 Oakley PRIZM Snow.jpeg"
+ },{
+ "filterName" : "Oakley PRIZM Road",
+ "ImageName" : "Oakley PRIZM Road.jpeg"
+ },{
+ "filterName" : "Oakley PRIZM Tungsten",
+ "ImageName" : "Oakley PRIZM Tungsten.jpeg"
+ },{
+ "filterName" : "P1 Instant",
+ "ImageName" : "P1 Instant.jpeg"
+ },{
+ "filterName" : "P2 Instant",
+ "ImageName" : "P2 Instant.jpeg"
+ },{
+ "filterName" : "P3 Instant",
+ "ImageName" : "P3 Instant.jpeg"
+ },{
+ "filterName" : "P4 Instant",
+ "ImageName" : "P4 Instant.jpeg"
+ },{
+ "filterName" : "P5 Instant",
+ "ImageName" : "P5 Instant.jpeg"
+ },{
+ "filterName" : "P6 Instant",
+ "ImageName" : "P6 Instant.jpeg"
+ },{
+ "filterName" : "P7 Instan",
+ "ImageName" : "P7 Instan.jpeg"
+ },{
+ "filterName" : "P8 Instant",
+ "ImageName" : "P8 Instant.jpeg"
+ },{
+ "filterName" : "P9 Instan",
+ "ImageName" : "P9 Instan.jpeg"
+ },{
+ "filterName" : "Q1 Alchemy",
+ "ImageName" : "Q1 Alchemy.jpeg"
+ },{
+ "filterName" : "Q2 Alchemy",
+ "ImageName" : "Q2 Alchemy.jpeg"
+ },{
+ "filterName" : "Q3 Alchemy",
+ "ImageName" : "Q3 Alchemy.jpeg"
+ },{
+ "filterName" : "Q4 Alchemy",
+ "ImageName" : "Q4 Alchemy.jpeg"
+ },{
+ "filterName" : "Q5 Alchemy",
+ "ImageName" : "Q5 Alchemy.jpeg"
+ },{
+ "filterName" : "Q6 Alchemy",
+ "ImageName" : "Q6 Alchemy.jpeg"
+ },{
+ "filterName" : "Q7 Alchemy",
+ "ImageName" : "Q7 Alchemy.jpeg"
+ },{
+ "filterName" : "Q8 Alchemy",
+ "ImageName" : "Q8 Alchemy.jpeg"
+ },{
+ "filterName" : "Q9 Alchemy",
+ "ImageName" : "Q9 Alchemy.jpeg"
+ },{
+ "filterName" : "Q10Alchemy",
+ "ImageName" : "Q10Alchemy.jpeg"
+ },{
+ "filterName" : "S1 Clean",
+ "ImageName" : "S1 Clean.jpeg"
+ },{
+ "filterName" : "S2 Clean",
+ "ImageName" : "S2 Clean.jpeg"
+ },{
+ "filterName" : "S3 Clean",
+ "ImageName" : "S3 Clean.jpeg"
+ },{
+ "filterName" : "S4 Warm",
+ "ImageName" : "S4 Warm.jpeg"
+ },{
+ "filterName" : "S5 Warm",
+ "ImageName" : "S5 Warm.jpeg"
+ },{
+ "filterName" : "S6 Warm",
+ "ImageName" : "S6 Warm.jpeg"
+ },{
+ "filterName" : "SE1 Street Etiquette",
+ "ImageName" : "SE1 Street Etiquette.jpeg"
+ },{
+ "filterName" : "SE2 Street Etiquette",
+ "ImageName" : "SE2 Street Etiquette.jpeg"
+ },{
+ "filterName" : "SE3 Street Etiquette",
+ "ImageName" : "SE3 Street Etiquette.jpeg"
+ },{
+ "filterName" : "T1 Moody",
+ "ImageName" : "T1 Moody.jpeg"
+ },{
+ "filterName" : "T2 Moody",
+ "ImageName" : "T2 Moody.jpeg"
+ },{
+ "filterName" : "T3 Moody",
+ "ImageName" : "T3 Moody.jpeg"
+ },{
+ "filterName" : "TECH Nick Sportswear Tech Pack",
+ "ImageName" : "TECH Nick Sportswear Tech Pack.jpeg"
+ },{
+ "filterName" : "TK Ta-ku",
+ "ImageName" : "TK Ta-ku.jpeg"
+ },{
+ "filterName" : "U1 Bright Sun",
+ "ImageName" : "U1 Bright Sun.jpeg"
+ },{
+ "filterName" : "U2 High Sun",
+ "ImageName" : "U2 High Sun.jpeg"
+ },{
+ "filterName" : "U3 Overcast",
+ "ImageName" : "U3 Overcast.jpeg"
+ },{
+ "filterName" : "U5 Sunset",
+ "ImageName" : "U5 Sunset.jpeg"
+ },{
+ "filterName" : "U6 Darkness",
+ "ImageName" : "U6 Darkness.jpeg"
+ },{
+ "filterName" : "V1 Valence",
+ "ImageName" : "V1 Valence.jpeg"
+ },{
+ "filterName" : "V2 Valence",
+ "ImageName" : "V2 Valence.jpeg"
+ },{
+ "filterName" : "V3 Valence",
+ "ImageName" : "V3 Valence.jpeg"
+ },{
+ "filterName" : "V4 Valence",
+ "ImageName" : "V4 Valence.jpeg"
+ },{
+ "filterName" : "V5 Valence",
+ "ImageName" : "V5 Valence.jpeg"
+ },{
+ "filterName" : "V6 Valence",
+ "ImageName" : "V6 Valence.jpeg"
+ },{
+ "filterName" : "V7 Valence",
+ "ImageName" : "V7 Valence.jpeg"
+ },{
+ "filterName" : "V8 Valence",
+ "ImageName" : "V8 Valence.jpeg"
+ },{
+ "filterName" : "WWF World Wildlife Fund",
+ "ImageName" : "WWF World Wildlife Fund.jpeg"
+ },{
+ "filterName" : "X1 Bw Fade",
+ "ImageName" : "X1 Bw Fade.jpeg"
+ },{
+ "filterName" : "X2 Bw Fade",
+ "ImageName" : "X2 Bw Fade.jpeg"
+ },{
+ "filterName" : "X3 Bw Fade",
+ "ImageName" : "X3 Bw Fade.jpeg"
+ },{
+ "filterName" : "X4 Bw Tone",
+ "ImageName" : "X4 Bw Tone.jpeg"
+ },{
+ "filterName" : "X5 Bw Tone",
+ "ImageName" : "X5 Bw Tone.jpeg"
+ },{
+ "filterName" : "X6 Bw Tone",
+ "ImageName" : "X6 Bw Tone.jpeg"
+ }
+ ]

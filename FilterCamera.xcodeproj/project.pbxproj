@@ -257,6 +257,7 @@
 		22730E5D20FB7314008C7538 /* ad_tiger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22730E5A20FB7314008C7538 /* ad_tiger.jpg */; };
 		22730E5E20FB7314008C7538 /* ad_pan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22730E5B20FB7314008C7538 /* ad_pan.jpg */; };
 		22730E6120FB891B008C7538 /* COADController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22730E6020FB891B008C7538 /* COADController.m */; };
+		22730E6320FF92FC008C7538 /* vso.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22730E6220FF92FC008C7538 /* vso.jpg */; };
 		228546DB20C4080000F22E3D /* LUTSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 228546DA20C4080000F22E3D /* LUTSource.bundle */; };
 		22A3E2C420D9220300F3B46B /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A3E2C320D9220300F3B46B /* UIImage+Resize.m */; };
 		22A3E2C920D9253800F3B46B /* YQImageCompressTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A3E2C520D9253700F3B46B /* YQImageCompressTool.m */; };
@@ -637,6 +638,7 @@
 		22730E5B20FB7314008C7538 /* ad_pan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ad_pan.jpg; sourceTree = "<group>"; };
 		22730E5F20FB891B008C7538 /* COADController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COADController.h; sourceTree = "<group>"; };
 		22730E6020FB891B008C7538 /* COADController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COADController.m; sourceTree = "<group>"; };
+		22730E6220FF92FC008C7538 /* vso.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vso.jpg; sourceTree = "<group>"; };
 		228546DA20C4080000F22E3D /* LUTSource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LUTSource.bundle; sourceTree = "<group>"; };
 		22A3E2C220D9220200F3B46B /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		22A3E2C320D9220300F3B46B /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
@@ -1674,6 +1676,7 @@
 		225F9A7120F1D34000CF2540 /* FilterShowImg */ = {
 			isa = PBXGroup;
 			children = (
+				22730E6220FF92FC008C7538 /* vso.jpg */,
 				225F9A7220F1D34000CF2540 /* best.jpeg */,
 				225F9A7320F1D34000CF2540 /* black.jpeg */,
 				225F9A7420F1D34000CF2540 /* building.jpeg */,
@@ -1956,6 +1959,7 @@
 				214A239120E4775A00961127 /* takePhoto_btn@3x.png in Resources */,
 				225F9A1220EFAF3B00CF2540 /* inkwellMap.png in Resources */,
 				225F9A5520F1CAB500CF2540 /* ruka.png in Resources */,
+				22730E6320FF92FC008C7538 /* vso.jpg in Resources */,
 				225F9A1E20EFAF3B00CF2540 /* config.json in Resources */,
 				225F99FB20EFAF3B00CF2540 /* brannanScreen.png in Resources */,
 				225F9A2E20EFAF3B00CF2540 /* toasterMetal.png in Resources */,

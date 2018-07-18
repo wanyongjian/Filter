@@ -16,19 +16,19 @@
  "payID":"null"
  },
  {
+ "filterName" : "VSO",
+ "type" : "1",
+ "path" : "LUTSource/vsco/FilterConfig.json",
+ "imagePath" : "LUTSource/vsco",
+ "filterImgPath":"vso.jpg",
+ "payID":"null"
+ },
+ {
  "filterName" : "浪漫婚礼",
  "type" : "1",
  "path" : "LUTSource/50组唯美柔和/FilterConfig.json",
  "imagePath" : "LUTSource/50组唯美柔和",
  "filterImgPath":"wedding3.jpeg",
- "payID":"null"
- },
- {
- "filterName" : "城市复古",
- "type" : "1",
- "path" : "LUTSource/24组建筑复古/FilterConfig.json",
- "imagePath" : "LUTSource/24组建筑复古",
- "filterImgPath":"building.jpeg",
  "payID":"null"
  },
  {
