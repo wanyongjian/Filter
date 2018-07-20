@@ -45,6 +45,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 @property (nonatomic, strong) NSMutableArray *ratioArray;
 @property (nonatomic, assign) AVCaptureTorchMode currentTorchModel;
 
+@property (nonatomic, strong) RTImagePickerViewController *imagePickerController;
 @end
 
 @implementation COCameraViewController
@@ -83,6 +84,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         if (block) {
             block(YES);
         }
+        [self.imagePickerController loadViewIfNeeded];
     }
 }
 - (void)checkCameraPermit:(cameraPermit)block{
@@ -497,16 +499,23 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
+
+#pragma - mark 进入相册
+- (RTImagePickerViewController *)imagePickerController{
+    if (!_imagePickerController) {
+        _imagePickerController = [RTImagePickerViewController new];
+        _imagePickerController.delegate = self;
+        _imagePickerController.mediaType = RTImagePickerMediaTypeImage;
+        // imagePickerController.allowsMultipleSelection = YES;
+        _imagePickerController.showsNumberOfSelectedAssets = YES;
+        _imagePickerController.maximumNumberOfSelection = 2;
+        _imagePickerController.minimumNumberOfSelection = 1;
+    }
+    return _imagePickerController;
+}
 - (void)choseImageFromPhotoLibrary
 {
-    RTImagePickerViewController *imagePickerController = [RTImagePickerViewController new];
-    imagePickerController.delegate = self;
-    imagePickerController.mediaType = RTImagePickerMediaTypeImage;
-    // imagePickerController.allowsMultipleSelection = YES;
-    imagePickerController.showsNumberOfSelectedAssets = YES;
-    imagePickerController.maximumNumberOfSelection = 2;
-    imagePickerController.minimumNumberOfSelection = 1;
-    [self.navigationController pushViewController:imagePickerController animated:YES];
+    [self.navigationController pushViewController:self.imagePickerController animated:YES];
 }
 //
 #pragma mark - RTImagePickerViewControllerDelegate

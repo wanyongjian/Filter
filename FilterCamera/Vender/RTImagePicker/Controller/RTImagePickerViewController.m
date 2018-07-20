@@ -54,7 +54,7 @@
         // Set instance
         weakSelf();
         RTAssetCollectionViewController *albumsViewController = (RTAssetCollectionViewController *)wself.assetNavigationController.topViewController;
-        
+        [albumsViewController loadViewIfNeeded];
         albumsViewController.imagePickerController = wself;
     }
     
@@ -76,14 +76,10 @@
     // Add QBAlbumsViewController as a child
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"RTImagePicker" bundle:self.assetBundle];
     RTImagePickerNavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"RTAssetNavigationController"];
-    
     [self addChildViewController:navigationController];
-    
     navigationController.view.frame = self.view.bounds;
     [self.view addSubview:navigationController.view];
-    
     [navigationController didMoveToParentViewController:self];
-    
     self.assetNavigationController = navigationController;
 }
 

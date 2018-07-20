@@ -61,13 +61,8 @@ static NSString * const reuseIdentifier = @"AssetCell";
     albumListAnimateDuration = 0.3f;
     hasAuthorized = NO;
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self setupToolBarView];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    weakSelf();
+    
+    
     switch ([PHPhotoLibrary authorizationStatus]) {
         case PHAuthorizationStatusNotDetermined:
         {
@@ -126,13 +121,21 @@ static NSString * const reuseIdentifier = @"AssetCell";
             break;
     }
     
+    [self setupToolBarView];
+ 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    weakSelf();
     // Configure navigation item
     [titleButton rt_setTitle:self.assetCollection.localizedTitle arrowAppearance:YES];
     
     // Configure collection view
     self.collectionView.allowsMultipleSelection = wself.imagePickerController.allowsMultipleSelection;
     self.collectionView.userInteractionEnabled = YES;
-
+    
     [self.collectionView reloadData];
     
     // Scroll to bottom
