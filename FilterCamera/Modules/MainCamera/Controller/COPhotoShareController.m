@@ -281,13 +281,20 @@
         make.top.mas_equalTo(editBtn.mas_bottom).mas_offset(50);
     }];
     
+#ifdef DEBUG
+    [BannerManager sharedManager].bannerView.adUnitID = GOOGLE_UNITID;
+    [BannerManager sharedManager].bannerView.rootViewController = wself;
+    GADRequest *request = [GADRequest request];
+    request.testDevices = @[ @[kGADSimulatorID] ];
+    [[BannerManager sharedManager].bannerView loadRequest:request];
+#else
     [BannerManager sharedManager].bannerView.adUnitID = COCO_UNITID;
     [BannerManager sharedManager].bannerView.rootViewController = wself;
     GADRequest *request = [GADRequest request];
-#ifdef DEBUG
-    request.testDevices = @[ @"c28f3c8390cdf357e7e0074d31a5287d" ];
-#endif
+    //    request.testDevices = @[ @"c28f3c8390cdf357e7e0074d31a5287d" ];
     [[BannerManager sharedManager].bannerView loadRequest:request];
+#endif
+
     
     // 本地加载图片的轮播器
     //    NSArray *ad_imageArray = @[@"ad_egg.jpg",@"ad_tiger.jpg",@"ad_pan.jpg"];
