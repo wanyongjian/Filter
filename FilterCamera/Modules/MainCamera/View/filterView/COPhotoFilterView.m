@@ -104,8 +104,8 @@
     if (!payView) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
         CGFloat width = 80;
-        CGFloat height = 20;
-        CGFloat offset = 26;
+        CGFloat height = 12;
+        CGFloat offset = 30;
         payView = [[UIView alloc]initWithFrame:CGRectMake(layout.itemSize.width-width, kGreenLineWidth, width, width)];
         payView.layer.masksToBounds = YES;
         payView.tag = kCameraFilterCollectionPayImageViewTag;
@@ -116,7 +116,7 @@
         payLabel.textColor = [UIColor blackColor];
         payLabel.textAlignment = NSTextAlignmentCenter;
         payLabel.backgroundColor = [UIColor yellowColor];
-        payLabel.font = [UIFont systemFontOfSize:12];
+        payLabel.font = [UIFont systemFontOfSize:9];
         payLabel.transform =CGAffineTransformMakeRotation(M_PI_4);
         [payView addSubview:payLabel];
         [cell.contentView addSubview:payView];
