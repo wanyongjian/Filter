@@ -50,7 +50,7 @@
                                                @"COCOID4"]];
     
     if (![StdUserDefault objectForKey:PayIDString]) {
-        NSMutableArray *array = @[@"COCOID1",@"COCOID2",@"COCOID3",@"COCOID4"].mutableCopy;
+        NSMutableArray *array = @[@"COCOID2",@"COCOID3"].mutableCopy;
         [StdUserDefault setObject:array forKey:PayIDString];
         [StdUserDefault synchronize];
     }
