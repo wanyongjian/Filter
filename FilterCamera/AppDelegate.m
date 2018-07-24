@@ -15,6 +15,8 @@
 
 #define APPKEY_WX @"wx08bda7b6cda08222"
 #define APPSECRET_WX @"76f43e4faff8f9ba68439dcada368b17"
+
+
 @interface AppDelegate () <DeviceOrientationDelegate>
 {
     DeviceOrientation *CODeviceOrientation;
@@ -29,8 +31,8 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     COCameraViewController *vc = [[COCameraViewController alloc]init];
-//    ViewController *vc = [[ViewController alloc]init];
-//    COPhotoShareController *vc = [[COPhotoShareController alloc]init];
+    //    ViewController *vc = [[ViewController alloc]init];
+//        COPhotoShareController *vc = [[COPhotoShareController alloc]init];
     COBaseNavigationController *nav = [[COBaseNavigationController alloc]initWithRootViewController:vc];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
@@ -39,8 +41,11 @@
     [self monitorNetworking];
     [self requsetGoods];
     [self configUSharePlatforms];
-    [NSThread sleepForTimeInterval:1];
+    // Initialize Google Mobile Ads SDK
+    // Sample AdMob app ID: ca-app-pub-3940256099942544~1458002511
+    [GADMobileAds configureWithApplicationID:GOOGLE_APPID];
     
+    [NSThread sleepForTimeInterval:1];
     return YES;
 }
 
@@ -88,27 +93,27 @@
             self.imageOrientation = UIImageOrientationUp;
             NSLog(@"相机方向：UIImageOrientationUp");
         }
-            break;
+        break;
         case TgDirectionDown:{
             self.imageOrientation = UIImageOrientationDown;
             NSLog(@"相机方向：UIImageOrientationDown");
         }
-            break;
+        break;
         case TgDirectionRight:{
             self.imageOrientation = UIImageOrientationRight;
             NSLog(@"相机方向：UIImageOrientationRight");
         }
-            break;
+        break;
         case TgDirectionleft:{
             self.imageOrientation = UIImageOrientationLeft;
             NSLog(@"相机方向：UIImageOrientationLeft");
         }
-            break;
+        break;
         default:{
             self.imageOrientation = UIImageOrientationUp;
             NSLog(@"相机方向：unKnow");
         }
-            break;
+        break;
     }
 }
 
@@ -141,7 +146,7 @@
      */
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"1106958711"/*设置QQ平台的appID*/  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
     /* 设置新浪的appKey和appSecret */
-//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"3921700954"  appSecret:@"04b48b094faeb16683c32669824ebdad" redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
+    //    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"3921700954"  appSecret:@"04b48b094faeb16683c32669824ebdad" redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
 }
 
 @end

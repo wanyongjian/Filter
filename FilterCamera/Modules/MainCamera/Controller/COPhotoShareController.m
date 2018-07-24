@@ -12,13 +12,19 @@
 #import "WXApi.h"
 #import <TencentOpenAPI/QQApiInterface.h>
 #import "COCameraViewController.h"
+#import "COADController.h"
 
-@interface COPhotoShareController ()
+//#define EGGURL @"https://www.bianxianguanjia.com/toActivityByegg/10395526/491/1"
+//#define PANURL @"https://www.bianxianguanjia.com/toActivityBydzp/10395526/500/1"
+//#define TIGERURL @"https://www.bianxianguanjia.com/toGamePageBylhj/10395526/501/1"
+//
+@interface COPhotoShareController () <GADBannerViewDelegate>
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UIImage *shareImage;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIView *shareView;
 @property (nonatomic, strong) NSMutableArray *buttonArray;
+@property (nonatomic, strong) NSMutableArray *ad_urlArray;
 @end
 
 @implementation COPhotoShareController
@@ -60,6 +66,7 @@
     [element update];
     [imageSource processImage];
     UIImage *desImg = [blendFilter imageFromCurrentFramebuffer];
+    [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
     return desImg;
 }
 - (void)setSoureceImage:(UIImage *)soureceImage{
@@ -80,8 +87,8 @@
     //创建图片内容对象
     UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
     //如果有缩略图，则设置缩略图
-//    shareObject.thumbImage = [UIImage imageNamed:@"icon"];
-//    [shareObject setShareImage:@"https://mobile.umeng.com/images/pic/home/social/img-1.png"];
+    //    shareObject.thumbImage = [UIImage imageNamed:@"icon"];
+    //    [shareObject setShareImage:@"https://mobile.umeng.com/images/pic/home/social/img-1.png"];
     [shareObject setShareImage:_shareImage];
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;
@@ -175,7 +182,7 @@
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;//使图片和文字水平居中显示
         [button setTitleEdgeInsets:UIEdgeInsetsMake(button.imageView.frame.size.height ,-button.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
         [button setImageEdgeInsets:UIEdgeInsetsMake(-button.imageView.frame.size.height, 0.0,0.0, -button.titleLabel.bounds.size.width)];
-
+        
     }
     
     if(![WXApi isWXAppInstalled]){
@@ -265,7 +272,54 @@
             }
         }
     }];
+    
+    // googld 广告位
+    [self.view addSubview:[BannerManager sharedManager].bannerView];
+    [[BannerManager sharedManager].bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(wself.view).offset(20);
+        make.right.mas_equalTo(wself.view).offset(-20);
+        make.top.mas_equalTo(editBtn.mas_bottom).mas_offset(50);
+    }];
+    
+    [BannerManager sharedManager].bannerView.adUnitID = COCO_UNITID;
+    [BannerManager sharedManager].bannerView.rootViewController = wself;
+    GADRequest *request = [GADRequest request];
+#ifdef DEBUG
+    request.testDevices = @[ @"c28f3c8390cdf357e7e0074d31a5287d" ];
+#endif
+    [[BannerManager sharedManager].bannerView loadRequest:request];
+    
+    // 本地加载图片的轮播器
+    //    NSArray *ad_imageArray = @[@"ad_egg.jpg",@"ad_tiger.jpg",@"ad_pan.jpg"];
+    //    self.ad_urlArray = @[EGGURL,TIGERURL,PANURL].mutableCopy;
+    //    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth-40, (kScreenWidth-40)/2.0) imageNamesGroup:ad_imageArray];
+    //    [self.view addSubview:cycleScrollView];
+    //    cycleScrollView.delegate = self;
+    //    cycleScrollView.autoScrollTimeInterval = 2.5;
+    //
+    //    CGFloat ad_y = 110+kScreenWidth/4.0+100;
+    //    cycleScrollView.center = CGPointMake(kScreenWidth/2, ad_y +(kScreenHeight-ad_y)/2);
+    //
+    //    UILabel *label = [[UILabel alloc]init];
+    //    label.numberOfLines = 0;
+    //    label.textColor = [UIColor grayColor];
+    //    label.font = [UIFont systemFontOfSize:12];
+    //    label.text = @"声明：本产品从事的任何活动均与苹果公司无关，苹果公司既不作为赞助商也不以任何形式参与";
+    //    [self.view addSubview:label];
+    //    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.top.mas_equalTo(cycleScrollView.mas_bottom).mas_offset(5);
+    //        make.left.mas_equalTo(cycleScrollView.mas_left);
+    //        make.right.mas_equalTo(cycleScrollView.mas_right);
+    //    }];
 }
+//- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+//    NSString *url = [self.ad_urlArray objectAtIndex:index];
+////    NSLog(@"---- %@",url);
+//    COADController *vc = [[COADController alloc]init];
+//    vc.urlStr = url;
+//    [self.navigationController pushViewController:vc animated:YES];
+//
+//}
 
 - (void)shareAction:(UIButton *)button{
     [self shareImageToPlatformType:button.tag];
@@ -301,4 +355,7 @@
     [self.navigationController setNavigationBarHidden:NO];
 }
 
+- (void)dealloc {
+    [[BannerManager sharedManager].bannerView removeFromSuperview];
+}
 @end

@@ -11,4 +11,5 @@ pod 'AFNetworking', '~> 3.0'
 pod 'SVProgressHUD'
 pod 'MLeaksFinder'
 pod 'SDCycleScrollView','~> 1.75'
+pod 'Google-Mobile-Ads-SDK'
 end
