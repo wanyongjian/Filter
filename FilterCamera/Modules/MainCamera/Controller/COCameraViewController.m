@@ -221,7 +221,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 - (void)setInitData{
     CGFloat fullRatio = kScreenHeight/kScreenWidth;
     NSString *ratio = [NSString stringWithFormat:@"%f",fullRatio];
-    self.ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"],@[@"Full",ratio]].mutableCopy;
+    self.ratioArray = @[@[@"3:4",@"1.33"],@[@"1:1",@"1.0"]].mutableCopy;
     self.currentCameraViewRatio = 1.33;
     self.currentTorchModel = AVCaptureTorchModeOff;
 }
@@ -390,7 +390,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     };
     
 }
-
+#pragma mark - 切换滤镜
 - (void)switchToFilterWithIndex:(NSInteger)index{
     runAsynchronouslyOnVideoProcessingQueue(^{
         FilterModel *model = self.cameraFilterView.filterModleArray[index];
@@ -465,23 +465,6 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
             [self.scaleBtn setTitleColor:HEX_COLOR(0x707070) forState:UIControlStateNormal];
             [self.lightBtn setBackgroundImage:[UIImage imageNamed:@"lightGrayNomal_707070"] forState:UIControlStateNormal];
             [self.lightBtn setBackgroundImage:[UIImage imageNamed:@"lightGraySelect_707070"] forState:UIControlStateSelected];
-        }
-            break;
-        case CameraRatioType916:{
-            [UIView animateWithDuration:0.4 animations:^{
-                [self.imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-                    make.left.right.mas_equalTo(self.containerView);
-                    make.top.mas_equalTo(self.containerView);
-                    make.bottom.mas_equalTo(self.containerView);
-                }];
-                [self.containerView layoutIfNeeded];
-            }];
-            [self.rotateBtn setBackgroundImage:[UIImage imageNamed:@"invertCam_ffffff"] forState:UIControlStateNormal];
-            [self.filterBtn setBackgroundImage:[UIImage imageNamed:@"filter_btn_ffffff"] forState:UIControlStateNormal];
-            [self.scaleBtn setImage:[UIImage imageNamed:@"ratio_btn_ffffff"] forState:UIControlStateNormal];
-            [self.scaleBtn setTitleColor:HEX_COLOR(0xffffff) forState:UIControlStateNormal];
-            [self.lightBtn setBackgroundImage:[UIImage imageNamed:@"lightWhiteNormal_ffffff"] forState:UIControlStateNormal];
-            [self.lightBtn setBackgroundImage:[UIImage imageNamed:@"lightWhiteSelect_ffffff"] forState:UIControlStateSelected];
         }
             break;
     }
