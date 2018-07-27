@@ -7,13 +7,14 @@
 //
 
 #import "COStillCameraPreview.h"
-@interface COStillCameraPreview() <UIScrollViewDelegate>
+@interface COStillCameraPreview() <UIScrollViewDelegate,UIGestureRecognizerDelegate>
 @property (nonatomic,strong) UILabel *label;
 @property (nonatomic,strong) UIPageControl *pageController;
 @property (nonatomic,strong) NSTimer *timer;
 @property (nonatomic,assign) int selectIndex;
 @property (nonatomic, strong) NSArray *filterModleArray;
 @property (nonatomic, strong) UIView *containerView;
+@property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 @end
 
 @implementation COStillCameraPreview
@@ -49,9 +50,18 @@
 //    
     _filterSelectSignal = [RACSubject subject];
     // 轻敲
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] init];
-    [self addGestureRecognizer:tapGesture];
-    _tapGestureSignal = [tapGesture rac_gestureSignal];
+    self.tapGesture = [[UITapGestureRecognizer alloc] init];
+    [self addGestureRecognizer:self.tapGesture];
+    _tapGestureSignal = [self.tapGesture rac_gestureSignal];
+    self.tapGesture.delegate = self;
+}
+
+#pragma mark- --点击手势代理，为了去除手势冲突--
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if ([touch.view isKindOfClass:[UIScrollView class]]) {
+        return YES;
+    }
+    return NO;
 }
 
 - (void)setUI{

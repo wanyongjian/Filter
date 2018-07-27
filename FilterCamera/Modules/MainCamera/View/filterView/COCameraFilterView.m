@@ -17,6 +17,7 @@
 #define kGreenLineWidth 2
 @interface COCameraFilterView() <UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,strong) NSMutableArray *itemSelectArray; //数据源解决cell重用导致的重叠问题
+@property (nonatomic,strong) UIView *view;
 @end
 
 @implementation COCameraFilterView
@@ -43,14 +44,16 @@
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(kCameraFilterViewItemWidth, kCameraFilterViewItemHeight);
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    layout.minimumLineSpacing = 5;
+    layout.minimumLineSpacing = 10;
     layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     return layout;
 }
 - (void)addCollectionView{
     UICollectionViewFlowLayout *layout = [self collectionViewForFlowLayout];
-    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, (kCameraFilterViewHeight- kCameraFilterCollectionViewHeight)/2.0, kScreenWidth, kCameraFilterCollectionViewHeight+kGreenLineWidth*2) collectionViewLayout:layout];
-    collectionView.backgroundColor = HEX_COLOR(0x252525);
+//    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, (kCameraFilterViewHeight- kCameraFilterCollectionViewHeight)/2.0, kScreenWidth, kCameraFilterCollectionViewHeight+kGreenLineWidth*2) collectionViewLayout:layout];
+    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kCameraFilterViewItemHeight) collectionViewLayout:layout];
+//    collectionView.backgroundColor = HEX_COLOR(0x252525);
+    collectionView.backgroundColor = [UIColor clearColor];
     collectionView.delegate = self;
     collectionView.dataSource = self;
     collectionView.scrollsToTop = NO;
@@ -69,16 +72,33 @@
 }
 
 - (void)showInView:(UIView *)view{
+    self.view = view;
     if(!self.superview){
         [view addSubview:self];
+//        self.userInteractionEnabled = YES;
     }
     if(!self.hidden){
         return;
     }
     self.hidden = NO;
-    self.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kCameraFilterViewHeight);
+    self.alpha = 0;
+    [self mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(view);
+        make.right.mas_equalTo(view);
+        make.height.mas_equalTo(kCameraFilterViewItemHeight);
+        make.top.mas_equalTo(view.mas_bottom);
+    }];
+    [self.view layoutIfNeeded];
+    
     [UIView animateWithDuration:0.4 animations:^{
-        self.frame = CGRectMake(0, kScreenHeight-kCameraFilterViewHeight, kScreenWidth, kCameraFilterViewHeight);
+        [self mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(view);
+            make.right.mas_equalTo(view);
+            make.height.mas_equalTo(kCameraFilterViewItemHeight);
+            make.bottom.mas_equalTo(view.mas_bottom).mas_offset(kCameraFilterViewLabelHeight+kGreenLineWidth);
+        }];
+        self.alpha = 1;
+        [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
         
     }];
@@ -90,7 +110,14 @@
     }
     
     [UIView animateWithDuration:0.4 animations:^{
-        self.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kCameraFilterViewHeight);
+        [self mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.view);
+            make.right.mas_equalTo(self.view);
+            make.height.mas_equalTo(kCameraFilterViewItemHeight);
+            make.top.mas_equalTo(self.view.mas_bottom);
+        }];
+        [self.view layoutIfNeeded];
+        self.alpha = 0;
     } completion:^(BOOL finished) {
         self.hidden = YES;
     }];
@@ -104,6 +131,17 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     FilterModel *model = _filterModleArray[indexPath.row];
      UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCameraFilterCollectionViewCellID forIndexPath:indexPath];
+    cell.layer.cornerRadius = 6;
+    cell.contentView.layer.cornerRadius = 6;
+    cell.contentView.layer.masksToBounds = YES;
+    
+//    cell.layer.shadowColor = [UIColor darkGrayColor].CGColor;
+//    cell.layer.shadowOffset = CGSizeMake(0, 0);
+//    cell.layer.shadowRadius = 3.0f;
+//    cell.layer.shadowOpacity = 0.3f;
+//    cell.layer.masksToBounds = NO;
+//    cell.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:cell.bounds cornerRadius:cell.contentView.layer.cornerRadius].CGPath;
+    
     UIImageView *imageView = [cell.contentView viewWithTag:kCameraFilterCollectionImageViewTag];
     if (!imageView) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
@@ -123,10 +161,10 @@
         CGRect rect = CGRectMake(0, layout.itemSize.height-kCameraFilterViewLabelHeight-kGreenLineWidth, layout.itemSize.width, kCameraFilterViewLabelHeight);
         label = [[UILabel alloc] initWithFrame:rect];
         label.tag = kCameraFilterCollectionLabelTag;
-        label.font = [UIFont systemFontOfSize:10];
-        label.textColor = [UIColor whiteColor];
+        label.font = [UIFont systemFontOfSize:11];
+        label.textColor = HEX_COLOR(0x8a8a8a);
         label.textAlignment = NSTextAlignmentCenter;
-        label.backgroundColor = [HEX_COLOR(0x555a5d) colorWithAlphaComponent:0.8];
+        label.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
         [cell.contentView addSubview:label];
     }
     
@@ -168,4 +206,5 @@
     newCell.backgroundColor = COGreenColor;
     [_collectionView scrollToItemAtIndexPath:self.lastIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 }
+
 @end

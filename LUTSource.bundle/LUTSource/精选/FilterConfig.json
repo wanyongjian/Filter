@@ -30,24 +30,9 @@
  "filterImgPath":"fall.png"
  },
  {
- "filterName" : "Knight",
- "vc" : "FWHudsonFilter",
- "filterImgPath":"knight.png"
- },
- {
  "filterName" : "Anson",
  "vc" : "FWBrannanFilter",
  "filterImgPath":"anson.png"
- },
- {
- "filterName" : "Neko",
- "vc" : "FWEarlybirdFilter",
- "filterImgPath":"neko.png"
- },
- {
- "filterName" : "Sayan",
- "vc" : "FWHefeFilter",
- "filterImgPath":"sayan.png"
  },
  {
  "filterName" : "Hola",
@@ -58,11 +43,6 @@
  "filterName" : "Misaki",
  "vc" : "FWSierraFilter",
  "filterImgPath":"misaki.png"
- },
- {
- "filterName" : "Ruka",
- "vc" : "FWToasterFilter",
- "filterImgPath":"ruka.png"
  },
  {
  "filterName" : "Rigel",

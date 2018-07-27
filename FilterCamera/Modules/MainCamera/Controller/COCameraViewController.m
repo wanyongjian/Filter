@@ -250,6 +250,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         make.top.left.right.mas_equalTo(self.containerView);
         make.height.mas_equalTo(SCREEN_WIDTH*(4.0/3.0));
     }];
+    
     //比例按钮
     UIButton *scaleButton = [[ShakeButton alloc]init];
     scaleButton.tag = 0;
@@ -337,7 +338,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     _cameraFilterView = [[COCameraFilterView alloc]init];
     
     [[filterBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [wself.cameraFilterView toggleInView:wself.containerView];
+        [wself.cameraFilterView toggleInView:wself.imageView];
     }];
     //拍照按钮
     UIButton *button = [[UIButton alloc]init];
@@ -557,5 +558,4 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         }
     }];
 }
-
 @end
