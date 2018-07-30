@@ -38,4 +38,5 @@
 #import "SDCycleScrollView.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import "BannerManager.h"
+#import "ZLPhotoActionSheet.h"
 #endif /* Coco_pch */

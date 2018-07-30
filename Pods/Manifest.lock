@@ -43,6 +43,21 @@ DEPENDENCIES:
   - SVProgressHUD
   - TZImagePickerController
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - FBRetainCycleDetector
+    - Google-Mobile-Ads-SDK
+    - GPUImage
+    - Masonry
+    - MBProgressHUD
+    - MLeaksFinder
+    - ReactiveObjC
+    - SDCycleScrollView
+    - SDWebImage
+    - SVProgressHUD
+    - TZImagePickerController
+
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
@@ -59,4 +74,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: afecd4112cb038713e082407d1852f9d0d7d8ab0
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

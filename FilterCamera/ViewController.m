@@ -79,6 +79,37 @@
     UIImage *logo = [UIImage imageNamed:@"bika.jpg"];
     UIImage *image = [self drawImageWithImage:logo];
     self.drawImageView.image = image;
+    
+    
+    
+    ZLPhotoActionSheet *ac = [[ZLPhotoActionSheet alloc] init];
+    //相册参数配置，configuration有默认值，可直接使用并对其属性进行修改
+    ac.configuration.maxSelectCount = 1;
+    ac.configuration.maxPreviewCount = 10;
+    ac.configuration.allowMixSelect = NO;
+    ac.configuration.allowSelectVideo = NO;
+    ac.configuration.allowSelectGif = NO;
+    //设置相册内部显示拍照按钮
+    ac.configuration.allowTakePhotoInLibrary = NO;
+    ac.configuration.saveNewImageAfterEdit = NO;
+    ac.configuration.navBarColor = [HEX_COLOR(0x212121) colorWithAlphaComponent:0.6];
+//    ac.configuration.bottomViewBgColor =
+    //如调用的方法无sender参数，则该参数必传
+    ac.sender = self;
+    //选择回调
+    [ac setSelectImageBlock:^(NSArray<UIImage *> * _Nonnull images, NSArray<PHAsset *> * _Nonnull assets, BOOL isOriginal) {
+        //your codes
+        if (images.count == 1) {
+            UIImage *image = images[0];
+            NSLog(@"");
+        }
+    }];
+    //调用相册
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [ac showPhotoLibrary];
+    });
+    
+    
 }
 
 - (UIImage *)drawImageWithImage:(UIImage *)image{
