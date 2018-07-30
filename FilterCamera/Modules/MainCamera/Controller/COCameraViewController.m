@@ -13,7 +13,6 @@
 #import "COCameraFilterView.h"
 #import "COPhotoDisplayController.h"
 #import <Photos/Photos.h>
-#import "RTImagePickerViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 typedef void(^cameraPermit)(BOOL value);
 typedef NS_ENUM(NSInteger,CameraRatioType){
@@ -23,7 +22,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 };
 
 
-@interface COCameraViewController () <RTImagePickerViewControllerDelegate>
+@interface COCameraViewController ()
 {
 }
 @property (nonatomic, strong) UIView *containerView;
