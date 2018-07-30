@@ -63,6 +63,42 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [self addBackgroundNoti];
     self.takePhotoBtn.userInteractionEnabled = NO;
 }
+- (void)showPhotoBrowser{
+    ZLPhotoActionSheet *ac = [[ZLPhotoActionSheet alloc] init];
+    //相册参数配置，configuration有默认值，可直接使用并对其属性进行修改
+    ac.configuration.maxSelectCount = 1;
+    ac.configuration.maxPreviewCount = 10;
+    ac.configuration.allowMixSelect = NO;
+    ac.configuration.allowSelectVideo = NO;
+    ac.configuration.allowSelectGif = NO;
+    //设置相册内部显示拍照按钮
+    ac.configuration.allowTakePhotoInLibrary = NO;
+    ac.configuration.saveNewImageAfterEdit = NO;
+    ac.configuration.navBarColor = [HEX_COLOR(0x212121) colorWithAlphaComponent:0.6];
+    //    ac.configuration.bottomViewBgColor =
+    //如调用的方法无sender参数，则该参数必传
+    ac.sender = self;
+    //选择回调
+    [ac setSelectImageBlock:^(NSArray<UIImage *> * _Nonnull images, NSArray<PHAsset *> * _Nonnull assets, BOOL isOriginal) {
+        //your codes
+        if (images.count == 1) {
+            UIImage *image = images[0];
+            NSLog(@"");
+            
+            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+            vc.sourceImage = image;
+            if (!images) {
+                return ;
+            }
+            NSAssert(image !=nil, @"SourceImage 是空");
+            vc.filterClass = NSClassFromString(@"GPUImageFilter");
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }];
+
+    [ac showPhotoLibrary];
+}
+
 - (void)checkPhotoPermit:(cameraPermit)block{
     ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
     if (author ==kCLAuthorizationStatusRestricted || author ==kCLAuthorizationStatusDenied){
@@ -372,7 +408,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     [[picBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         [wself checkPhotoPermit:^(BOOL value) {
             if (value) {
-                [wself choseImageFromPhotoLibrary];
+                [self showPhotoBrowser];
             }
         }];
     }];
@@ -481,81 +517,5 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
-- (void)choseImageFromPhotoLibrary
-{
-    RTImagePickerViewController *imagePickerController = [RTImagePickerViewController new];
-    imagePickerController.delegate = self;
-    imagePickerController.mediaType = RTImagePickerMediaTypeImage;
-    // imagePickerController.allowsMultipleSelection = YES;
-    imagePickerController.showsNumberOfSelectedAssets = YES;
-    imagePickerController.maximumNumberOfSelection = 2;
-    imagePickerController.minimumNumberOfSelection = 1;
-    [self.navigationController pushViewController:imagePickerController animated:YES];
-}
-//
-#pragma mark - RTImagePickerViewControllerDelegate
-- (void)rt_imagePickerController:(RTImagePickerViewController *)imagePickerController didFinishPickingImages:(NSArray<UIImage *> *)images
-{
-//    TOCropViewController *cropViewController = [[TOCropViewController alloc] initWithImage:[images lastObject]];
-//    cropViewController.delegate = self;
-//    [imagePickerController.navigationController pushViewController:cropViewController animated:YES];
-}
 
-- (void)rt_imagePickerControllerDidCancel:(RTImagePickerViewController *)imagePickerController
-{
-    [imagePickerController.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)rt_imagePickerController:(RTImagePickerViewController *)imagePickerController didSelectAsset:(PHAsset *)asset
-{
-    PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
-    [[PHImageManager defaultManager] requestImageDataForAsset:asset options:option resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) {
-        BOOL downloadFinined = (![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey]);
-        if (downloadFinined && imageData) {
-            UIImage *SourceImage = [UIImage imageWithData:imageData];
-            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
-            vc.sourceImage = SourceImage;
-            NSAssert(SourceImage !=nil, @"SourceImage 是空");
-            vc.filterClass = NSClassFromString(@"GPUImageFilter");
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        // Download image from iCloud / 从iCloud下载图片
-        if ([info objectForKey:PHImageResultIsInCloudKey] && !imageData) {
-            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            if (!delegate.netReachable) {
-                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-                hud.mode = MBProgressHUDModeText;
-                hud.label.text = @"网络未连接，无法从iCloud下载照片。";
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [hud hideAnimated:YES];
-                });
-                return ;
-            }
-            
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-            hud.mode = MBProgressHUDModeAnnularDeterminate;
-            hud.label.text = @"载入iCloud照片中...";
-            PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
-            options.progressHandler = ^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    NSLog(@"下载进度---- %f",progress);
-                    [MBProgressHUD HUDForView:self.navigationController.view].progress = progress;
-                });
-            };
-            options.networkAccessAllowed = YES;
-//            options.synchronous = YES;
-            [[PHImageManager defaultManager] requestImageDataForAsset:asset options:options resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) {
-                [hud hideAnimated:YES];
-                if(!imageData) return;
-                UIImage *resultImage = [UIImage imageWithData:imageData];
-                UIImage *SourceImage = [resultImage fixOrientation];
-
-                COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
-                vc.sourceImage = SourceImage;
-                vc.filterClass = NSClassFromString(@"GPUImageFilter");
-                [self.navigationController pushViewController:vc animated:YES];
-            }];
-        }
-    }];
-}
 @end

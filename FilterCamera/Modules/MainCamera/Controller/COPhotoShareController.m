@@ -281,45 +281,21 @@
         make.top.mas_equalTo(editBtn.mas_bottom).mas_offset(50);
     }];
     
+#ifdef DEBUG
+    [BannerManager sharedManager].bannerView.adUnitID = GOOGLE_UNITID;
+    [BannerManager sharedManager].bannerView.rootViewController = wself;
+    GADRequest *request = [GADRequest request];
+    request.testDevices = @[ @[kGADSimulatorID] ];
+    [[BannerManager sharedManager].bannerView loadRequest:request];
+#else
     [BannerManager sharedManager].bannerView.adUnitID = COCO_UNITID;
     [BannerManager sharedManager].bannerView.rootViewController = wself;
     GADRequest *request = [GADRequest request];
-#ifdef DEBUG
-    request.testDevices = @[ @"c28f3c8390cdf357e7e0074d31a5287d" ];
-#endif
+    //    request.testDevices = @[ @"c28f3c8390cdf357e7e0074d31a5287d" ];
     [[BannerManager sharedManager].bannerView loadRequest:request];
+#endif
     
-    // 本地加载图片的轮播器
-    //    NSArray *ad_imageArray = @[@"ad_egg.jpg",@"ad_tiger.jpg",@"ad_pan.jpg"];
-    //    self.ad_urlArray = @[EGGURL,TIGERURL,PANURL].mutableCopy;
-    //    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth-40, (kScreenWidth-40)/2.0) imageNamesGroup:ad_imageArray];
-    //    [self.view addSubview:cycleScrollView];
-    //    cycleScrollView.delegate = self;
-    //    cycleScrollView.autoScrollTimeInterval = 2.5;
-    //
-    //    CGFloat ad_y = 110+kScreenWidth/4.0+100;
-    //    cycleScrollView.center = CGPointMake(kScreenWidth/2, ad_y +(kScreenHeight-ad_y)/2);
-    //
-    //    UILabel *label = [[UILabel alloc]init];
-    //    label.numberOfLines = 0;
-    //    label.textColor = [UIColor grayColor];
-    //    label.font = [UIFont systemFontOfSize:12];
-    //    label.text = @"声明：本产品从事的任何活动均与苹果公司无关，苹果公司既不作为赞助商也不以任何形式参与";
-    //    [self.view addSubview:label];
-    //    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.top.mas_equalTo(cycleScrollView.mas_bottom).mas_offset(5);
-    //        make.left.mas_equalTo(cycleScrollView.mas_left);
-    //        make.right.mas_equalTo(cycleScrollView.mas_right);
-    //    }];
 }
-//- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-//    NSString *url = [self.ad_urlArray objectAtIndex:index];
-////    NSLog(@"---- %@",url);
-//    COADController *vc = [[COADController alloc]init];
-//    vc.urlStr = url;
-//    [self.navigationController pushViewController:vc animated:YES];
-//
-//}
 
 - (void)shareAction:(UIButton *)button{
     [self shareImageToPlatformType:button.tag];
