@@ -117,6 +117,7 @@
 		2166B904210EBA4A00A7B70B /* ZLProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2166B8E4210EBA4A00A7B70B /* ZLProgressHUD.m */; };
 		2166B905210EBA4A00A7B70B /* ZLShowBigImgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2166B8E6210EBA4A00A7B70B /* ZLShowBigImgViewController.m */; };
 		2166B906210EBA4A00A7B70B /* ZLThumbnailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2166B8E8210EBA4A00A7B70B /* ZLThumbnailViewController.m */; };
+		2166B909210F0FCA00A7B70B /* COJigsawController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2166B908210F0FCA00A7B70B /* COJigsawController.m */; };
 		216B4CE420EA1720006441DC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216B4CE320EA1720006441DC /* StoreKit.framework */; };
 		2179F22420BCDE5800B73822 /* qmkit_fiter_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F22320BCDE5800B73822 /* qmkit_fiter_btn@3x.png */; };
 		2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2179F38420BD45AE00B73822 /* AnimationFilter.m */; };
@@ -424,6 +425,8 @@
 		2166B8E6210EBA4A00A7B70B /* ZLShowBigImgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLShowBigImgViewController.m; sourceTree = "<group>"; };
 		2166B8E7210EBA4A00A7B70B /* ZLThumbnailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLThumbnailViewController.h; sourceTree = "<group>"; };
 		2166B8E8210EBA4A00A7B70B /* ZLThumbnailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLThumbnailViewController.m; sourceTree = "<group>"; };
+		2166B907210F0FCA00A7B70B /* COJigsawController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COJigsawController.h; sourceTree = "<group>"; };
+		2166B908210F0FCA00A7B70B /* COJigsawController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COJigsawController.m; sourceTree = "<group>"; };
 		216B4CE320EA1720006441DC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2179F22320BCDE5800B73822 /* qmkit_fiter_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_fiter_btn@3x.png"; sourceTree = "<group>"; };
 		2179F38320BD45AE00B73822 /* AnimationFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationFilter.h; sourceTree = "<group>"; };
@@ -1035,6 +1038,8 @@
 				22730E6020FB891B008C7538 /* COADController.m */,
 				2210509E20D0111D00AB0D9C /* GPUCommonLUTFilter.h */,
 				2210509F20D0111D00AB0D9C /* GPUCommonLUTFilter.m */,
+				2166B907210F0FCA00A7B70B /* COJigsawController.h */,
+				2166B908210F0FCA00A7B70B /* COJigsawController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1838,6 +1843,7 @@
 				2166B8F5210EBA4A00A7B70B /* ZLForceTouchPreviewController.m in Sources */,
 				22A3E2CA20D9253800F3B46B /* YQImageTool.m in Sources */,
 				21570DF120BB9145002585CB /* GPUImageFourInputFilter.m in Sources */,
+				2166B909210F0FCA00A7B70B /* COJigsawController.m in Sources */,
 				2147A8B820D0CD0200504434 /* UIImage+compress.m in Sources */,
 				221050A020D0111D00AB0D9C /* GPUCommonLUTFilter.m in Sources */,
 				2166B8FD210EBA4A00A7B70B /* ZLPhotoActionSheet.m in Sources */,

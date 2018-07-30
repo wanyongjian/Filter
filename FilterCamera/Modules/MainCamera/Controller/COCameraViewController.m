@@ -14,6 +14,7 @@
 #import "COPhotoDisplayController.h"
 #import <Photos/Photos.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "COJigsawController.h"
 typedef void(^cameraPermit)(BOOL value);
 typedef NS_ENUM(NSInteger,CameraRatioType){
     CameraRatioType43,
@@ -367,13 +368,14 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         CGFloat y = kScreenHeight-kCameraViewBottomBGHeight/2-kFilterBtnWidth/2;
         make.left.mas_equalTo(@(x));
         make.top.mas_equalTo(@(y));
-        
     }];
+    
     //滤镜view
     _cameraFilterView = [[COCameraFilterView alloc]init];
     
     [[filterBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [wself.cameraFilterView toggleInView:wself.imageView];
+        COJigsawController *vc = [[COJigsawController alloc]init];
+        [wself.navigationController pushViewController:vc animated:YES];
     }];
     //拍照按钮
     UIButton *button = [[UIButton alloc]init];
@@ -417,6 +419,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         @strongify(self);
         [self switchToFilterWithIndex:[x integerValue]];
         [self.cameraFilterView scrollToIndex:[x integerValue]];
+        [wself.cameraFilterView toggleInView:wself.imageView];
     }];
     
     //滤镜选择
@@ -424,7 +427,6 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
         [wself switchToFilterWithIndex:index];
         [wself.imageView scrollToIndex:index];
     };
-    
 }
 #pragma mark - 切换滤镜
 - (void)switchToFilterWithIndex:(NSInteger)index{

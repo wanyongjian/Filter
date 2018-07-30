@@ -66,9 +66,10 @@
 - (void)toggleInView:(UIView *)view{
     if(self.hidden){
         [self showInView:view];
-    }else{
-        [self hide];
     }
+//    else{
+//        [self hide];
+//    }
 }
 
 - (void)showInView:(UIView *)view{
