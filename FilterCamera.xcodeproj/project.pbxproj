@@ -86,6 +86,7 @@
 		2166B83B20EDE6FF006AEE5E /* COMirrorPortraitRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 2166B83520EDE6FE006AEE5E /* COMirrorPortraitRight.m */; };
 		2166B84020EDE8B6006AEE5E /* COMirrorlandUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 2166B83E20EDE8B6006AEE5E /* COMirrorlandUp.m */; };
 		2166B84320EDE943006AEE5E /* COMirrorlandDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 2166B84120EDE943006AEE5E /* COMirrorlandDown.m */; };
+		2166B8AB210EB2D200A7B70B /* bika.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2166B8AA210EB2D100A7B70B /* bika.jpg */; };
 		216B4CE420EA1720006441DC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216B4CE320EA1720006441DC /* StoreKit.framework */; };
 		2179F22420BCDE5800B73822 /* qmkit_fiter_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2179F22320BCDE5800B73822 /* qmkit_fiter_btn@3x.png */; };
 		2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2179F38420BD45AE00B73822 /* AnimationFilter.m */; };
@@ -384,6 +385,7 @@
 		2166B83F20EDE8B6006AEE5E /* COMirrorLandUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COMirrorLandUp.h; sourceTree = "<group>"; };
 		2166B84120EDE943006AEE5E /* COMirrorlandDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COMirrorlandDown.m; sourceTree = "<group>"; };
 		2166B84220EDE943006AEE5E /* COMirrorLandDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COMirrorLandDown.h; sourceTree = "<group>"; };
+		2166B8AA210EB2D100A7B70B /* bika.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bika.jpg; sourceTree = "<group>"; };
 		216B4CE320EA1720006441DC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2179F22320BCDE5800B73822 /* qmkit_fiter_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qmkit_fiter_btn@3x.png"; sourceTree = "<group>"; };
 		2179F38320BD45AE00B73822 /* AnimationFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationFilter.h; sourceTree = "<group>"; };
@@ -1057,6 +1059,7 @@
 		21570E0C20BBA927002585CB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2166B8AA210EB2D100A7B70B /* bika.jpg */,
 				21570E0D20BBA995002585CB /* COCameraViewController.h */,
 				21570E0E20BBA995002585CB /* COCameraViewController.m */,
 				21CBBA1A20C0F2DF00C5AC30 /* COPhotoDisplayController.h */,
@@ -1744,6 +1747,7 @@
 				22730E5D20FB7314008C7538 /* ad_tiger.jpg in Resources */,
 				225F9A5420F1CAB500CF2540 /* rigel.png in Resources */,
 				22F91E4820E3CCDE00F04597 /* des11.png in Resources */,
+				2166B8AB210EB2D200A7B70B /* bika.jpg in Resources */,
 				225F9A7F20F1D34000CF2540 /* fresh.jpeg in Resources */,
 				21ACA55620E206FC00943F95 /* rtimagepicker_send@2x.png in Resources */,
 				225F9A8020F1D34000CF2540 /* gopro.jpeg in Resources */,

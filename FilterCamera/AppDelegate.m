@@ -30,8 +30,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    COCameraViewController *vc = [[COCameraViewController alloc]init];
-    //    ViewController *vc = [[ViewController alloc]init];
+//    COCameraViewController *vc = [[COCameraViewController alloc]init];
+        ViewController *vc = [[ViewController alloc]init];
 //        COPhotoShareController *vc = [[COPhotoShareController alloc]init];
     COBaseNavigationController *nav = [[COBaseNavigationController alloc]initWithRootViewController:vc];
     self.window.rootViewController = nav;

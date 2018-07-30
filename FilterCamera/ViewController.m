@@ -33,6 +33,7 @@
 //@property (nonatomic, strong) AnimationFilter *filter;
 @property (nonatomic, strong) GPUImageUIElement *element;
 @property (nonatomic, strong) id filter;
+@property (nonatomic, strong) UIImageView *drawImageView;
 @end
 
 @implementation ViewController
@@ -40,10 +41,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.camera = [[GPUImageStillCamera alloc]initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionBack];
-    self.camera.outputImageOrientation = UIInterfaceOrientationPortrait;
-    self.imageView = [[GPUImageView alloc]initWithFrame:self.view.frame];
-    [self.view addSubview:self.imageView];
+//    self.camera = [[GPUImageStillCamera alloc]initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionBack];
+//    self.camera.outputImageOrientation = UIInterfaceOrientationPortrait;
+//    self.imageView = [[GPUImageView alloc]initWithFrame:self.view.frame];
+//    [self.view addSubview:self.imageView];
 //    //这个混合滤镜是混合算法是= 原图像*(1-目标的alpha)+目标图像*alpha
 //    //主要作用是将目标图像的非透明区域替换到源图像上，所已第一个输入源必须是源图像，self.camera 要先添加，之后才是self.element
 //    GPUImageSourceOverBlendFilter *blendFilter = [[GPUImageSourceOverBlendFilter alloc]init];
@@ -70,30 +71,45 @@
 //        [weakSelf.element update];
 //    }];
 //    [self.camera startCameraCapture];
-    
-    
-    self.imageView = [[GPUImageView alloc]initWithFrame:self.view.frame];
-    [self.view addSubview:self.imageView];
-
-    // Do any additional setup after loading the view.
-    self.camera = [[GPUImageStillCamera alloc]initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionBack];
-    self.camera.outputImageOrientation = UIInterfaceOrientationPortrait;
-    //    self.camera.delegate = self;
-    self.camera.horizontallyMirrorFrontFacingCamera = YES;//设置是否为镜像
-    self.camera.horizontallyMirrorRearFacingCamera = NO;
-
-    self.filter = [[GPUImageFilter alloc]init];
-//    COMirrorPortraitLeft *rise = [[COMirrorPortraitLeft alloc]init];
-    [self.camera addTarget:self.filter];
-    [self.filter addTarget:self.imageView];
-    [self.camera startCameraCapture];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [self.camera removeTarget:self.filter];
-        self.filter = [[GPUImageGrayscaleFilter alloc]init];
-        [self.camera addTarget:self.filter];
-    });
+    self.view.backgroundColor = [UIColor darkGrayColor];
+    self.drawImageView = [[UIImageView alloc]init];
+    self.drawImageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);
+    self.drawImageView.center = self.view.center;
+    [self.view addSubview:self.drawImageView];
+    UIImage *logo = [UIImage imageNamed:@"bika.jpg"];
+    UIImage *image = [self drawImageWithImage:logo];
+    self.drawImageView.image = image;
 }
+
+- (UIImage *)drawImageWithImage:(UIImage *)image{
+    NSMutableArray *array = @[@[@1,@2],@[@1,@3],@[@1,@5],@[@1,@6],
+                              @[@2,@1],@[@2,@2],@[@2,@3],@[@2,@4],@[@2,@5],@[@2,@6],@[@2,@7],
+                              @[@3,@0],@[@3,@1],@[@3,@2],@[@3,@3],@[@3,@4],@[@3,@5],@[@3,@6],@[@3,@7],@[@3,@8],@[@3,@9],
+                              @[@4,@0],@[@4,@1],@[@4,@2],@[@4,@3],@[@4,@4],@[@4,@5],@[@4,@6],@[@4,@7],@[@4,@8],@[@4,@9],
+                              @[@5,@1],@[@5,@2],@[@5,@3],@[@5,@4],@[@5,@5],@[@5,@6],@[@5,@7],
+                              @[@6,@2],@[@6,@3],@[@6,@4],@[@6,@5],@[@6,@6],
+                              @[@7,@3],@[@7,@4],@[@7,@5],
+                              @[@8,@4],].mutableCopy;
+    
+    CGSize size = CGSizeMake(1620, 1620);
+    CGFloat itemWidth = size.width/9.0;
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    [[UIColor whiteColor] set];
+    UIRectFill(CGRectMake(0, 0, size.width, size.height));
+    //3.绘制背景图片
+    for (NSInteger i=0; i<array.count; i++) {
+        NSArray *itemArr = array[i];
+        NSInteger y = [itemArr[0] integerValue];
+        NSInteger x = [itemArr[1] integerValue];
+        [image drawInRect:CGRectMake(itemWidth*x, itemWidth*y, itemWidth, itemWidth)];
+    }
+    //4.从上下文中获取新图片
+    UIImage * newImage = UIGraphicsGetImageFromCurrentImageContext();
+    //5.关闭图形上下文
+    UIGraphicsEndImageContext();
+    //返回图片
+    return newImage;
+}
+
 
 @end
