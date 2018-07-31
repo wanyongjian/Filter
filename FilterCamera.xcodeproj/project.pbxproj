@@ -135,6 +135,8 @@
 		21CBBA1F20C0F50E00C5AC30 /* COBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA1E20C0F50E00C5AC30 /* COBaseNavigationController.m */; };
 		21CBBA2C20C145FB00C5AC30 /* GLBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBA2B20C145FB00C5AC30 /* GLBBaseViewController.m */; };
 		21D37DBE20D88C60001E7042 /* arrowDown@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21D37DBD20D88C5F001E7042 /* arrowDown@3x.png */; };
+		21E3FA74210FFB6000B01592 /* pika.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21E3FA73210FFB6000B01592 /* pika.jpg */; };
+		21E3FA7C21103E2500B01592 /* cup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21E3FA7B21103E2500B01592 /* cup.jpg */; };
 		21EBD5DB20F988E1004CD3C5 /* umsocial_qzone@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EBD5D720F988DF004CD3C5 /* umsocial_qzone@3x.png */; };
 		21EBD5DC20F988E1004CD3C5 /* umsocial_wechat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EBD5D820F988E0004CD3C5 /* umsocial_wechat@3x.png */; };
 		21EBD5DD20F988E1004CD3C5 /* umsocial_qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EBD5D920F988E0004CD3C5 /* umsocial_qq@3x.png */; };
@@ -457,6 +459,8 @@
 		21CBBA2A20C145FB00C5AC30 /* GLBBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBBaseViewController.h; sourceTree = "<group>"; };
 		21CBBA2B20C145FB00C5AC30 /* GLBBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLBBaseViewController.m; sourceTree = "<group>"; };
 		21D37DBD20D88C5F001E7042 /* arrowDown@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowDown@3x.png"; sourceTree = "<group>"; };
+		21E3FA73210FFB6000B01592 /* pika.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pika.jpg; sourceTree = "<group>"; };
+		21E3FA7B21103E2500B01592 /* cup.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cup.jpg; sourceTree = "<group>"; };
 		21EBD5D720F988DF004CD3C5 /* umsocial_qzone@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umsocial_qzone@3x.png"; sourceTree = "<group>"; };
 		21EBD5D820F988E0004CD3C5 /* umsocial_wechat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umsocial_wechat@3x.png"; sourceTree = "<group>"; };
 		21EBD5D920F988E0004CD3C5 /* umsocial_qq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "umsocial_qq@3x.png"; sourceTree = "<group>"; };
@@ -1023,6 +1027,8 @@
 		21570E0C20BBA927002585CB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				21E3FA7B21103E2500B01592 /* cup.jpg */,
+				21E3FA73210FFB6000B01592 /* pika.jpg */,
 				2166B8AA210EB2D100A7B70B /* bika.jpg */,
 				21570E0D20BBA995002585CB /* COCameraViewController.h */,
 				21570E0E20BBA995002585CB /* COCameraViewController.m */,
@@ -1650,6 +1656,7 @@
 				21D37DBE20D88C60001E7042 /* arrowDown@3x.png in Resources */,
 				214A239720E47D7A00961127 /* filter_btn_707070@3x.png in Resources */,
 				225F9A3B20EFAF3B00CF2540 /* vignetteMap.png in Resources */,
+				21E3FA74210FFB6000B01592 /* pika.jpg in Resources */,
 				225F99F720EFAF3B00CF2540 /* brannanBlowout.png in Resources */,
 				214A23C120E4DDDA00961127 /* select_btn_normal.png in Resources */,
 				225F9A5720F1CAB500CF2540 /* sayan.png in Resources */,
@@ -1696,6 +1703,7 @@
 				225F9A1020EFAF3B00CF2540 /* config.json in Resources */,
 				225F9A3520EFAF3B00CF2540 /* config.json in Resources */,
 				2145804920F3504400689B4F /* README.txt in Resources */,
+				21E3FA7C21103E2500B01592 /* cup.jpg in Resources */,
 				225F9A8320F1D34000CF2540 /* wedding3.jpeg in Resources */,
 				225F9A3820EFAF3B00CF2540 /* waldenMap.png in Resources */,
 				2166B8EC210EBA4A00A7B70B /* ZLPhotoBrowserCell.xib in Resources */,

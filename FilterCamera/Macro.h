@@ -49,6 +49,9 @@ typedef NS_ENUM(NSInteger,SelectFilterType){
 #define kCameraPhotoBtnIconSize   50
 #define TopOffset (20)
 #define TopFunctionHeight 40
+#define kWidthPro(b) ( ((b)  * SCREEN_WIDTH) / 1242)
+//竖屏时宽比
+#define kHeightPro(a) ( ((a)  * SCREEN_HEIGHT) / 2208)
 
 #define COGreenColor HEX_COLOR(0x00c8ff)
 #define kCameraFilterViewHeight (kScreenHeight-kScreenWidth*4.0f/3.0f)

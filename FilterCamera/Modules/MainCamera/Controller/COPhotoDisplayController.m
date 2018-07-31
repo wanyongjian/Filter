@@ -156,14 +156,14 @@ typedef void(^cameraPermit)(BOOL value);
     //保存按钮
     UIButton *saveBtn = [[UIButton alloc]init];
     [saveBtn setTitleColor:COGreenColor forState:UIControlStateHighlighted];
-    [saveBtn setTitle:@"保存" forState:UIControlStateNormal];
+    [saveBtn setTitle:@"保存/分享" forState:UIControlStateNormal];
     saveBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [self.topView addSubview:saveBtn];
     [saveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.topView);
         make.right.mas_equalTo(self.topView).mas_offset(-25);
-        make.width.mas_equalTo(45);
-        make.height.mas_equalTo(35);
+//        make.width.mas_equalTo(45);
+//        make.height.mas_equalTo(35);
     }];
     [[saveBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self);
