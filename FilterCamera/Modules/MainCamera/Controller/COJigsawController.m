@@ -7,6 +7,7 @@
 //
 
 #import "COJigsawController.h"
+#import "COPhotoDisplayController.h"
 #define kPhotoFilterItemCollectionViewCellID         @"PhotoFilterItemCollectionViewCellID"
 #define headerViewIdentifier  @"hederviewReuse"
 #define footViewIdentifier  @"footviewReuse"
@@ -94,9 +95,10 @@
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(kJigsawItemWidth, kJigsawItemWidth);
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    layout.minimumLineSpacing = 5;
-    layout.minimumInteritemSpacing = 100;
-//    layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+    layout.minimumLineSpacing = 20; //行与行之间间距
+    layout.minimumInteritemSpacing = 20;
+    CGFloat inset = (kScreenWidth - kJigsawItemWidth*2)/3.0;
+    layout.sectionInset = UIEdgeInsetsMake(5, inset, 5, inset);
     layout.headerReferenceSize=CGSizeMake(kScreenWidth, kHeaderHeight); //设置collectionView头视图的大小
     //header
     layout.footerReferenceSize=CGSizeMake(kScreenWidth, kHeaderHeight);
@@ -140,11 +142,79 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.layer.borderColor = COGreenColor.CGColor;
-    cell.layer.borderWidth = KCellBorderWidth;
-    UIImageView *imageView = [cell.contentView viewWithTag:kCameraFilterCollectionImageViewTag];
+    if (indexPath.row == 0) { //爱心-填充-随机排序 （45张）
+        [self getImageswithNumber:45 images:^(NSArray<UIImage *> * _Nonnull images) {
+            UIImage *image = [COJigSawTool drawLove:images];
+//            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+//            vc.sourceImage = image;
+//            if (!images) return ;
+//            vc.filterClass = NSClassFromString(@"GPUImageFilter");
+//            [self.navigationController pushViewController:vc animated:YES];
+        }];
+    }else if (indexPath.row == 1){ //爱心-边框-随机排序 （18）
+        [self getImageswithNumber:18 images:^(NSArray<UIImage *> * _Nonnull images) {
+            UIImage *image = [COJigSawTool drawLoveFrame:images];
+            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+            vc.sourceImage = image;
+            if (!images) return ;
+            vc.filterClass = NSClassFromString(@"GPUImageFilter");
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+    }else if (indexPath.row == 2){ //爱心-边框-随机排序-中间有大图 （18张）
+        [self getImageswithNumber:18 images:^(NSArray<UIImage *> * _Nonnull images) {
+            UIImage *image = [COJigSawTool drawLoveFrameMiddleBig:images];
+            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+            vc.sourceImage = image;
+            if (!images) return ;
+            vc.filterClass = NSClassFromString(@"GPUImageFilter");
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+    }else if (indexPath.row == 3){ // 字母I （11张）
+        [self getImageswithNumber:11 images:^(NSArray<UIImage *> * _Nonnull images) {
+            UIImage *image = [COJigSawTool drawI:images];
+            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+            vc.sourceImage = image;
+            if (!images) return ;
+            vc.filterClass = NSClassFromString(@"GPUImageFilter");
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+    }else if (indexPath.row == 4){ //字母U （15张）
+        [self getImageswithNumber:15 images:^(NSArray<UIImage *> * _Nonnull images) {
+            UIImage *image = [COJigSawTool drawU:images];
+            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+            vc.sourceImage = image;
+            if (!images) return ;
+            vc.filterClass = NSClassFromString(@"GPUImageFilter");
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+    }else if (indexPath.row == 5){//爱心粉色背景（37张）
+        [self getImageswithNumber:37 images:^(NSArray<UIImage *> * _Nonnull images) {
+            UIImage *image = [COJigSawTool drawLovePink:images];
+            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+            vc.sourceImage = image;
+            if (!images) return ;
+            vc.filterClass = NSClassFromString(@"GPUImageFilter");
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+    }else if (indexPath.row == 6){ //爱心和箭头（36张）
+        [self getImageswithNumber:36 images:^(NSArray<UIImage *> * _Nonnull images) {
+            UIImage *image = [COJigSawTool drawLovePinkArrow:images];
+            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+            vc.sourceImage = image;
+            if (!images) return ;
+            vc.filterClass = NSClassFromString(@"GPUImageFilter");
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+    }else if (indexPath.row == 7){ //九宫格切图（一张）
+        [self getImageswithNumber:1 images:^(NSArray<UIImage *> * _Nonnull images) {
+            UIImage *image = [COJigSawTool drawCult:images];
+            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+            vc.sourceImage = image;
+            if (!images) return ;
+            vc.filterClass = NSClassFromString(@"GPUImageFilter");
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+    }
     
 }
 
@@ -175,4 +245,30 @@
     return YES;
 }
 
+- (void)getImageswithNumber:(NSInteger)imgNumber images:(void(^)(NSArray<UIImage *> * _Nonnull images))imagesBlock{
+    ZLPhotoActionSheet *ac = [[ZLPhotoActionSheet alloc] init];
+    //相册参数配置，configuration有默认值，可直接使用并对其属性进行修改
+    ac.configuration.maxSelectCount = imgNumber;
+    ac.configuration.maxPreviewCount = 10;
+    ac.configuration.allowMixSelect = NO;
+    ac.configuration.allowSelectVideo = NO;
+    ac.configuration.allowSelectGif = NO;
+    //设置相册内部显示拍照按钮
+    ac.configuration.allowTakePhotoInLibrary = NO;
+    ac.configuration.saveNewImageAfterEdit = NO;
+    ac.configuration.navBarColor = [HEX_COLOR(0x212121) colorWithAlphaComponent:0.6];
+    //    ac.configuration.bottomViewBgColor =
+    //如调用的方法无sender参数，则该参数必传
+    ac.sender = self;
+    //选择回调
+    [ac setSelectImageBlock:^(NSArray<UIImage *> * _Nonnull images, NSArray<PHAsset *> * _Nonnull assets, BOOL isOriginal) {
+        //your codes
+        if (images.count >= 1) {
+            NSLog(@"");
+            imagesBlock(images);
+        }
+    }];
+    
+    [ac showPhotoLibrary];
+}
 @end

@@ -39,4 +39,5 @@
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import "BannerManager.h"
 #import "ZLPhotoActionSheet.h"
+#import "COJigSawTool.h"
 #endif /* Coco_pch */

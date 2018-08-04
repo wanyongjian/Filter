@@ -126,6 +126,7 @@
 		21ACA4E920E1ED7700943F95 /* PHAsset+Latest.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA4E820E1ED7700943F95 /* PHAsset+Latest.m */; };
 		21ACA57720E207A100943F95 /* UIView+Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA57420E207A100943F95 /* UIView+Geometry.m */; };
 		21ACA57820E207A100943F95 /* UIView+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ACA57620E207A100943F95 /* UIView+Size.m */; };
+		21ADF6E721153E28009F758B /* COJigSawTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ADF6E621153E27009F758B /* COJigSawTool.m */; };
 		21B361EE20D39D8A00EF7F3A /* COCameraFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E720D39D8900EF7F3A /* COCameraFilterView.m */; };
 		21B361EF20D39D8A00EF7F3A /* COPhotoFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361E920D39D8900EF7F3A /* COPhotoFilterView.m */; };
 		21B361F020D39D8A00EF7F3A /* FilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B361EB20D39D8900EF7F3A /* FilterModel.m */; };
@@ -443,6 +444,8 @@
 		21ACA57420E207A100943F95 /* UIView+Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Geometry.m"; sourceTree = "<group>"; };
 		21ACA57520E207A100943F95 /* UIView+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Size.h"; sourceTree = "<group>"; };
 		21ACA57620E207A100943F95 /* UIView+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Size.m"; sourceTree = "<group>"; };
+		21ADF6E521153E27009F758B /* COJigSawTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COJigSawTool.h; sourceTree = "<group>"; };
+		21ADF6E621153E27009F758B /* COJigSawTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COJigSawTool.m; sourceTree = "<group>"; };
 		21B361E620D39D8900EF7F3A /* COCameraFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COCameraFilterView.h; sourceTree = "<group>"; };
 		21B361E720D39D8900EF7F3A /* COCameraFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COCameraFilterView.m; sourceTree = "<group>"; };
 		21B361E820D39D8900EF7F3A /* COPhotoFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COPhotoFilterView.h; sourceTree = "<group>"; };
@@ -825,6 +828,7 @@
 		214AB80C20BFBE8C00D4B73C /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				21ADF6E421153E0F009F758B /* JigsawTool */,
 				2166B8AC210EBA4A00A7B70B /* PhotoBrowser */,
 				21A09D9520FD9201005C2DFB /* ADBannerView */,
 				21337D9720EB460000876E10 /* IAPTool */,
@@ -1270,6 +1274,15 @@
 				22F91E5020E5278500F04597 /* FontTool.m */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		21ADF6E421153E0F009F758B /* JigsawTool */ = {
+			isa = PBXGroup;
+			children = (
+				21ADF6E521153E27009F758B /* COJigSawTool.h */,
+				21ADF6E621153E27009F758B /* COJigSawTool.m */,
+			);
+			path = JigsawTool;
 			sourceTree = "<group>";
 		};
 		21B361E020D39D8900EF7F3A /* browserView */ = {
@@ -1894,6 +1907,7 @@
 				2166B903210EBA4A00A7B70B /* ZLPlayer.m in Sources */,
 				2179F38520BD45AE00B73822 /* AnimationFilter.m in Sources */,
 				21ACA4E920E1ED7700943F95 /* PHAsset+Latest.m in Sources */,
+				21ADF6E721153E28009F758B /* COJigSawTool.m in Sources */,
 				21CBBA1C20C0F2DF00C5AC30 /* COPhotoDisplayController.m in Sources */,
 				225F9A3A20EFAF3B00CF2540 /* FWXproIIFilter.m in Sources */,
 				21457FEA20F3362A00689B4F /* COPhotoShareController.m in Sources */,

@@ -19,7 +19,6 @@ typedef void(^cameraPermit)(BOOL value);
 typedef NS_ENUM(NSInteger,CameraRatioType){
     CameraRatioType43,
     CameraRatioType11,
-    CameraRatioType916
 };
 
 
@@ -372,6 +371,7 @@ typedef NS_ENUM(NSInteger,CameraRatioType){
     
     //滤镜view
     _cameraFilterView = [[COCameraFilterView alloc]init];
+    [wself.cameraFilterView toggleInView:wself.imageView];
     
     [[filterBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
         COJigsawController *vc = [[COJigsawController alloc]init];

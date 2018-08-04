@@ -12,7 +12,7 @@
 + (void)calulateImageFileSize:(UIImage *)image {
     NSData *data = UIImagePNGRepresentation(image);
     if (!data) {
-        data = UIImageJPEGRepresentation(image, 1.0);//需要改成0.5才接近原图片大小，原因请看下文
+        data = UIImageJPEGRepresentation(image, 0.7);//需要改成0.5才接近原图片大小，原因请看下文
     }
     double dataLength = [data length] * 1.0;
     NSArray *typeArray = @[@"bytes",@"KB",@"MB",@"GB",@"TB",@"PB", @"EB",@"ZB",@"YB"];
