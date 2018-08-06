@@ -123,7 +123,7 @@ typedef void(^cameraPermit)(BOOL value);
     [pic processImage];
     UIImage *image = [filter imageFromCurrentFramebufferWithOrientation:self.sourceImage.imageOrientation];
     //释放GPU缓存
-    //    [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
+        [[GPUImageContext sharedImageProcessingContext].framebufferCache purgeAllUnassignedFramebuffers];
     self.imageView.image = image;
     self.filterImage = image;
     @weakify(self);
@@ -236,8 +236,5 @@ typedef void(^cameraPermit)(BOOL value);
         }
     }
 }
-
-
-
 
 @end

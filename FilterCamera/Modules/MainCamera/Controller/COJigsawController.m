@@ -12,7 +12,8 @@
 #define headerViewIdentifier  @"hederviewReuse"
 #define footViewIdentifier  @"footviewReuse"
 #define CollectionBackColor HEX_COLOR(0x252525)
-#define kJigsawItemWidth (kScreenWidth/3)
+#define kJigsawItemHeight (kScreenWidth/3-10)
+#define kJigsawItemWidth ((kScreenWidth-20*2-10)/2)
 #define kHeaderHeight 44
 #define KCellBorderWidth 1
 #define kFootHeight 60
@@ -34,7 +35,7 @@
     [self layoutViews];
 }
 - (void)initData{
-    self.itemArray = @[@"bika.jpg",@"bika.jpg",@"bika.jpg",@"bika.jpg",@"bika.jpg",@"bika.jpg",@"bika.jpg",@"bika.jpg"].mutableCopy;
+    self.itemArray = @[@"love.jpeg",@"loveFrame.jpeg",@"loveMiddle.jpeg",@"lovepink.jpeg",@"I.jpeg",@"loveArrow.jpeg",@"U.jpeg",@"jigsaw.jpeg"].mutableCopy;
 }
 - (void)initviews{
     weakSelf();
@@ -88,16 +89,16 @@
     titleLabel.textColor = HEX_COLOR(0x333333);
     [self.topView addSubview:titleLabel];
     self.titleLabel = titleLabel;
-    titleLabel.text = @"拼图";
+    titleLabel.text = @"拼图模板";
 }
 
 - (UICollectionViewFlowLayout *)collectionViewForFlowLayout{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(kJigsawItemWidth, kJigsawItemWidth);
+    layout.itemSize = CGSizeMake(kJigsawItemWidth, kJigsawItemHeight);
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    layout.minimumLineSpacing = 20; //行与行之间间距
-    layout.minimumInteritemSpacing = 20;
-    CGFloat inset = (kScreenWidth - kJigsawItemWidth*2)/3.0;
+    layout.minimumLineSpacing = 10; //行与行之间间距
+    layout.minimumInteritemSpacing = 5;
+    CGFloat inset = 20;
     layout.sectionInset = UIEdgeInsetsMake(5, inset, 5, inset);
     layout.headerReferenceSize=CGSizeMake(kScreenWidth, kHeaderHeight); //设置collectionView头视图的大小
     //header
@@ -127,16 +128,18 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPhotoFilterItemCollectionViewCellID forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor whiteColor];
     UIImageView *imageView = [cell.contentView viewWithTag:kCameraFilterCollectionImageViewTag];
     if (!imageView) {
         UICollectionViewFlowLayout *layout = (id)collectionView.collectionViewLayout;
         CGRect rect = CGRectMake(0, 0, layout.itemSize.width, layout.itemSize.height);
         imageView = [[UIImageView alloc] initWithFrame:rect];
         imageView.tag = kCameraFilterCollectionImageViewTag;
-        imageView.contentMode = UIViewContentModeScaleToFill;
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.image = [UIImage imageNamed:self.itemArray[indexPath.row]];
         [cell.contentView addSubview:imageView];
     }
+    cell.layer.cornerRadius = 10;
     cell.layer.masksToBounds = YES;
     return cell;
 }
@@ -145,11 +148,11 @@
     if (indexPath.row == 0) { //爱心-填充-随机排序 （45张）
         [self getImageswithNumber:45 images:^(NSArray<UIImage *> * _Nonnull images) {
             UIImage *image = [COJigSawTool drawLove:images];
-//            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
-//            vc.sourceImage = image;
-//            if (!images) return ;
-//            vc.filterClass = NSClassFromString(@"GPUImageFilter");
-//            [self.navigationController pushViewController:vc animated:YES];
+            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+            vc.sourceImage = image;
+            if (!images) return ;
+            vc.filterClass = NSClassFromString(@"GPUImageFilter");
+            [self.navigationController pushViewController:vc animated:YES];
         }];
     }else if (indexPath.row == 1){ //爱心-边框-随机排序 （18）
         [self getImageswithNumber:18 images:^(NSArray<UIImage *> * _Nonnull images) {
@@ -169,25 +172,7 @@
             vc.filterClass = NSClassFromString(@"GPUImageFilter");
             [self.navigationController pushViewController:vc animated:YES];
         }];
-    }else if (indexPath.row == 3){ // 字母I （11张）
-        [self getImageswithNumber:11 images:^(NSArray<UIImage *> * _Nonnull images) {
-            UIImage *image = [COJigSawTool drawI:images];
-            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
-            vc.sourceImage = image;
-            if (!images) return ;
-            vc.filterClass = NSClassFromString(@"GPUImageFilter");
-            [self.navigationController pushViewController:vc animated:YES];
-        }];
-    }else if (indexPath.row == 4){ //字母U （15张）
-        [self getImageswithNumber:15 images:^(NSArray<UIImage *> * _Nonnull images) {
-            UIImage *image = [COJigSawTool drawU:images];
-            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
-            vc.sourceImage = image;
-            if (!images) return ;
-            vc.filterClass = NSClassFromString(@"GPUImageFilter");
-            [self.navigationController pushViewController:vc animated:YES];
-        }];
-    }else if (indexPath.row == 5){//爱心粉色背景（37张）
+    }else if (indexPath.row == 3){//爱心粉色背景（37张）
         [self getImageswithNumber:37 images:^(NSArray<UIImage *> * _Nonnull images) {
             UIImage *image = [COJigSawTool drawLovePink:images];
             COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
@@ -196,9 +181,27 @@
             vc.filterClass = NSClassFromString(@"GPUImageFilter");
             [self.navigationController pushViewController:vc animated:YES];
         }];
-    }else if (indexPath.row == 6){ //爱心和箭头（36张）
+    }else if (indexPath.row == 4){ // 字母I （11张）
+        [self getImageswithNumber:11 images:^(NSArray<UIImage *> * _Nonnull images) {
+            UIImage *image = [COJigSawTool drawI:images];
+            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+            vc.sourceImage = image;
+            if (!images) return ;
+            vc.filterClass = NSClassFromString(@"GPUImageFilter");
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+    }else if (indexPath.row == 5){ //爱心和箭头（36张）
         [self getImageswithNumber:36 images:^(NSArray<UIImage *> * _Nonnull images) {
             UIImage *image = [COJigSawTool drawLovePinkArrow:images];
+            COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
+            vc.sourceImage = image;
+            if (!images) return ;
+            vc.filterClass = NSClassFromString(@"GPUImageFilter");
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+    }else if (indexPath.row == 6){ //字母U （15张）
+        [self getImageswithNumber:15 images:^(NSArray<UIImage *> * _Nonnull images) {
+            UIImage *image = [COJigSawTool drawU:images];
             COPhotoDisplayController *vc = [[COPhotoDisplayController alloc]init];
             vc.sourceImage = image;
             if (!images) return ;
